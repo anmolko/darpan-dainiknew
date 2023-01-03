@@ -21,9 +21,10 @@ $('#blog-category-add-button').on('click', function(e) {
                 return;
             }
            ;
-            var category_edit = '/auth/blog-category/'+response.category.id+'/edit';
-            var category_update = '/auth/blog-category/'+response.category.id;
-            var category_remove = '/auth/blog-category/'+response.category.id;
+            var category_edit = '/auth/category/'+response.category.id+'/edit';
+            var category_update = '/auth/category/'+response.category.id;
+            var category_remove = '/auth/category/'+response.category.id;
+            var descp = (response.category.description ? response.category.description : "—");
 
             if(response.status=='success') {
                 Swal.fire({
@@ -48,6 +49,8 @@ $('#blog-category-add-button').on('click', function(e) {
 
                 var block = '<tr id="category-block-num-'+response.category.id+'">'+
                    '<td id="category-td-name-'+response.category.id+'">'+response.category.name+'<span class="badge bg-success ms-1">New</span></td>'+
+                   '<td id="category-td-descp-'+response.category.id+'">'+
+                    descp +'<span class="badge bg-success ms-1">New</span></td>'+
                    '<td id="category-td-slug-'+response.category.id+'">'+response.category.slug+'</td>'+
                    '<td>'+
                     '<div class="row">'+
@@ -130,6 +133,7 @@ $(document).on('click','.cs-category-edit', function (e) {
             $("#edit_blog_category").modal("toggle");
             $('#update-name').attr('value',dataResult.name);
             $('#update-slug').attr('value',dataResult.slug);
+            $('#update-description').attr('value',dataResult.description);
             $('#category_id').attr('value',dataResult.id);
             $('.updateblogcategory').attr('action',action);
         },

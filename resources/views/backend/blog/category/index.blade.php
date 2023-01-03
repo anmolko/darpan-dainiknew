@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', "Blog Category")
+@section('title', "Category")
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0"> Blog Category</h4>
+                    <h4 class="mb-sm-0">Category</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -45,7 +45,7 @@
                                         Please enter the category title.
                                     </div>
                             </div>
-                            <div >
+                            <div class="mb-3">
                                 <label class="form-label" for="category-slug-input">Category Slug</label>
                                 <input type="text" name="slug" class="form-control" id="category-slug-input"
                                     placeholder="Enter category slug" required>
@@ -53,7 +53,10 @@
                                         Please enter the category slug.
                                     </div>
                             </div>
-
+                            <div>
+                                <label class="form-label" for="description-input">Description</label>
+                                <textarea class="form-control" id="description-input" placeholder="Enter description"  name="description" rows="3"></textarea>
+                            </div>
                         </div>
                     </div>
                     <!-- end card -->
@@ -83,6 +86,7 @@
                                     <thead class="table-light">
                                     <tr>
                                         <th>Name</th>
+                                        <th>Description</th>
                                         <th>Slug</th>
                                         <th class="text-right">Action</th>
                                     </tr>
@@ -92,6 +96,7 @@
                                         @foreach($categories as  $category)
                                             <tr id="category-block-num-{{@$category->id}}">
                                                 <td id="category-td-name-{{@$category->id}}">{{ ucwords(@$category->name) }}</td>
+                                                <td id="category-td-descp-{{@$category->id}}">{{ (@$category->description !== null) ? @$category->description:"—" }}</td>
                                                 <td id="category-td-slug-{{@$category->id}}">{{ @$category->slug }}</td>
                                                 <td >
                                                     <div class="row">

@@ -31,6 +31,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="description-input">Description</label>
+                                <textarea class="form-control" placeholder="Enter description"  name="description" id="update-description" rows="3"></textarea>
+                            </div>
+                        </div>
 
                         <div class="col-lg-12">
                             <div class="hstack gap-2 justify-content-end">

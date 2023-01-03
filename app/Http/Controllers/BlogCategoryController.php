@@ -53,9 +53,10 @@ class BlogCategoryController extends Controller
             $status ='slug duplicate';
             return response()->json(['status'=>$status,'message'=>'This category title is already in use. Try something different.']);
         }else{
-            $category         =  BlogCategory::create([
-                'name'        => $request->input('name'),
-                'slug'        => $request->input('slug'),
+            $category               =  BlogCategory::create([
+                'name'              => $request->input('name'),
+                'slug'              => $request->input('slug'),
+                'description'       => $request->input('description'),
                 'created_by'  => Auth::user()->id,
             ]);
             if($category){
@@ -104,11 +105,12 @@ class BlogCategoryController extends Controller
      */
     public function update(BlogCategoryUpdateRequest $request, $id)
     {
-        $category               = BlogCategory::find($id);
-        $category->name         = $request->input('name');
-        $category->slug         = $request->input('slug');
-        $category->updated_by   = Auth::user()->id;
-        $status                 = $category->update();
+        $category                   = BlogCategory::find($id);
+        $category->name             = $request->input('name');
+        $category->slug             = $request->input('slug');
+        $category->description      = $request->input('description');
+        $category->updated_by       = Auth::user()->id;
+        $status                     = $category->update();
 
         if($status){
             Session::flash('success','Blog category has been updated');

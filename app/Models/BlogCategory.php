@@ -9,7 +9,7 @@ class BlogCategory extends Model
 {
     use HasFactory;
     protected $table ='blog_categories';
-    protected $fillable =['id','name','slug','created_by','updated_by'];
+    protected $fillable =['id','name','slug','description','parent_category','created_by','updated_by'];
 
     public function blogs(){
         return $this->hasMany('App\Models\Blog');
