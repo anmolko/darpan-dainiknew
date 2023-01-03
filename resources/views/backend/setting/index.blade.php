@@ -27,31 +27,31 @@
                                             <div class="col-md-auto">
                                                 <div class="avatar-md">
                                                     <div class="avatar-title bg-white rounded-circle">
-                                                        <img src="{{asset('/images/settings/'.@$setting_data->favicon)}}" alt="" class="avatar-xs">
+                                                        <img src="{{asset('/images/settings/'.@$settings->favicon)}}" alt="" class="avatar-xs">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md">
                                                 <div>
                                                     <h4 class="fw-bold">
-                                                        {{($setting_data !== null && @$setting_data->website_name !== "") ? $setting_data->website_name :"Win Recruit." }}
+                                                        {{(@$setting_data !== null && @$setting_data->website_name !== "") ? $setting_data->website_name :"दर्पण दैनिक | Darpan Dainik " }}
                                                         - Dashboard Settings</h4>
                                                     <div class="hstack gap-3 flex-wrap">
                                                         <div><i class="ri-smartphone-line align-bottom me-1"></i>
-                                                            {{ ($setting_data !== null && $setting_data->phone !== null) ? $setting_data->phone:"Number not set." }}
+                                                            {{ (@$setting_data !== null && $setting_data->phone !== null) ? $setting_data->phone:"Number not set." }}
                                                         </div>
                                                         <div class="vr"></div>
                                                         <div>
                                                             <i class="ri-mail-send-line align-bottom me-1"></i>
                                                             <span class="fw-medium">
-                                                                {{ ($setting_data !== null && $setting_data->email !== null) ? $setting_data->email:"sample@email.com" }}
+                                                                {{ (@$setting_data !== null && $setting_data->email !== null) ? $setting_data->email:"sample@email.com" }}
                                                             </span>
                                                         </div>
                                                         <div class="vr"></div>
                                                         <div>
                                                             <i class="ri-building-line align-bottom me-1"></i>
                                                             <span class="fw-medium">
-                                                                {{ ($setting_data !== null && $setting_data->address !== null) ? $setting_data->address:"Putalisadak, Kathmandu" }}
+                                                                {{ (@$setting_data !== null && $setting_data->address !== null) ? $setting_data->address:"Putalisadak, Kathmandu" }}
                                                             </span>
                                                         </div>
 {{--                                                        <div class="vr"></div>--}}

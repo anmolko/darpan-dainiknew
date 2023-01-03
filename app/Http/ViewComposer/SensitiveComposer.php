@@ -4,7 +4,6 @@
 namespace App\Http\ViewComposer;
 
 use App\Models\Blog;
-use App\Models\Service;
 use App\Models\User;
 use Illuminate\View\View;
 use App\Models\Menu;
