@@ -69,9 +69,22 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'blog.index') active @endif" href="{{route('blog.index')}}">
-                        <i class=" ri-todo-line"></i> <span data-key="t-widgets">All Posts</span>
+                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'blogcategory.index' || \Request::route()->getName() == 'blog.index' ||  \Request::route()->getName() == 'blog.create' || \Request::route()->getName() == 'blog.edit' ) active @endif" href="#sidebarBlogs" data-bs-toggle="collapse" role="button"
+                       aria-expanded="false" aria-controls="sidebarBlogs">
+                        <i class="ri-todo-line"></i> <span data-key="t-blog-mgmt">Posts</span>
                     </a>
+                    <div class="collapse menu-dropdown @if(\Request::route()->getName() == 'blogcategory.index' || \Request::route()->getName() == 'blog.index' ) show @endif" id="sidebarBlogs">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{route('blog.index')}}" class="nav-link @if(\Request::route()->getName() == 'blog.index') active @endif" data-key="t-blog">All Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('blog.create')}}" class="nav-link @if(\Request::route()->getName() == 'blog.create') active @endif" data-key="t-blog-category">Add New</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link @if(\Request::route()->getName() == 'ads.index') active @endif" href="{{route('ads.index')}}">

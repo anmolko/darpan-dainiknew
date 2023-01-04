@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', "Blog")
+@section('title', "All Post")
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
@@ -14,12 +14,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Blogs</h4>
+                    <h4 class="mb-sm-0">Posts</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Blog</li>
+                            <li class="breadcrumb-item active">All Posts</li>
                         </ol>
                     </div>
 
@@ -35,13 +35,13 @@
                         <div class="card-header">
                             <div class="row g-4">
                                 <div class="col-sm-auto">
-                                    <h4 class="card-title mb-0">Blog List</h4>
+                                    <h4 class="card-title mb-0">Post List</h4>
 
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
                                         <div>
-                                            <a href="{{route('blog.create')}}" class="btn btn-success"><i class="ri-add-line align-bottom me-1"></i> Add Blog</a>
+                                            <a href="{{route('blog.create')}}" class="btn btn-success"><i class="ri-add-line align-bottom me-1"></i> Add New</a>
                                         </div>
                                     </div>
                                 </div>
@@ -58,6 +58,7 @@
                                         <th>Feature Image</th>
                                         <th>Title</th>
                                         <th>Category</th>
+                                        <th>Tags</th>
                                         <th>Status</th>
                                         <th class="text-right">Action</th>
                                     </tr>
@@ -72,6 +73,7 @@
                                                     <td >
                                                     {{ ucwords(@$blog->title) }}
                                                     </td>
+                                                    <td>{{ucfirst(@$blog->category->name)}}</td>
                                                     <td>{{ucfirst(@$blog->category->name)}}</td>
                                                     <td>
                                                         <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">
