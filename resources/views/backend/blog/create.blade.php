@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', "Add Blog")
+@section('title', "New Post")
 @section('css')
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
@@ -11,6 +11,15 @@
             }
             .profile-foreground-img-file-input {
                 display: none;
+            }
+            input.large {
+                width: 25px;
+                height: 25px;
+            }
+
+            .check-label{
+                line-height: 2rem;
+                padding-left: 5px;
             }
     </style>
 @endsection
@@ -24,13 +33,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Blog</h4>
+                        <h4 class="mb-sm-0">Post</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('blog.index')}}">Blog</a></li>
-                                <li class="breadcrumb-item active">Create Blog</li>
+                                <li class="breadcrumb-item"><a href="{{route('blog.index')}}">All Post</a></li>
+                                <li class="breadcrumb-item active">New Post</li>
                             </ol>
                         </div>
 
@@ -47,18 +56,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="blog-title-input">Blog Title <span class="text-muted text-danger">*</span></label>
+                                    <label class="form-label" for="blog-title-input">Post Title <span class="text-muted text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="blog-title-input"
                                            onclick="slugMaker('blog-title-input','blog-slug')"
                                            placeholder="Enter blog title"
                                         required>
                                         <div class="invalid-feedback">
-                                            Please enter the blog title.
+                                            Please enter the post title.
                                         </div>
                                 </div>
                                 <div class="mb-3">
                                         <label>Slug <span class="text-muted text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter blog slug" required>
+                                        <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter post slug" required>
                                         <div class="invalid-feedback">
                                             Please enter the blog Slug.
                                         </div>
@@ -156,20 +165,50 @@
                         </div>
                         <!-- end card -->
 
+
                         <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Blog Categories</h5>
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Categories</h4>
+                                <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-soft-primary btn-sm">
+                                        Add New
+                                    </button>
+                                </div>
                             </div>
+{{--                            <div class="card-body">--}}
+{{--                                <p class="text-muted mb-2"> Select category</p>--}}
+
+{{--                                @if(!empty(@$categories))--}}
+{{--                                    @foreach(@$categories as $categoryList)--}}
+{{--                                        <div class="form-check form-check-info">--}}
+{{--                                            <input class="form-check-input large" type="checkbox" value="{{$categoryList->id}}" id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>--}}
+{{--                                            <label class="form-check-label check-label" for="formCheck{{$categoryList->id}}">--}}
+{{--                                                {{ ucwords(@$categoryList->name) }}--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+
                             <div class="card-body">
-                                <p class="text-muted mb-2"> Select blog category</p>
-                                <select class="form-select" name="blog_category_id" data-choices data-choices-search-true >
+                                <div class="mx-n3">
+                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
+                                        <div class="list-group list-group-flush" id="category-list">
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)
-                                                    <option value="{{ @$categoryList->id }}" >{{ ucwords(@$categoryList->name) }}</option>
+                                                    <div class="form-check form-check-info">
+                                                        <input class="form-check-input large" type="checkbox" value="{{$categoryList->id}}" id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>
+                                                        <label class="form-check-label check-label" for="formCheck{{$categoryList->id}}">
+                                                            {{ ucwords(@$categoryList->name) }}
+                                                        </label>
+                                                    </div>
                                                 @endforeach
                                             @endif
-                                </select>
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end card-body -->
+
                             <!-- end card body -->
                         </div>
 

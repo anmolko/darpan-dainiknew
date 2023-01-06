@@ -107,7 +107,9 @@
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
                                                                 <li><a class="dropdown-item cs-category-edit" id="cs-role-category-edit-{{$category->id}}" cs-update-route="{{route('blogcategory.update',$category->id)}}" cs-edit-route="{{route('blogcategory.edit',$category->id)}}"><i class="ri-pencil-fill me-2 align-middle"></i>Edit</a></li>
-                                                                <li><a class="dropdown-item cs-category-remove" cs-delete-route="{{route('blogcategory.destroy',$category->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>
+                                                                @if(@$category->id !== 1)
+                                                                    <li><a class="dropdown-item cs-category-remove" cs-delete-route="{{route('blogcategory.destroy',$category->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>
+                                                                @endif
                                                             </ul>
                                                         </div>
                                                     </div>
