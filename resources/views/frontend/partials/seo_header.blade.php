@@ -1,267 +1,447 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Khobor - Modern Magazine & Newspaper HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/frontend/img/favicon.ico')}}">
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="author" content="Win Recruit Nepal"/>
-		<link rel="canonical" href="https://winrecruitnepal.com/" />
-		<meta name="csrf-token" content="{{ csrf_token() }}" />
-
-        @yield('seo')
-
-		<!-- FAVICON AND TOUCH ICONS -->
-
-		<link rel="shortcut icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/settings/'.@$setting_data->favicon)}}<?php }?>">
- 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600&amp;family=Kumbh+Sans:wght@400;500;700&amp;family=Shadows+Into+Light&amp;display=swap" rel="stylesheet">
-    
-    <!-- Flaticon -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/flaticon.min.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome-5.14.0.min.css')}}">
-    <!-- Bootstrap -->
+    @yield('seo')
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css')}}">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/magnific-popup.min.css')}}">
-    <!-- Nice Select -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/nice-select.min.css')}}">
-    <!-- Type Writer -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/jquery.animatedheadline.css')}}">
-    <!-- Animate -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/animate.min.css')}}">
-    <!-- Slick -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/slick.min.css')}}">
-    <!-- Main Style -->
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/font-awesome.min.css')}}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins.css')}}">
+    <!-- ycp -->
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/ycp.css')}}">
+    <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
+    <!-- Modernizer JS -->
+    <script src="{{asset('assets/frontend/js/vendor/modernizr-3.11.2.min.js')}}"></script>
+</head>
 
-		 <!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id={{@$setting_data->google_analytics}}"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<body>
 
-		gtag('config', '{{@$setting_data->google_analytics}}');
-		</script>
-    <style>
-      .main-menu .navbar-collapse li.active a {
-          color: #27aae1;
-      }
-    </style>
-        @yield('css')
+<!-- Main Wrapper -->
+<div id="main-wrapper">
 
-	</head>
+    <!-- Header Top Start -->
+    <div class="header-top section">
+        <div class="container">
+            <div class="row">
 
-  <body class="home-one">
-    <div class="page-wrapper">
+                <!-- Header Top Links Start -->
+                <div class="header-top-links col-md-9 col-6">
 
-        <!-- Preloader -->
-        <!-- <div class="preloader"></div> -->
+                    <!-- Header Links -->
+                    <ul class="header-links">
+                        <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a></li>
+                        <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>
+{{--                        <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>--}}
+                        <li><a href="#">Unicode to preeti</a></li>
+                        <li><a href="#">Preeti to unicode</a></li>
+                    </ul>
 
-        <!-- main header -->
-        <header class="main-header {{request()->is('/') ? 'header-two' : 'header-three menu-absolute'}} ">
-            <!--Header-Upper-->
-            <div class="header-upper">
-                <div class="container clearfix">
+                </div><!-- Header Top Links End -->
 
-                    <div class="header-inner rel d-flex align-items-center">
-                        <div class="logo-outer">
-                            <div class="logo"><a href="/">
-                              @if(request()->is('/'))
-                              <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php } ?>" alt="Logo white">
+                <!-- Header Top Social Start -->
+                <div class="header-top-social col-md-3 col-6">
 
-                              @else
-                              <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
-                              
-                              @endif
-                            </a></div>
-                        </div>
+                    <!-- Header Social -->
+                    <div class="header-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-vimeo"></i></a>
+                    </div>
 
-                        <div class="nav-outer clearfix">
-                            <!-- Main Menu -->
-                            <nav class="main-menu navbar-expand-lg">
-                                <div class="navbar-header">
-                                   <div class="mobile-logo my-15">
-                                       <a href="/">
-                                       @if(request()->is('/'))
-                                        <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php } ?>" alt="Logo white">
+                </div><!-- Header Top Social End -->
 
-                                        @else
-                                        <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
-                                        
-                                        @endif
-                                       </a>
-                                   </div>
-                                   
-                                    <!-- Toggle Button -->
-                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
+            </div>
+        </div>
+    </div><!-- Header Top End -->
 
-                                <div class="navbar-collapse collapse clearfix">
-                                    <ul class="navigation clearfix">
-                                       
-                                        <li class="{{request()->is('/') ? 'active' : ''}} ">
-                                          <a href="/" >Home</a>
-                                        </li>
+    <!-- Header Start -->
+    <div class="header-section section">
+        <div class="container">
+            <div class="row align-items-center">
 
-                                        @if(!empty($top_nav_data))
-                                          @foreach($top_nav_data as $nav)
-                                              @if(!empty($nav->children[0]))
+                <!-- Header Logo -->
+                <div class="header-logo col-md-4 d-none d-md-block">
+                    <a href="/" class="logo"><img src="{{asset('assets/frontend/img/logo.png')}}" alt="Logo"></a>
+                </div>
 
-                                                  <li id="{{@$loop->index}}" class="{{request()->is(@$nav->slug)  ? 'active' : ''}} dropdown">
-                                                      <a href="#" class="">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif </a>
+                <!-- Header Banner -->
+                <div class="header-banner col-md-8 col-12">
+                    <div class="banner"><a href="#">
+                            {{--                            <img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="" />--}}
 
-                                                      <ul >
+                            <img src="{{asset('assets/frontend/img/banner/header-banner-1.png')}}" alt="Header Banner"></a>
+                    </div>
+                </div>
 
-                                                          @foreach($nav->children[0] as $childNav)
-                                                              @if($childNav->type == 'custom')
+            </div>
+        </div>
+    </div><!-- Header End -->
 
-                                                                  <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}} @if(!empty($childNav->children[0])) dropdown @endif ">
-                                                                      <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >@if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                      @if(!empty($childNav->children[0]))
-                                                                          <ul >
-                                                                              @foreach($childNav->children[0] as $key => $lastchild)
-                                                                                  @if($lastchild->type == 'custom')
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                          <a href="/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif >@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'post')
-                                                                                      <li  class="{{request()->is('blog/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('blog')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'service')
-                                                                                      <li  class="{{request()->is('service/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('service')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @else
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                              <a href="{{url('/')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a>
-                                                                                          </li>
-                                                                                  @endif
-                                                                              @endforeach
-                                                                          </ul>
-                                                                      @endif
-                                                                  </li>
-                                                              @elseif($childNav->type == 'post')
-                                                                  <li  class="{{request()->is('blog/'.@$childNav->slug) ? 'active' : ''}}  @if(!empty($childNav->children[0]))  dropdown @endif active">
-                                                                      <a href="{{url('blog')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL) target="_blank" @endif>@if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                      @if(!empty($childNav->children[0]))
-                                                                          <ul >
-                                                                              @foreach($childNav->children[0] as $key => $lastchild)
-                                                                                  @if($lastchild->type == 'custom')
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                          <a href="/{{@$childNav->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif >@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'service')
-                                                                                      <li  class="{{request()->is('service/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('service')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'post')
-                                                                                      <li  class="{{request()->is('blog/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('blog')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @else
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                              <a href="{{url('/')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a>
-                                                                                          </li>
-                                                                                  @endif
-                                                                              @endforeach
-                                                                          </ul>
-                                                                      @endif
-                                                                  </li>
-                                                              @elseif($childNav->type == 'service')
-                                                                  <li  class="{{request()->is('service/'.@$childNav->slug) ? 'active' : ''}}  @if(!empty($childNav->children[0]))  dropdown @endif active">
-                                                                      <a href="{{url('service')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL) target="_blank" @endif>@if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                      @if(!empty($childNav->children[0]))
-                                                                          <ul >
-                                                                              @foreach($childNav->children[0] as $key => $lastchild)
-                                                                                  @if($lastchild->type == 'custom')
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                          <a href="/{{@$childNav->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif >@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'service')
-                                                                                      <li  class="{{request()->is('service/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('service')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'post')
-                                                                                      <li  class="{{request()->is('blog/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('blog')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @else
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                              <a href="{{url('/')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a>
-                                                                                          </li>
-                                                                                  @endif
-                                                                              @endforeach
-                                                                          </ul>
-                                                                      @endif
-                                                                  </li>
-                                                              @else
-                                                                  <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}  @if(!empty($childNav->children[0]))  dropdown @endif active">
-                                                                      <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL) target="_blank" @endif>@if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                      @if(!empty($childNav->children[0]))
-                                                                          <ul >
-                                                                              @foreach($childNav->children[0] as $key => $lastchild)
-                                                                                  @if($lastchild->type == 'custom')
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                          <a href="/{{@$childNav->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif >@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'service')
-                                                                                      <li  class="{{request()->is('service/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('service')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @elseif($lastchild->type == 'post')
-                                                                                      <li  class="{{request()->is('blog/'.@$lastchild->slug) ? 'active' : ''}}  active">
-                                                                                          <a href="{{url('blog')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if(@$lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a></li>
-                                                                                  @else
-                                                                                      <li  class="{{request()->is(@$lastchild->slug) ? 'active' : ''}} active">
-                                                                                              <a href="{{url('/')}}/{{@$lastchild->slug}}"  @if(@$lastchild->target !== NULL) target="_blank" @endif>@if($lastchild->name == NULL) {{@$lastchild->title}} @else {{@$lastchild->name}} @endif</a>
-                                                                                          </li>
-                                                                                  @endif
-                                                                              @endforeach
-                                                                          </ul>
-                                                                      @endif
+    <!-- Menu Section Start -->
+    <div class="menu-section section bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="menu-section-wrap">
 
-                                                                  </li>
-                                                              @endif
-                                                          @endforeach
+                        <!-- Main Menu Start -->
+                        <div class="main-menu float-start d-none d-md-block">
+                            <nav>
+                                <ul>
 
-                                                      </ul>
-                                                  </li>
+                                    <li class="active"><a href="/">गृह पृष्ठ</a>
 
-                                              @else
-                                                  @if($nav->type == 'custom')
-                                                      <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
-                                                          <a href="/{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
-                                                  @elseif($nav->type == 'service')
-                                                      <li   class="{{request()->is('service/'.@$nav->slug.'*') ? 'active' : ''}} ">
-                                                          <a href="{{url('service')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
-                                                  @elseif($nav->type == 'post')
-                                                      <li   class="{{request()->is('blog/'.@$nav->slug.'*') ? 'active' : ''}} ">
-                                                          <a href="{{url('blog')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
-                                                  @else
-                                                      <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
-                                                          <a href="{{url('/')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
-                                                  @endif
-                                              @endif
-                                          @endforeach
-                                      @endif
-                                    </ul>
-                                </div>
+                                    </li>
+                                    <li><a href="/">समाचार</a></li>
+                                    <li><a href="/">प्रवाश</a></li>
+                                    <li><a href="/">अथ॔</a></li>
+                                    <li><a href="/">रोचक</a></li>
+                                    <li class="has-dropdown"><a href="/">प्रदेश</a>
 
+                                        <!-- Mega Menu Start -->
+                                        <div class="mega-menu">
+
+                                            <!-- Menu Tab List Start -->
+                                            <ul class="menu-tab-list nav">
+                                                <li><a class="active" data-bs-toggle="tab" href="#menu-tab-one">all</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">प्रदेश १</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">मधेस प्रदेश</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">बाग्मती</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">गण्डकी</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">लुम्बिनी</a></li>
+                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">कर्णाली</a></li>
+                                            </ul><!-- Menu Tab List End -->
+
+                                            <!-- Menu Tab Content Start -->
+                                            <div class="tab-content menu-tab-content fix">
+
+                                                <!-- Menu Tab Pane Start -->
+                                                <div class="tab-pane fade show active" id="menu-tab-one">
+                                                    <div class="row">
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-136.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="/">Marilyn Monroe’s beauty secrets the most</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-137.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="/">Hynpodia helps fmaletravelers find health.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-138.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-139.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-140.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">How do you solve the long tiredness.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-141.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-142.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Fance fry with chicken burger.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-143.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Fashion is about some thing that comes . . . . </a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                    </div>
+                                                </div><!-- Menu Tab Pane End -->
+
+                                                <!-- Menu Tab Pane Start -->
+                                                <div class="tab-pane fade" id="menu-tab-two">
+                                                    <div class="row">
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-140.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">How do you solve the long tiredness.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-141.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-142.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="#">Fance fry with chicken burger.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-143.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="post-details.html">Fashion is about some thing that comes . . . . </a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-136.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="post-details.html">Marilyn Monroe’s beauty secrets the most</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-137.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="post-details.html">Hynpodia helps fmaletravelers find health.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-138.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                        <!-- Post Start -->
+                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                            <div class="post-wrap">
+                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-139.jpg')}}" alt="Post"></a>
+                                                                <div class="content">
+                                                                    <h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Post End -->
+
+                                                    </div>
+                                                </div><!-- Menu Tab Pane End -->
+
+                                            </div><!-- Menu Tab Content End -->
+
+                                        </div><!-- Mega Menu End -->
+
+                                    </li>
+                                    <li><a href="/">मनोरञ्जन</a></li>
+                                    <li><a href="/">समाज</a></li>
+                                    <li class="has-dropdown"><a href="#">शिक्षा-स्वास्थ्य</a>
+
+                                        <!-- Submenu Start -->
+                                        <ul class="sub-menu">
+                                            <li><a href="#">शिक्षा</a></li>
+                                            <li><a href="#">स्वास्थ्य</a></li>
+                                        </ul><!-- Submenu End -->
+
+                                    </li>
+
+                                </ul>
                             </nav>
-                            <!-- Main Menu End-->
-                        </div>
-                        
-                   
-                        
-                        <!-- Menu Button -->
-                        <div class="menu-btns">
-                           <a href="{{route('contact')}}" class="theme-btn {{request()->is('/') ? 'style-three' : ''}}">Contact <i class="fas fa-angle-double-right"></i></a>
-                           
-                        
+                        </div><!-- Main Menu Start -->
+
+                        <div class="mobile-logo d-md-none"><a href="/"><img src="{{asset('assets/frontend/img/logo-white.png')}}" alt="Logo"></a></div>
+
+                        <!-- Header Search -->
+                        <div class="header-search float-end">
+
+                            <!-- Search Toggle -->
+                            <button class="header-search-toggle"><i class="fa fa-search"></i></button>
+
+                            <!-- Header Search Form -->
+                            <div class="header-search-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Search Here">
+                                </form>
+                            </div>
+
                         </div>
 
-                      
+                        <!-- Mobile Menu Wrap -->
+                        <div class="mobile-menu-wrap d-none">
+                            <nav>
+                                <ul>
+
+                                    <li class="active has-dropdown"><a href="index.html">Home</a>
+
+                                        <!-- Submenu Start -->
+                                        <ul class="sub-menu">
+                                            <li class="active"><a href="index.html">Home One</a></li>
+                                            <li><a href="index-2.html">Home Two</a></li>
+                                            <li><a href="index-3.html">Home Three</a></li>
+                                            <li><a href="index-4.html">Home Four</a></li>
+                                        </ul><!-- Submenu End -->
+
+                                    </li>
+                                    <li><a href="category-lifestyle.html">News</a></li>
+                                    <li><a href="category-sports.html">Sports</a></li>
+                                    <li><a href="category-lifestyle.html">Lifestyle</a>
+
+                                        <!-- Submenu Start -->
+                                        <ul class="sub-menu">
+                                            <li><a href="category-fashion.html">Beauty</a></li>
+                                            <li><a href="category-lifestyle.html">travel</a></li>
+                                            <li><a href="category-sports.html">Interior Design</a></li>
+                                            <li><a href="category-lifestyle.html">Photography</a></li>
+                                            <li><a href="category-fashion.html">fashion</a></li>
+                                            <li><a href="category-sports.html">music</a></li>
+                                        </ul><!-- Submenu End -->
+
+                                    </li>
+                                    <li><a href="category-fashion.html">Fashion</a></li>
+                                    <li><a href="category-politic.html">politic</a></li>
+                                    <li><a href="#">pages</a>
+
+                                        <!-- Submenu Start -->
+                                        <ul class="sub-menu">
+                                            <li><a href="blog.html">blog</a></li>
+                                            <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a href="contact-us.html">contact</a></li>
+                                            <li><a href="post-details.html">post details</a></li>
+                                        </ul><!-- Submenu End -->
+
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <!-- Mobile Menu -->
+                        <div class="mobile-menu"></div>
+
                     </div>
                 </div>
             </div>
-            <!--End Header Upper-->
-        </header>
+        </div>
+    </div><!-- Menu Section End -->
+
+    <!-- Breaking News Section Start -->
+    <div class="breaking-news-section section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Breaking News Wrapper Start -->
+                    <div class="breaking-news-wrapper">
+
+                        <!-- Breaking News Title -->
+                        <h5 class="breaking-news-title float-start">Breaking News</h5>
+
+                        <!-- Breaking Newsticker Start -->
+                        <ul class="breaking-news-ticker float-start">
+                            <li><a href="#">Tell me what you today, And i ‘ll tell you who you are!!!</a></li>
+                            <li><a href="#">Fashion is about some thing that comes from with in you.</a></li>
+                            <li><a href="#">Australia announced squad for Bangladesh tour.</a></li>
+                            <li><a href="#">How group of rebel are talking on Banasree epidemic.</a></li>
+                        </ul><!-- Breaking Newsticker Start -->
+
+                        <!-- Breaking News Nav -->
+                        <div class="breaking-news-nav">
+                            <button class="news-ticker-prev"><i class="fa fa-angle-left"></i></button>
+                            <button class="news-ticker-next"><i class="fa fa-angle-right"></i></button>
+                        </div>
+
+                    </div><!-- Breaking News Wrapper End -->
+
+                </div>
+            </div>
+        </div>
+    </div><!-- Breaking News Section End -->
+
+    <!-- Featured Above adds Start -->
+    <div class="section">
+        <div class="container">
+            <div class="header-banner">
+                <div class="col-12 post-container featured">
+                    <a href="#" class="post-middle-banner">
+                        <img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt=""  />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
