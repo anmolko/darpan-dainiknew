@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Job;
 use App\Models\JobCategory;
@@ -55,7 +55,7 @@ class FrontController extends Controller
     protected $slider = null;
 
 
-    public function __construct(HomePage $home_page,PageSection $pagesection,Page $page,Setting $setting,BlogCategory $bcategory,Blog $blog)
+    public function __construct(HomePage $home_page, PageSection $pagesection, Page $page, Setting $setting, Category $bcategory, Blog $blog)
     {
         $this->setting = $setting;
         $this->bcategory = $bcategory;

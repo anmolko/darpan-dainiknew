@@ -13,6 +13,15 @@
             .profile-foreground-img-file-input {
                 display: none;
             }
+            input.large {
+                width: 25px;
+                height: 25px;
+            }
+
+            .check-label{
+                line-height: 2rem;
+                padding-left: 5px;
+            }
     </style>
 @endsection
 @section('content')
@@ -161,14 +170,22 @@
                                 <h5 class="card-title mb-0">Blog Categories</h5>
                             </div>
                             <div class="card-body">
-                                <p class="text-muted mb-2"> Select blog category</p>
-                                <select class="form-select" name="blog_category_id" data-choices data-choices-search-true >
+                                <div class="mx-n3">
+                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
+                                        <div class="list-group list-group-flush" id="category-list">
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)
-                                                    <option value="{{ @$categoryList->id }}" @if(@$edit->blog_category_id == @$categoryList->id) selected @endif>{{ ucwords(@$categoryList->name) }}</option>
+                                                    <div class="form-check form-check-info">
+                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}" id="formCheck{{$categoryList->id}}" {{ ($edit->hasCategory($categoryList->id)) ? "checked":"" }} >
+                                                        <label class="form-check-label check-label" for="formCheck{{$categoryList->id}}">
+                                                            {{ ucwords(@$categoryList->name) }}
+                                                        </label>
+                                                    </div>
                                                 @endforeach
                                             @endif
-                                </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- end card body -->
                         </div>

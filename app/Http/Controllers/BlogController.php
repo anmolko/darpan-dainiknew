@@ -6,7 +6,7 @@ use App\Http\Requests\BlogCreateRequest;
 use App\Http\Requests\BlogUpdateRequest;
 
 use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -45,7 +45,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $categories = BlogCategory::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
         return view('backend.blog.create',compact('categories'));
     }
 
@@ -57,6 +57,7 @@ class BlogController extends Controller
      */
     public function store(BlogCreateRequest $request)
     {
+//        dd($request->all());
         $data=[
             'title'             => $request->input('title'),
             'slug'              => $request->input('slug'),
@@ -65,7 +66,6 @@ class BlogController extends Controller
             'meta_title'        => $request->input('meta_title'),
             'meta_tags'         => $request->input('meta_tags'),
             'meta_description'  => $request->input('meta_description'),
-            'blog_category_id'  => $request->input('blog_category_id'),
             'created_by'        => Auth::user()->id,
         ];
 
@@ -93,6 +93,7 @@ class BlogController extends Controller
 
         $blog = Blog::create($data);
         if($blog){
+            $blog->categories()->attach($request->category_id);
             Session::flash('success','Your blog was created successfully');
         }
         else{
@@ -121,8 +122,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $edit   = Blog::find($id);
-        $categories = BlogCategory::orderBy('name', 'asc')->get();
+        $edit       = Blog::find($id);
+        $categories = Category::orderBy('name', 'asc')->get();
         return view('backend.blog.edit',compact('edit','categories'));
     }
 

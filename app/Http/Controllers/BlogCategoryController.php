@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -25,7 +25,7 @@ class BlogCategoryController extends Controller
 
     public function index()
     {
-        $categories = BlogCategory::all();
+        $categories = Category::all();
         return view('backend.blog.category.index',compact('categories'));
     }
 
@@ -47,20 +47,19 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-        $slug  = BlogCategory::where('slug',$request->input('slug'))->first();
+        $slug  = Category::where('slug',$request->input('slug'))->first();
         if ($slug !== null) {
             $status ='slug duplicate';
             return response()->json(['status'=>$status,'message'=>'This category title is already in use. Try something different.']);
         }else{
-            $category               =  BlogCategory::create([
+            $category               =  Category::create([
                 'name'              => $request->input('name'),
                 'slug'              => $request->input('slug'),
                 'description'       => $request->input('description'),
                 'created_by'  => Auth::user()->id,
             ]);
             if($category){
-                $category = BlogCategory::latest()->first();
+                $category = Category::latest()->first();
                 $status ='success';
                 return response()->json(['status'=>$status,'message'=>'New blog category added to list.','category'=>$category]);
             }
@@ -92,7 +91,7 @@ class BlogCategoryController extends Controller
      */
     public function edit($id)
     {
-        $editcategory     = BlogCategory::find($id);
+        $editcategory     = Category::find($id);
         return response()->json($editcategory);
     }
 
@@ -105,7 +104,7 @@ class BlogCategoryController extends Controller
      */
     public function update(BlogCategoryUpdateRequest $request, $id)
     {
-        $category                   = BlogCategory::find($id);
+        $category                   = Category::find($id);
         $category->name             = $request->input('name');
         $category->slug             = $request->input('slug');
         $category->description      = $request->input('description');
@@ -129,7 +128,7 @@ class BlogCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $delete          = BlogCategory::find($id);
+        $delete          = Category::find($id);
         $rid             = $delete->id;
         $checkblog       = $delete->blogs()->get();
         $count           = $delete->count();

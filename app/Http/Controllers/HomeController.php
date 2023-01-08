@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ads;
 use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Menu;
 use App\Models\Page;
@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         $allusers  = User::take(7)->get();
         $menus     = Menu::all()->count();
-        $blog_cat  = BlogCategory::all()->count();
+        $blog_cat  = Category::all()->count();
         $pages     = Page::all()->count();
         $feeds     = Blog::take(5)->latest()->get();
         $ads       = Ads::all()->count();
