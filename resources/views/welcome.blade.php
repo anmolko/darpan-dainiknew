@@ -25,7 +25,7 @@
                         <span>१ घन्टा अगाडि</span>
                     </div>
                     <div class="darpan-user-comment">
-                        <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2021/img/comment-icon.png" alt="">
+                        <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
                         <span>2</span>
                     </div>
                 </div>
