@@ -2008,7 +2008,7 @@ blockquote.blockquote.blockquote-bg p {
   height: 60px;
   padding: 10px;
   border: none;
-  background-color: #ff0000;
+  background-color: transparent;
   color: #fff;
 }
 .header-search .header-search-toggle i {
@@ -2019,14 +2019,14 @@ blockquote.blockquote.blockquote-bg p {
   position: absolute;
   top: 0;
   right: 100%;
-  background-color: #f7e2e1;
-  border-right: 1px solid #f7e2e1;
+  background-color: #fff;
+  border-right: 1px solid #fff;
   overflow: hidden;
 }
 .header-search .header-search-form form input[type=text] {
   line-height: 30px;
     padding: 15px 15px;
-    width: 210px;
+    width: 200px;
   border: none;
   background-color: transparent;
   color: #0d47a2;
@@ -5337,5 +5337,10 @@ blockquote.blockquote.blockquote-bg p {
 .navigation-stick .main-menu nav > ul > li{
     margin-right: 20px;
     transition: margin-right 0.6s ease-in-out;
+
+}
+
+.navigation-stick .header-search .header-search-form form input[type=text]{
+    width: 125px;
 
 }

@@ -93,14 +93,20 @@
     </div><!-- Header End -->
 
     <!-- Menu Section Start -->
-    <div class="menu-section section bg-dark">
+    <div class="menu-section section bg-dark" id="myHeader">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="menu-section-wrap">
 
+                        <div class="sticky-logo-nav">
+                            <a href="/" class="logo">
+                                <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                            </a>
+                        </div>
                         <!-- Main Menu Start -->
                         <div class="main-menu float-start d-none d-md-block">
+
                             <nav>
                                 <ul>
 
@@ -328,7 +334,7 @@
                         <div class="mobile-logo d-md-none"><a href="/"><img src="{{asset('assets/frontend/img/logo-white.png')}}" alt="Logo"></a></div>
 
                         <!-- Header Search -->
-                        <div class="header-search float-end">
+                        <div class="col header-search float-end">
 
                             <!-- Search Toggle -->
                             <button class="header-search-toggle"><i class="fa fa-search"></i></button>
