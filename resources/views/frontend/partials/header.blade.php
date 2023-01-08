@@ -132,7 +132,7 @@
 
                         <div class="sticky-logo-nav">
                             <a href="/" class="logo">
-                                <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
                             </a>
                         </div>
                         <!-- Main Menu Start -->

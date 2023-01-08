@@ -109,9 +109,7 @@
 
                             <nav>
                                 <ul>
-
                                     <li class="active"><a href="/">गृह पृष्ठ</a>
-
                                     </li>
                                     <li><a href="/">समाचार</a></li>
                                     <li><a href="/">प्रवाश</a></li>
