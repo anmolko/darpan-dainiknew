@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('title', "New Post")
 @section('css')
+    /*<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />*/
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
@@ -20,7 +21,45 @@
             .check-label{
                 line-height: 2rem;
                 padding-left: 5px;
+                display: inline-block;
+                text-transform: lowercase
             }
+            .check-label:first-letter {
+                text-transform: uppercase
+            }
+            .select2-selection__choice__remove{
+                color: #fff!important;
+                text-transform: uppercase;
+
+            }
+            .select2-selection__choice{
+                display: inline-block;
+                vertical-align: initial;
+                border-radius: 7px!important;
+                font-size: 11px;
+                font-weight: 400;
+                margin-right: 3.75px;
+                margin-bottom: 3.75px;
+                margin-top: 2px;
+                background-color: #405189!important;
+                border: 1px solid #405189!important;
+                word-break: break-all;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                color: #fff;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .select2-container--default .select2-selection--multiple .select2-selection__choice{
+                padding: 5px;
+            }
+            .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+                font-size: 1.4em!important;
+                font-weight: bold;
+                padding: 5px 5px 5px 20px;
+            }
+
     </style>
 @endsection
 @section('content')
@@ -75,7 +114,7 @@
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
-                                    <textarea class="form-control" id="ckeditor-classic" name="description" placeholder="Enter blog description" rows="3" required></textarea>
+                                    <textarea class="form-control snow-editor" id="ckeditor-classic"name="description" placeholder="Enter blog description" rows="3" required></textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
@@ -167,14 +206,7 @@
 
 
                         <div class="card">
-                            <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">Categories</h4>
-                                <div class="flex-shrink-0">
-                                    <button type="button" class="btn btn-soft-primary btn-sm cs-category-add"  cs-create-route="{{route('blogcategory.store')}}">
-                                        Add New
-                                    </button>
-                                </div>
-                            </div>
+                           e
                             <div class="card-body">
                                 <div class="mx-n3">
                                     <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
@@ -182,7 +214,7 @@
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)
                                                     <div class="form-check form-check-info">
-                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}" id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>
+                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}"                                                                        id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>
                                                         <label class="form-check-label check-label" for="formCheck{{$categoryList->id}}">
                                                             {{ ucwords(@$categoryList->name) }}
                                                         </label>
@@ -191,6 +223,23 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Tags</h4>
+                                <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-soft-primary btn-sm cs-tags-add"  cs-create-route="{{route('tag.store')}}">
+                                        Add New
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label" for="post-tags-input">TAGS</label>
+                                    <input type="text" class="form-control" name="tags" id="post-tags-input" data-choices data-choices-search-true data-choices-text-unique-true>
                                 </div>
                             </div>
                         </div>
@@ -231,58 +280,14 @@
         </div>
     </div>
 
-    <div class="modal fade" id="add_blog_category" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0">
-                <div class="modal-header p-3 ps-4 bg-soft-success">
-                    <h5 class="modal-title" id="myModalLabel">Add Category</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {!! Form::open(['id' => 'blog-category-add-form','method'=>'post','class'=>'needs-validation','novalidate'=>'']) !!}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <input type="hidden" class="form-control" name="categoryid" id="category_id" />
-
-                                <label for="name" class="form-label">Category Title <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="name" id="update-name"
-                                       onclick="slugMaker('update-name','update-slug')" required>
-                                <div class="invalid-feedback">
-                                    Please enter the category title.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="slug" class="form-label">Slug <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="slug" id="update-slug" required>
-                                <div class="invalid-feedback">
-                                    Please enter the category Slug.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="hstack gap-2 justify-content-end">
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success" id="blog-category-add-button"  cs-create-route="{{route('blogcategory.store')}}">Add Category</button>
-                            </div>
-                        </div>
-                    </div>
-                    {!! Form::close() !!}
-                </div>
-            </div><!--end modal-content-->
-        </div><!--end modal-dialog-->
-    </div>
-
+    @include('backend.blog.category_modal')
 
 @endsection
 
 @section('js')
 @include('backend.ckeditor')
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
-
+{{--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
 {{--<script src="{{asset('assets/backend/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>--}}
 
     <!-- Sweet Alerts js -->
@@ -290,73 +295,7 @@
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
 <script>
-    $(document).on('click','.cs-category-add', function (e) {
-        e.preventDefault();
-        $("#add_blog_category").modal("toggle");
-    });
 
-    $('#blog-category-add-button').on('click', function(e) {
-        e.preventDefault();
-        var form            = $('#blog-category-add-form')[0]; //get the form using ID
-        if (!form.reportValidity()) { return false;}
-        var formData        = new FormData(form); //Creates new FormData object
-        var url             = $(this).attr("cs-create-route");
-        var request_method  = 'POST'; //get form GET/POST method
-        $.ajax({
-            type : request_method,
-            url : url,
-            headers: {
-                'X-CSRF-Token': $('meta[name="_token"]').attr('content')
-            },
-            cache: false,
-            contentType: false,
-            processData: false,
-            data : formData,
-            success: function(response){
-
-                if(response.status=='slug duplicate'){
-                    Toastify({ newWindow: !0, text: response.message, gravity: 'top', position: 'center', stopOnFocus: !0, duration: 3000, close: "close",className: "bg-warning",style: "style" == e.style ? { background: "linear-gradient(to right, #0AB39C, #405189)" } : "" }).showToast();
-                    return;
-                }
-                if(response.status=='success') {
-                    var block = ' <div class="form-check form-check-info"> ' +
-                        '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formCheck'+response.category.id+'" checked>' +
-                        '<label class="form-check-label check-label" for="formCheck'+response.category.id+'">' + response.category.name +
-                        '</label>'+
-                        '</div>';
-                    // $("").remove();
-                    $("#category-list").prepend(block);
-                    Toastify({ newWindow: !0, text: response.message, gravity: 'top', position: 'center', stopOnFocus: !0, duration: 3000, close: "close",className: "bg-success",style: "style" == e.style ? { background: "linear-gradient(to right, #0AB39C, #405189)" } : "" }).showToast();
-                    return;
-                }
-                else{
-                    Swal.fire({
-                        imageUrl: "/assets/backend/images/canosoft-logo.png",
-                        imageHeight: 60,
-                        html: '<div class="mt-2">' +
-                            '<lord-icon src="https://cdn.lordicon.com/tdrtiskw.json"' +
-                            ' trigger="loop" colors="primary:#f06548,secondary:#f7b84b" ' +
-                            'style="width:120px;height:120px"></lord-icon>' +
-                            '<div class="mt-4 pt-2 fs-15">' +
-                            '<h4>Oops...! </h4>' +
-                            '<p class="text-muted mx-4 mb-0">' + response.message +
-                            '</p>' +
-                            '</div>' +
-                            '</div>',
-                        timerProgressBar: !0,
-                        timer: 3000,
-                        showConfirmButton: !1
-                    });
-                }
-            }, error: function(response) {
-                console.log(response);
-            }
-
-
-
-        });
-
-    });
 
 </script>
 @endsection

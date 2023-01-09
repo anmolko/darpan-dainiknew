@@ -1,6 +1,6 @@
 
 <script src="{{asset('assets/backend/custom_js/ckeditor5/build/ckeditor.js')}}"></script>
-<script src="{{asset('ckfinder/ckfinder.js')}}"></script>
+{{--<script src="{{asset('ckfinder/ckfinder.js')}}"></script>--}}
 <script>
 
 
@@ -148,8 +148,6 @@
 						'mediaEmbed',
 						'undo',
 						'redo',
-						'alignment',
-						'codeBlock',
 						'findAndReplace',
 						'fontBackgroundColor',
 						'fontColor',
@@ -159,9 +157,7 @@
 						'horizontalLine',
 						'htmlEmbed',
 						'pageBreak',
-						'removeFormat',
 						'specialCharacters',
-						'sourceEditing',
 						'underline'
 					]
 				},

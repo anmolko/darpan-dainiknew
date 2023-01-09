@@ -144,7 +144,6 @@ class BlogController extends Controller
         $blog->meta_title          =  $request->input('meta_title');
         $blog->meta_tags           =  $request->input('meta_tags');
         $blog->meta_description    =  $request->input('meta_description');
-        $blog->blog_category_id    =  $request->input('blog_category_id');
         $blog->updated_by          = Auth::user()->id;
 
         $oldimage                  = $blog->image;
@@ -172,6 +171,7 @@ class BlogController extends Controller
 
         $status = $blog->update();
         if($status){
+             $blog->categories()->sync($request->category_id);
             Session::flash('success','Your Post was updated successfully');
         }
         else{

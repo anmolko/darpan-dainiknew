@@ -17,10 +17,14 @@
                 width: 25px;
                 height: 25px;
             }
-
             .check-label{
                 line-height: 2rem;
                 padding-left: 5px;
+                display: inline-block;
+                text-transform: lowercase
+            }
+            .check-label:first-letter {
+                text-transform: uppercase
             }
     </style>
 @endsection
@@ -166,8 +170,13 @@
                         <!-- end card -->
 
                         <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Blog Categories</h5>
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Categories</h4>
+                                <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-soft-primary btn-sm cs-category-add"  cs-create-route="{{route('blogcategory.store')}}">
+                                        Add New
+                                    </button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mx-n3">
@@ -225,6 +234,7 @@
         <!-- container-fluid -->
         </div>
     </div>
+    @include('backend.blog.category_modal')
 
 @endsection
 
