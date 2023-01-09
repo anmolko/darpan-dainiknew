@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class TagController extends Controller
 {
@@ -11,9 +15,17 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('backend.tag.index',compact('tags'));
     }
 
     /**
@@ -34,7 +46,28 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slug  = Tag::where('slug',$request->input('slug'))->first();
+        if ($slug !== null) {
+            $status ='slug duplicate';
+            return response()->json(['status'=>$status,'message'=>'This tag slug is already in use. Try something different.']);
+        }else{
+            $category               =  Tag::create([
+                'name'              => $request->input('name'),
+                'slug'              => $request->input('slug'),
+                'description'       => $request->input('description'),
+                'created_by'        => Auth::user()->id,
+            ]);
+            if($category){
+                $tag   = Tag::latest()->first();
+                $count = $tag->BlogsCount();
+                $status ='success';
+                return response()->json(['status'=>$status,'message'=>'New Tag added to list.','tag'=>$tag,'count'=>$count]);
+            }
+            else{
+                $status ='error';
+                return response()->json(['status'=>$status,'message'=>'Could not create new Tag at the moment. Try Again later !']);
+            }
+        }
     }
 
     /**
@@ -56,7 +89,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit     = Tag::find($id);
+        return response()->json($edit);
     }
 
     /**
@@ -68,7 +102,20 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag                   = Tag::find($id);
+        $tag->name             = $request->input('name');
+        $tag->slug             = $request->input('slug');
+        $tag->description      = $request->input('description');
+        $tag->updated_by       = Auth::user()->id;
+        $status                = $tag->update();
+
+        if($status){
+            Session::flash('success','Tag details has been updated');
+        }
+        else{
+            Session::flash('error','Something Went Wrong.Tag could not be updated');
+        }
+        return redirect()->route('tag.index');
     }
 
     /**
@@ -79,6 +126,13 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete          = Tag::find($id);
+        $rid             = $delete->id;
+        $count           = $delete->count();
+        $delete->delete();
+        $status ='success';
+        return response()->json(['status'=>$status,'id'=>$rid,'count'=>$count,'message'=>'Tag was removed!']);
+
+
     }
 }

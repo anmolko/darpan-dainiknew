@@ -206,7 +206,14 @@
 
 
                         <div class="card">
-                           e
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Categories</h4>
+                                <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-soft-primary btn-sm cs-category-add"  cs-create-route="{{route('blogcategory.store')}}">
+                                        Add New
+                                    </button>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <div class="mx-n3">
                                     <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
@@ -239,7 +246,17 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label class="form-label" for="post-tags-input">TAGS</label>
-                                    <input type="text" class="form-control" name="tags" id="post-tags-input" data-choices data-choices-search-true data-choices-text-unique-true>
+                                    <select
+                                        data-trigger
+                                        class="form-control"
+                                        name="tags[]"
+                                        id="tags_list"
+                                        multiple>
+                                        <option value="Choice 1" selected>Choice 1</option>
+                                        <option value="Choice 2">Choice 2</option>
+                                        <option value="Choice 3">Choice 3</option>
+                                        <option value="Choice 4">Choice 4</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -295,7 +312,18 @@
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
 <script>
-
+    const choices = new Choices('[data-trigger]');
+    document.addEventListener('DOMContentLoaded', function() {
+        var genericExamples = document.querySelectorAll('[data-trigger]');
+        for (i = 0; i < genericExamples.length; ++i) {
+            var element = genericExamples[i];
+            new Choices(element, {
+                allowHTML: true,
+                placeholderValue: 'This is a placeholder set in the config',
+                searchPlaceholderValue: 'This is a search placeholder',
+            });
+        }
+    });
 
 </script>
 @endsection

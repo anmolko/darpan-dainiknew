@@ -50,7 +50,7 @@ class BlogCategoryController extends Controller
         $slug  = Category::where('slug',$request->input('slug'))->first();
         if ($slug !== null) {
             $status ='slug duplicate';
-            return response()->json(['status'=>$status,'message'=>'This category title is already in use. Try something different.']);
+            return response()->json(['status'=>$status,'message'=>'This category slug is already in use. Try something different.']);
         }else{
             $category               =  Category::create([
                 'name'              => $request->input('name'),

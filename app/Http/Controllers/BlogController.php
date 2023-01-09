@@ -226,6 +226,7 @@ class BlogController extends Controller
         $new_status  = ($blog->status == 'draft') ? "Draft":"Published";
         $value  = ($blog->status == 'draft') ? "publish":"draft";
         if($status){
+//            $blog->categories()->detach();
             $status ='success';
             return response()->json(['status'=>$status,'new_status'=>$new_status,'id'=>$id,'value'=>$value]);
         }
