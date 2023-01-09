@@ -35,8 +35,15 @@
                         <div class="card-header">
                             <div class="row g-4">
                                 <div class="col-sm-auto">
-                                    <h4 class="card-title mb-0">Post List</h4>
 
+                                    @if(@$tag!==null)
+                                        <h4 class="card-title mb-0"> All Post Related to Tag <b>"{{ucfirst(@$tag->name)}}"</b></h4>
+                                    @elseif(@$category!==null)
+                                        <h4 class="card-title mb-0"> All Post Related to Category <b>"{{ucfirst(@$category->name)}}"</b></h4>
+                                    @else
+                                        <h4 class="card-title mb-0"> Post List</h4>
+
+                                    @endif
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -73,8 +80,18 @@
                                                     <td >
                                                     {{ ucwords(@$blog->title) }}
                                                     </td>
-                                                    <td>{{ucfirst(@$blog->category->name)}}</td>
-                                                    <td>{{ucfirst(@$blog->category->name)}}</td>
+                                                    <td>
+                                                        @foreach(@$blog->categories as $category)
+                                                            <a href="#">{{ucfirst(@$category->name)}}
+                                                           </a>{{($loop->last) ?"":"," }}
+                                                        @endforeach
+                                                    </td>
+                                                    <td>
+                                                        @foreach(@$blog->tags as $tag)
+                                                            <a href="{{route('tag.blog',@$tag->id)}}">{{ucfirst(@$tag->name)}}
+                                                            </a>{{($loop->last) ?"":"," }}
+                                                        @endforeach
+                                                    </td>
                                                     <td>
                                                         <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">
                                                             <button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">

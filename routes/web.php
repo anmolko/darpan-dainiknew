@@ -97,6 +97,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::put('/category/{category}', 'App\Http\Controllers\BlogCategoryController@update')->name('blogcategory.update');
     Route::delete('/category/{category}', 'App\Http\Controllers\BlogCategoryController@destroy')->name('blogcategory.destroy');
     Route::get('/category/{category}/edit', 'App\Http\Controllers\BlogCategoryController@edit')->name('blogcategory.edit');
+    Route::get('/category/{category}/blog', 'App\Http\Controllers\BlogCategoryController@blogs')->name('blogcategory.blog');
+
     //End of Blog categories
 
     //Blog Tag
@@ -106,6 +108,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::put('/tags/{tag}', 'App\Http\Controllers\TagController@update')->name('tag.update');
     Route::delete('/tags/{tag}', 'App\Http\Controllers\TagController@destroy')->name('tag.destroy');
     Route::get('/tags/{tag}/edit', 'App\Http\Controllers\TagController@edit')->name('tag.edit');
+    Route::get('/tags/{tag}/blog', 'App\Http\Controllers\TagController@blogs')->name('tag.blog');
     //End of Blog categories
 
     //Ads Tag

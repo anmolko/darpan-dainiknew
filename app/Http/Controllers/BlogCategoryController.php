@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -25,7 +26,7 @@ class BlogCategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('created_at', 'desc')->get();
         return view('backend.blog.category.index',compact('categories'));
     }
 
@@ -60,8 +61,9 @@ class BlogCategoryController extends Controller
             ]);
             if($category){
                 $category = Category::latest()->first();
+                $count    = $category->BlogsCount();
                 $status ='success';
-                return response()->json(['status'=>$status,'message'=>'New blog category added to list.','category'=>$category]);
+                return response()->json(['status'=>$status,'message'=>'New blog category added to list.','category'=>$category,'count'=>$count]);
             }
             else{
                 $status ='error';
@@ -142,5 +144,13 @@ class BlogCategoryController extends Controller
             return response()->json(['status'=>$status,'id'=>$rid,'count'=>$count,'message'=>'Blog category info was removed!']);
 
         }
+    }
+
+    public function blogs($id)
+    {
+        $category      = Category::find($id);
+        $blogs         = $category->blogs;
+
+        return view('backend.blog.index',compact('blogs','category'));
     }
 }

@@ -15,4 +15,9 @@ class Category extends Model
         return $this->belongsToMany('App\Models\Blog');
     }
 
+    public function BlogsCount()
+    {
+        return $this->belongsToMany('App\Models\Blog')->count();
+    }
+
 }

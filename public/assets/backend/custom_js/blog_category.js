@@ -21,10 +21,12 @@ $('#blog-category-add-button').on('click', function(e) {
                 return;
             }
            ;
-            var category_edit = '/auth/category/'+response.category.id+'/edit';
+            var category_edit   = '/auth/category/'+response.category.id+'/edit';
             var category_update = '/auth/category/'+response.category.id;
             var category_remove = '/auth/category/'+response.category.id;
-            var descp = (response.category.description ? response.category.description : "—");
+            var category_count  = '/auth/category/'+response.category.id+'/blog';
+            var descp           = (response.category.description ? response.category.description : "—");
+            var catcount        = (response.category.count ? response.category.count : "0");
 
             if(response.status=='success') {
                 Swal.fire({
@@ -50,9 +52,11 @@ $('#blog-category-add-button').on('click', function(e) {
                 var block = '<tr id="category-block-num-'+response.category.id+'">'+
                    '<td id="category-td-name-'+response.category.id+'">'+response.category.name+'<span class="badge bg-success ms-1">New</span></td>'+
                    '<td id="category-td-descp-'+response.category.id+'">'+
-                    descp +'<span class="badge bg-success ms-1">New</span></td>'+
-                   '<td id="category-td-slug-'+response.category.id+'">'+response.category.slug+'</td>'+
-                   '<td>'+
+                    descp+'</td>'+
+                   '<td id="category-td-slug-'+response.category.id+'">'
+                    +response.category.slug +'<span class="badge bg-success ms-1">New</span></td>'+
+                    '<td id="category-td-count-'+response.category.id+'"><a href="'+category_count+'">'+catcount+'</a></td>' +
+                    '<td>'+
                     '<div class="row">'+
                     '<div class="col text-center dropdown"> ' +
                     '<a href="javascript:void(0);" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false"> ' +
@@ -112,8 +116,8 @@ $(document).ready(function () {
     var dataTable = $('#blog-category-index').DataTable({
         paging: true,
         searching: true,
-        ordering:  true,
-        lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        ordering:  false,
+        lengthMenu: [[15, 20, 30, 50, 100, -1], [ 15, 20, 30, 50, 100, "All"]],
     });
 
 });

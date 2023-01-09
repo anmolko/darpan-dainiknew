@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class TagController extends Controller
 
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::orderBy('created_at', 'desc')->get();
         return view('backend.tag.index',compact('tags'));
     }
 
@@ -134,5 +135,13 @@ class TagController extends Controller
         return response()->json(['status'=>$status,'id'=>$rid,'count'=>$count,'message'=>'Tag was removed!']);
 
 
+    }
+
+    public function blogs($id)
+    {
+        $tag      = Tag::find($id);
+        $blogs    = $tag->blogs;
+
+        return view('backend.blog.index',compact('blogs','tag'));
     }
 }

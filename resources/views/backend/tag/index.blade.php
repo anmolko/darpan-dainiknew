@@ -99,7 +99,7 @@
                                                     <td id="tag-td-name-{{@$tag->id}}">{{ ucwords(@$tag->name) }}</td>
                                                     <td id="tag-td-descp-{{@$tag->id}}">{{ (@$tag->description !== null) ? @$tag->description:"—" }}</td>
                                                     <td id="tag-td-slug-{{@$tag->id}}">{{ @$tag->slug }}</td>
-                                                    <td id="tag-td-count-{{@$tag->id}}">{{ $tag->BlogsCount() }}</td>
+                                                    <td id="tag-td-count-{{@$tag->id}}"><a href="{{route('tag.blog',@$tag->id)}}">{{ $tag->BlogsCount() }}</a></td>
                                                     <td >
                                                         <div class="row">
 
@@ -175,10 +175,12 @@
                         return;
                     }
                     ;
-                    var category_edit = '/auth/tags/'+response.tag.id+'/edit';
+                    var category_edit   = '/auth/tags/'+response.tag.id+'/edit';
                     var category_update = '/auth/tags/'+response.tag.id;
                     var category_remove = '/auth/tags/'+response.tag.id;
-                    var descp = (response.tag.description ? response.tag.description : "—");
+                    var tag_count       = '/auth/tags/'+response.tag.id+'/blog';
+                    var descp           = (response.tag.description ? response.tag.description : "—");
+                    var tags            = (response.tag.count ? response.tag.count : "0");
 
                     if(response.status=='success') {
                         Swal.fire({
@@ -199,13 +201,12 @@
                             timer: 2e3,
                             showConfirmButton: !1
                         });
-
                         var block = '<tr id="tag-block-num-'+response.tag.id+'">'+
                             '<td id="tag-td-name-'+response.tag.id+'">'+response.tag.name+'<span class="badge bg-success ms-1">New</span></td>'+
                             '<td id="tag-td-slug-'+response.tag.id+'">'+descp+'</td>'+
                             '<td id="tag-td-descp-'+response.tag.id+'">'+
                             response.tag.slug +'<span class="badge bg-success ms-1">New</span></td>'+
-                            '<td id="tag-td-count-'+response.tag.id+'">'+response.tag.slug+'</td>'+
+                            '<td id="tag-td-count-'+response.tag.id+'"><a href="'+tag_count+'">'+tags+'</a></td>'+
                             '<td>'+
                             '<div class="row">'+
                             '<div class="col text-center dropdown"> ' +
@@ -266,8 +267,8 @@
             var dataTable = $('#tag-index').DataTable({
                 paging: true,
                 searching: true,
-                ordering:  true,
-                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                ordering:  false,
+                lengthMenu: [[15, 20, 30, 50, 100, -1], [ 15, 20, 30, 50, 100, "All"]],
             });
 
         });

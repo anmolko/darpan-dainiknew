@@ -35,7 +35,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
         return view('backend.blog.index',compact('blogs'));
     }
 
@@ -228,10 +228,11 @@ class BlogController extends Controller
         $blog          = Blog::find($id);
         $blog->status  = $request->status;
         $status        = $blog->update();
-        $new_status  = ($blog->status == 'draft') ? "Draft":"Published";
+        $new_status    = ($blog->status == 'draft') ? "Draft":"Published";
         $value  = ($blog->status == 'draft') ? "publish":"draft";
         if($status){
-//            $blog->categories()->detach();
+            $blog->tags()->detach();
+            $blog->categories()->detach();
             $status ='success';
             return response()->json(['status'=>$status,'new_status'=>$new_status,'id'=>$id,'value'=>$value]);
         }
