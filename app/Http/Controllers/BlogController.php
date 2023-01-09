@@ -48,6 +48,7 @@ class BlogController extends Controller
     {
         $categories = Category::orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
+//        $tagcount   = Tag::withCount('blogs')->take(5)->get();
         return view('backend.blog.create',compact('categories','tags'));
     }
 

@@ -27,37 +27,31 @@
             .check-label:first-letter {
                 text-transform: uppercase
             }
-            .select2-selection__choice__remove{
-                color: #fff!important;
-                text-transform: uppercase;
-
+            .most-used-list ul {
+                margin: 0;
+                padding: 0;
             }
-            .select2-selection__choice{
+            .most-used-list ul li{
                 display: inline-block;
-                vertical-align: initial;
-                border-radius: 7px!important;
-                font-size: 11px;
-                font-weight: 400;
-                margin-right: 3.75px;
-                margin-bottom: 3.75px;
-                margin-top: 2px;
-                background-color: #405189!important;
-                border: 1px solid #405189!important;
-                word-break: break-all;
-                -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-                color: #fff;
-                -webkit-box-shadow: none;
-                box-shadow: none;
+                margin-right: 8px;
             }
 
-            .select2-container--default .select2-selection--multiple .select2-selection__choice{
-                padding: 5px;
-            }
-            .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
-                font-size: 1.4em!important;
-                font-weight: bold;
-                padding: 5px 5px 5px 20px;
+            .suggestions button{
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+                background: none;
+                outline: none;
+                text-align: left;
+                color: #007cba;
+                text-decoration: underline;
+                transition-property: border,background,color;
+                transition-duration: .05s;
+                transition-timing-function: ease-in-out;
+                height: auto;
             }
 
     </style>
@@ -256,7 +250,6 @@
                                                 <option value="{{$tag->id}}">{{$tag->name}}</option>
                                             @endforeach
                                         @endif
-
                                     </select>
                                 </div>
                             </div>
@@ -313,18 +306,15 @@
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
 <script>
-    const choices = new Choices('[data-trigger]');
     document.addEventListener('DOMContentLoaded', function() {
         var genericExamples = document.querySelectorAll('[data-trigger]');
         for (i = 0; i < genericExamples.length; ++i) {
             var element = genericExamples[i];
             new Choices(element, {
-                allowHTML: true,
-                placeholderValue: 'This is a placeholder set in the config',
+                placeholderValue: 'Select tags',
                 searchPlaceholderValue: 'This is a search placeholder',
             });
         }
     });
-
 </script>
 @endsection

@@ -26,6 +26,32 @@
             .check-label:first-letter {
                 text-transform: uppercase
             }
+            .most-used-list ul {
+                margin: 0;
+                padding: 0;
+            }
+            .most-used-list ul li{
+                display: inline-block;
+                margin-right: 8px;
+            }
+
+            .suggestions button{
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+                background: none;
+                outline: none;
+                text-align: left;
+                color: #007cba;
+                text-decoration: underline;
+                transition-property: border,background,color;
+                transition-duration: .05s;
+                transition-timing-function: ease-in-out;
+                height: auto;
+            }
     </style>
 @endsection
 @section('content')
@@ -273,14 +299,13 @@
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 <script>
-    const choices = new Choices('[data-trigger]');
     document.addEventListener('DOMContentLoaded', function() {
         var genericExamples = document.querySelectorAll('[data-trigger]');
         for (i = 0; i < genericExamples.length; ++i) {
             var element = genericExamples[i];
             new Choices(element, {
                 allowHTML: true,
-                placeholderValue: 'This is a placeholder set in the config',
+                placeholderValue: 'select tags',
                 searchPlaceholderValue: 'This is a search placeholder',
             });
         }
