@@ -114,7 +114,7 @@
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
-                                    <textarea class="form-control snow-editor" id="ckeditor-classic"name="description" placeholder="Enter blog description" rows="3" required></textarea>
+                                    <textarea class="form-control snow-editor" id="ckeditor-classic" name="description" placeholder="Enter blog description" rows="3" required></textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
@@ -245,17 +245,18 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="post-tags-input">TAGS</label>
                                     <select
                                         data-trigger
                                         class="form-control"
                                         name="tags[]"
                                         id="tags_list"
                                         multiple>
-                                        <option value="Choice 1" selected>Choice 1</option>
-                                        <option value="Choice 2">Choice 2</option>
-                                        <option value="Choice 3">Choice 3</option>
-                                        <option value="Choice 4">Choice 4</option>
+                                        @if(!empty(@$tags))
+                                            @foreach(@$tags as $tag)
+                                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                            @endforeach
+                                        @endif
+
                                     </select>
                                 </div>
                             </div>

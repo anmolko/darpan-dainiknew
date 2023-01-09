@@ -16,13 +16,22 @@ class Blog extends Model
         return $this->belongsToMany('App\Models\Category');
     }
 
+    public function tags(){
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
     public function publishedDateNepali(){
         $date = $this->created_at;
         $convert = Bsdate::eng_to_nep($date->year,$date->month,$date->day);
         return $convert['year'].' '.$convert['nmonth'].' '.$convert['date'].' गते '.$this->toNepaliString(Date::parse($this->created_at)->format('h:i'));
     }
+
     public function hasCategory($categoryid){
         return $this->categories()->where('category_id',$categoryid)->count()>0;
+    }
+
+    public function hasTag($tagid){
+        return $this->tags()->where('tag_id',$tagid)->count()>0;
     }
 
 }

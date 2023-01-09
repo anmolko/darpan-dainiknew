@@ -7,6 +7,7 @@ use App\Http\Requests\BlogUpdateRequest;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -46,7 +47,8 @@ class BlogController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name', 'asc')->get();
-        return view('backend.blog.create',compact('categories'));
+        $tags       = Tag::orderBy('name', 'asc')->get();
+        return view('backend.blog.create',compact('categories','tags'));
     }
 
     /**
@@ -94,6 +96,7 @@ class BlogController extends Controller
         $blog = Blog::create($data);
         if($blog){
             $blog->categories()->attach($request->category_id);
+            $blog->tags()->attach($request->tags);
             Session::flash('success','Your blog was created successfully');
         }
         else{
@@ -124,7 +127,8 @@ class BlogController extends Controller
     {
         $edit       = Blog::find($id);
         $categories = Category::orderBy('name', 'asc')->get();
-        return view('backend.blog.edit',compact('edit','categories'));
+        $tags       = Tag::orderBy('name', 'asc')->get();
+        return view('backend.blog.edit',compact('edit','categories','tags'));
     }
 
     /**
@@ -172,6 +176,7 @@ class BlogController extends Controller
         $status = $blog->update();
         if($status){
              $blog->categories()->sync($request->category_id);
+             $blog->tags()->sync($request->tags);
             Session::flash('success','Your Post was updated successfully');
         }
         else{

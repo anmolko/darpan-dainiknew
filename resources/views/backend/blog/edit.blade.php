@@ -200,6 +200,34 @@
                         </div>
 
                         <div class="card">
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Tags</h4>
+                                <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-soft-primary btn-sm cs-tags-add"  cs-create-route="{{route('tag.store')}}">
+                                        Add New
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <select
+                                        data-trigger
+                                        class="form-control"
+                                        name="tags[]"
+                                        id="tags_list"
+                                        multiple>
+                                        @if(!empty(@$tags))
+                                            @foreach(@$tags as $tag)
+                                                <option value="{{$tag->id}}" {{ ($edit->hasTag($tag->id)) ? "selected":"" }}>{{$tag->name}}</option>
+                                            @endforeach
+                                        @endif
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">Feature Image</h5>
                             </div>
@@ -244,4 +272,19 @@
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
+<script>
+    const choices = new Choices('[data-trigger]');
+    document.addEventListener('DOMContentLoaded', function() {
+        var genericExamples = document.querySelectorAll('[data-trigger]');
+        for (i = 0; i < genericExamples.length; ++i) {
+            var element = genericExamples[i];
+            new Choices(element, {
+                allowHTML: true,
+                placeholderValue: 'This is a placeholder set in the config',
+                searchPlaceholderValue: 'This is a search placeholder',
+            });
+        }
+    });
+
+</script>
 @endsection
