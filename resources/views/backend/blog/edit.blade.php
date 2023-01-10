@@ -1,9 +1,14 @@
 @extends('backend.layouts.master')
 @section('title', "Edit Blog")
 @section('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
+        /*.ck-editor__editable_inline {*/
+        /*    height: 500px;*/
+        /*}*/
             .blog-feature-image{
             }
             .feature-image-button{
@@ -228,20 +233,14 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Tags</h4>
-                                <div class="flex-shrink-0">
-                                    <button type="button" class="btn btn-soft-primary btn-sm cs-tags-add"  cs-create-route="{{route('tag.store')}}">
-                                        Add New
-                                    </button>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
                                     <select
-                                        data-trigger
                                         class="form-control"
                                         name="tags[]"
                                         id="tags_list"
-                                        multiple>
+                                        multiple="multiple">
                                         @if(!empty(@$tags))
                                             @foreach(@$tags as $tag)
                                                 <option value="{{$tag->id}}" {{ ($edit->hasTag($tag->id)) ? "selected":"" }}>{{$tag->name}}</option>
@@ -288,28 +287,30 @@
         <!-- container-fluid -->
         </div>
     </div>
-    @include('backend.blog.category_modal')
 
+{{--    @if(count($tagcount)>0)--}}
+{{--        <div class="most-used-list">--}}
+{{--            <h3 class="card-title">Most Used</h3>--}}
+{{--            <ul role="list" class="suggestions">--}}
+{{--                @foreach(@$tagcount as $tc)--}}
+{{--                    <li><button type="button" class="most-used-val" value="{{@$tc->name}}">{{@$tc->name}}</button></li>--}}
+{{--                @endforeach--}}
+
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 @endsection
 
 @section('js')
 @include('backend.ckeditor')
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
-<script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var genericExamples = document.querySelectorAll('[data-trigger]');
-        for (i = 0; i < genericExamples.length; ++i) {
-            var element = genericExamples[i];
-            new Choices(element, {
-                allowHTML: true,
-                placeholderValue: 'select tags',
-                searchPlaceholderValue: 'This is a search placeholder',
-            });
-        }
-    });
+
 
 </script>
 @endsection

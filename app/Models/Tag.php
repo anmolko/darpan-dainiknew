@@ -9,7 +9,7 @@ class Tag extends Model
 {
     use HasFactory;
     protected $table ='tags';
-    protected $fillable = ['id','name','slug','description','count','created_by','updated_by'];
+    protected $fillable = ['id','name','slug','description','created_by','updated_by'];
 
     public function blogs(){
         return $this->belongsToMany('App\Models\Blog');

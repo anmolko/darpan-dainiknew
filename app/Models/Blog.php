@@ -10,7 +10,7 @@ class Blog extends Model
     use HasFactory;
 
     protected $table ='blogs';
-    protected $fillable =['id','title','slug','description','status','image','meta_title','meta_tags','meta_description','created_by','updated_by'];
+    protected $fillable =['id','title','slug','excerpt','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];
 
     public function categories(){
         return $this->belongsToMany('App\Models\Category');
