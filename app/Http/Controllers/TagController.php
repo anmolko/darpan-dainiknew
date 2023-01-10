@@ -52,13 +52,13 @@ class TagController extends Controller
             $status ='slug duplicate';
             return response()->json(['status'=>$status,'message'=>'This tag slug is already in use. Try something different.']);
         }else{
-            $category               =  Tag::create([
+            $newtags               =  Tag::create([
                 'name'              => $request->input('name'),
                 'slug'              => $request->input('slug'),
                 'description'       => $request->input('description'),
                 'created_by'        => Auth::user()->id,
             ]);
-            if($category){
+            if($newtags){
                 $tag   = Tag::latest()->first();
                 $count = $tag->BlogsCount();
                 $status ='success';
@@ -143,5 +143,33 @@ class TagController extends Controller
         $blogs    = $tag->blogs;
 
         return view('backend.blog.index',compact('blogs','tag'));
+    }
+
+    public function tagsdynamic(Request $request)
+    {
+//        dd($request->all());
+        $incomingSlug   = str_replace(' ', '-', $request->input('name'));
+        $slug           = Tag::where('slug',$incomingSlug)->first();
+        if ($slug !== null) {
+            $status ='slug duplicate';
+            return response()->json(['status'=>$status,'message'=>'This tag slug is already in use. Please select it from the list.']);
+        }else {
+            $tag = Tag::create([
+                'name' => $request->input('name'),
+                'slug' => $incomingSlug,
+                'description' => null,
+                'created_by' => Auth::user()->id,
+            ]);
+            if($tag){
+                $status ='success';
+                return response()->json(['status'=>$status,'message'=>'New Tag added to list.','tag'=>$tag]);
+            }
+            else{
+                $status ='error';
+                return response()->json(['status'=>$status,'message'=>'Could not create new Tag at the moment. Try Again later !']);
+            }
+        }
+
+
     }
 }

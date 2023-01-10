@@ -1,9 +1,17 @@
 @extends('backend.layouts.master')
 @section('title', "Edit Blog")
 @section('css')
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
+        /*.ck-editor__editable_inline {*/
+        /*    height: 500px;*/
+        /*}*/
             .blog-feature-image{
             }
             .feature-image-button{
@@ -87,7 +95,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="blog-title-input">Blog Title <span class="text-muted text-danger">*</span></label>
+                                    <label class="form-label" for="blog-title-input">Blog Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="blog-title-input" placeholder="Enter blog title"
                                            onclick="slugMaker('blog-title-input','blog-slug')"
                                            value="{{@$edit->title}}" required>
@@ -96,16 +104,22 @@
                                         </div>
                                 </div>
                                 <div class="mb-3">
-                                        <label>Slug <span class="text-muted text-danger">*</span></label>
+                                        <label>Slug <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter blog slug" value="{{@$edit->slug}}" required>
                                         <div class="invalid-feedback">
                                             Please enter the blog Slug.
                                         </div>
-                                    </div>
+                                </div>
+                                <div  class="mb-3">
+                                    <label class="form-label" for="meta-excerpt-input">Excerpt</label>
+                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="3">
+                                        {!! @$edit->excerpt  !!}
+                                    </textarea>
+                                </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
-                                    <textarea class="form-control" id="ckeditor-classic" name="description" placeholder="Enter blog description" rows="3" required>{{@$edit->description}}</textarea>
+                                    <textarea class="form-control" id="editor-classic" name="description" placeholder="Enter blog description" rows="3" required>{{@$edit->description}}</textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
@@ -143,7 +157,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="meta-keywords-input">Meta Keywords</label>
+                                                    <label class="form-label" for="meta-keywords-input">Meta Keywords <span class="text-muted fs-10">Press enter after each keyword.</span></label>
                                                     <input type="text" class="form-control" placeholder="Enter meta keywords" name="meta_tags" id="meta-keywords-input" value="{{@$edit->meta_tags}}" data-choices data-choices-text-unique-true>
                                                 </div>
                                             </div>
@@ -177,7 +191,7 @@
 
                         <div class="card ">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Publish</h5>
+                                <h5 class="card-title mb-0">Status</h5>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -193,7 +207,32 @@
                             </div>
                             <!-- end card body -->
                         </div>
-                        <!-- end card -->
+
+                        {{--Feature post--}}
+                        <div class="card ">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Feature Post</h5>
+                                <span class="text-muted">Choose start/end date for post to be featured.</span>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group mb-3">
+                                    <label for="start_date" class="form-label">Start Date </label>
+                                    <input type="text" class="form-control" name="featured_from" id="featured_from" value="{{@$start}}">
+                                    <div class="invalid-feedback">
+                                        Please Select the start date.
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="end_date" class="form-label">End Date </label>
+                                    <input type="text" class="form-control" name="featured_to" id="featured_to" value="{{@$end}}">
+                                    <div class="invalid-feedback">
+                                        Please Select the end date.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
 
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
@@ -228,20 +267,14 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Tags</h4>
-                                <div class="flex-shrink-0">
-                                    <button type="button" class="btn btn-soft-primary btn-sm cs-tags-add"  cs-create-route="{{route('tag.store')}}">
-                                        Add New
-                                    </button>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
                                     <select
-                                        data-trigger
                                         class="form-control"
                                         name="tags[]"
                                         id="tags_list"
-                                        multiple>
+                                        multiple="multiple">
                                         @if(!empty(@$tags))
                                             @foreach(@$tags as $tag)
                                                 <option value="{{$tag->id}}" {{ ($edit->hasTag($tag->id)) ? "selected":"" }}>{{$tag->name}}</option>
@@ -288,28 +321,48 @@
         <!-- container-fluid -->
         </div>
     </div>
-    @include('backend.blog.category_modal')
 
+{{--    @if(count($tagcount)>0)--}}
+{{--        <div class="most-used-list">--}}
+{{--            <h3 class="card-title">Most Used</h3>--}}
+{{--            <ul role="list" class="suggestions">--}}
+{{--                @foreach(@$tagcount as $tc)--}}
+{{--                    <li><button type="button" class="most-used-val" value="{{@$tc->name}}">{{@$tc->name}}</button></li>--}}
+{{--                @endforeach--}}
+
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 @endsection
 
 @section('js')
-@include('backend.ckeditor')
+{{--@include('backend.ckeditor')--}}
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
-<script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var genericExamples = document.querySelectorAll('[data-trigger]');
-        for (i = 0; i < genericExamples.length; ++i) {
-            var element = genericExamples[i];
-            new Choices(element, {
-                allowHTML: true,
-                placeholderValue: 'select tags',
-                searchPlaceholderValue: 'This is a search placeholder',
-            });
-        }
-    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
+<script type="text/javascript">
+    $(function() {
+        $('#featured_from').datepicker({
+            autoclose: "true",
+            clearBtn:"true",
+            format:"dd/mm/yyyy",
+            todayHighlight: "true",
+        });
+        $('#featured_to').datepicker({
+            autoclose: "true",
+            clearBtn:"true",
+            format:"dd/mm/yyyy",
+            todayHighlight: "true",
+        });
+        var quill = new Quill('#editor-classic', {
+            theme: 'snow',
+
+        });
+    });
 </script>
 @endsection

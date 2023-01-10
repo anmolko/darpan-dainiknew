@@ -117,7 +117,6 @@
     ClassicEditor
         .create( document.querySelector( '#ckeditor-classic' ), {
 
-            extraPlugins: [ SimpleUploadAdapterPlugin ],
             ckfinder: {
                 openerMethod: 'popup',
                 uploadUrl: '/ckfinder/connector.php?command=QuickUpload&type=Images&responseType=json',

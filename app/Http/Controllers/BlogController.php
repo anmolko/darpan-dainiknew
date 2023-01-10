@@ -8,6 +8,7 @@ use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -48,7 +49,6 @@ class BlogController extends Controller
     {
         $categories = Category::orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
-//        $tagcount   = Tag::withCount('blogs')->take(5)->get();
         return view('backend.blog.create',compact('categories','tags'));
     }
 
@@ -60,15 +60,20 @@ class BlogController extends Controller
      */
     public function store(BlogCreateRequest $request)
     {
-//        dd($request->all());
+
+        $end     = Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d');
+        $start   = Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d');
         $data=[
             'title'             => $request->input('title'),
             'slug'              => $request->input('slug'),
             'description'       => $request->input('description'),
+            'excerpt'           => $request->input('excerpt'),
             'status'            => $request->input('status'),
             'meta_title'        => $request->input('meta_title'),
             'meta_tags'         => $request->input('meta_tags'),
             'meta_description'  => $request->input('meta_description'),
+            'featured_from'     => $start,
+            'featured_to'       => $end,
             'created_by'        => Auth::user()->id,
         ];
 
@@ -98,10 +103,10 @@ class BlogController extends Controller
         if($blog){
             $blog->categories()->attach($request->category_id);
             $blog->tags()->attach($request->tags);
-            Session::flash('success','Your blog was created successfully');
+            Session::flash('success','Your post was created successfully');
         }
         else{
-            Session::flash('error','Your Blog Creation Failed');
+            Session::flash('error','Your post Creation Failed');
         }
 
         return redirect()->route('blog.index');
@@ -129,7 +134,9 @@ class BlogController extends Controller
         $edit       = Blog::find($id);
         $categories = Category::orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
-        return view('backend.blog.edit',compact('edit','categories','tags'));
+        $start      = Carbon::createFromFormat('Y-m-d', $edit->featured_from)->format('d/m/Y');
+        $end        = Carbon::createFromFormat('Y-m-d', $edit->featured_to)->format('d/m/Y');
+        return view('backend.blog.edit',compact('edit','categories','tags','start','end'));
     }
 
     /**
@@ -141,15 +148,21 @@ class BlogController extends Controller
      */
     public function update(BlogUpdateRequest $request, $id)
     {
+        $end     = Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d');
+        $start   = Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d');
+
         $blog                      =  Blog::find($id);
         $blog->title               =  $request->input('title');
         $blog->slug                =  $request->input('slug');
         $blog->description         =  $request->input('description');
+        $blog->excerpt             =  $request->input('excerpt');
         $blog->status              =  $request->input('status');
         $blog->meta_title          =  $request->input('meta_title');
         $blog->meta_tags           =  $request->input('meta_tags');
         $blog->meta_description    =  $request->input('meta_description');
-        $blog->updated_by          = Auth::user()->id;
+        $blog->featured_from       =  $start;
+        $blog->featured_to         =  $end;
+        $blog->updated_by          =  Auth::user()->id;
 
         $oldimage                  = $blog->image;
         $thumbimage                = 'thumb_'.$blog->image;
@@ -178,10 +191,10 @@ class BlogController extends Controller
         if($status){
              $blog->categories()->sync($request->category_id);
              $blog->tags()->sync($request->tags);
-            Session::flash('success','Your Post was updated successfully');
+            Session::flash('success','Your post was updated successfully');
         }
         else{
-            Session::flash('error','Something Went Wrong. Your Post could not be Updated');
+            Session::flash('error','Something Went Wrong. Your post could not be Updated');
         }
         return redirect()->route('blog.index');
     }

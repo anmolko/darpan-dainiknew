@@ -1,10 +1,15 @@
 @extends('backend.layouts.master')
 @section('title', "New Post")
 @section('css')
-    /*<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />*/
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
+            .cke_contents {
+                height: 600px!important;
+            }
 
             .feature-image-button{
                 position: absolute;
@@ -89,7 +94,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="blog-title-input">Post Title <span class="text-muted text-danger">*</span></label>
+                                    <label class="form-label" for="blog-title-input">Post Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="blog-title-input"
                                            onclick="slugMaker('blog-title-input','blog-slug')"
                                            placeholder="Enter blog title"
@@ -99,12 +104,16 @@
                                         </div>
                                 </div>
                                 <div class="mb-3">
-                                        <label>Slug <span class="text-muted text-danger">*</span></label>
+                                        <label>Slug <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter post slug" required>
                                         <div class="invalid-feedback">
                                             Please enter the blog Slug.
                                         </div>
-                                    </div>
+                                </div>
+                                <div  class="mb-3">
+                                    <label class="form-label" for="meta-excerpt-input">Excerpt</label>
+                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="3"></textarea>
+                                </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
@@ -118,7 +127,7 @@
                         </div>
                         <!-- end card -->
 
-
+                        {{--meta details--}}
                         <div class="card">
                             <div class="card-header">
                                 <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
@@ -146,9 +155,10 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="meta-keywords-input">Meta Keywords</label>
+                                                    <label class="form-label" for="meta-keywords-input">Meta Keywords <span class="text-muted fs-10">Press enter after each keyword.</span></label>
                                                     <input type="text" class="form-control" placeholder="Enter meta keywords" name="meta_tags" id="meta-keywords-input" data-choices data-choices-text-unique-true>
                                                 </div>
+
                                             </div>
                                             <!-- end col -->
                                         </div>
@@ -178,9 +188,11 @@
                 <div class="col-lg-4 ">
                     <div class="sticky-side-div">
 
+                        {{--Post status--}}
+
                         <div class="card ">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Publish</h5>
+                                    <h5 class="card-title mb-0">Status</h5>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -191,14 +203,37 @@
                                         <option value="draft">Draft</option>
                                     </select>
                                 </div>
-
-
                             </div>
                             <!-- end card body -->
                         </div>
-                        <!-- end card -->
 
+                        {{--Feature post--}}
+                        <div class="card ">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Feature Post</h5>
+                                <span class="text-muted">Choose start/end date for post to be featured.</span>
 
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group mb-3">
+                                    <label for="start_date" class="form-label">Start Date </label>
+                                    <input type="text" class="form-control" name="featured_from" id="featured_from">
+                                    <div class="invalid-feedback">
+                                        Please Select the start date.
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="end_date" class="form-label">End Date </label>
+                                    <input type="text" class="form-control" name="featured_to" id="featured_to">
+                                    <div class="invalid-feedback">
+                                        Please Select the end date.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
+
+                        {{--Categories--}}
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Categories</h4>
@@ -228,33 +263,30 @@
                             </div>
                         </div>
 
+                        {{--Tags--}}
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Tags</h4>
-                                <div class="flex-shrink-0">
-                                    <button type="button" class="btn btn-soft-primary btn-sm cs-tags-add"  cs-create-route="{{route('tag.store')}}">
-                                        Add New
-                                    </button>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
                                     <select
-                                        data-trigger
                                         class="form-control"
                                         name="tags[]"
                                         id="tags_list"
-                                        multiple>
+                                        multiple="multiple">
                                         @if(!empty(@$tags))
                                             @foreach(@$tags as $tag)
                                                 <option value="{{$tag->id}}">{{$tag->name}}</option>
                                             @endforeach
                                         @endif
                                     </select>
+                                    <p class="text-muted mb-0">Select tag/create new one by typing and pressing enter.</p>
                                 </div>
                             </div>
                         </div>
 
+                        {{--Featured image--}}
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">Feature Image</h5>
@@ -277,7 +309,6 @@
                             </div>
                             <!-- end card body -->
                         </div>
-                        <!-- end card -->
 
                     </div>
                 </div>
@@ -296,25 +327,54 @@
 @endsection
 
 @section('js')
-@include('backend.ckeditor')
+{{--@include('backend.ckeditor')--}}
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
-{{--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 {{--<script src="{{asset('assets/backend/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>--}}
 
     <!-- Sweet Alerts js -->
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var genericExamples = document.querySelectorAll('[data-trigger]');
-        for (i = 0; i < genericExamples.length; ++i) {
-            var element = genericExamples[i];
-            new Choices(element, {
-                placeholderValue: 'Select tags',
-                searchPlaceholderValue: 'This is a search placeholder',
-            });
-        }
-    });
+<script type="text/javascript">
+    $(function() {
+        $('#featured_from').datepicker({
+            autoclose: "true",
+            clearBtn:"true",
+            format:"dd/mm/yyyy",
+            todayHighlight: "true",
+        });
+        $('#featured_to').datepicker({
+            autoclose: "true",
+            clearBtn:"true",
+            format:"dd/mm/yyyy",
+            todayHighlight: "true",
+        });
+
+
+        var route_prefix = "/auth/darpan-filemanager";
+
+        // lfm('cke_button__image', 'file', {prefix: route_prefix});
+
+
+
+        var options = {
+            filebrowserImageBrowseUrl: '/auth/darpan-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/auth/darpan-filemanager/upload?type=Images&_token={{csrf_token()}}',
+            filebrowserBrowseUrl: '/auth/darpan-filemanager?type=Files',
+            filebrowserUploadUrl: '/auth/darpan-filemanager/upload?type=Files&_token={{csrf_token()}}'
+        };
+        CKEDITOR.replace( 'ckeditor-classic', options );
+
+
+
+
+
+        });
+
+
 </script>
 @endsection

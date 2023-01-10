@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use UniSharp\LaravelFilemanager\Lfm;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +110,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::delete('/tags/{tag}', 'App\Http\Controllers\TagController@destroy')->name('tag.destroy');
     Route::get('/tags/{tag}/edit', 'App\Http\Controllers\TagController@edit')->name('tag.edit');
     Route::get('/tags/{tag}/blog', 'App\Http\Controllers\TagController@blogs')->name('tag.blog');
+    Route::post('/mold/tag/viaJquery', 'App\Http\Controllers\TagController@tagsdynamic')->name('tag.dynamic');
     //End of Blog categories
 
     //Ads Tag
@@ -194,6 +196,9 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of teams
 
+    Route::group(['prefix' => 'darpan-filemanager', 'middleware' => ['auth']], function () {
+        Lfm::routes();
+    });
 
 
 });
@@ -201,6 +206,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
 Route::get('/{page}', 'App\Http\Controllers\FrontController@page')
         ->name('page');
+
 
 Auth::routes();
 
