@@ -22,6 +22,7 @@ class CreateMenuItemsTable extends Migration
             $table->string('target')->nullable();
             $table->integer('page_id')->nullable();
             $table->integer('blog_id')->nullable();
+            $table->integer('category_id')->nullable();
             $table->unsignedBigInteger('menu_id');
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();

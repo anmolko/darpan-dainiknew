@@ -138,30 +138,30 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingBrands">
                                     <button class="accordion-button bg-transparent shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseBrands" aria-expanded="false" aria-controls="flush-collapseBrands">
-                                        <span class="text-muted text-uppercase fs-12 fw-medium">Services </span> <span class="badge bg-success rounded-pill align-middle ms-1">{{count($services)}}</span>
+                                        <span class="text-muted text-uppercase fs-12 fw-medium">Category </span> <span class="badge bg-success rounded-pill align-middle ms-1">{{count($category)}}</span>
                                     </button>
                                 </h2>
 
                                 <div id="flush-collapseBrands" class="accordion-collapse collapse" aria-labelledby="flush-headingBrands" style="">
-                                    <div class="accordion-body {{(count($menus) == 0) ? 'disabled':''}} text-body pt-0" id="service-list">
+                                    <div class="accordion-body {{(count($menus) == 0) ? 'disabled':''}} text-body pt-0" id="category-list">
                                         <div class="d-flex flex-column gap-2 mt-3">
-                                            @if(count($services) !== 0)
-                                                @foreach($services as $service)
-                                                    <div class="form-check form-check-outline form-check-success {{(in_array($service->slug, $slug_to_disable)) ? 'disabled':''}}">
-                                                        <input class="form-check-input" type="checkbox" id="service-{{$service->id}}" value="{{$service->id}}" name="select-service[]" {{(count($menus) == 0 || in_array($service->slug, $slug_to_disable)) ? 'disabled':''}}>
-                                                        <label class="form-check-label {{(in_array($service->slug, $slug_to_disable)) ? 'disabled':''}}" for="service-{{$service->id}}"> {{ucfirst($service->title)}}</label>
+                                            @if(count($category) !== 0)
+                                                @foreach($category as $cat)
+                                                    <div class="form-check form-check-outline form-check-success {{(in_array($cat->slug, $slug_to_disable)) ? 'disabled':''}}">
+                                                        <input class="form-check-input" type="checkbox" id="category-{{$cat->id}}" value="{{$cat->id}}" name="select-category[]" {{(count($menus) == 0 || in_array($cat->slug, $slug_to_disable)) ? 'disabled':''}}>
+                                                        <label class="form-check-label {{(in_array($cat->slug, $slug_to_disable)) ? 'disabled':''}}" for="category-{{$cat->id}}"> {{ucfirst($cat->name)}}</label>
                                                     </div>
                                                 @endforeach
                                             @else
                                                 <div class="pb-2">
-                                                    <span class="h6">Please <a href="{{route('services.index')}}">create a service</a> to add in menu.</span>
+                                                    <span class="h6">Please <a href="{{route('blogcategory.index')}}">create a Category</a> to add in menu.</span>
                                                 </div>
                                             @endif
 
 
-                                            <div class="{{(count($services) == 0) ? 'disabled':''}}">
+                                            <div class="{{(count($category) == 0) ? 'disabled':''}}">
                                                 <label class="btn btn-light btn-sm bg-gradient waves-effect waves-light text-decoration-none"><input type="checkbox" id="select-all-services" class="hidden"> Select All</label>
-                                                <button type="button" class="pull-right btn btn-light bg-gradient waves-effect waves-light btn-sm text-decoration-none pull-right" id="add-service">Add to Menu</button>
+                                                <button type="button" class="pull-right btn btn-light bg-gradient waves-effect waves-light btn-sm text-decoration-none pull-right" id="add-category">Add to Menu</button>
                                             </div>
                                         </div>
                                     </div>
@@ -619,11 +619,11 @@
 
         $('#select-all-services').click(function(event) {
             if(this.checked) {
-                $('#service-list :checkbox:not(:disabled)').each(function() {
+                $('#category-list :checkbox:not(:disabled)').each(function() {
                     this.checked = true;
                 });
             }else{
-                $('#service-list :checkbox:not(:disabled)').each(function() {
+                $('#category-list :checkbox:not(:disabled)').each(function() {
                     this.checked = false;
                 });
             }
@@ -670,10 +670,10 @@
                 });
             });
 
-            $('#add-service').click(function(){
+            $('#add-category').click(function(){
                 var menuid  = "{{$desiredMenu->id}}";
-                var n       = $('input[name="select-service[]"]:checked').length;
-                var array   = $('input[name="select-service[]"]:checked');
+                var n       = $('input[name="select-category[]"]:checked').length;
+                var array   = $('input[name="select-category[]"]:checked');
                 var ids     = [];
 
                 if(n == 0){
@@ -691,7 +691,7 @@
                 $.ajax({
                     type:"get",
                     data: {menuid:menuid,ids:ids},
-                    url: "{{route('menu.service')}}",
+                    url: "{{route('menu.category')}}",
                     success:function(res){
                         location.reload();
                     }

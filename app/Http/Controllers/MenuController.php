@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Page;
@@ -24,7 +25,7 @@ class MenuController extends Controller
         $desiredMenu        = '';
         $menuTitle          = '';
         $pages              = Page::all();
-        $services           = Service::all();
+        $category           = Category::all();
         $menus              = Menu::all();
         $blogs              = Blog::all();
         if(isset($_GET['slug']) && $_GET['slug'] != 'new'){
@@ -115,7 +116,7 @@ class MenuController extends Controller
             }
         }
 
-        return view('backend.menu.index',compact('pages','services','menuTitle','blogs','menus','desiredMenu','menuitems'));
+        return view('backend.menu.index',compact('pages','category','menuTitle','blogs','menus','desiredMenu','menuitems'));
 
     }
 
@@ -218,9 +219,9 @@ class MenuController extends Controller
             foreach($ids as $id){
                 $page = Page::find($id);
                 $data =[
-                    'title'          => $page->name,
+                    'title'         => $page->name,
                     'slug'          => $page->slug,
-                    'page_id'        => $id,
+                    'page_id'       => $id,
                     'type'          => 'page',
                     'menu_id'       => $menuid,
                     'created_by'    => Auth::user()->id,
@@ -263,7 +264,7 @@ class MenuController extends Controller
         }
     }
 
-    public function addService(Request $request){
+    public function addCategory(Request $request){
         $data       = $request->all();
         $menuid     = $request->menuid;
         $ids        = $request->ids;
@@ -271,12 +272,12 @@ class MenuController extends Controller
         if($menu->content == ''){
 //            dd('content empty');
             foreach($ids as $id){
-                $service = Service::find($id);
+                $category = Category::find($id);
                 $data = [
-                    'title'          => $service->title,
-                    'slug'           => $service->slug,
-                    'service_id'     => $id,
-                    'type'           => 'service',
+                    'title'          => $category->name,
+                    'slug'           => $category->slug,
+                    'category_id'     => $id,
+                    'type'           => 'category',
                     'menu_id'        => $menuid,
                     'created_by'     => Auth::user()->id,
                 ];
@@ -287,23 +288,23 @@ class MenuController extends Controller
         else{
             $olddata = json_decode($menu->content,true);
             foreach($ids as $id){
-                $service = Service::find($id);
+                $category = Category::find($id);
                 $data =[
-                    'title'         => $service->title,
-                    'slug'          => $service->slug,
-                    'service_id'    => $id,
-                    'type'          => 'service',
+                    'title'         => $category->name,
+                    'slug'          => $category->slug,
+                    'category_id'    => $id,
+                    'type'          => 'category',
                     'menu_id'       => $menuid,
                     'created_by'    => Auth::user()->id,
                 ];
                 $status = MenuItem::create($data);
             }
             foreach($ids as $id){
-                $service = Service::find($id);
-                $array['title']         = $service->title;
-                $array['slug']          = $service->slug;
-                $array['service_id']    = $id;
-                $array['type']          = 'service';
+                $category = Category::find($id);
+                $array['title']         = $category->name;
+                $array['slug']          = $category->slug;
+                $array['category_id']    = $id;
+                $array['type']          = 'category';
                 $array['id']            = MenuItem::where('slug',$array['slug'])->where('type',$array['type'])->value('id');
                 $array['children']      = [[]];
                 array_push($olddata[0],$array);
@@ -312,9 +313,9 @@ class MenuController extends Controller
             }
         }
         if($status){
-            Session::flash('success','Service added in Menu');
+            Session::flash('success','Category added in Menu');
         }else{
-            Session::flash('error','Service could not be added in Menu');
+            Session::flash('error','Category could not be added in Menu');
         }
     }
 
