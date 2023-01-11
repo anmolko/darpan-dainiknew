@@ -19,7 +19,9 @@
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 /*-- Google Font --*/
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:300,400,500,600,700,800");
+@import "https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800";
+@import 'https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap";
 /*-- Common Style --*/
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
@@ -385,6 +387,9 @@ ul {
 /*-- Margin Bottom --*/
 .mb-5 {
   margin-bottom: 5px;
+}
+.margin-bottom-30 {
+  margin-bottom: 30px;
 }
 
 .mb-10 {
@@ -3854,13 +3859,7 @@ blockquote.blockquote.blockquote-bg p {
   width: 100%;
   padding: 20px;
 }
-.single-blog .blog-wrap {
-  /*-- Meta --*/
-  /*-- Title --*/
-  /*-- Image --*/
-  /*-- Content --*/
-  /*-- Tags & Social --*/
-}
+
 .single-blog .blog-wrap .meta {
   display: block;
   margin-bottom: 8px;
@@ -3871,14 +3870,18 @@ blockquote.blockquote.blockquote-bg p {
     margin-bottom: 0;
   }
 }
+.author{
+    font-weight: bold;
+}
+
 .single-blog .blog-wrap .meta .meta-item {
   display: block;
   float: left;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.75px;
   line-height: 30px;
   font-family: "Open Sans", sans-serif;
-  margin-left: 20px;
+  margin-right: 20px;
   /*-- Category --*/
 }
 @media only screen and (max-width: 767px) {
@@ -3898,12 +3901,18 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 10px;
   line-height: 30px;
 }
-.single-blog .blog-wrap .meta .meta-item img {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #e4e4e4;
-  border-radius: 50%;
-  margin-right: 10px;
+.single-blog .blog-wrap .meta .darpan-author img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid #e4e4e4;
+    border-radius: 50%;
+}
+.single-blog .blog-wrap .meta .date img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
 }
 .single-blog .blog-wrap .meta .meta-item.category {
   font-size: 12px;
@@ -3975,10 +3984,14 @@ blockquote.blockquote.blockquote-bg p {
   color: #00c8fa;
 }
 .single-blog .blog-wrap .title {
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 40px;
-  margin-bottom: 16px;
+    margin: 0 0 5px;
+    font-family: mukta,sans-serif;
+    font-size: 60px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #0c47a3;
+    transition: all .3s ease;
 }
 @media only screen and (max-width: 767px) {
   .single-blog .blog-wrap .title {
@@ -5342,5 +5355,52 @@ blockquote.blockquote.blockquote-bg p {
 
 .navigation-stick .header-search .header-search-form form input[type=text]{
     width: 125px;
+}
 
+.big-header{
+    padding: 10px 20px 10px 20px;
+}
+
+.sticky-header
+{
+    position: fixed;
+    width: 1270px;
+    top: 60px;
+    background-color: #fff;
+    z-index: 99;
+    padding: 12px 20px 18px 20px;
+}
+
+
+.sticky-header .header h1{
+    font-size: 36px!important;
+}
+.sticky-header .meta{
+    margin-bottom: -10px !important;
+
+}
+.sticky-header .meta .meta-item{
+  font-size: 14px!important;
+}
+.sticky-header .meta .darpan-author img{
+    width: 25px!important;
+    height: 25px!important;
+    margin-top: 5px;
+}
+.sticky-header .meta .darpan-author > span{
+    margin-top: 4px;
+}
+
+.news-hour-block >img, .ok-news-comment>img {
+    width: 18px;
+    margin-right: 5px;
+    margin-top: 5px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.news-hour-block >span, .ok-news-comment>span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: 500;
 }

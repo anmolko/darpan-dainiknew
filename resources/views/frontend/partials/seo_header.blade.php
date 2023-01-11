@@ -3,13 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Khobor - Modern Magazine & Newspaper HTML Template</title>
+    @if (\Request::is('/'))
+        <title>@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else दर्पण दैनिक @endif </title>
+    @else
+        <title>@yield('title') | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else दर्पण दैनिक  @endif </title>
+    @endif
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/frontend/img/favicon.ico')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/settings/'.@$setting_data->favicon)}}<?php }?>">
 
     @yield('seo')
+
     <!-- CSS
 	============================================ -->
     <!-- Bootstrap CSS -->
@@ -24,9 +29,20 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
     <!-- Modernizer JS -->
     <script src="{{asset('assets/frontend/js/vendor/modernizr-3.11.2.min.js')}}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{@$setting_data->google_analytics}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{@$setting_data->google_analytics}}');
+    </script>
+    @yield('css')
+    @stack('styles')
 </head>
 
 <body>
+
 
 <!-- Main Wrapper -->
 <div id="main-wrapper">
@@ -43,7 +59,7 @@
                     <ul class="header-links">
                         <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a></li>
                         <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>
-{{--                        <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>--}}
+                        {{--                        <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>--}}
                         <li><a href="#">Unicode to preeti</a></li>
                         <li><a href="#">Preeti to unicode</a></li>
                     </ul>
@@ -76,7 +92,9 @@
 
                 <!-- Header Logo -->
                 <div class="header-logo col-md-4 d-none d-md-block">
-                    <a href="/" class="logo"><img src="{{asset('assets/frontend/img/logo.png')}}" alt="Logo"></a>
+                    <a href="/" class="logo">
+                        <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                    </a>
                 </div>
 
                 <!-- Header Banner -->
@@ -101,7 +119,7 @@
 
                         <div class="sticky-logo-nav">
                             <a href="/" class="logo">
-                                <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
                             </a>
                         </div>
                         <!-- Main Menu Start -->
@@ -109,7 +127,9 @@
 
                             <nav>
                                 <ul>
+
                                     <li class="active"><a href="/">गृह पृष्ठ</a>
+
                                     </li>
                                     <li><a href="/">समाचार</a></li>
                                     <li><a href="/">प्रवाश</a></li>

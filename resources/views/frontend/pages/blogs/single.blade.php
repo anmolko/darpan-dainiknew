@@ -1,4 +1,5 @@
 @extends('frontend.layouts.seo_master')
+@section('title'){{ucfirst(@$singleBlog->title)}} @endsection
 @section('css')
     <style>
 
@@ -16,10 +17,18 @@
     .single-post  .elementor-top-section {
         padding: 0;
     }
+    .bottom{
+        top:auto;
+        bottom:0;
+        position:absolute;
+    }
+
+
+
     </style>
 @endsection
 @section('seo')
-    <title>{{ucfirst(@$singleBlog->title)}} | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Win Recruit Nepal @endif</title>
+    <title>{{ucfirst(@$singleBlog->title)}} | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else दर्पण दैनिक @endif</title>
     <meta name='description' itemprop='description'  content='{{ucfirst(@$singleBlog->meta_description)}}' />
     <meta name='keywords' content='{{ucfirst(@$singleBlog->meta_tags)}}' />
     <meta property='article:published_time' content='<?php if(@$singleBlog->updated_at !=''){?>{{@$singleBlog->updated_at}} <?php }else {?> {{@$singleBlog->created_at}} <?php }?>' />
@@ -37,84 +46,393 @@
 @endsection
 @section('content')
 
-        <!-- Page Banner Start -->
-        <section class="page-banner-area pt-245 rpt-150 pb-170 rpb-100 rel z-1 bgc-lighter text-center">
-            <div class="container">
-                <div class="banner-inner rpt-10">
-                    <!-- <h1 class="page-title wow fadeInUp delay-0-2s">{{ @$singleBlog->title }}</h1> -->
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url('/blog')}}">Blog</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('blog.category',$singleBlog->category->slug)}}">{{ucwords($singleBlog->category->name)}}</a></li>
-                            <li class="breadcrumb-item active">{{ @$singleBlog->title }}</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-            <div class="banner-shapes">
-                <div class="circle wow zoomInLeft delay-0-2s" data-wow-duration="2s"></div>
-                <img class="shape-one" src="{{asset('assets/frontend/images/shapes/hero-shape1.png')}}" alt="Shape">
-                <img class="shape-two" src="{{asset('assets/frontend/images/shapes/hero-shape2.png')}}" alt="Shape">
-            </div>
-        </section>
-        <!-- Page Banner End -->
-        
 
-             
-        <!-- Blog Details Area start -->
-        <section class="blog-details-area py-130 rel z-1">
-            <div class="container">
-                <div class="row medium-gap">
-                    <div class="col-lg-8">
-                        <div class="blog-details-content wow fadeInUp delay-0-2s">
-                            <div class="image mb-45">
-                                <img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="Blog ">
+
+
+
+    <!-- Blog Section Start -->
+    <div class="blog-section section">
+        <div class="container">
+
+            <!-- Feature Post Row Start -->
+            <div class="row">
+                <div class="col-lg-12 col-12 margin-bottom-30">
+
+                    <div class="single-blog big-header" id="sticky-me">
+                        <div class="blog-wrap header">
+                            <h1 class="title">{{ucfirst(@$singleBlog->title)}}</h1>
+
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                 <span class="meta-item darpan-post-time darpan-author">
+                                    <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
+                                    <span>दर्पण दैनिक</span>
+                                </span>
+                                <span class="meta-item news-hour-block">
+                                    <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
+                                    <span>२०७९ पुष २७ गते १४:०६</span>
+                                </span>
+
+                                <span>
+                                    <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
+                                </span>
+                                <span class="meta-item view">
+                                    <i class="fa fa-eye"></i>(3483)
+                                </span>
                             </div>
-                            <h3>{{ ucwords(@$singleBlog->title) }}</h3>
-                            <ul class="blog-meta mt-20 pb-30">
-                                <li>
-                                     <i class="fas fa-tasks-alt"></i>
-                                          <a href="{{url('/blog/categories/'.@$singleBlog->category->slug)}}">{{ucwords(@$singleBlog->category->name)}}</a>
-                                </li>
-                                <li>
-                                    <i class="far fa-calendar-alt"></i>
-                                    <a href="#">{{date('M j Y',strtotime(@$singleBlog->created_at))}}</a>
-                                </li>
-                                
-                            </ul>
-                            <div class="win-justify">
-                            {!! $singleBlog->description !!}
-                            </div>
+
+
+
 
                         </div>
-                        <div class="tag-share pt-40 pb-25 wow fadeInUp delay-0-2s">
-                            
-                            <div class="item">
-                                <h5>Share :</h5>
-                                <div class="social-style-three">
-                                    <a href="#"><i class="fab fa-facebook-f" onclick='fbShare("{{route('blog.single',$singleBlog->slug)}}")'></i></a>
-                                    <a href="#"><i class="fab fa-twitter"  onclick='twitShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
-                                    <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
+                    </div>
+                </div>
 
+                <div class="col-lg-8 col-12 mb-50">
+
+                        <div class="single-blog mb-50" id="main-content">
+                            <div class="blog-wrap">
+
+                                <div class="row mb-50">
+
+                                    <div class="col-12">
+
+                                        <a href="#" class="post-middle-banner">
+                                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
+                                        </a>
+
+                                    </div>
 
                                 </div>
+                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-132.jpg')}}" alt="post"></div>
+
+                                <!-- Content -->
+                                <div class="content">
+
+                                    <!-- Description -->
+                                    <p>There are many variations of passages of  have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br>
+                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+
+                                    <p><img class="float-start" src="{{asset('assets/frontend/img/post/post-133.jpg')}}" alt="post">
+                                        <span class="h4 italic d-block">It is a long established fact that a distracted by the readable content of a page looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</span>There are many variations of passages of  have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br>
+                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. <br> <br>
+                                        The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations. you need to be sure there isn't anything embarrassing</p>
+                                    <blockquote class="blockquote">
+                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                    </blockquote>
+                                    <p> <img class="float-end" src="{{asset('assets/frontend/img/post/post-134.jpg')}}" alt="post">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. <br><br>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br><br>
+                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful.</p>
+
+                                </div>
+
+                                <div class="tags-social float-start">
+
+                                    <div class="tags float-start">
+                                        <i class="fa fa-tags"></i>
+                                        <a href="#">Lifestyle,</a>
+                                        <a href="#">Woman,</a>
+                                        <a href="#">Cool</a>
+                                    </div>
+
+                                    <div class="blog-social float-end">
+                                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
+                                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
-               
-                       
-                       
-                    </div>
-                    <div class="col-lg-4 col-md-7 col-sm-9">
-                       @include('frontend.pages.blogs.sidebar')
 
-                  
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Blog Details Area end -->
+                        <!-- Previous & Next Post Start -->
+                        <div class="post-nav mb-50">
+                            <a href="#" class="prev-post"><span>previous post</span>he 10 Best Beauty Looks: Week of September 11, 2022.</a>
+                            <a href="#" class="next-post"><span>next post</span>The top 7 collections of New York fashion week.</a>
+                        </div><!-- Previous & Next Post End -->
 
+                        <!-- Post Author Start -->
+                        <div class="post-author fix mb-50">
+
+                            <div class="image float-start"><img src="{{asset('assets/frontend/img/post/post-author-1.jpg')}}" alt="post-author"></div>
+
+                            <div class="content fix">
+                                <h5><a href="#">Alex bin do</a></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur is fringillas. Sed cursus mi, ut auctor tellus  Curabitur susvenenatis.</p>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </div>
+                            </div>
+
+                        </div><!-- Post Author End -->
+
+                        <!-- Post Block Wrapper Start -->
+                        <div class="post-block-wrapper mb-50">
+
+                            <!-- Post Block Head Start -->
+                            <div class="head">
+
+                                <!-- Title -->
+                                <h4 class="title">You might also like!</h4>
+
+                            </div><!-- Post Block Head End -->
+
+                            <!-- Post Block Body Start -->
+                            <div class="body">
+
+                                <div class="two-column-post-carousel column-post-carousel post-block-carousel slick-space">
+
+                                    <div class="slick-slide">
+
+                                        <!-- Overlay Post Start -->
+                                        <div class="post post-overlay hero-post">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-48.jpg')}}" alt="post"></div>
+
+                                                <!-- Category -->
+                                                <a href="#" class="category gadgets">gadgets</a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+
+                                    </div>
+
+                                    <div class="slick-slide">
+
+                                        <!-- Overlay Post Start -->
+                                        <div class="post post-overlay hero-post">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-49.jpg')}}" alt="post"></div>
+
+                                                <!-- Category -->
+                                                <a href="#" class="category education">music</a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+
+                                    </div>
+
+                                    <div class="slick-slide">
+
+                                        <!-- Overlay Post Start -->
+                                        <div class="post post-overlay hero-post">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-135.jpg')}}" alt="post"></div>
+
+                                                <!-- Category -->
+                                                <a href="#" class="category fashion">fashion</a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="post-details.html">Fashion is about some thing that comes from with in you.</a></h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+
+                                    </div>
+
+                                </div>
+
+                            </div><!-- Post Block Body End -->
+
+                        </div><!-- Post Block Wrapper End -->
+
+                        <!-- Post Block Wrapper Start -->
+                        <div class="post-block-wrapper">
+
+                            <!-- Post Block Head Start -->
+                            <div class="head">
+
+                                <!-- Title -->
+                                <h4 class="title">Leave a Comment</h4>
+
+                            </div><!-- Post Block Head End -->
+
+                            <!-- Post Block Body Start -->
+                            <div class="body">
+
+                                <div class="post-comment-form">
+                                    <form action="#" class="row">
+
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label for="name">Name <sup>*</sup></label>
+                                            <input type="text" id="name">
+                                        </div>
+
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label for="email">Email <sup>*</sup></label>
+                                            <input type="text" id="email">
+                                        </div>
+
+                                        <div class="col-12 mb-20">
+                                            <label for="website">Website <sup>*</sup></label>
+                                            <input type="text" id="website">
+                                        </div>
+
+                                        <div class="col-12 mb-20">
+                                            <label for="message">Message <sup>*</sup></label>
+                                            <textarea id="message"></textarea>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <input type="submit" value="Submit Comment">
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div><!-- Post Block Body End -->
+
+                        </div><!-- Post Block Wrapper End -->
+
+                    </div>
+
+                <div class="col-lg-4 col-12 mb-50">
+                    <div class="row">
+
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Block Wrapper -->
+                            <div class="sidebar-block-wrapper">
+
+                                <!-- Sidebar Block Head Start -->
+                                <div class="head feature-head">
+
+                                    <!-- Title -->
+                                    <h4 class="title">Follow Us</h4>
+
+                                </div><!-- Sidebar Block Head End -->
+
+                                <!-- Sidebar Block Body Start -->
+                                <div class="body">
+
+                                    <div class="sidebar-social-follow">
+                                        <div>
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                <h3>40,583</h3>
+                                                <span>Fans</span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="google-plus">
+                                                <i class="fa fa-google-plus"></i>
+                                                <h3>36,857</h3>
+                                                <span>Followers</span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="twitter">
+                                                <i class="fa fa-twitter"></i>
+                                                <h3>50,883</h3>
+                                                <span>Followers</span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="dribbble">
+                                                <i class="fa fa-dribbble"></i>
+                                                <h3>4,743</h3>
+                                                <span>Followers</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div><!-- Sidebar Block Body End -->
+
+                            </div>
+
+                        </div>
+
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-1.jpg')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <div class="sidebar-subscribe">
+                                <h4>Subscribe To <br>Our <span>Update</span> News</h4>
+                                <p>Adipiscing elit. Fusce sed mauris arcu. Praesent ut augue imperdiet, semper lorem id.</p>
+                                <!-- Newsletter Form -->
+                                <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form validate" target="_blank" novalidate>
+                                    <div id="mc_embed_signup_scroll">
+                                        <label for="mce-EMAIL" class="d-none">Subscribe to our mailing list</label>
+                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email address" required>
+                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                                        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">submit</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div><!-- Sidebar End -->
+
+            </div><!-- Feature Post Row End -->
+
+        </div>
+    </div><!-- Blog Section End -->
 
 
 @endsection
@@ -131,5 +449,21 @@ function whatsappShare(url, title) {
     message = title + " " + url;
     window.open("https://api.whatsapp.com/send?text=" + message);
 }
+
+$(window).scroll(function () {
+    var threshold = 300;
+    if ($(window).scrollTop() >= threshold){
+        $('#sticky-me').addClass('sticky-header');
+    }else{
+        $('#sticky-me').removeClass('sticky-header');
+    }
+
+
+    var check = $("#main-content").height() + 250;
+    if ($(window).scrollTop() > check)
+        $('#sticky-me').addClass('bottom');
+    else
+        $('#sticky-me').removeClass('bottom');
+});
 </script>
 @endsection

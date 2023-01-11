@@ -14,9 +14,9 @@
 
     <meta property="og:site_name" content="@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else दर्पण दैनिक @endif " />
     <meta property="og:title" content="@if(!empty(@$setting_data->meta_title)) {{ucwords(@$setting_data->meta_title)}} @else दर्पण दैनिक @endif" />
-{{--    <meta property="og:url" content="https://darpandainik.com" />--}}
-{{--    <meta name="twitter:card" content="summary" />--}}
-{{--    <meta name="twitter:site" content="@darpandainik" />--}}
+    <meta property="og:url" content="https://darpandainik.com" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@darpandainik" />
     <meta property="og:description" content="@if(!empty(@$setting_data->meta_description)) {{ucwords(@$setting_data->meta_description)}} @else समाजको ऐना | Darpan Dainik aims to bring you the latest happenings in the society as they are seen. @endif" />
     <meta property="og:type" content="News website" />
     <meta property="og:image" content="{{asset('assets/backend/images/canosoft-logo.png')}}" />

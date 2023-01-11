@@ -92,7 +92,7 @@ class BlogController extends Controller
             $path           = base_path().'/public/images/blog/';
             $thumb_path     = base_path().'/public/images/blog/thumb/';
             $moved          = Image::make($image->getRealPath())->fit(1230, 790)->orientate()->save($path.$name);
-            $thumb          = Image::make($image->getRealPath())->fit(125, 95)->orientate()->save($thumb_path.$thumb);
+            $thumb          = Image::make($image->getRealPath())->fit(90, 90)->orientate()->save($thumb_path.$thumb);
 
             if ($moved && $thumb){
                 $data['image'] = $name;

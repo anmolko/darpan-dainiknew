@@ -34,4 +34,7 @@ class Blog extends Model
         return $this->tags()->where('tag_id',$tagid)->count()>0;
     }
 
+    public function url(){
+        return $this->created_at->year.'/'.$this->created_at->month.'/'.$this->slug;
+    }
 }
