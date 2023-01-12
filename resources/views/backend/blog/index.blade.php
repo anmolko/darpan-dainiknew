@@ -73,7 +73,7 @@
                                     </thead>
                                     <tbody id="blog-list">
                                         @if(!empty($blogs))
-                                            @foreach($blogs as  $blog)
+                                            @darpanloop($blogs as $blog)
                                                 <tr id="blog-individual-{{@$blog->id}}">
                                                     <td>
                                                         <img src="{{asset('/images/blog/'.@$blog->image)}}" alt="{{@$blog->slug}}" class="figure-img rounded-circle avatar-lg">
@@ -115,7 +115,7 @@
                                                                     <i class="ri-more-fill fs-17"></i>
                                                                 </a>
                                                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
-                                                                    <li><a class="dropdown-item" href="{{route('blog.single',$blog->slug)}}" target="_blank"><i class=" ri-eye-line align-middle"></i> Frontend View </a></li>
+                                                                    <li><a class="dropdown-item" href="{{ url($blog->url()) }}" target="_blank"><i class=" ri-eye-line align-middle"></i> Frontend View </a></li>
 
                                                                     <li><a class="dropdown-item" href="{{route('blog.edit',$blog->id)}}"><i class="ri-pencil-fill me-2 align-middle"></i>Edit</a></li>
                                                                     <li><a class="dropdown-item cs-blog-remove" cs-delete-route="{{route('blog.destroy',$blog->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>
@@ -125,7 +125,7 @@
 
                                                     </td>
                                                 </tr>
-                                            @endforeach
+                                            @enddarpanloop
                                         @endif
                                     </tbody>
                                 </table>

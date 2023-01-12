@@ -126,10 +126,13 @@ if (! function_exists('getNumericSlug')) {
     function getNumericSlug()
     {
         $blog = \App\Models\Blog::latest()->first();
+        $digits = 3;
         if($blog == null){
-            $slug = 1;
+            $slug = 'dd-'.'1'. str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
         }else{
-            $slug = $blog->id + 1;
+            $number = $blog->id + 1;
+            $slug = 'dd-'.$number.str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+
         }
         return $slug;
     }

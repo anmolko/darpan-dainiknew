@@ -43,7 +43,7 @@ Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 
 //blog
 Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');
-Route::get('blog/{slug}','App\Http\Controllers\FrontController@blogSingle')->name('blog.single');
+Route::get('/{year}/{month}/{slug}','App\Http\Controllers\FrontController@blogSingle')->name('blog.single');
 Route::get('/blog/categories/{slug}', 'App\Http\Controllers\FrontController@blogCategories')->name('blog.category');
 Route::get('/blog', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');

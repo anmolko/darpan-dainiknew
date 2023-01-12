@@ -10,7 +10,7 @@
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
         .cke_contents {
-            height: 1200px!important;
+            height: 900px!important;
         }
             .blog-feature-image{
             }
@@ -95,7 +95,7 @@
                     <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">General</h4>
                         <div class="flex-shrink-0">
-                            <a  href="{{route('blog.single',$edit->slug)}}" target="_blank" class="btn btn-soft-primary btn-sm"">
+                            <a  href="{{ url($edit->url()) }}" target="_blank" class="btn btn-soft-primary btn-sm"">
                                <i class=" ri-eye-line align-middle"></i> View in frontend
                             </a>
                         </div>
@@ -253,7 +253,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="mx-n3">
-                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
+                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 300px; padding: 0px 16px;" >
                                         <div class="list-group list-group-flush" id="category-list">
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)

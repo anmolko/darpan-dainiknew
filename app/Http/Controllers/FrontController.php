@@ -52,12 +52,9 @@ class FrontController extends Controller
 
     public function index()
     {
-        $countries          = CountryState::getCountries();
-        $homepage_info      = $this->home_page->first();
-        $testimonials       = Testimonial::orderBy('created_at', 'asc')->get();
         $latestPosts        = $this->blog->inRandomOrder()->take(4)->get();
 
-        return view('welcome',compact('testimonials','latestPosts','countries','homepage_info'));
+        return view('welcome',compact('testimonials','latestPosts','homepage_info'));
     }
 
 
@@ -248,9 +245,8 @@ class FrontController extends Controller
         return view('frontend.pages.blogs.index',compact('allPosts','latestPosts','bcategories'));
     }
 
-    public function blogSingle($slug){
-
-        $singleBlog = $this->blog->where('slug', $slug)->first();
+    public function blogSingle($year,$month,$slug){
+        $singleBlog = $this->blog->where('numeric_slug', $slug)->first();
         if (!$singleBlog) {
             return abort(404);
         }

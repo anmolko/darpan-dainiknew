@@ -154,7 +154,6 @@ class BlogController extends Controller
         $blog                      =  Blog::find($id);
         $blog->title               =  $request->input('title');
         $blog->slug                =  $request->input('slug');
-        $blog->numeric_slug        =  getNumericSlug();
         $blog->description         =  $request->input('description');
         $blog->excerpt             =  $request->input('excerpt');
         $blog->status              =  $request->input('status');

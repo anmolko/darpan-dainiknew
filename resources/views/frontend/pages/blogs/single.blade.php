@@ -115,14 +115,16 @@
                                         <a id="normal">अ</a>
                                         <a id="small">अ</a>
                                     </span>
-                                    <span class="categories float-end">
-                                        <i class="fa fa-tags"></i>
+                                    @if(count($singleBlog->categories)>0)
+                                        <span class="categories float-end">
+                                            <i class="fa fa-tags"></i>
 
-                                        @foreach($singleBlog->categories as $cat)
-                                            <a href="#">{{$cat->name}}</a>
-                                            {{($loop->last) ?"":"," }}
-                                        @endforeach
-                                    </span>
+                                            @foreach($singleBlog->categories as $cat)
+                                                <a href="#">{{$cat->name}}</a>
+                                                {{($loop->last) ?"":"," }}
+                                            @endforeach
+                                        </span>
+                                    @endif
 {{--                                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>--}}
                                 </div>
                                 <!-- Content -->
@@ -136,14 +138,16 @@
                                     <a href="#" class="post-middle-banner mb-4">
                                         <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
                                     </a>
-                                    <div class="tags float-start">
-                                        <i class="fa fa-tags"></i>
+                                    @if(count($singleBlog->tags)>0)
+                                        <div class="tags float-start">
+                                            <i class="fa fa-tags"></i>
 
-                                        @foreach($singleBlog->tags as $tag)
-                                            <a href="#">{{$tag->name}}</a>
-                                            {{($loop->last) ?"":"," }}
-                                        @endforeach
-                                    </div>
+                                            @foreach($singleBlog->tags as $tag)
+                                                <a href="#">{{$tag->name}}</a>
+                                                {{($loop->last) ?"":"," }}
+                                            @endforeach
+                                        </div>
+                                    @endif
                                     <div class="blog-social float-end">
                                         <div class="sharethis-inline-share-buttons"></div>
                                     </div>
@@ -186,7 +190,7 @@
 
                                 <div class="two-column-post-carousel column-post-carousel post-block-carousel slick-space">
 
-                                    @foreach(@$singleBlog->relatedPostsByCategory() as $related)
+                                    @darpanloop(@$singleBlog->relatedPostsByCategory() as $related)
                                         <div class="slick-slide">
 
                                             <!-- Overlay Post Start -->
@@ -213,7 +217,7 @@
                                             </div><!-- Overlay Post End -->
 
                                         </div>
-                                    @endforeach
+                                    @enddarpanloop
                                 </div>
 
                             </div><!-- Post Block Body End -->
@@ -327,7 +331,7 @@
 
                                     <div class="tab-content">
                                         <div class="tab-pane fade show active" id="latest-news">
-                                            @foreach(@$latestPosts as $latest)
+                                            @darpanloop(@$latestPosts as $latest)
                                                 <div class="post post-small post-list education-post post-separator-border">
                                                 <div class="post-wrap">
 
@@ -353,7 +357,7 @@
 
                                                 </div>
                                             </div><!-- Small Post End -->
-                                            @endforeach
+                                            @enddarpanloop
                                         </div>
                                         <div class="tab-pane fade" id="popular-news">
 
@@ -455,6 +459,31 @@
                                 </div><!-- Sidebar Block Body End -->
 
                             </div>
+
+                        </div>
+
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side2.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side1.gif')}}" alt="Sidebar Banner"></a>
 
                         </div>
 

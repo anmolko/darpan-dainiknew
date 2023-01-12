@@ -245,7 +245,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="mx-n3">
-                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 200px; padding: 0px 16px;" >
+                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 300px; padding: 0px 16px;" >
                                         <div class="list-group list-group-flush" id="category-list">
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)
