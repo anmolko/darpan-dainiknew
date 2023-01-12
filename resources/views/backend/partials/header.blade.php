@@ -30,7 +30,6 @@
     <!-- custom Css-->
     <link href="{{asset('assets/backend/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{asset('assets/backend/js/jquery-3.2.1.min.js')}}"></script>
-
     @yield('css')
     @stack('styles')
 

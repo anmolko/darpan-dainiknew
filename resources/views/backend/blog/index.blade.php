@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('title', "All Post")
 @section('css')
+
     <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
@@ -74,11 +75,11 @@
                                         @if(!empty($blogs))
                                             @foreach($blogs as  $blog)
                                                 <tr id="blog-individual-{{@$blog->id}}">
-                                                    <td >
+                                                    <td>
                                                         <img src="{{asset('/images/blog/'.@$blog->image)}}" alt="{{@$blog->slug}}" class="figure-img rounded-circle avatar-lg">
                                                     </td>
                                                     <td >
-                                                    {{ ucwords(@$blog->title) }}
+                                                     <span> {{ ucwords( @$blog->title) }} </span>
                                                     </td>
                                                     <td>
                                                         @foreach(@$blog->categories as $category)

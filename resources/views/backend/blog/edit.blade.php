@@ -9,9 +9,9 @@
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
-        /*.ck-editor__editable_inline {*/
-        /*    height: 500px;*/
-        /*}*/
+        .cke_contents {
+            height: 1200px!important;
+        }
             .blog-feature-image{
             }
             .feature-image-button{
@@ -120,14 +120,14 @@
                                 </div>
                                 <div  class="mb-3">
                                     <label class="form-label" for="meta-excerpt-input">Excerpt</label>
-                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="3">
+                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="6">
                                         {!! @$edit->excerpt  !!}
                                     </textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
-                                    <textarea class="form-control" id="editor-classic" name="description" placeholder="Enter blog description" rows="3" required>{{@$edit->description}}</textarea>
+                                    <textarea class="form-control" id="ckeditor-classic" name="description" placeholder="Enter blog description" rows="3" required>{{@$edit->description}}</textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
@@ -347,6 +347,7 @@
 {{--@include('backend.ckeditor')--}}
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
@@ -367,10 +368,15 @@
             format:"dd/mm/yyyy",
             todayHighlight: "true",
         });
-        var quill = new Quill('#editor-classic', {
-            theme: 'snow',
+        var options = {
+            filebrowserImageBrowseUrl: '/auth/darpan-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/auth/darpan-filemanager/upload?type=Images&_token={{csrf_token()}}',
+            filebrowserBrowseUrl: '/auth/darpan-filemanager?type=Files',
+            filebrowserUploadUrl: '/auth/darpan-filemanager/upload?type=Files&_token={{csrf_token()}}'
+        };
+        CKEDITOR.replace( 'ckeditor-classic', options );
 
-        });
+
     });
 </script>
 @endsection

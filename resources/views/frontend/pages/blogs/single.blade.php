@@ -1,8 +1,8 @@
 @extends('frontend.layouts.seo_master')
 @section('title'){{ucfirst(@$singleBlog->title)}} @endsection
 @section('css')
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63bf92f3cb51d30019514cad&product=sticky-share-buttons' async='async'></script>
     <style>
-
     .custom-editor .media{
         display: block;
     }
@@ -23,7 +23,10 @@
         position:absolute;
     }
 
-
+    #st-1 .st-btn:hover {
+        opacity: .7;
+        top: 4px!important;
+    }
 
     </style>
 @endsection
@@ -70,15 +73,18 @@
                                 </span>
                                 <span class="meta-item news-hour-block">
                                     <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
-                                    <span>२०७९ पुष २७ गते १४:०६</span>
+                                    <span>{{$singleBlog->publishedDateNepali()}}</span>
+                                </span>
+                                <span class="meta-item news-hour-block">
+                                    <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
+                                    <span><a href="#">0 प्रतिक्रिया</a></span>
                                 </span>
 
+
                                 <span>
-                                    <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
+                                    <div class="sharethis-inline-share-buttons"></div>
                                 </span>
-                                <span class="meta-item view">
-                                    <i class="fa fa-eye"></i>(3483)
-                                </span>
+
                             </div>
 
 
@@ -88,57 +94,58 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 col-12 mb-50">
+                <div class="col-lg-9 col-12 mb-50">
 
                         <div class="single-blog mb-50" id="main-content">
                             <div class="blog-wrap">
 
-                                <div class="row mb-50">
+                                <a href="#" class="post-middle-banner mb-4">
+                                    <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
+                                </a>
 
-                                    <div class="col-12">
 
-                                        <a href="#" class="post-middle-banner">
-                                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
-                                        </a>
+                                <div class="image"><img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="post"></div>
+                                <a href="#" class="post-middle-banner mb-4">
+                                    <img src="{{asset('assets/frontend/img/gifs/test5.gif')}}" alt=""  />
+                                </a>
 
-                                    </div>
+                                <div class="meta fix">
+                                    <span class="font-btn">
+                                        <a id="big">अ</a>
+                                        <a id="normal">अ</a>
+                                        <a id="small">अ</a>
+                                    </span>
+                                    <span class="categories float-end">
+                                        <i class="fa fa-tags"></i>
 
+                                        @foreach($singleBlog->categories as $cat)
+                                            <a href="#">{{$cat->name}}</a>
+                                            {{($loop->last) ?"":"," }}
+                                        @endforeach
+                                    </span>
+{{--                                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>--}}
                                 </div>
-                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-132.jpg')}}" alt="post"></div>
-
                                 <!-- Content -->
-                                <div class="content">
-
-                                    <!-- Description -->
-                                    <p>There are many variations of passages of  have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br>
-                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-
-                                    <p><img class="float-start" src="{{asset('assets/frontend/img/post/post-133.jpg')}}" alt="post">
-                                        <span class="h4 italic d-block">It is a long established fact that a distracted by the readable content of a page looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</span>There are many variations of passages of  have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br>
-                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. <br> <br>
-                                        The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations. you need to be sure there isn't anything embarrassing</p>
-                                    <blockquote class="blockquote">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                                    </blockquote>
-                                    <p> <img class="float-end" src="{{asset('assets/frontend/img/post/post-134.jpg')}}" alt="post">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. <br><br>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators. <br><br>
-                                        On the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful.</p>
-
+                                <div class="content editor-content" id="content">
+                                    {{--                                    <!-- Description -->--}}
+                                    {!! $singleBlog->description !!}
                                 </div>
+
 
                                 <div class="tags-social float-start">
-
+                                    <a href="#" class="post-middle-banner mb-4">
+                                        <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
+                                    </a>
                                     <div class="tags float-start">
                                         <i class="fa fa-tags"></i>
-                                        <a href="#">Lifestyle,</a>
-                                        <a href="#">Woman,</a>
-                                        <a href="#">Cool</a>
-                                    </div>
 
+                                        @foreach($singleBlog->tags as $tag)
+                                            <a href="#">{{$tag->name}}</a>
+                                            {{($loop->last) ?"":"," }}
+                                        @endforeach
+                                    </div>
                                     <div class="blog-social float-end">
-                                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
-                                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                        <div class="sharethis-inline-share-buttons"></div>
                                     </div>
 
                                 </div>
@@ -146,40 +153,30 @@
                             </div>
                         </div>
 
+
+                        @if(@$previous !== null || @$next !== null)
                         <!-- Previous & Next Post Start -->
                         <div class="post-nav mb-50">
-                            <a href="#" class="prev-post"><span>previous post</span>he 10 Best Beauty Looks: Week of September 11, 2022.</a>
-                            <a href="#" class="next-post"><span>next post</span>The top 7 collections of New York fashion week.</a>
+                            @if(@$previous !== null)
+                                <a href="#" class="prev-post" style="border-right: {{ (@$next !== null) ?  '1px solid #f1f1f1':"none" }}   ">
+                                    <span>अघिल्लो पोस्ट</span>
+                                    {{@$previous->title}}</a>
+                            @endif
+                            @if(@$next !== null)
+                                <a href="#" class="next-post">
+                                <span>अर्को पोस्ट</span>
+                                {{@$next->title}}</a>
+                            @endif
                         </div><!-- Previous & Next Post End -->
-
-                        <!-- Post Author Start -->
-                        <div class="post-author fix mb-50">
-
-                            <div class="image float-start"><img src="{{asset('assets/frontend/img/post/post-author-1.jpg')}}" alt="post-author"></div>
-
-                            <div class="content fix">
-                                <h5><a href="#">Alex bin do</a></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur is fringillas. Sed cursus mi, ut auctor tellus  Curabitur susvenenatis.</p>
-                                <div class="social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </div>
-
-                        </div><!-- Post Author End -->
+                        @endif
 
                         <!-- Post Block Wrapper Start -->
                         <div class="post-block-wrapper mb-50">
 
                             <!-- Post Block Head Start -->
                             <div class="head">
-
                                 <!-- Title -->
-                                <h4 class="title">You might also like!</h4>
-
+                                <h4 class="title">सम्बन्धित खबर</h4>
                             </div><!-- Post Block Head End -->
 
                             <!-- Post Block Body Start -->
@@ -187,96 +184,34 @@
 
                                 <div class="two-column-post-carousel column-post-carousel post-block-carousel slick-space">
 
-                                    <div class="slick-slide">
+                                    @foreach(@$singleBlog->relatedPostsByCategory() as $related)
+                                        <div class="slick-slide">
 
-                                        <!-- Overlay Post Start -->
-                                        <div class="post post-overlay hero-post">
-                                            <div class="post-wrap">
+                                            <!-- Overlay Post Start -->
+                                            <div class="post post-overlay hero-post">
+                                                <div class="post-wrap">
 
-                                                <!-- Image -->
-                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-48.jpg')}}" alt="post"></div>
+                                                    <!-- Image -->
+                                                    <div class="image"><img src="{{ asset('/images/blog/'.@$related->image) }}" alt="post"></div>
 
-                                                <!-- Category -->
-                                                <a href="#" class="category gadgets">gadgets</a>
+                                                    <!-- Content -->
+                                                    <div class="content">
 
-                                                <!-- Content -->
-                                                <div class="content">
+                                                        <!-- Title -->
+                                                        <h4 class="title"><a href="#">  {{ @$related->title }} </a></h4>
 
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h4>
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ $related->publishedDateNepali() }}</span>
+                                                        </div>
 
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
                                                     </div>
 
                                                 </div>
+                                            </div><!-- Overlay Post End -->
 
-                                            </div>
-                                        </div><!-- Overlay Post End -->
-
-                                    </div>
-
-                                    <div class="slick-slide">
-
-                                        <!-- Overlay Post Start -->
-                                        <div class="post post-overlay hero-post">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-49.jpg')}}" alt="post"></div>
-
-                                                <!-- Category -->
-                                                <a href="#" class="category education">music</a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h4>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Overlay Post End -->
-
-                                    </div>
-
-                                    <div class="slick-slide">
-
-                                        <!-- Overlay Post Start -->
-                                        <div class="post post-overlay hero-post">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <div class="image"><img src="{{asset('assets/frontend/img/post/post-135.jpg')}}" alt="post"></div>
-
-                                                <!-- Category -->
-                                                <a href="#" class="category fashion">fashion</a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="post-details.html">Fashion is about some thing that comes from with in you.</a></h4>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Overlay Post End -->
-
-                                    </div>
-
+                                        </div>
+                                    @endforeach
                                 </div>
 
                             </div><!-- Post Block Body End -->
@@ -333,7 +268,8 @@
 
                     </div>
 
-                <div class="col-lg-4 col-12 mb-50">
+                <!-- Sidebar -->
+                <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
                         <!-- Single Sidebar -->
@@ -438,32 +374,47 @@
 @endsection
 
 @section('js')
-<script>
-function fbShare(url) {
-  window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "_blank", "toolbar=no, scrollbars=yes, resizable=yes, top=200, left=500, width=600, height=400");
-}
-function twitShare(url, title) {
-    window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(title) + "+" + url + "", "_blank", "toolbar=no, scrollbars=yes, resizable=yes, top=200, left=500, width=600, height=400");
-}
-function whatsappShare(url, title) {
-    message = title + " " + url;
-    window.open("https://api.whatsapp.com/send?text=" + message);
-}
 
-$(window).scroll(function () {
-    var threshold = 300;
-    if ($(window).scrollTop() >= threshold){
-        $('#sticky-me').addClass('sticky-header');
-    }else{
-        $('#sticky-me').removeClass('sticky-header');
-    }
+    <script>
+        $(window).scroll(function () {
+            var threshold = 300;
+            if ($(window).scrollTop() >= threshold){
+                $('#sticky-me').addClass('sticky-header');
+            }else{
+                $('#sticky-me').removeClass('sticky-header');
+            }
 
 
-    var check = $("#main-content").height() + 250;
-    if ($(window).scrollTop() > check)
-        $('#sticky-me').addClass('bottom');
-    else
-        $('#sticky-me').removeClass('bottom');
-});
+            var check = $("#main-content").height() + 250;
+            if ($(window).scrollTop() > check)
+                $('#sticky-me').addClass('bottom');
+            else
+                $('#sticky-me').removeClass('bottom');
+        });
+
+        $(document).ready(function () {
+
+            var size = '22';
+            $("#big").on("click",function(){
+                size = size + 2;
+                if(size<26 ){
+                    $("#content p").css("font-size",size + "px");
+                }else{
+                    $("#content p").css("font-size",26 + "px");
+                }
+            });
+            $("#normal").on("click",function(){
+                size = 20;
+                $("#content p").css("font-size",size + "px");
+            });
+            $("#small").on("click",function(){
+                size = size - 2;
+                if(size>14){
+                    $("#content p").css("font-size",size+ "px");
+                } else {
+                    $("#content p").css("font-size",16+ "px");
+                }
+            });
+        });
 </script>
 @endsection

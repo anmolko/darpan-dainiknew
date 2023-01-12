@@ -8,7 +8,7 @@
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
             .cke_contents {
-                height: 600px!important;
+                height: 900px!important;
             }
 
             .feature-image-button{
@@ -112,7 +112,7 @@
                                 </div>
                                 <div  class="mb-3">
                                     <label class="form-label" for="meta-excerpt-input">Excerpt</label>
-                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="3"></textarea>
+                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="6"></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>
@@ -331,9 +331,8 @@
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 {{--<script src="{{asset('assets/backend/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>--}}
-
-    <!-- Sweet Alerts js -->
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<!-- Sweet Alerts js -->
 
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
@@ -355,9 +354,6 @@
         });
 
 
-        var route_prefix = "/auth/darpan-filemanager";
-
-        // lfm('cke_button__image', 'file', {prefix: route_prefix});
 
 
 

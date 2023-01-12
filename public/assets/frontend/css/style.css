@@ -39,7 +39,7 @@ body {
   font-style: normal;
   font-weight: normal;
   visibility: visible;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Mukta","Glegoo", sans-serif;
   color: #666666;
 }
 
@@ -1351,38 +1351,38 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 /*--
     Blockquote
 -----------------------------------------*/
-blockquote.blockquote {
+blockquote {
   text-align: center;
-  background-color: #00c8fa;
+  background-color: #1f4787;
   position: relative;
   overflow: hidden;
   width: 100%;
   float: left;
-  padding: 35px 90px;
+  padding: 40px 50px 20px 50px;
 }
-blockquote.blockquote::before {
-  font-family: "Fontawesome";
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: 3px;
-  font-size: 60px;
-  color: #ffffff;
+blockquote::before {
+    font-family: "Fontawesome";
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    font-size: 50px;
+    color: #fff;
 }
-blockquote.blockquote p {
+blockquote p {
   color: #ffffff;
   font-size: 16px;
   line-height: 29px;
   letter-spacing: 0.5px;
   font-weight: 600;
 }
-blockquote.blockquote.blockquote-bg {
+blockquote .blockquote-bg {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
   background-color: transparent;
 }
-blockquote.blockquote.blockquote-bg::before {
+blockquote.blockquote-bg::before {
   color: #00c8fa;
 }
 blockquote.blockquote.blockquote-bg p {
@@ -2273,7 +2273,7 @@ blockquote.blockquote.blockquote-bg p {
   height: 14px;
   top: 50%;
   margin-top: -7px;
-  background-color: #00c8fa;
+  background-color: #0d47a2;
   content: "";
 }
 .post-block-wrapper .head::before {
@@ -2288,7 +2288,8 @@ blockquote.blockquote.blockquote-bg p {
   line-height: 24px;
   font-weight: 600;
   text-transform: capitalize;
-  color: #00c8fa;
+  color: #0d47a2;
+  font-size: 22px;
 }
 @media only screen and (max-width: 767px) {
   .post-block-wrapper .head .title {
@@ -2813,8 +2814,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post .post-wrap .category {
   z-index: 5;
-  font-size: 11px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.8px;
   color: #ffffff;
@@ -2872,7 +2872,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post .post-wrap .content .title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
   margin-bottom: 0;
 }
@@ -2913,6 +2913,8 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post .post-wrap .content .meta .meta-item:last-child {
   margin-right: 0;
+    line-height: 20px;
+    font-size: 15px;
 }
 .post .post-wrap .content .meta .meta-item i {
   display: block;
@@ -3738,10 +3740,10 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post-nav a span {
   display: block;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   text-transform: capitalize;
-  color: #666666;
+  color: #0d47a2;
   margin-bottom: 5px;
 }
 .post-nav a.prev-post {
@@ -3897,7 +3899,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .single-blog .blog-wrap .meta .meta-item i {
   font-size: 16px;
-  color: #00c8fa;
+  color: #0d47a2;
   margin-right: 10px;
   line-height: 30px;
 }
@@ -4011,14 +4013,10 @@ blockquote.blockquote.blockquote-bg p {
 .single-blog .blog-wrap .image img {
   width: 100%;
 }
-.single-blog .blog-wrap .content {
-  /*-- Blockquote --*/
-  /*-- Read More Button --*/
-}
 .single-blog .blog-wrap .content p {
-  margin-bottom: 30px;
+  margin-bottom: 26px;
   display: block;
-  float: left;
+  /*float: left;*/
 }
 .single-blog .blog-wrap .content p span {
   line-height: 32px;
@@ -4088,21 +4086,28 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Tags --*/
   /*-- Post Social --*/
 }
-.single-blog .blog-wrap .tags-social .tags i {
+.meta .categories{
+    margin-top: 11px;
+}
+.single-blog .blog-wrap .tags-social .tags i, .meta .categories i{
   width: 36px;
   height: 36px;
   border-radius: 3px;
   text-align: center;
   color: #ffffff;
-  background-color: #00c8fa;
+  background-color:  #0d47a2;
   line-height: 36px;
   float: left;
-  margin-right: 20px;
+  margin-right: 10px;
 }
-.single-blog .blog-wrap .tags-social .tags a {
+
+.single-blog .blog-wrap .tags-social .tags a, .meta .categories a {
   line-height: 24px;
   margin: 6px 0;
+  font-size: 18px;
+  color: #0d47a2;
 }
+
 @media only screen and (max-width: 767px) {
   .single-blog .blog-wrap .tags-social .blog-social {
     width: 100%;
@@ -5403,4 +5408,42 @@ blockquote.blockquote.blockquote-bg p {
     display: inline-block;
     margin-top: 5px;
     font-weight: 500;
+}
+
+
+#big, #normal, #small {
+    border-radius: 3px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0d47a2;
+    line-height: 36px;
+    margin-right: 5px;
+}
+
+#big {
+    font-size: 25px;
+    padding: 7px 12px 5px 11px;
+}
+#normal {
+    font-size: 20px;
+    padding: 2px 12px 4px 12px;
+}
+
+#small {
+    font-size: 16px;
+    padding: 0px 12px 2px 10px;
+}
+
+.editor-content{
+    text-align: justify;
+}
+
+.editor-content p {
+    font-size: 22px;
+    line-height: 1.8;
+}
+.editor-content img{
+    margin: 10px;
+    max-width: 890px;
+    max-height: 550px;
 }

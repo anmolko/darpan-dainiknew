@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->text('excerpt')->after('slug')->nullable();
+            $table->text('numeric_slug')->after('slug')->nullable();
             $table->string('featured_from')->after('image')->nullable();
             $table->string('featured_to')->after('image')->nullable();
         });
@@ -29,6 +30,7 @@ return new class extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->dropColumn('excerpt');
+            $table->dropColumn('numeric_slug');
             $table->dropColumn('featured_from');
             $table->dropColumn('featured_to');
         });

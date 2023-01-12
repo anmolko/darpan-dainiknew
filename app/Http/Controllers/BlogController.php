@@ -61,11 +61,12 @@ class BlogController extends Controller
     public function store(BlogCreateRequest $request)
     {
 
-        $end     = Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d');
-        $start   = Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d');
+        $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
+        $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $data=[
             'title'             => $request->input('title'),
             'slug'              => $request->input('slug'),
+            'numeric_slug'      => getNumericSlug(),
             'description'       => $request->input('description'),
             'excerpt'           => $request->input('excerpt'),
             'status'            => $request->input('status'),
@@ -134,8 +135,8 @@ class BlogController extends Controller
         $edit       = Blog::find($id);
         $categories = Category::orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
-        $start      = Carbon::createFromFormat('Y-m-d', $edit->featured_from)->format('d/m/Y');
-        $end        = Carbon::createFromFormat('Y-m-d', $edit->featured_to)->format('d/m/Y');
+        $start      = ($edit->featured_to !== null) ? Carbon::createFromFormat('Y-m-d', $edit->featured_from)->format('d/m/Y'):null;
+        $end        = ($edit->featured_to !== null) ? Carbon::createFromFormat('Y-m-d', $edit->featured_to)->format('d/m/Y'): null;
         return view('backend.blog.edit',compact('edit','categories','tags','start','end'));
     }
 
@@ -148,12 +149,12 @@ class BlogController extends Controller
      */
     public function update(BlogUpdateRequest $request, $id)
     {
-        $end     = Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d');
-        $start   = Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d');
-
+        $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
+        $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $blog                      =  Blog::find($id);
         $blog->title               =  $request->input('title');
         $blog->slug                =  $request->input('slug');
+        $blog->numeric_slug        =  getNumericSlug();
         $blog->description         =  $request->input('description');
         $blog->excerpt             =  $request->input('excerpt');
         $blog->status              =  $request->input('status');

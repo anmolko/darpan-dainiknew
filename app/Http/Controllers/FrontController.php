@@ -4,34 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
-use App\Models\Faq;
-use App\Models\Job;
-use App\Models\JobCategory;
-use App\Models\ManagingDirector;
-use App\Models\RecruitmentProcess;
-use App\Models\ServiceCategory;
 use App\Models\Setting;
-use App\Models\Service;
-use App\Mail\ContactDetail;
 use App\Models\HomePage;
-use App\Models\Slider;
-
-use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\SectionElement;
 use App\Models\Page;
-use App\Models\Client;
 use App\Models\PageSection;
 use App\Models\SectionGallery;
-use App\Notifications\NewCareerNotification;
-use App\Notifications\NewServiceNotification;
-use App\Notifications\OtherNotification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Mail;
 use CountryState;
+use Bsdate;
 
 
 class FrontController extends Controller
@@ -271,10 +254,15 @@ class FrontController extends Controller
         if (!$singleBlog) {
             return abort(404);
         }
-        $catid = $singleBlog->blog_category_id;
         $bcategories = $this->bcategory->get();
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
-        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts'));
+        $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
+        $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();
+
+
+
+
+        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next'));
     }
 
     public function contact()

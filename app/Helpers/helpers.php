@@ -114,17 +114,23 @@ if (!function_exists('get_slugs_to_disable')) {
     }
 }
 
-if (! function_exists('str_slug')) {
+if (! function_exists('getNumericSlug')) {
     /**
-     * Generate a URL friendly "slug" from a given string.
+     * Generate a Numeric URL friendly "slug" from blogs.
      *
      * @param  string  $title
      * @param  string  $separator
      * @param  string  $language
      * @return string
      */
-    function str_slug($title, $separator = '-', $language = 'en')
+    function getNumericSlug()
     {
-        return Str::slug($title, $separator, $language);
+        $blog = \App\Models\Blog::latest()->first();
+        if($blog == null){
+            $slug = 1;
+        }else{
+            $slug = $blog->id + 1;
+        }
+        return $slug;
     }
 }
