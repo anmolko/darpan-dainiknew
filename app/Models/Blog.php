@@ -48,7 +48,7 @@ class Blog extends Model
     }
     public function getMinsAgoinNepali($string){
         $number =  preg_replace('/\D/', '', $string);
-        return strtr($number, $this->nepaliArray);
+        return strtr($number, $this->nepaliArray). " मिनेट अगाडि";
     }
 
     public function hasCategory($categoryid){

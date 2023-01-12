@@ -2914,15 +2914,24 @@ blockquote.blockquote.blockquote-bg p {
 .post .post-wrap .content .meta .meta-item:last-child {
   margin-right: 0;
     line-height: 20px;
-    font-size: 15px;
+    font-size: 13px;
 }
 .post .post-wrap .content .meta .meta-item i {
   display: block;
   float: left;
   margin-right: 6px;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 20px;
   padding-left: 1px;
+}
+
+.sidebar-time .meta-item{
+    font-size: 12px;
+    line-height: 20px;
+    color: #0d47a2;
+}
+.sidebar-time .meta-item i{
+   margin-right: 5px;
 }
 .post .post-wrap .content .meta a:hover {
   color: #00c8fa;
@@ -3078,7 +3087,7 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Meta Tags --*/
 }
 .post.post-small .post-wrap .content .title {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -4650,7 +4659,7 @@ blockquote.blockquote.blockquote-bg p {
   background-color: #008bff;
 }
 .sidebar-tab-list.education-sidebar-tab-list a.active {
-  background-color: #008bff;
+  background-color: #215dba;
 }
 .sidebar-tab-list.health-sidebar-tab-list a::before, .sidebar-tab-list.health-sidebar-tab-list a::after {
   background-color: #008bff;

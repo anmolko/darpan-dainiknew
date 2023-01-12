@@ -255,12 +255,9 @@ class FrontController extends Controller
             return abort(404);
         }
         $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(4)->get();
         $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
         $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();
-
-
-
 
         return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next'));
     }

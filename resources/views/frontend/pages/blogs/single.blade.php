@@ -170,6 +170,8 @@
                         </div><!-- Previous & Next Post End -->
                         @endif
 
+
+                    @if(count(@$singleBlog->relatedPostsByCategory())>0)
                         <!-- Post Block Wrapper Start -->
                         <div class="post-block-wrapper mb-50">
 
@@ -217,8 +219,8 @@
                             </div><!-- Post Block Body End -->
 
                         </div><!-- Post Block Wrapper End -->
-
-                        <!-- Post Block Wrapper Start -->
+                    @endif
+                        <!-- comments -->
                         <div class="post-block-wrapper">
 
                             <!-- Post Block Head Start -->
@@ -275,89 +277,183 @@
                         <!-- Single Sidebar -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
-                            <!-- Sidebar Block Wrapper -->
-                            <div class="sidebar-block-wrapper">
-
-                                <!-- Sidebar Block Head Start -->
-                                <div class="head feature-head">
-
-                                    <!-- Title -->
-                                    <h4 class="title">Follow Us</h4>
-
-                                </div><!-- Sidebar Block Head End -->
-
-                                <!-- Sidebar Block Body Start -->
-                                <div class="body">
-
-                                    <div class="sidebar-social-follow">
-                                        <div>
-                                            <a href="#" class="facebook">
-                                                <i class="fa fa-facebook"></i>
-                                                <h3>40,583</h3>
-                                                <span>Fans</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="google-plus">
-                                                <i class="fa fa-google-plus"></i>
-                                                <h3>36,857</h3>
-                                                <span>Followers</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="twitter">
-                                                <i class="fa fa-twitter"></i>
-                                                <h3>50,883</h3>
-                                                <span>Followers</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="dribbble">
-                                                <i class="fa fa-dribbble"></i>
-                                                <h3>4,743</h3>
-                                                <span>Followers</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div><!-- Sidebar Block Body End -->
-
-                            </div>
-
-                        </div>
-
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
                             <!-- Sidebar Banner -->
                             <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-1.jpg')}}" alt="Sidebar Banner"></a>
 
                         </div>
-
-                        <!-- Single Sidebar -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                             <!-- Sidebar Banner -->
                             <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
 
                         </div>
-
-                        <!-- Single Sidebar -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
-                            <div class="sidebar-subscribe">
-                                <h4>Subscribe To <br>Our <span>Update</span> News</h4>
-                                <p>Adipiscing elit. Fusce sed mauris arcu. Praesent ut augue imperdiet, semper lorem id.</p>
-                                <!-- Newsletter Form -->
-                                <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form validate" target="_blank" novalidate>
-                                    <div id="mc_embed_signup_scroll">
-                                        <label for="mce-EMAIL" class="d-none">Subscribe to our mailing list</label>
-                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email address" required>
-                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">submit</button>
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side1.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side2.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar">
+
+                            <!-- Sidebar Block Wrapper -->
+                            <div class="sidebar-block-wrapper">
+
+                                <!-- Sidebar Block Head Start -->
+                                <div class="head education-head">
+
+                                    <!-- Tab List -->
+                                    <div class="sidebar-tab-list education-sidebar-tab-list nav">
+                                        <a class="active" data-bs-toggle="tab" href="#latest-news">ताजा अपडेट</a>
+                                        <a data-bs-toggle="tab" href="#popular-news">लोकप्रिय</a>
                                     </div>
-                                </form>
+
+                                </div><!-- Sidebar Block Head End -->
+
+                                <!-- Sidebar Block Body Start -->
+                                <div class="body">
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="latest-news">
+                                            @foreach(@$latestPosts as $latest)
+                                                <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="#">
+                                                        <div class="meta fix sidebar-time">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali($latest->created_at->diffForHumans()) }}</span>
+                                                        </div>
+                                                        <img src="{{ asset('/images/blog/'.@$latest->image) }}" alt="post">
+
+                                                    </a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="#">{{$latest->title}}</a></h5>
+
+                                                        <!-- Meta -->
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+                                            @endforeach
+                                        </div>
+                                        <div class="tab-pane fade" id="popular-news">
+
+                                            <!-- Small Post Start -->
+                                            <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-35.jpg')}}" alt="post"></a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="#">Home is not a place . . . . . . it’s a feeling.</a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+
+                                            <!-- Small Post Start -->
+                                            <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-36.jpg')}}" alt="post"></a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="#">How do you solve the local political page problem.</a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+
+                                            <!-- Small Post Start -->
+                                            <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-33.jpg')}}" alt="post"></a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="#">Hynpodia helps female travelers find health..</a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+
+                                            <!-- Small Post Start -->
+                                            <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-34.jpg')}}" alt="post"></a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="#">How do you solve the IOS page problem.</a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+
+                                        </div>
+                                    </div>
+
+                                </div><!-- Sidebar Block Body End -->
+
                             </div>
 
                         </div>
