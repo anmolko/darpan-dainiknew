@@ -60,7 +60,7 @@ class Blog extends Model
     }
 
     public function url(){
-        return $this->created_at->year.'/'.$this->created_at->month.'/'.$this->numeric_slug;
+        return 'post/'.$this->created_at->year.'/'.$this->created_at->month.'/'.$this->numeric_slug;
     }
 
     public function shortContent($cut = 0){
