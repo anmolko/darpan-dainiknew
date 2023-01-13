@@ -11,7 +11,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label for="name" class="form-label">Title <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="name" id="update-name"
+                            <input type="text" class="mukta form-control" name="name" id="update-name"
                                    onclick="slugMaker('update-name','update-slug')" required>
                             <div class="invalid-feedback">
                                 Please enter the category title.
@@ -22,7 +22,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label for="slug" class="form-label">Slug <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="slug" id="update-slug" required>
+                            <input type="text" class="mukta form-control" name="slug" id="update-slug" required>
                             <div class="invalid-feedback">
                                 Please enter the tag slug.
                             </div>
@@ -31,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label class="form-label" for="description-input">Description</label>
-                            <textarea class="form-control"  name="description" id="update-description" rows="6"></textarea>
+                            <textarea class="mukta form-control"  name="description" id="update-description" rows="6"></textarea>
                         </div>
                     </div>
 

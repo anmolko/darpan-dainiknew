@@ -147,7 +147,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
         $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;

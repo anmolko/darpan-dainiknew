@@ -46,7 +46,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label class="form-label" for="tag-title-input">Title</label>
-                                <input type="text" name="name" class="form-control" id="tag-title-input"
+                                <input type="text" name="name" class="mukta form-control" id="tag-title-input"
                                        onclick="slugMaker('tag-title-input','tag-slug-input')"
                                        required>
                                 <div class="invalid-feedback">
@@ -55,14 +55,14 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="tag-slug-input">Slug</label>
-                                <input type="text" name="slug" class="form-control" id="tag-slug-input" required>
+                                <input type="text" name="slug" class="mukta form-control" id="tag-slug-input" required>
                                 <div class="invalid-feedback">
                                     Please enter the tags slug.
                                 </div>
                             </div>
                             <div>
                                 <label class="form-label" for="description-input">Description</label>
-                                <textarea class="form-control" id="description-input"  name="description" rows="6"></textarea>
+                                <textarea class="mukta form-control" id="description-input"  name="description" rows="6"></textarea>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,7 @@
         .cke_contents {
             height: 900px!important;
         }
+
             .blog-feature-image{
             }
             .feature-image-button{
@@ -104,7 +105,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label class="form-label" for="blog-title-input">Blog Title <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="title" id="blog-title-input" placeholder="Enter blog title"
+                                    <input type="text" class="mukta form-control" name="title" id="blog-title-input"
                                            value="{{@$edit->title}}" required>
                                         <div class="invalid-feedback">
                                             Please enter the blog title.
@@ -112,14 +113,12 @@
                                 </div>
                                 <div  class="mb-3">
                                     <label class="form-label" for="meta-excerpt-input">Excerpt</label>
-                                    <textarea class="form-control" id="meta-excerpt-input" placeholder="Enter excerpt"  name="excerpt" rows="6">
-                                        {!! @$edit->excerpt  !!}
-                                    </textarea>
+                                    <textarea class="mukta form-control" id="meta-excerpt-input" name="excerpt" rows="6">{{@$edit->excerpt}}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>
 
-                                    <textarea class="form-control" id="ckeditor-classic" name="description" placeholder="Enter blog description" rows="3" required>{{@$edit->description}}</textarea>
+                                    <textarea class="mukta form-control" id="ckeditor-classic" name="description" rows="3" required>{{@$edit->description}}</textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
@@ -150,7 +149,7 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="meta-title-input">Meta title</label>
-                                                    <input type="text" class="form-control" placeholder="Enter meta title" name="meta_title" id="meta-title-input" value="{{@$edit->meta_title}}">
+                                                    <input type="text" class="form-control" name="meta_title" id="meta-title-input" value="{{@$edit->meta_title}}">
                                                 </div>
                                             </div>
                                             <!-- end col -->
@@ -158,7 +157,7 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="meta-keywords-input">Meta Keywords <span class="text-muted fs-10">Press enter after each keyword.</span></label>
-                                                    <input type="text" class="form-control" placeholder="Enter meta keywords" name="meta_tags" id="meta-keywords-input" value="{{@$edit->meta_tags}}" data-choices data-choices-text-unique-true>
+                                                    <input type="text" class="mukta form-control" name="meta_tags" id="meta-keywords-input" value="{{@$edit->meta_tags}}" data-choices data-choices-text-unique-true>
                                                 </div>
                                             </div>
                                             <!-- end col -->
@@ -167,7 +166,7 @@
 
                                         <div>
                                             <label class="form-label" for="meta-description-input">Meta Description</label>
-                                            <textarea class="form-control" id="meta-description-input" placeholder="Enter meta description"  name="meta_description" rows="3">{{@$edit->meta_description}}</textarea>
+                                            <textarea class="mukta form-control" id="meta-description-input" name="meta_description" rows="3">{{@$edit->meta_description}}</textarea>
                                         </div>
                                     </div>
                                     <!-- end tab pane -->
@@ -218,14 +217,14 @@
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label for="start_date" class="form-label">Start Date </label>
-                                    <input type="text" class="form-control" name="featured_from" id="featured_from" value="{{@$start}}">
+                                    <input type="text" class="mukta form-control" name="featured_from" id="featured_from" value="{{@$start}}">
                                     <div class="invalid-feedback">
                                         Please Select the start date.
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="end_date" class="form-label">End Date </label>
-                                    <input type="text" class="form-control" name="featured_to" id="featured_to" value="{{@$end}}">
+                                    <input type="text" class="mukta form-control" name="featured_to" id="featured_to" value="{{@$end}}">
                                     <div class="invalid-feedback">
                                         Please Select the end date.
                                     </div>
@@ -251,7 +250,7 @@
                                                 @foreach(@$categories as $categoryList)
                                                     <div class="form-check form-check-info">
                                                         <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}" id="formCheck{{$categoryList->id}}" {{ ($edit->hasCategory($categoryList->id)) ? "checked":"" }} >
-                                                        <label class="form-check-label check-label" for="formCheck{{$categoryList->id}}">
+                                                        <label class="mukta form-check-label check-label" for="formCheck{{$categoryList->id}}">
                                                             {{ ucwords(@$categoryList->name) }}
                                                         </label>
                                                     </div>
@@ -271,7 +270,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <select
-                                        class="form-control"
+                                        class="mukta form-control"
                                         name="tags[]"
                                         id="tags_list"
                                         multiple="multiple">
@@ -297,7 +296,7 @@
                                         id="profile-foreground-img-file-input" onchange="loadFile(event)" name="image"
                                        class="profile-foreground-img-file-input" >
 
-                                    <figcaption class="figure-caption">*use image minimum of 850 x 567px</figcaption>
+                                    <figcaption class="figure-caption">*use image minimum of 1230 x 790px </figcaption>
                                     <div class="invalid-feedback" >
                                             Please select a image.
                                         </div>
@@ -368,6 +367,7 @@
         };
         CKEDITOR.replace( 'ckeditor-classic', options );
 
+        $('.cke_editable').css('font-size','16px');
 
     });
 </script>
