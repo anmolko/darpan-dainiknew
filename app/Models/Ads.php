@@ -9,5 +9,5 @@ class Ads extends Model
 {
     use HasFactory;
     protected $table ='advertisements';
-    protected $fillable = ['id','name','position','shortcode','placement','url','description','image','created_by','updated_by'];
+    protected $fillable = ['id','name','url','placement','image','created_by','updated_by'];
 }

@@ -16,11 +16,8 @@ return new class extends Migration
         Schema::create('advertisements', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('position')->nullable();
-            $table->string('shortcode')->nullable();
-            $table->string('placement')->nullable();
             $table->string('url')->nullable();
-            $table->text('description')->nullable();
+            $table->string('placement')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();
