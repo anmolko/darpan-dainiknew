@@ -120,6 +120,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::put('/advertisements/{ads}', 'App\Http\Controllers\AdsController@update')->name('ads.update');
     Route::delete('/advertisements/{ads}', 'App\Http\Controllers\AdsController@destroy')->name('ads.destroy');
     Route::get('/advertisements/{ads}/edit', 'App\Http\Controllers\AdsController@edit')->name('ads.edit');
+    Route::patch('/advertisements/{id}/update', 'App\Http\Controllers\AdsController@updateStatus')->name('ads-status.update');
+
     //End of Ads categories
 
 

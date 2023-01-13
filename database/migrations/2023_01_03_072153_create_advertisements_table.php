@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->string('placement')->nullable();
             $table->string('image')->nullable();
+            $table->enum('status',['active','inactive']);
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

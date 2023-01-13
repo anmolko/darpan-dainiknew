@@ -58,7 +58,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlogCreateRequest $request)
+    public function store(Request $request)
     {
 
         $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
@@ -227,7 +227,8 @@ class BlogController extends Controller
         if (!empty($thumbimage) && file_exists(public_path().'/images/blog/thumb/'.$thumbimage)){
             @unlink(public_path().'/images/blog/thumb/'.$thumbimage);
         }
-
+        $deleteblog->tags()->detach();
+        $deleteblog->categories()->detach();
         $removeblog          = $deleteblog->delete();
         if($removeblog){
             $status ='success';
@@ -245,8 +246,6 @@ class BlogController extends Controller
         $new_status    = ($blog->status == 'draft') ? "Draft":"Published";
         $value  = ($blog->status == 'draft') ? "publish":"draft";
         if($status){
-            $blog->tags()->detach();
-            $blog->categories()->detach();
             $status ='success';
             return response()->json(['status'=>$status,'new_status'=>$new_status,'id'=>$id,'value'=>$value]);
         }

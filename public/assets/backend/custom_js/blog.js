@@ -2,7 +2,7 @@ $(document).ready(function () {
     var dataTable = $('#blog-index').DataTable({
         paging: true,
         searching: true,
-        ordering:  true,
+        ordering:  false,
         lengthMenu: [[ 10, 25, 50, 100, -1], [ 10, 25, 50, 100, "All"]],
     });
 
@@ -116,7 +116,7 @@ $(document).on('click','.change-status', function (e) {
                 '<div class="mt-4 pt-2 fs-15">' +
                 '<h4>Are your sure? </h4>' +
                 '<p class="text-muted mx-4 mb-0">' +
-                'Changing Status to Inactive will halt user actions</p>' +
+                'Changing Status to Draft will hide post in frontend</p>' +
                 '</div>' +
                 '</div>',
             showCancelButton: !0,
