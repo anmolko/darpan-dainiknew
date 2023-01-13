@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Setting;
@@ -254,8 +255,11 @@ class FrontController extends Controller
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(4)->get();
         $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
         $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();
-
-        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next'));
+        $above       = Ads::where('placement','above-post-featured')->where('status','active')->first();
+        $below       = Ads::where('placement','below-post-featured')->where('status','active')->first();
+        $between1    = Ads::where('placement','in-between-post')->where('status','active')->first();
+        $between2    = Ads::where('placement','in-between-post')->where('status','active')->skip(1)->take(3)->get();
+        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next','above','below','between2','between1'));
     }
 
     public function contact()

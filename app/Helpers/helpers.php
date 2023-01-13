@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ads;
 use App\Models\User;
 use App\Models\Menu;
 use App\Models\MenuItem;

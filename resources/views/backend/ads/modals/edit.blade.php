@@ -30,7 +30,7 @@
                         <select class="form-select" id="placement-update" name="placement">
                             <optgroup label="Post Single Page">
                                 <option value="above-post-featured"> Above Post Featured</option>
-                                <option value="above-post-featured">Below Post Featured</option>
+                                <option value="below-post-featured">Below Post Featured</option>
                                 <option value="in-between-post">In Between Post (use 250 x 250px size) </option>
                                 <option value="post-side-bar-banner">Post Side Bar Banner</option>
                                 <option value="post-end">Post End</option>

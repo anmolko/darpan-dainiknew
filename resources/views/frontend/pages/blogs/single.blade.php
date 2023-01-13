@@ -99,12 +99,13 @@
                                     </div>
                                 @endif
 
-                                <div class="post-middle-banner mb-4">
-                                    <a href="#">
-                                        <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
-                                    </a>
-                                </div>
-
+                                @if(@$above !== null)
+                                    <div class="post-middle-banner mb-4">
+                                        <a href="{{ (@$above->url !== null) ? @$above->url:"#"}}" target="_blank">
+                                            <img  src="{{asset('/images/banners/'.@$above->image)}}"  alt="{{@$side->name}}"  />
+                                        </a>
+                                    </div>
+                                @endif
                                 <div class="image"><img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="post"></div>
 
 
@@ -116,7 +117,7 @@
                                     </span>
                                     @if(count($singleBlog->categories)>0)
                                         <span class="categories float-end">
-                                            <i class="fa fa-tags"></i>
+                                            <i class="fa fa-list-alt"></i>
 
                                             @foreach($singleBlog->categories as $cat)
                                                 <a href="#">{{$cat->name}}</a>
@@ -126,11 +127,14 @@
                                     @endif
 {{--                                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>--}}
                                 </div>
+
+                                @if(@$below !== null)
                                     <div class="post-middle-banner mb-4">
-                                        <a href="#">
-                                            <img src="{{asset('assets/frontend/img/gifs/test5.gif')}}" alt=""  />
+                                        <a href="{{ (@$below->url !== null) ? @$below->url:"#"}}" target="_blank">
+                                            <img  src="{{asset('/images/banners/'.@$below->image)}}"  alt="{{@$below->name}}"  />
                                         </a>
                                     </div>
+                                @endif
                                 <!-- Content -->
                                 <div class="content editor-content editor-flx" id="content">
                                     {{-- Description --}}
@@ -149,7 +153,7 @@
                                 <div class="tags-social float-start">
                                     <div class="post-middle-banner mb-4">
                                         <a href="#">
-                                            <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
+                                            <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt="" target="_blank" />
                                         </a>
                                     </div>
                                     @if(count($singleBlog->tags)>0)
@@ -407,36 +411,20 @@
                     <div class="row">
 
                         <!-- Single Sidebar banners -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-1.jpg')}}" alt="Sidebar Banner"></a>
+                        @if(count(@$singleBlog->singleSidebarAds( 0, 5))>0)
+                            @darpanloop(@$singleBlog->singleSidebarAds(0,5) as $side)
+                                <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                                    <!-- Sidebar Banner -->
+                                    <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner">
+                                        <img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
+                                    </a>
 
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
+                                </div>
+                            @enddarpanloop
+                        @endif
 
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side1.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side2.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
 
                         <!-- Single Sidebar posts-->
                         <div class="single-sidebar">
@@ -591,31 +579,17 @@
 
                         </div>
 
-                        <!-- Single Sidebar banners -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                        @if(count(@$singleBlog->singleSidebarAds( 5, 5))>0)
+                            @darpanloop(@$singleBlog->singleSidebarAds(5,5) as $side)
+                            <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
+                                <!-- Sidebar Banner -->
+                                <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner"><img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}"></a>
 
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                            </div>
+                            @enddarpanloop
+                        @endif
 
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side2.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side1.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
 
                     </div>
                 </div><!-- Sidebar End -->
@@ -672,26 +646,17 @@
             });
 
             var number = $('.editor-content'). find('p').size();
-            console.log(number);
-
             if(number => 2){
                 var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
-                    '<a href="#">' +
-                    '<img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>' +
+                    '<a href="{{ (@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
+                    '<img src="{{asset('/images/banners/'.@$between1->image)}}" alt="{{@$between1->name}}"></a>' +
                 '</div>';
                 $( ".editor-content p:nth-child(2)" ).after().append(banner1);
-
             }
 
             if(number => 4){
-                var banner2 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
-                    '<a href="#">' +
-                    '<img src="{{asset('assets/frontend/img/gifs/middle1.gif')}}" alt="Sidebar Banner"></a>' +
-                    '<a href="#">' +
-                    '<img src="{{asset('assets/frontend/img/gifs/middle2.jpeg')}}" alt="Sidebar Banner"></a>' +
-                    '<a href="#">' +
-                    '<img src="{{asset('assets/frontend/img/gifs/middle3.gif')}}" alt="Sidebar Banner"></a>' +
-                    '</div>';
+
+                var banner2 = '<div class="inside-editor-content three-block col-lg-12 col-md-6 col-12"> ' + '</div>';
                 $( ".editor-content p:nth-child(4)").after().append(banner2);
             }
 

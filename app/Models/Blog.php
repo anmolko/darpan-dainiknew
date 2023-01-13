@@ -91,4 +91,19 @@ class Blog extends Model
 
     }
 
+    public function singleSidebarAds($skip,$take)
+    {
+        return Ads::where('placement','post-side-bar-banner')->where('status','active')->skip($skip)->take($take)->get();
+    }
+
+    public function betweenPost($skip,$take)
+    {
+        if($skip == 0){
+            return Ads::where('placement','in-between-post')->where('status','active')->skip($skip)->first();
+        }else{
+            return ;
+        }
+    }
+
+
 }
