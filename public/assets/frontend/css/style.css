@@ -2925,6 +2925,9 @@ blockquote.blockquote.blockquote-bg p {
   padding-left: 1px;
 }
 
+.sidebar-time{
+    text-align: center;
+}
 .sidebar-time .meta-item{
     font-size: 12px;
     line-height: 20px;
@@ -5455,4 +5458,28 @@ blockquote.blockquote.blockquote-bg p {
     margin: 10px;
     max-width: 890px;
     max-height: 550px;
+}
+
+.inside-editor-content{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px 0 35px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.inside-editor-content a:hover img{
+    transform: scale(1.1);
+}
+
+.inside-editor-content:after {
+    content: 'ADVERTISEMENT';
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    color: rgba(0,0,0,.58);
+    position: absolute;
+    bottom: 5px;
 }

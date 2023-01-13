@@ -126,6 +126,14 @@
                                 <div class="content editor-content" id="content">
                                     {{--                                    <!-- Description -->--}}
                                     {!! $singleBlog->description !!}
+
+{{--                                    <div class="inside-editor-content col-lg-12 col-md-6 col-12">--}}
+{{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+{{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+{{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+{{--                                    </div>--}}
+
+
                                 </div>
 
 
@@ -219,14 +227,16 @@
 
                         </div><!-- Post Block Wrapper End -->
                     @endif
-                        <!-- comments -->
-                        <div class="post-block-wrapper">
+
+
+                   <!-- comments -->
+                    <div class="post-block-wrapper mb-50">
 
                             <!-- Post Block Head Start -->
                             <div class="head">
 
                                 <!-- Title -->
-                                <h4 class="title">Leave a Comment</h4>
+                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>
 
                             </div><!-- Post Block Head End -->
 
@@ -267,13 +277,125 @@
 
                         </div><!-- Post Block Wrapper End -->
 
-                    </div>
+                    <!-- End row Post Block -->
+                    <div class="row ">
+
+                        <div class="col-lg-12 col-12 mb-50">
+
+                            <!-- Post Block Wrapper Start -->
+                            <div class="post-block-wrapper">
+
+                                <!-- Post Block Head Start -->
+                                <div class="head education-head">
+
+                                    <!-- Title -->
+                                    <h4 class="title">World News</h4>
+                                </div><!-- Post Block Head End -->
+
+                                <!-- Post bottom -->
+                                <div class="body pb-0">
+
+                                    <div class="row">
+
+                                        <!-- Post Start -->
+                                        <div class="post education-post col-md-6 col-12 mb-20">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-61.jpg')}}" alt="post"></a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="#">The week when president Safari Resigned.</a></h4>
+
+                                                    <!-- Read More -->
+                                                    <a href="#" class="read-more">continue reading</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Post End -->
+
+                                        <!-- Post Start -->
+                                        <div class="post education-post col-md-6 col-12 mb-20">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-62.jpg')}}" alt="post"></a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="#">Political Allies Are Not Friend.</a></h4>
+
+                                                    <!-- Read More -->
+                                                    <a href="#" class="read-more">continue reading</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Post End -->
+
+                                        <!-- Post Start -->
+                                        <div class="post education-post col-md-6 col-12 mb-20">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-63.jpg')}}" alt="post"></a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="3">With every sneer, Just make safari be stronge.</a></h4>
+
+                                                    <!-- Read More -->
+                                                    <a href="#" class="read-more">continue reading</a>
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Post End -->
+
+                                        <!-- Post Start -->
+                                        <div class="post education-post col-md-6 col-12 mb-20">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-64.jpg')}}" alt="post"></a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
+
+                                                    <!-- Read More -->
+                                                    <a href="#" class="read-more">continue reading</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Post End -->
+
+                                    </div>
+                                </div><!-- Post Block Body End -->
+
+                            </div><!-- Post Block Wrapper End -->
+
+                        </div>
+                    </div><!-- World Post Row End -->
+
+
+                </div>
 
                 <!-- Sidebar -->
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
-                        <!-- Single Sidebar -->
+                        <!-- Single Sidebar banners -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                             <!-- Sidebar Banner -->
@@ -304,7 +426,8 @@
                             <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>
 
                         </div>
-                        <!-- Single Sidebar -->
+
+                        <!-- Single Sidebar posts-->
                         <div class="single-sidebar">
 
                             <!-- Sidebar Block Wrapper -->
@@ -457,6 +580,7 @@
 
                         </div>
 
+                        <!-- Single Sidebar banners -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                             <!-- Sidebar Banner -->
@@ -535,6 +659,37 @@
                     $("#content p").css("font-size",16+ "px");
                 }
             });
+
+            var number = $('.editor-content'). find('p').size();
+            console.log(number);
+
+            if(number => 2){
+                var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
+                    '<a href="#">' +
+                    '<img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>' +
+                '</div>';
+                $( ".editor-content p:nth-child(2)" ).after().append(banner1);
+
+            }
+
+            if(number => 4){
+                var banner2 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
+                    '<a href="#">' +
+                    '<img src="{{asset('assets/frontend/img/gifs/middle1.gif')}}" alt="Sidebar Banner"></a>' +
+                    '<a href="#">' +
+                    '<img src="{{asset('assets/frontend/img/gifs/middle2.jpeg')}}" alt="Sidebar Banner"></a>' +
+                    '<a href="#">' +
+                    '<img src="{{asset('assets/frontend/img/gifs/middle3.gif')}}" alt="Sidebar Banner"></a>' +
+                    '</div>';
+                $( ".editor-content p:nth-child(4)").after().append(banner2);
+            }
+
+            // $('.editor-content > p').each(function (i) {
+            //
+            //     $(this).after('ONE Single OF IMAGE ADS');
+            //
+            // });
+
         });
 </script>
 @endsection
