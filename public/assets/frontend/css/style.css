@@ -5483,3 +5483,11 @@ blockquote.blockquote.blockquote-bg p {
     position: absolute;
     bottom: 5px;
 }
+.excerpt{
+    margin-bottom: 10px;
+}
+.excerpt p{
+    text-align: justify;
+    font-size: 22px;
+    line-height: 1.8;
+}

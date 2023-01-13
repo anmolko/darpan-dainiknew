@@ -93,16 +93,20 @@
 
                         <div class="single-blog mb-50" id="main-content">
                             <div class="blog-wrap">
+                                @if($singleBlog->excerpt !== null)
+                                    <div class="excerpt editor-flx">
+                                        <p>{{@$singleBlog->excerpt}}</p>
+                                    </div>
+                                @endif
 
-                                <a href="#" class="post-middle-banner mb-4">
-                                    <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
-                                </a>
-
+                                <div class="post-middle-banner mb-4">
+                                    <a href="#">
+                                        <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
+                                    </a>
+                                </div>
 
                                 <div class="image"><img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="post"></div>
-                                <a href="#" class="post-middle-banner mb-4">
-                                    <img src="{{asset('assets/frontend/img/gifs/test5.gif')}}" alt=""  />
-                                </a>
+
 
                                 <div class="meta fix">
                                     <span class="font-btn">
@@ -122,9 +126,14 @@
                                     @endif
 {{--                                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>--}}
                                 </div>
+                                    <div class="post-middle-banner mb-4">
+                                        <a href="#">
+                                            <img src="{{asset('assets/frontend/img/gifs/test5.gif')}}" alt=""  />
+                                        </a>
+                                    </div>
                                 <!-- Content -->
-                                <div class="content editor-content" id="content">
-                                    {{--                                    <!-- Description -->--}}
+                                <div class="content editor-content editor-flx" id="content">
+                                    {{-- Description --}}
                                     {!! $singleBlog->description !!}
 
 {{--                                    <div class="inside-editor-content col-lg-12 col-md-6 col-12">--}}
@@ -138,9 +147,11 @@
 
 
                                 <div class="tags-social float-start">
-                                    <a href="#" class="post-middle-banner mb-4">
-                                        <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
-                                    </a>
+                                    <div class="post-middle-banner mb-4">
+                                        <a href="#">
+                                            <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt=""  />
+                                        </a>
+                                    </div>
                                     @if(count($singleBlog->tags)>0)
                                         <div class="tags float-start">
                                             <i class="fa fa-tags"></i>
@@ -642,21 +653,21 @@
             $("#big").on("click",function(){
                 size = size + 2;
                 if(size<26 ){
-                    $("#content p").css("font-size",size + "px");
+                    $(".editor-flx p").css("font-size",size + "px");
                 }else{
-                    $("#content p").css("font-size",26 + "px");
+                    $(".editor-flx p").css("font-size",26 + "px");
                 }
             });
             $("#normal").on("click",function(){
                 size = 20;
-                $("#content p").css("font-size",size + "px");
+                $(".editor-flx p").css("font-size",size + "px");
             });
             $("#small").on("click",function(){
                 size = size - 2;
                 if(size>14){
-                    $("#content p").css("font-size",size+ "px");
+                    $(".editor-flx p").css("font-size",size+ "px");
                 } else {
-                    $("#content p").css("font-size",16+ "px");
+                    $(".editor-flx p").css("font-size",16+ "px");
                 }
             });
 
