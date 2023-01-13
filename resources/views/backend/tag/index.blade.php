@@ -5,7 +5,15 @@
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <style>
-
+        .tag-descp{
+            display: block;
+            white-space: break-spaces;
+            text-align: center;
+        }
+        #blog-tag-list{
+            font-family: "Mukta", "Khand", "Glegoo", sans-serif;
+            font-size: 16px;
+        }
 
     </style>
 @endsection
@@ -40,22 +48,21 @@
                                 <label class="form-label" for="tag-title-input">Title</label>
                                 <input type="text" name="name" class="form-control" id="tag-title-input"
                                        onclick="slugMaker('tag-title-input','tag-slug-input')"
-                                       placeholder="Enter title" required>
+                                       required>
                                 <div class="invalid-feedback">
                                     Please enter the tags title.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="tag-slug-input">Slug</label>
-                                <input type="text" name="slug" class="form-control" id="tag-slug-input"
-                                       placeholder="Enter slug" required>
+                                <input type="text" name="slug" class="form-control" id="tag-slug-input" required>
                                 <div class="invalid-feedback">
                                     Please enter the tags slug.
                                 </div>
                             </div>
                             <div>
                                 <label class="form-label" for="description-input">Description</label>
-                                <textarea class="form-control" id="description-input" placeholder="Enter description"  name="description" rows="3"></textarea>
+                                <textarea class="form-control" id="description-input"  name="description" rows="6"></textarea>
                             </div>
                         </div>
                     </div>
@@ -86,7 +93,7 @@
                                         <thead class="table-light">
                                         <tr>
                                             <th>Name</th>
-                                            <th>Description</th>
+                                            <th style="text-align: center">Description</th>
                                             <th>Slug</th>
                                             <th>Count</th>
                                             <th class="text-right">Action</th>
@@ -97,7 +104,9 @@
                                             @foreach($tags as  $tag)
                                                 <tr id="tag-block-num-{{@$tag->id}}">
                                                     <td id="tag-td-name-{{@$tag->id}}">{{ ucwords(@$tag->name) }}</td>
-                                                    <td id="tag-td-descp-{{@$tag->id}}">{{ (@$tag->description !== null) ? @$tag->description:"—" }}</td>
+                                                    <td id="tag-td-descp-{{@$tag->id}}">
+                                                        <span class="tag-descp">{{ (@$tag->description !== null) ? @$tag->description:"—" }}</span>
+                                                    </td>
                                                     <td id="tag-td-slug-{{@$tag->id}}">{{ @$tag->slug }}</td>
                                                     <td id="tag-td-count-{{@$tag->id}}"><a href="{{route('tag.blog',@$tag->id)}}">{{ $tag->BlogsCount() }}</a></td>
                                                     <td >

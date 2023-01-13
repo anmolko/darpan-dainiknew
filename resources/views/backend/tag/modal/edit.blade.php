@@ -31,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label class="form-label" for="description-input">Description</label>
-                            <textarea class="form-control" placeholder="Enter description"  name="description" id="update-description" rows="3"></textarea>
+                            <textarea class="form-control"  name="description" id="update-description" rows="6"></textarea>
                         </div>
                     </div>
 

@@ -596,6 +596,11 @@
     }
 }
 
+.mukta{
+    font-family: "Mukta", "Khand", "Glegoo", sans-serif;
+    font-size: 16px;
+}
+
 .footer {
     bottom: 0;
     padding: 20px calc(1.5rem / 2);

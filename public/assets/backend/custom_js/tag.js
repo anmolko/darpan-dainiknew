@@ -134,7 +134,7 @@ $(document).on('click','.cs-tag-edit', function (e) {
             $("#edit_tag").modal("toggle");
             $('#update-name').attr('value',dataResult.name);
             $('#update-slug').attr('value',dataResult.slug);
-            $('#update-description').attr('value',dataResult.description);
+            $('#update-description').text(dataResult.description);
             $('.updatetags').attr('action',action);
         },
         error: function(error){

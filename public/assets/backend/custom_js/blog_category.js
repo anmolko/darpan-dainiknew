@@ -137,7 +137,7 @@ $(document).on('click','.cs-category-edit', function (e) {
             $("#edit_blog_category").modal("toggle");
             $('#update-name').attr('value',dataResult.name);
             $('#update-slug').attr('value',dataResult.slug);
-            $('#update-description').attr('value',dataResult.description);
+            $('#update-description').text(dataResult.description);
             $('#category_id').attr('value',dataResult.id);
             $('.updateblogcategory').attr('action',action);
         },

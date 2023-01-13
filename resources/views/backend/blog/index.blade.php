@@ -5,7 +5,18 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+    <style>
+          .title,.related-category {
+              display: block;
+              white-space: break-spaces;
+              width: 150px;
+          }
 
+          #blog-list{
+              font-family: "Mukta", "Khand", "Glegoo", sans-serif;
+              font-size: 16px;
+          }
+    </style>
 @endsection
 @section('content')
 <div class="page-content">
@@ -78,19 +89,26 @@
                                                     <td>
                                                         <img src="{{asset('/images/blog/'.@$blog->image)}}" alt="{{@$blog->slug}}" class="figure-img rounded-circle avatar-lg">
                                                     </td>
-                                                    <td >
-                                                     <span> {{ ucwords( @$blog->title) }} </span>
+                                                    <td>
+                                                     <span class="title"> {{ ucwords( @$blog->title) }} </span>
                                                     </td>
                                                     <td>
-                                                        @foreach(@$blog->categories as $category)
-                                                            <a href="#">{{ucfirst(@$category->name)}}
-                                                           </a>{{($loop->last) ?"":"," }}
-                                                        @endforeach
+                                                                @foreach(@$blog->categories as $key=>$category)
+                                                                    <a  href="#">{{ ucfirst(@$category->name) }}
+                                                                   </a>{{($loop->last) ?"":"," }}
+                                                                     @if (($key+1) % 5 === 0)
+                                                                           <br>
+                                                                     @endif
+                                                                @endforeach
+
                                                     </td>
                                                     <td>
-                                                        @foreach(@$blog->tags as $tag)
+                                                        @foreach(@$blog->tags as $key=>$tag)
                                                             <a href="{{route('tag.blog',@$tag->id)}}">{{ucfirst(@$tag->name)}}
                                                             </a>{{($loop->last) ?"":"," }}
+                                                            @if (($key+1) % 3 === 0)
+                                                                <br>
+                                                            @endif
                                                         @endforeach
                                                     </td>
                                                     <td>

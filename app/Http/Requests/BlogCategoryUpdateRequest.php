@@ -26,7 +26,7 @@ class BlogCategoryUpdateRequest extends FormRequest
     {
         $id=Request::segment(3);
         return [
-            'slug'=> 'required|unique:blog_categories,slug,'.$id,
+            'slug'=> 'required|unique:categories,slug,'.$id,
         ];
     }
 
