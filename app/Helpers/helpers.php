@@ -126,7 +126,7 @@ if (! function_exists('getNumericSlug')) {
     function getNumericSlug()
     {
         $blog = \App\Models\Blog::latest()->first();
-        $digits = 3;
+        $digits = 5;
         if($blog == null){
             $slug = 'dd-'.'1'. str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
         }else{

@@ -65,7 +65,7 @@ class BlogController extends Controller
         $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $data=[
             'title'             => $request->input('title'),
-            'slug'              => $request->input('slug'),
+            'slug'              => str_replace(' ','-',$request->input('title')),
             'numeric_slug'      => getNumericSlug(),
             'description'       => $request->input('description'),
             'excerpt'           => $request->input('excerpt'),
@@ -153,7 +153,7 @@ class BlogController extends Controller
         $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $blog                      =  Blog::find($id);
         $blog->title               =  $request->input('title');
-        $blog->slug                =  $request->input('slug');
+        $blog->slug                =  str_replace(' ','-',$request->input('title'));
         $blog->description         =  $request->input('description');
         $blog->excerpt             =  $request->input('excerpt');
         $blog->status              =  $request->input('status');

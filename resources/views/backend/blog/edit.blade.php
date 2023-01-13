@@ -105,17 +105,9 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="blog-title-input">Blog Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="blog-title-input" placeholder="Enter blog title"
-                                           onclick="slugMaker('blog-title-input','blog-slug')"
                                            value="{{@$edit->title}}" required>
                                         <div class="invalid-feedback">
                                             Please enter the blog title.
-                                        </div>
-                                </div>
-                                <div class="mb-3">
-                                        <label>Slug <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter blog slug" value="{{@$edit->slug}}" required>
-                                        <div class="invalid-feedback">
-                                            Please enter the blog Slug.
                                         </div>
                                 </div>
                                 <div  class="mb-3">

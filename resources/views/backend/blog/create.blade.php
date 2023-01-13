@@ -96,18 +96,10 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="blog-title-input">Post Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="blog-title-input"
-                                           onclick="slugMaker('blog-title-input','blog-slug')"
                                            placeholder="Enter blog title"
                                         required>
                                         <div class="invalid-feedback">
                                             Please enter the post title.
-                                        </div>
-                                </div>
-                                <div class="mb-3">
-                                        <label>Slug <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="slug" id="blog-slug" placeholder="Enter post slug" required>
-                                        <div class="invalid-feedback">
-                                            Please enter the blog Slug.
                                         </div>
                                 </div>
                                 <div  class="mb-3">

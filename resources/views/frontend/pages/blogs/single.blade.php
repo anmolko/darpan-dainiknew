@@ -48,11 +48,6 @@
     <meta property="og:image:size" content="300" />
 @endsection
 @section('content')
-
-
-
-
-
     <!-- Blog Section Start -->
     <div class="blog-section section">
         <div class="container">

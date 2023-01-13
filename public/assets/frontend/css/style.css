@@ -1458,7 +1458,7 @@ blockquote.blockquote.blockquote-bg p {
   display: block;
   line-height: 20px;
   color: #444444;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: capitalize;
   /*-- Weather --*/
 }
@@ -1491,7 +1491,7 @@ blockquote.blockquote.blockquote-bg p {
   cursor: auto;
   pointer-events: none;
   padding: 10px 20px;
-  background-color: #00c8fa;
+  background-color: #235dba;
   color: #ffffff;
   margin-top: -10px;
   margin-bottom: -10px;

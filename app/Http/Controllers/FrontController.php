@@ -54,7 +54,7 @@ class FrontController extends Controller
     {
         $latestPosts        = $this->blog->inRandomOrder()->take(4)->get();
 
-        return view('welcome',compact('testimonials','latestPosts','homepage_info'));
+        return view('welcome',compact('latestPosts'));
     }
 
 
