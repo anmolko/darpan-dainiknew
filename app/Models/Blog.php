@@ -95,6 +95,10 @@ class Blog extends Model
     {
         return Ads::where('placement','post-side-bar-banner')->where('status','active')->skip($skip)->take($take)->get();
     }
+    public function getBelowPostBanner()
+    {
+        return Ads::where('placement','post-end')->where('status','active')->first();
+    }
 
     public function betweenPost($skip,$take)
     {

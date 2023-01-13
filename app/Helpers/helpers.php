@@ -138,3 +138,25 @@ if (! function_exists('getNumericSlug')) {
         return $slug;
     }
 }
+
+if (! function_exists('getMiddleBanner')) {
+    /**
+     * Generate a Numeric URL friendly "slug" from blogs.
+     *
+     * @param  string  $title
+     * @param  string  $separator
+     * @param  string  $language
+     * @return string
+     */
+    function getMiddleBanner()
+    {
+        $between2   = Ads::where('placement','in-between-post')->where('status','active')->skip(1)->take(3)->get();
+        $block   = '<div class="inside-editor-content col-lg-12 col-md-6 col-12">';
+        foreach ($between2 as $between){
+            $url = (@$between->url !== null) ? @$between->url:"#";
+                $block .= '<a href="'.$url.'" target="_blank"><img src="'.asset('/images/banners/'.@$between->image).'" alt="'.@$between->name.'"></a>';
+        }
+        $block  .= '</div>';
+        return $block;
+    }
+}

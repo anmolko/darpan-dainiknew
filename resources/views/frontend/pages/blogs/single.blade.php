@@ -151,11 +151,14 @@
 
 
                                 <div class="tags-social float-start">
-                                    <div class="post-middle-banner mb-4">
-                                        <a href="#">
-                                            <img src="{{asset('assets/frontend/img/gifs/test-banner.png')}}" alt="" target="_blank" />
-                                        </a>
-                                    </div>
+
+                                    @if(@$belowpost !== null)
+                                        <div class="post-middle-banner mb-4">
+                                            <a href="{{ (@$belowpost->url !== null) ? @$belowpost->url:"#"}}" target="_blank">
+                                                <img src="{{asset('/images/banners/'.@$belowpost->image)}}" alt="{{@$belowpost->name}}" target="_blank" />
+                                            </a>
+                                        </div>
+                                    @endif
                                     @if(count($singleBlog->tags)>0)
                                         <div class="tags float-start">
                                             <i class="fa fa-tags"></i>
@@ -191,6 +194,8 @@
                             @endif
                         </div><!-- Previous & Next Post End -->
                         @endif
+
+
 
 
                     @if(count(@$singleBlog->relatedPostsByCategory())>0)
@@ -648,7 +653,7 @@
             var number = $('.editor-content'). find('p').size();
             if(number => 2){
                 var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
-                    '<a href="{{ (@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
+                    '<a href="{{(@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
                     '<img src="{{asset('/images/banners/'.@$between1->image)}}" alt="{{@$between1->name}}"></a>' +
                 '</div>';
                 $( ".editor-content p:nth-child(2)" ).after().append(banner1);
@@ -656,15 +661,9 @@
 
             if(number => 4){
 
-                var banner2 = '<div class="inside-editor-content three-block col-lg-12 col-md-6 col-12"> ' + '</div>';
+                var banner2 = '{!! getMiddleBanner() !!}';
                 $( ".editor-content p:nth-child(4)").after().append(banner2);
             }
-
-            // $('.editor-content > p').each(function (i) {
-            //
-            //     $(this).after('ONE Single OF IMAGE ADS');
-            //
-            // });
 
         });
 </script>

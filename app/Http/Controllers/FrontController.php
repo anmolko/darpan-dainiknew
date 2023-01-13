@@ -259,7 +259,8 @@ class FrontController extends Controller
         $below       = Ads::where('placement','below-post-featured')->where('status','active')->first();
         $between1    = Ads::where('placement','in-between-post')->where('status','active')->first();
         $between2    = Ads::where('placement','in-between-post')->where('status','active')->skip(1)->take(3)->get();
-        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next','above','below','between2','between1'));
+        $belowpost   = Ads::where('placement','post-end')->where('status','active')->first();
+        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next','above','below','between2','between1','belowpost'));
     }
 
     public function contact()
