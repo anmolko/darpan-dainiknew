@@ -5,6 +5,7 @@ namespace App\Http\ViewComposer;
 
 use App\Models\Blog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\View\View;
 use App\Models\Menu;
 use App\Models\MenuItem;
@@ -27,8 +28,11 @@ class SensitiveComposer
        $footerItemTitle1     = @$footerMenu[0]->title;
        $footerItemTitle2     = @$footerMenu[1]->title;
        $footerItemTitle3     = @$footerMenu[2]->title;
-
-
+       $today                = new Carbon;
+       $todayDate            = $today->toDateString().' 23:59:59';
+       $threeDaysAgo         = $today->subDays(3)->toDateString().' 00:00:00';
+       $top_blog             = Blog::popularThisYear()->take(5)->get();
+       $latest_news          = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
        if(!empty(@$topNavItems)){
            foreach($topNavItems as $menu){
                $menu->title = MenuItem::where('id',$menu->id)->value('title');
@@ -97,7 +101,9 @@ class SensitiveComposer
            ->with('footer_nav_title2', $footerItemTitle2)
            ->with('footer_nav_data3', $footerItem3)
            ->with('footer_nav_title3', $footerItemTitle3)
-           ->with('top_nav_data', $topNavItems);
+           ->with('top_nav_data', $topNavItems)
+           ->with('topnews', $top_blog)
+           ->with('latestPosts', $latest_news);
 
 
     }

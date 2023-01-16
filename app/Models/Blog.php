@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Bsdate;
+use Coderflex\Laravisit\Concerns\CanVisit;
+use Coderflex\Laravisit\Concerns\HasVisits;
 
-class Blog extends Model
+class Blog extends Model implements CanVisit
 {
     use HasFactory;
+    use HasVisits;
 
     protected $table ='blogs';
     protected $fillable =['id','title','slug','numeric_slug','excerpt','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];

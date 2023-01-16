@@ -455,7 +455,7 @@
                                         <div class="tab-pane fade show active" id="latest-news">
                                             @darpanloop(@$latestPosts as $latest)
                                                 <div class="post post-small post-list education-post post-separator-border">
-                                                <div class="post-wrap">
+                                                    <div class="post-wrap">
 
                                                     <!-- Image -->
                                                     <a class="image" href="#">
@@ -478,102 +478,38 @@
                                                     </div>
 
                                                 </div>
-                                            </div><!-- Small Post End -->
+                                                </div><!-- Small Post End -->
                                             @enddarpanloop
                                         </div>
+
                                         <div class="tab-pane fade" id="popular-news">
-
-                                            <!-- Small Post Start -->
+                                            @darpanloop(@$topnews as $popular)
                                             <div class="post post-small post-list education-post post-separator-border">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-35.jpg')}}" alt="post"></a>
+                                                    <a class="image" href="#">
+                                                        <div class="meta fix sidebar-time">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
+                                                        </div>
+                                                        <img src="{{ asset('/images/blog/'.@$popular->image) }}" alt="post">
+
+                                                    </a>
 
                                                     <!-- Content -->
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h5 class="title"><a href="#">Home is not a place . . . . . . it’s a feeling.</a></h5>
+                                                        <h5 class="title"><a href="#">{{$popular->title}}</a></h5>
 
                                                         <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
+
 
                                                     </div>
 
                                                 </div>
                                             </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list education-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-36.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">How do you solve the local political page problem.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list education-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-33.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Hynpodia helps female travelers find health..</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list education-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-34.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">How do you solve the IOS page problem.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
+                                            @enddarpanloop
 
                                         </div>
                                     </div>

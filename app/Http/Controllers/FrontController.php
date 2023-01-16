@@ -248,11 +248,12 @@ class FrontController extends Controller
 
     public function blogSingle($year,$month,$slug){
         $singleBlog = $this->blog->where('numeric_slug', $slug)->first();
+
         if (!$singleBlog) {
             return abort(404);
         }
+        $singleBlog->visit()->withIp();//log the user visit
         $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(4)->get();
         $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
         $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();
         $above       = Ads::where('placement','above-post-featured')->where('status','active')->first();
@@ -260,7 +261,7 @@ class FrontController extends Controller
         $between1    = Ads::where('placement','in-between-post')->where('status','active')->first();
         $between2    = Ads::where('placement','in-between-post')->where('status','active')->skip(1)->take(3)->get();
         $belowpost   = Ads::where('placement','post-end')->where('status','active')->first();
-        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts','previous','next','above','below','between2','between1','belowpost'));
+        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','previous','next','above','below','between2','between1','belowpost'));
     }
 
     public function contact()
