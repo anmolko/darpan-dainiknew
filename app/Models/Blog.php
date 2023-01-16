@@ -99,15 +99,4 @@ class Blog extends Model
     {
         return Ads::where('placement','post-end')->where('status','active')->first();
     }
-
-    public function betweenPost($skip,$take)
-    {
-        if($skip == 0){
-            return Ads::where('placement','in-between-post')->where('status','active')->skip($skip)->first();
-        }else{
-            return ;
-        }
-    }
-
-
 }
