@@ -77,6 +77,7 @@
         </div>
     </div>
 
+
     <!-- Post section start -->
     <div class="post-section section mt-50">
         <div class="container">
@@ -219,7 +220,7 @@
             <!-- Samachar Post Row Start -->
             <div class="row ">
 
-                <div class="col-lg-8 col-12 mb-50">
+                <div class="col-lg-9 col-12 mb-50">
 
                     <!-- Post Block Wrapper Start -->
                     <div class="post-block-wrapper">
@@ -237,324 +238,69 @@
                         <!-- Post Block Body Start -->
                         <div class="body pb-0">
 
-                            <!-- Tab Content Start-->
-                            <div class="tab-content">
 
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade show active" id="life-style-cat-1">
+                            <div class="row">
 
-                                    <div class="row">
-                                        <!-- Small Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
+                                <!-- Small Post Wrapper Start -->
+                                <div class="col-md-6 col-12 mb-20">
 
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
+                                    @darpanloop(getCategoryRelatedPost(35,2,4) as $news)
+                                    <div class="post post-small post-list life-style-post post-separator-border">
+                                        <div class="post-wrap">
 
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-21.jpg')}}" alt="post"></a>
+                                            <!-- Image -->
+                                            <a class="image" href="{{ url(@$news->url()) }}">
+                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                            </a>
 
-                                                    <!-- Content -->
-                                                    <div class="content">
+                                            <!-- Content -->
+                                            <div class="content">
 
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Hynpodia helps female travelers find health.</a></h5>
+                                                <!-- Title -->
+                                                <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h5>
 
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
+                                                <!-- Meta -->
+                                                <div class="meta fix">
+                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
                                                 </div>
-                                            </div><!-- Small Post End -->
+                                            </div>
+                                        </div>
+                                    </div><!-- Small Post End -->
+                                    @enddarpanloop
+                                </div><!-- Small Post Wrapper End -->
 
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
 
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-22.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-23.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Fish Fry With green vegetables.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-24.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                        </div><!-- Small Post Wrapper End -->
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Overlay Post Start -->
+                                <div class="col-md-6 col-12 mb-20">
+                                        @darpanloop(getCategoryRelatedPost(35,0,2) as $news)
                                             <div class="post post-overlay life-style-post post-separator-border">
                                                 <div class="post-wrap">
 
-                                                    <!-- Image -->
-                                                    <div class="image"><img src="{{asset('assets/frontend/img/post/post-19.jpg')}}" alt="post"></div>
+                                                <!-- Image -->
 
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="\">Creat Your Home With A Great Designer.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-                                                    </div>
-
+                                                <div class="image">
+                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
                                                 </div>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                             </div><!-- Overlay Post End -->
-
-                                            <!-- Overlay Post Start -->
-                                            <div class="post post-overlay life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <div class="image"><img src="{{asset('assets/frontend/img/post/post-20.jpg')}}" alt="post"></div>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="#">Creat Your Home With A Great Designer.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Overlay Post End -->
-
-                                        </div><!-- Post Wrapper End -->
+                                        @enddarpanloop
+                                </div>
 
 
-                                    </div>
 
-                                </div><!-- Tab Pane End-->
-
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade" id="life-style-cat-2">
-
-                                    <div class="row">
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Overlay Post Start -->
-                                            <div class="post post-overlay life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <div class="image"><img src="{{asset('assets/frontend/img/post/post-20.jpg')}}" alt="post"></div>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="#">Creat Your Home With A Great Designer.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Overlay Post End -->
-
-                                            <!-- Overlay Post Start -->
-                                            <div class="post post-overlay life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <div class="image"><img src="{{asset('assets/frontend/img/post/post-19.jpg')}}" alt="post"></div>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="#">Creat Your Home With A Great Designer.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Overlay Post End -->
-
-                                        </div><!-- Post Wrapper End -->
-
-                                        <!-- Small Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-23.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Fish Fry With green vegetables.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-24.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-21.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Hynpodia helps female travelers find health.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                            <!-- Small Post Start -->
-                                            <div class="post post-small post-list life-style-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-22.jpg')}}" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-
-                                        </div><!-- Small Post Wrapper End -->
-
-                                    </div>
-
-                                </div><!-- Tab Pane End-->
-
-                            </div><!-- Tab Content End-->
+                            </div>
 
                         </div><!-- Post Block Body End -->
 
@@ -563,7 +309,7 @@
                 </div>
 
                 <!-- Sidebar Start -->
-                <div class="col-lg-4 col-12 mb-50">
+                <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
                         <!-- Single Sidebar -->
@@ -636,23 +382,26 @@
 
                         </div>
 
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/banner/sidebar-banner-2.jpg')}}" alt="Sidebar Banner"></a>
-
-                        </div>
 
                     </div>
                 </div><!-- Sidebar End -->
 
             </div><!-- Life Style Post Row End -->
 
-            <!-- Education & Madical Post Row Start -->
+            <div class="section">
+                <div class="header-banner">
+                    <div class="col-12 post-container home-post-between">
+                        <a href="#" class="post-middle-banner">
+                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-12 mb-50">
+                <div class="col-lg-5 col-md-6 col-12 mb-50">
 
                     <!-- Post Block Wrapper Start -->
                     <div class="post-block-wrapper">
@@ -661,7 +410,7 @@
                         <div class="head education-head">
 
                             <!-- Title -->
-                            <h4 class="title">Education News</h4>
+                            <h4 class="title">राजनीति</h4>
 
                         </div><!-- Post Block Head End -->
 
@@ -671,22 +420,25 @@
                             <!-- Sidebar Post Slider Start -->
                             <div class="four-row-post-carousel row-post-carousel post-block-carousel education-post-carousel">
 
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
+                                @darpanloop(getCategoryRelatedPost(33,0,8) as $news)
+
+                                    <div class="post post-small post-list education-post">
                                     <div class="post-wrap">
 
                                         <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-27.jpg')}}" alt="post"></a>
+                                        <a class="image slider-image" href="#">
+                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                        </a>
 
                                         <!-- Content -->
                                         <div class="content">
 
                                             <!-- Title -->
-                                            <h5 class="title"><a href="#">Who Else Wants To Be Successful With education.</a></h5>
+                                            <h4 class="inner-title title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
 
                                             <!-- Meta -->
                                             <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
                                             </div>
 
                                         </div>
@@ -694,166 +446,9 @@
                                     </div>
                                 </div><!-- Small Post End -->
 
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
+                                @enddarpanloop
 
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-28.jpg')}}" alt="post"></a>
 
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-29.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-30.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">Everything You Need To Know About Education.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-27.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">Who Else Wants To Be Successful With education.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-28.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-29.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
-
-                                <!-- Small Post Start -->
-                                <div class="post post-small post-list education-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-30.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h5 class="title"><a href="#">Everything You Need To Know About Education.</a></h5>
-
-                                            <!-- Meta -->
-                                            <div class="meta fix">
-                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Small Post End -->
 
                             </div><!-- Sidebar Post Slider End -->
 
@@ -863,7 +458,7 @@
 
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-12 mb-50">
+                <div class="col-lg-3 col-md-6 col-12 mb-50">
 
                     <!-- Post Block Wrapper Start -->
                     <div class="post-block-wrapper">
@@ -872,7 +467,7 @@
                         <div class="head madical-head">
 
                             <!-- Title -->
-                            <h4 class="title">Madical News</h4>
+                            <h4 class="title">विचार</h4>
 
                         </div><!-- Post Block Head End -->
 
@@ -880,71 +475,34 @@
                         <div class="body">
 
                             <!-- Sidebar Post Slider Start -->
-                            <div class="two-row-post-carousel row-post-carousel post-block-carousel madical-post-carousel">
+                            <div class="three-row-post-carousel row-post-carousel post-block-carousel madical-post-carousel">
 
-                                <!-- Post Start -->
-                                <div class="post madical-post">
+                                @darpanloop(getCategoryRelatedPost(9,0,9) as $news)
+                                    <div class="post madical-post">
                                     <div class="post-wrap">
 
                                         <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-31.jpg')}}" alt="post"></a>
+{{--                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-31.jpg')}}" alt="post"></a>--}}
 
                                         <!-- Content -->
                                         <div class="content">
 
                                             <!-- Title -->
-                                            <h4 class="title"><a href="#">If lose your extra calorie !! join Friensd Madical.</a></h4>
-
+                                            <h4 class="title">
+                                                <a href="{{ url(@$news->url()) }}">
+                                                    {{@$news->title}}
+                                                </a>
+                                            </h4>
+                                            <div class="meta fix">
+                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                            </div>
                                         </div>
 
                                     </div>
-                                </div><!-- Post End -->
+                                </div>
+                                @enddarpanloop
 
-                                <!-- Post Start -->
-                                <div class="post madical-post">
-                                    <div class="post-wrap">
 
-                                        <!-- Image -->
-                                        <a href="https://www.youtube.com/watch?v=yv04rtsRL3I" class="image video-popup">
-                                            <img src="{{asset('assets/frontend/img/post/post-32.jpg')}}" alt="post">
-                                            <!-- Video Button -->
-                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                        </a>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                                <!-- Post Start -->
-                                <div class="post madical-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a href="https://www.youtube.com/watch?v=yv04rtsRL3I" class="image video-popup">
-                                            <img src="{{asset('assets/frontend/img/post/post-32.jpg')}}" alt="post">
-                                            <!-- Video Button -->
-                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                        </a>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                                <!-- Post Start -->
-                                <div class="post madical-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-31.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">If lose your extra calorie !! join Friensd Madical.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
 
                             </div><!-- Sidebar Post Slider End -->
 
@@ -968,8 +526,7 @@
 
                                 <!-- Tab List -->
                                 <div class="sidebar-tab-list education-sidebar-tab-list nav">
-                                    <a class="active" data-bs-toggle="tab" href="#latest-news">Latest News</a>
-                                    <a data-bs-toggle="tab" href="#popular-news">Popular News</a>
+                                    <a class="full-width active" data-bs-toggle="tab" href="#latest-news">मनोरञ्जन</a>
                                 </div>
 
                             </div><!-- Sidebar Block Head End -->
@@ -980,192 +537,31 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="latest-news">
 
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
+                                        @darpanloop(getCategoryRelatedPost(6,0,4) as $news)
+                                            <div class="post post-small post-list education-post post-separator-border">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-33.jpg')}}" alt="post"></a>
+                                                <a class="image" href="{{ url(@$news->url()) }}">
+                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                </a>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h5 class="title"><a href="#">Hynpodia helps female travelers find health..</a></h5>
+                                                    <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
                                                     </div>
 
                                                 </div>
 
                                             </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-34.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">How do you solve the IOS page problem.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-35.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">Home is not a place . . . . . . it’s a feeling.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-36.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">How do you solve the local political page problem.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                    </div>
-                                    <div class="tab-pane fade" id="popular-news">
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-35.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">Home is not a place . . . . . . it’s a feeling.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-36.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">How do you solve the local political page problem.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-33.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">Hynpodia helps female travelers find health..</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list education-post post-separator-border">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-34.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="#">How do you solve the IOS page problem.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
+                                        </div>
+                                        @enddarpanloop
 
                                     </div>
                                 </div>
@@ -1178,7 +574,18 @@
 
                 </div><!-- Sidebar End -->
 
-            </div><!-- Education & Madical Post Row End -->
+            </div>
+
+            <div class="section">
+                <div class="header-banner">
+                    <div class="col-12 post-container home-post-between">
+                        <a href="#" class="post-middle-banner">
+                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Sports Post Row Start -->
             <div class="row mb-50">
@@ -1192,379 +599,116 @@
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">Sports News</h4>
-
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list sports-post-tab-list nav d-none d-md-block">
-                                <li><a class="active" data-bs-toggle="tab" href="#sports-cat-1">Fashion</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-2">Health</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-1">Beauty</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-2">Sports</a></li>
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
-
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
-
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list sports-post-tab-list nav d-sm-block d-md-none">
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Category</a>
-
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a class="active" data-bs-toggle="tab" href="#sports-cat-1">Fashion</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Health</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Beauty</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Sports</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
+                            <h4 class="title">शिक्षा-स्वास्थ्य</h4>
 
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
                         <div class="body pb-0">
 
-                            <!-- Tab Content Start-->
-                            <div class="tab-content">
+                            <div class="row">
 
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade show active" id="sports-cat-1">
-
-                                    <div class="row">
-
-                                        <!-- Overlay Post Wrapper Start -->
-                                        <div class="col-lg-8 col-12">
-
-                                            <div class="row">
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay post-large sports-post col-12 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="{{asset('assets/frontend/img/post/post-37.jpg')}}" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h2 class="title"><a href="#">Mohammedan 05 - Arambagh 04</a></h2>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="{{asset('assets/frontend/img/post/post-38.jpg')}}" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h4 class="title"><a href="#">Sreekail 2 - 3 Comilla.</a></h4>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                                            <img src="{{asset('assets/frontend/img/post/post-39.jpg')}}" alt="post">
-                                                            <!-- Video Popup -->
-                                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                                        </a>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                            </div>
-
-                                        </div><!-- Overlay Post Wrapper End -->
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-lg-4 col-12">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
-
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-40.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="#">Hynpodia helps female travelers find health.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-41.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
-                                                </div>
-
-                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
-
-                                                    <!-- Post Start -->
-                                                    <div class="post sports-post">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-42.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h4 class="title"><a href="#">Winning T20 Farewell To Safari.</a></h4>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <a href="#" class="meta-item date"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                                <!-- Description s-->
-                                                                <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- Post End -->
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post Wrapper End -->
-
-                                    </div>
-
-                                </div><!-- Tab Pane End-->
-
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade" id="sports-cat-2">
+                                <!-- Overlay Post Wrapper Start -->
+                                <div class="col-lg-8 col-12">
 
                                     <div class="row">
 
-                                        <!-- Overlay Post Wrapper Start -->
-                                        <div class="col-lg-8 col-12">
+                                        @foreach(getCategoryRelatedPost(8,0,3) as $news)
+                                            <div class="post post-overlay post-large sports-post {{ ($loop->first) ? "col-12":"col-6"}} mb-20">
+                                            <div class="post-wrap">
 
-                                            <div class="row">
+                                                <!-- Image -->
 
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay post-large sports-post col-12 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="{{asset('assets/frontend/img/post/post-37.jpg')}}" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h2 class="title"><a href="#">Mohammedan 05 - Arambagh 04</a></h2>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="{{asset('assets/frontend/img/post/post-38.jpg')}}" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h4 class="title"><a href="#">Sreekail 2 - 3 Comilla.</a></h4>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                                            <img src="{{asset('assets/frontend/img/post/post-39.jpg')}}" alt="post">
-                                                            <!-- Video Popup -->
-                                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                                        </a>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                            </div>
-
-                                        </div><!-- Overlay Post Wrapper End -->
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-lg-4 col-12">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
-
-                                                    <!-- Post Start -->
-                                                    <div class="post sports-post">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-42.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h4 class="title"><a href="#">Winning T20 Farewell To Safari.</a></h4>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <a href="#" class="meta-item date"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                                <!-- Description s-->
-                                                                <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- Post End -->
-
+                                                <div class="image">
+                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
                                                 </div>
 
-                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
+                                                <!-- Content -->
+                                                <div class="content">
 
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
+                                                    <!-- Title -->
+                                                    <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
 
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-40.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="#">Hynpodia helps female travelers find health.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-41.jpg')}}" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                    </div>
                                                 </div>
 
                                             </div>
-                                        </div><!-- Post Wrapper End -->
-
+                                        </div><!-- Overlay Post End -->
+                                        @endforeach
                                     </div>
 
-                                </div><!-- Tab Pane End-->
+                                </div><!-- Overlay Post Wrapper End -->
 
-                            </div><!-- Tab Content End-->
+                                <!-- Post Wrapper Start -->
+                                <div class="col-lg-4 col-12">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 col-md-6 col-12 mb-20">
+
+                                            @foreach(getCategoryRelatedPost(8,3,1) as $news)
+
+                                                <!-- Post Start -->
+                                                <div class="post sports-post">
+                                                    <div class="post-wrap">
+
+                                                        <!-- Image -->
+
+                                                        <a class="image" href="{{ url(@$news->url()) }}">
+                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        </a>
+
+                                                        <!-- Content -->
+                                                        <div class="content">
+
+                                                            <!-- Title -->
+                                                            <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
+
+                                                            <!-- Description s-->
+                                                            <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div><!-- Post End -->
+                                            @endforeach
+
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6 col-12 mb-20">
+
+                                            @foreach(getCategoryRelatedPost(8,4,3) as $news)
+                                                <div class="post post-small post-list sports-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$news->url()) }}">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </a>
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            @endforeach
+
+                                        </div>
+
+                                    </div>
+                                </div><!-- Post Wrapper End -->
+
+                            </div>
 
                         </div><!-- Post Block Body End -->
 

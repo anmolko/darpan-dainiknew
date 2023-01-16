@@ -97,7 +97,13 @@ class Blog extends Model implements CanVisit
             $tagIds = $this->categories()->pluck('categories.id')->all();
             $query->whereIn('categories.id', $tagIds);
         })->where('id', '<>', $this->id)->get();
+    }
 
+    public function relatedPostsCategory($catid)
+    {
+        return Blog::whereHas('categories', function ($query) {
+            $query->whereIn('categories.id', $catid);
+        })->get();
     }
 
     public function singleSidebarAds($skip,$take)

@@ -2336,10 +2336,10 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Title --*/
 }
 .post-block-wrapper .head.sports-head::before, .post-block-wrapper .head.sports-head::after {
-  background-color: #67bf35;
+  background-color: #0d47a2;
 }
 .post-block-wrapper .head.sports-head .title {
-  color: #67bf35;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.gadgets-head {
   /*-- Title --*/
@@ -2363,28 +2363,28 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Title --*/
 }
 .post-block-wrapper .head.education-head::before, .post-block-wrapper .head.education-head::after {
-  background-color: #008bff;
+  background-color:#0d47a2;
 }
 .post-block-wrapper .head.education-head .title {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.health-head {
   /*-- Title --*/
 }
 .post-block-wrapper .head.health-head::before, .post-block-wrapper .head.health-head::after {
-  background-color: #008bff;
+  background-color: #0d47a2;
 }
 .post-block-wrapper .head.health-head .title {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.madical-head {
   /*-- Title --*/
 }
 .post-block-wrapper .head.madical-head::before, .post-block-wrapper .head.madical-head::after {
-  background-color: #008bff;
+  background-color: #0d47a2;
 }
 .post-block-wrapper .head.madical-head .title {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.video-head {
   /*-- Title --*/
@@ -2873,7 +2873,7 @@ blockquote.blockquote.blockquote-bg p {
 .post .post-wrap .content .title {
     font-weight: 600;
     margin: 0;
-    font-size: 26px;
+    font-size: 24px;
     color: #2f323f;
     line-height: 1.5;
 
@@ -3049,8 +3049,8 @@ blockquote.blockquote.blockquote-bg p {
   }
 }
 .post.post-separator-border .post-wrap {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
   border-bottom: 1px solid #f1f1f1;
 }
 .post.post-separator-border:last-child .post-wrap {
@@ -3092,11 +3092,10 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post.post-small .post-wrap .content {
   /*-- Title --*/
-  /*-- Meta Tags --*/
-}
+  /*-- Meta Tags --*/}
 .post.post-small .post-wrap .content .title {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 24px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .post.post-small .post-wrap .content .title {
@@ -3346,7 +3345,7 @@ blockquote.blockquote.blockquote-bg p {
   color: #ffc61c;
 }
 .post.life-style-post .content .title a:hover {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post.life-style-post .content .meta a:hover {
   color: #ffc61c;
@@ -3415,40 +3414,40 @@ blockquote.blockquote.blockquote-bg p {
   color: #f05555;
 }
 .post.education-post .image .video-popup {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.education-post .content .title a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.education-post .content .meta a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.education-post .content .read-more:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.health-post .image .video-popup {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.health-post .content .title a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.health-post .content .meta a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.health-post .content .read-more:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.madical-post .image .video-popup {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.madical-post .content .title a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.madical-post .content .meta a:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.madical-post .content .read-more:hover {
-  color: #008bff;
+  color: #0d47a2;
 }
 .post.video-post .image .video-popup {
   color: #ec0000;
@@ -5521,3 +5520,14 @@ blockquote.blockquote.blockquote-bg p {
     padding: 30px 0 0 0;
 }
 
+.slider-image{
+    width: 150px;
+}
+
+.home-post-between{
+    border-top: none!important;
+    border-bottom: none!important;
+}
+.sidebar-tab-list > a.full-width{
+    width: 100%;
+}

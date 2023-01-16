@@ -19,7 +19,7 @@ $('.mobile-menu-wrap').meanmenu({
     meanMenuCloseSize: '0',
 });
 
-/*-- 
+/*--
     Header Search
 --------------------------------------------*/
 var searchToggle = $('.header-search-toggle');
@@ -41,7 +41,7 @@ searchToggle.on('click', function(){
     }
 });
 
-/*-- 
+/*--
     Breaking News Ticker
 --------------------------------------------*/
 $('.breaking-news-ticker').newsTicker({
@@ -52,7 +52,7 @@ $('.breaking-news-ticker').newsTicker({
     prevButton:  $('.news-ticker-prev'),
     nextButton:  $('.news-ticker-next'),
 });
-    
+
 /*--
     Slick Slider
 -----------------------------------*/
@@ -135,7 +135,7 @@ $('.five-row-post-carousel').slick({
         }
     ]
 });
-    
+
 /*-- Four Row Post Carousel --*/
 $('.four-row-post-carousel').slick({
     autoplay: false,
@@ -230,7 +230,7 @@ $('.four-column-post-carousel').slick({
         }
     ]
 });
-    
+
 /*-- Three Column Post Carousel --*/
 $('.three-column-post-carousel').slick({
     arrows: true,
@@ -321,10 +321,10 @@ $('.fullwidth-instagram-carousel').slick({
         }
     ]
 });
-    
+
 /*--
     Youtube Video Playlist
---------------------------------*/  
+--------------------------------*/
 $("#unix").ycp({
     apikey : 'AIzaSyCj2GrDSBy6ISeGg3aWUM4mn3izlA1wgt0',
     playlist : 6,
@@ -412,6 +412,6 @@ videoPopup.magnificPopup({
         enabled: true,
     }
 });
-    
-    
-})(jQuery);	
+
+
+})(jQuery);

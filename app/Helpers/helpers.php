@@ -166,13 +166,48 @@ if (! function_exists('getLatestPosts')) {
     /**
      * Get latest post based on what to skip and take
      *
-     * @param  string  $title
-     * @param  string  $separator
-     * @param  string  $language
-     * @return string
+     * @param  integer  $skip
+     * @param  integer  $take
+     * @return array
      */
     function getLatestPosts($skip,$take)
     {
         return Blog::orderBy('created_at', 'DESC')->where('status','publish')->skip($skip)->take($take)->get();
+    }
+}
+
+if (! function_exists('getCategoryRelatedPost')) {
+    /**
+     * Get posts based on category ID and limit/skip the data as per the $limit variable
+     *
+     * @param  integer  $catid
+     * @param  integer  $skip
+     * @param  integer  $take
+     * @return array
+     */
+    function getCategoryRelatedPost($catid,$skip,$take)
+    {
+       return Blog::with('categories')
+            ->whereHas('categories',function ($query) use ($catid){
+                 $query->where('category_id', $catid);
+            })->skip($skip)->take($take)->get();
+    }
+}
+
+if (! function_exists('getTagsRelatedPost')) {
+    /**
+     * Get posts based on tags ID and limit the data as per the $limit variable
+     *
+     * @param  integer  $tagid
+     * @param  integer  $skip
+     * @param  integer  $take
+     * @return array
+     */
+    function getTagsRelatedPost($tagid,$skip,$take)
+    {
+       return Blog::with('tags')
+            ->whereHas('tags',function ($query) use ($tagid){
+                 $query->where('tag_id', $tagid);
+            })->skip($skip)->limit($take)->get();
     }
 }
