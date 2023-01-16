@@ -33,6 +33,8 @@ class SensitiveComposer
        $threeDaysAgo         = $today->subDays(3)->toDateString().' 00:00:00';
        $top_blog             = Blog::popularThisYear()->take(5)->get();
        $latest_news          = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
+
+
        if(!empty(@$topNavItems)){
            foreach($topNavItems as $menu){
                $menu->title = MenuItem::where('id',$menu->id)->value('title');
@@ -104,7 +106,5 @@ class SensitiveComposer
            ->with('top_nav_data', $topNavItems)
            ->with('topnews', $top_blog)
            ->with('latestPosts', $latest_news);
-
-
     }
 }

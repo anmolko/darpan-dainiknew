@@ -27,6 +27,11 @@ class Blog extends Model implements CanVisit
         '7' => '७',
         '8' => '८',
         '9' => '९',
+        'minutes' => 'मिनेट',
+        'hours' => 'घन्टा',
+        'days' => 'दिन',
+        'day' => 'दिन',
+        'ago' => 'अगाडि',
     ];
 
     public function categories(){
@@ -49,9 +54,9 @@ class Blog extends Model implements CanVisit
     public function toNepaliString($string){
         return strtr($string, $this->nepaliArray);
     }
-    public function getMinsAgoinNepali($string){
-        $number =  preg_replace('/\D/', '', $string);
-        return strtr($number, $this->nepaliArray). " मिनेट अगाडि";
+    public function getMinsAgoinNepali(){
+        $string = $this->created_at->diffForHumans();
+        return $this->toNepaliString($this->created_at->diffForHumans());
     }
 
     public function hasCategory($categoryid){
@@ -85,6 +90,7 @@ class Blog extends Model implements CanVisit
             $query->whereIn('tags.id', $tagIds);
         })->where('id', '<>', $this->id)->get();
     }
+
     public function relatedPostsByCategory()
     {
         return Blog::whereHas('categories', function ($query) {
@@ -98,6 +104,12 @@ class Blog extends Model implements CanVisit
     {
         return Ads::where('placement','post-side-bar-banner')->where('status','active')->skip($skip)->take($take)->get();
     }
+
+    public function LatestPosts($skip,$take)
+    {
+        return Blog::orderBy('created_at', 'DESC')->where('status','active')->skip($skip)->take($take)->get();
+    }
+
     public function getBelowPostBanner()
     {
         return Ads::where('placement','post-end')->where('status','active')->first();

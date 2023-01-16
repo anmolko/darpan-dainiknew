@@ -103,7 +103,7 @@
                                 </div>
                                 <div  class="mb-3">
                                     <label class="form-label" for="meta-excerpt-input">Excerpt</label>
-                                    <textarea class="mukta form-control" id="meta-excerpt-input"  name="excerpt" rows="6"></textarea>
+                                    <textarea class="mukta form-control" id="meta-excerpt-input" maxlength="260" name="excerpt" rows="6"></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label>Blog Description</label>

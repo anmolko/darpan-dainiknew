@@ -460,7 +460,7 @@
                                                     <!-- Image -->
                                                     <a class="image" href="#">
                                                         <div class="meta fix sidebar-time">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali($latest->created_at->diffForHumans()) }}</span>
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali() }}</span>
                                                         </div>
                                                         <img src="{{ asset('/images/blog/'.@$latest->image) }}" alt="post">
 

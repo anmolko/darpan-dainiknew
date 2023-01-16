@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Ads;
+use App\Models\Blog;
 use App\Models\User;
 use App\Models\Menu;
 use App\Models\MenuItem;
@@ -158,5 +159,20 @@ if (! function_exists('getMiddleBanner')) {
         }
         $block  .= '</div>';
         return $block;
+    }
+}
+
+if (! function_exists('getLatestPosts')) {
+    /**
+     * Get latest post based on what to skip and take
+     *
+     * @param  string  $title
+     * @param  string  $separator
+     * @param  string  $language
+     * @return string
+     */
+    function getLatestPosts($skip,$take)
+    {
+        return Blog::orderBy('created_at', 'DESC')->where('status','publish')->skip($skip)->take($take)->get();
     }
 }

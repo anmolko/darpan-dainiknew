@@ -45,7 +45,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
-  font-family: "Poppins", sans-serif;
+    font-family: mukta,sans-serif;
   font-weight: 400;
   margin-top: 0;
 }
@@ -2300,19 +2300,19 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Title --*/
 }
 .post-block-wrapper .head.feature-head::before, .post-block-wrapper .head.feature-head::after {
-  background-color: #00c8fa;
+  background-color: #0d47a2;
 }
 .post-block-wrapper .head.feature-head .title {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.life-style-head {
   /*-- Title --*/
 }
 .post-block-wrapper .head.life-style-head::before, .post-block-wrapper .head.life-style-head::after {
-  background-color: #ffc61c;
+  background-color: #0d47a2;
 }
 .post-block-wrapper .head.life-style-head .title {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post-block-wrapper .head.travel-head {
   /*-- Title --*/
@@ -2871,10 +2871,12 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Read More Button --*/
 }
 .post .post-wrap .content .title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-bottom: 0;
+    font-weight: 600;
+    margin: 0;
+    font-size: 26px;
+    color: #2f323f;
+    line-height: 1.5;
+
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .post .post-wrap .content .title {
@@ -2942,6 +2944,9 @@ blockquote.blockquote.blockquote-bg p {
 .post .post-wrap .content p {
   margin-bottom: 0;
   margin-top: 10px;
+    font-size: 17px;
+    text-align: justify;
+    color:#2f3240;
 }
 .post .post-wrap .content .read-more {
   margin-top: 16px;
@@ -3044,8 +3049,8 @@ blockquote.blockquote.blockquote-bg p {
   }
 }
 .post.post-separator-border .post-wrap {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #f1f1f1;
 }
 .post.post-separator-border:last-child .post-wrap {
@@ -3090,7 +3095,7 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Meta Tags --*/
 }
 .post.post-small .post-wrap .content .title {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 22px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -3112,8 +3117,8 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post.post-small.post-list .post-wrap .image {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 124px;
-          flex: 0 0 124px;
+      -ms-flex: 0 0 130px;
+          flex: 0 0 140px;
   margin-right: 20px;
   margin-bottom: 0;
 }
@@ -3239,7 +3244,7 @@ blockquote.blockquote.blockquote-bg p {
   color: #ffffff;
 }
 .post.post-overlay .post-wrap .content .title a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #ffffff;
 }
 .post.post-overlay .post-wrap .content .meta .meta-item {
@@ -3389,13 +3394,13 @@ blockquote.blockquote.blockquote-bg p {
   color: #00c8fa;
 }
 .post.feature-post .content .title a:hover {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post.feature-post .content .meta a:hover {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post.feature-post .content .read-more:hover {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post.politic-post .image .video-popup {
   color: #f05555;
@@ -4292,7 +4297,7 @@ blockquote.blockquote.blockquote-bg p {
 /*----------------------------------------*/
 /*-- Single Sidebar --*/
 .single-sidebar {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   float: left;
   width: 100%;
 }
@@ -5491,3 +5496,28 @@ blockquote.blockquote.blockquote-bg p {
     font-size: 22px;
     line-height: 1.8;
 }
+.all-news{
+    width: 28px;
+    height: 28px;
+    border: 1px solid #f1f1f1;
+    text-align: center;
+    border-radius: 2px;
+    padding: 0;
+    background-color: transparent;
+    top: -62px;
+    cursor: pointer;
+    float: right;
+}
+.all-news i{
+     font-size: 20px;
+     display: block;
+     line-height: 26px;
+     margin-top: -1px;
+    color:#0d47a2;
+}
+
+.banner-below-post{
+    border: none;
+    padding: 30px 0 0 0;
+}
+
