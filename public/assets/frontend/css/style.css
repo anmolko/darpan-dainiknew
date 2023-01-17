@@ -3206,7 +3206,7 @@ blockquote.blockquote.blockquote-bg p {
   margin-top: 6px;
 }
 .post.post-small.post-list.popular-post .post-wrap {
-  background-color: #1f2024;
+  background-color: #041b3f;
   padding: 20px;
   border: 1px solid #3d3d3d;
   display: -webkit-box;
@@ -5605,4 +5605,24 @@ blockquote.blockquote.blockquote-bg p {
 
 .ml-15{
     margin-left: 15px;
+}
+
+.post-block-single .feature-head{
+    display: flex;
+    justify-content: space-between;
+}
+.post-block-single .feature-head .title{
+    color: #0d47a2;
+    font-weight: 600;
+}
+.post-block-single a{
+    margin-top: 10px;
+    border: 1px solid #041b3f;
+}
+
+.single-padding{
+    padding: 40px 85px 0 85px;
+}
+.single-padding-2{
+    padding: 0 80px 0 80px;
 }
