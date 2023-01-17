@@ -870,8 +870,6 @@
         </div>
     </div><!-- Second Post Section End -->
 
-
-
     <div class="post-section section mt-50">
         <div class="container">
 
@@ -959,6 +957,131 @@
                 </div>
 
             </div>
+            <div class="row">
+
+                <div class="col-12">
+
+                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
+
+                </div>
+
+            </div>
+            <!-- Hero Section Start -->
+            <div class="hero-section background section mt-30 mb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col post-block-wrapper">
+                            <div class="head feature-head mb-3">
+                                <h4 class="title">मनोरञ्जन</h4>
+                                <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            </div>
+                            <div class="row row-1">
+
+                                <div class="order-lg-2 col-lg-6 col-12">
+
+                                    <!-- Hero Post Slider Start -->
+                                    <div class="post-carousel-1">
+
+                                        @darpanloop(getCategoryRelatedPost(6,0,4) as $news)
+
+                                        <!-- Overlay Post Start -->
+                                        <div class="post post-large post-overlay hero-post">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image">
+                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                </div>
+
+                                                <!-- Category -->
+
+
+                                                <!-- Content -->
+                                                <div class="content">
+                                                    <!-- Title -->
+                                                    <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+                                        @enddarpanloop
+
+                                    </div><!-- Hero Post Slider End -->
+
+                                </div>
+
+                                <div class="order-lg-1 col-lg-3 col-12">
+                                    <div class="row row-1">
+                                        @darpanloop(getCategoryRelatedPost(6,4,2) as $news)
+                                            <div class="post post-overlay hero-post col-lg-12 col-md-6 col-12">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <div class="image">
+                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                </div>
+
+
+                                                <!-- Content -->
+                                                <div class="content">
+                                                    <!-- Title -->
+                                                    <h4 class="title" style="font-size: 20px;"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Overlay Post End -->
+                                        @enddarpanloop
+
+
+                                    </div>
+                                </div>
+
+                                <div class="order-lg-3 col-lg-3 col-12">
+                                    <div class="row row-1">
+
+                                        @darpanloop(getCategoryRelatedPost(6,6,2) as $news)
+                                            <div class="post post-overlay gradient-overlay-1 hero-post col-lg-12 col-md-6 col-12">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <div class="image">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </div>
+
+
+                                                    <div class="content">
+                                                        <!-- Title -->
+                                                        <h4 class="title" style="font-size: 20px;"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Overlay Post End -->
+                                        @enddarpanloop
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Hero Section End -->
 
             <!-- Youtube Video Row Start -->
             <div class="row">

@@ -106,7 +106,7 @@
                 <!-- Header Logo -->
                 <div class="header-logo col-md-4 d-none d-md-block">
                     <a href="/" class="logo">
-                        <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                        <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt=" दर्पण दैनिक | Darpan Dainik  " title=" दर्पण दैनिक | Darpan Dainik  ">
                     </a>
                 </div>
 
@@ -132,7 +132,7 @@
 
                         <div class="sticky-logo-nav">
                             <a href="/" class="logo">
-                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php }?>"  alt="Win Recruit Nepal" title="Win Recruit Nepal">
+                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php }?>"  alt=" दर्पण दैनिक | Darpan Dainik  l" title=" दर्पण दैनिक | Darpan Dainik  ">
                             </a>
                         </div>
                         <!-- Main Menu Start -->
@@ -141,7 +141,7 @@
                             <nav>
                                 <ul>
 
-                                    <li class="active"><a href="/">गृह पृष्ठ</a>
+                                    <li class="home-nav active"><a href="/">गृह पृष्ठ</a>
 
                                     </li>
                                     <li><a href="/">समाचार</a></li>
@@ -362,10 +362,13 @@
                             </nav>
                         </div><!-- Main Menu Start -->
 
-                        <div class="mobile-logo d-md-none"><a href="/"><img src="{{asset('assets/frontend/img/logo-white.png')}}" alt="Logo"></a></div>
+                        <div class="mobile-logo d-md-none"><a href="/">
+                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/settings/'.@$setting_data->logo_white)}}<?php }?>"  alt=" दर्पण दैनिक | Darpan Dainik " title=" दर्पण दैनिक | Darpan Dainik ">
+                            </a>
+                        </div>
 
                         <!-- Header Search -->
-                        <div class="col header-search float-end">
+                        <div class="col header-search mobile-search float-end">
 
                             <!-- Search Toggle -->
                             <button class="header-search-toggle"><i class="fa fa-search"></i></button>

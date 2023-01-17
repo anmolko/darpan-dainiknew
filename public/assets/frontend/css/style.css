@@ -1018,6 +1018,15 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   #scrollUp {
     display: none !important;
   }
+    .mobile-search .header-search-toggle {
+        padding: 5px!important;
+    }
+    .header-search .header-search-form form input[type=text]{
+        padding: 12px 15px!important;
+    }
+  .sticky-logo-nav {
+    display: none !important;
+  }
     .featured-post-2  {
        padding: 0;
     }
@@ -1418,7 +1427,16 @@ blockquote.blockquote.blockquote-bg p {
     min-width: 100%;
     text-align: center;
   }
+    .mobile-logo a img{
+        width: 85%!important;
+    }
 }
+@media only screen and (max-width: 340px) {
+    .mobile-logo a img{
+        width: 100%!important;
+    }
+}
+
 .header-top-links .header-links {
   display: block;
   float: left;
@@ -1645,8 +1663,8 @@ blockquote.blockquote.blockquote-bg p {
 /*-- Mobile Logo --*/
 .mobile-logo {
   text-align: center;
-  padding: 0 70px;
-  height: 50px;
+  padding: 0 80px;
+  height: 54px;
 }
 .mobile-logo a {
   max-width: 170px;
@@ -1806,12 +1824,30 @@ blockquote.blockquote.blockquote-bg p {
     display: block;
   }
 }
+
+
 @media only screen and (max-width: 767px) {
   .mobile-menu {
     display: block;
   }
     .navigation-stick { position: fixed; }
 
+}
+
+@media only screen and (max-width: 1024px) {
+    .main-menu nav > ul > li:nth-last-child(2), .main-menu nav > ul > .home-nav {
+       display: none;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main-menu nav > ul > li:nth-last-child(3), .main-menu nav > ul > .home-nav {
+       display: none;
+    }
+    .sticky-logo-nav{
+        width: 100%;
+        text-align: center;
+
+    }
 }
 
 .mean-push {
@@ -1825,7 +1861,7 @@ blockquote.blockquote.blockquote-bg p {
   padding: 0;
 }
 .mean-bar .meanmenu-reveal {
-  top: -49px;
+  top: -52px;
   margin: 16px 0;
   padding: 0;
   width: auto;
@@ -1905,7 +1941,7 @@ blockquote.blockquote.blockquote-bg p {
   display: block;
   line-height: 24px;
   padding: 8px 0;
-  border-top: 1px solid #333333;
+  border-top: 1px solid #ffffff;
   font-size: 14px;
   text-transform: capitalize;
   color: #ffffff;
@@ -1985,7 +2021,7 @@ blockquote.blockquote.blockquote-bg p {
   display: block;
   line-height: 24px;
   padding: 8px 15px;
-  border-top: 1px solid #333333;
+  border-top: 1px solid #ffffff;
   font-size: 13px;
   text-transform: capitalize;
   color: #ffffff;
@@ -2003,6 +2039,7 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Search Form --*/
   /*-- Header Search Two --*/
 }
+
 @media only screen and (max-width: 767px) {
   .header-search {
     position: absolute;
@@ -2010,19 +2047,20 @@ blockquote.blockquote.blockquote-bg p {
     right: 0;
   }
 }
-.header-search .header-search-toggle {
+
+.mobile-search .header-search-toggle {
   display: block;
     font-size: 20px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   padding: 10px;
   border: none;
   background-color: transparent;
   color: #fff;
 }
-.header-search .header-search-toggle i {
+.mobile-search .header-search-toggle i {
   display: block;
-  line-height: 30px;
+  line-height: 38px;
 }
 .header-search .header-search-form {
   position: absolute;
