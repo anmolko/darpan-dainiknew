@@ -348,7 +348,7 @@
                                                     <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
 
                                                     <!-- Read More Button -->
-                                                    <a href="#" class="read-more">continue reading</a>
+                                                    <a href="#" class="read-more">पुरा पढ्नुहोस् </a>
 
                                                 </div>
 
@@ -369,7 +369,7 @@
                                                     <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
 
                                                     <!-- Read More Button -->
-                                                    <a href="#" class="read-more">continue reading</a>
+                                                    <a href="#" class="read-more">पुरा पढ्नुहोस् </a>
 
                                                 </div>
 
@@ -1082,6 +1082,186 @@
                     </div>
                 </div>
             </div><!-- Hero Section End -->
+
+            <!-- Sports & Travel Post Row Start -->
+            <div class="row">
+
+                <div class="col-lg-9 col-md-6 col-12 mb-50">
+
+                    <!-- Post Block Wrapper Start -->
+                    <div class="post-block-wrapper">
+
+                        <!-- Post Block Head Start -->
+                        <div class="head sports-head">
+
+                            <!-- Title -->
+                            <h4 class="title">कृषि</h4>
+
+                        </div><!-- Post Block Head End -->
+
+                        <!-- Post Block Body Start -->
+                        <div class="body">
+
+                            <div class="row">
+                                <div class="col-md-6 col-12 mb-20">
+                                @foreach(getCategoryRelatedPost(36,0,3) as $news)
+                                    @if($loop->first)
+                                        <div class="post sports-post post-separator-border">
+                                        <div class="post-wrap">
+
+                                            <!-- Image -->
+                                            <a class="image" href="{{ url(@$news->url()) }}">
+                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                            </a>
+
+                                            <!-- Content -->
+                                            <div class="content">
+
+                                                <!-- Title -->
+                                                <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                                <!-- Meta -->
+                                                <div class="meta fix">
+                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                </div>
+
+                                                <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+
+                                                <!-- Read More -->
+                                                <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    @else
+                                        <div class="post post-small post-list sports-post post-separator-border">
+                                        <div class="post-wrap">
+
+                                            <!-- Image -->
+                                            <a class="image" href="{{ url(@$news->url()) }}">
+                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                            </a>
+                                            <!-- Content -->
+                                            <div class="content">
+
+                                                <!-- Title -->
+                                                <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h5>
+
+                                                <!-- Meta -->
+                                                <div class="meta fix">
+                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div><!-- Small Post End -->
+                                    @endif
+                                @endforeach
+                                </div>
+                                <div class="col-md-6 col-12 mb-20">
+                                    @foreach(getCategoryRelatedPost(36,3,3) as $news)
+                                        @if($loop->first)
+                                            <div class="post sports-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$news->url()) }}">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                        </div>
+
+                                                        <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+
+                                                        <!-- Read More -->
+                                                        <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् </a>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="post post-small post-list sports-post post-separator-border">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$news->url()) }}">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </a>
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                            </div>
+                            <!-- Small Post Start -->
+
+                        </div><!-- Post Block Body End -->
+
+                    </div><!-- Post Block Wrapper End -->
+
+                </div>
+
+
+                <!-- Sidebar Start -->
+                <div class="col-lg-3 col-12 mb-50">
+                    <div class="row">
+
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+                            <!-- Sidebar Banner -->
+                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
+
+                        </div>
+
+                    </div>
+                </div><!-- Sidebar End -->
+
+            </div><!-- Sports & Travel Post Row End -->
 
             <!-- Youtube Video Row Start -->
             <div class="row">
