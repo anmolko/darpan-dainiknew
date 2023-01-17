@@ -57,6 +57,7 @@ class BlogCategoryController extends Controller
                 'name'              => $request->input('name'),
                 'slug'              => $request->input('slug'),
                 'description'       => $request->input('description'),
+                'parent_category'   => $request->input('parent_category'),
                 'created_by'  => Auth::user()->id,
             ]);
             if($category){
@@ -110,6 +111,7 @@ class BlogCategoryController extends Controller
         $category->name             = $request->input('name');
         $category->slug             = $request->input('slug');
         $category->description      = $request->input('description');
+        $category->parent_category  = $request->input('parent_category');
         $category->updated_by       = Auth::user()->id;
         $status                     = $category->update();
 

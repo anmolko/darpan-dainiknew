@@ -31,6 +31,15 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group mb-3">
+                        <label>Parent Category</label>
+                        <select class="mukta form-control" name="parent_category" id="parent_category">
+                            <option value="">None</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label" for="description-input">Description</label>

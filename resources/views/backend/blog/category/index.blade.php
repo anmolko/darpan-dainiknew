@@ -61,6 +61,15 @@
                                         Please enter the category slug.
                                     </div>
                             </div>
+                            <div class="form-group mb-3">
+                                <label>Parent Category</label>
+                                <select class="mukta form-control" name="parent_category">
+                                    <option value="" selected>None</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div>
                                 <label class="form-label" for="description-input">Description</label>
                                 <textarea class="mukta form-control" id="description-input"   name="description" rows="6"></textarea>
@@ -104,7 +113,7 @@
                                     @if(!empty($categories))
                                         @foreach($categories as  $category)
                                             <tr id="category-block-num-{{@$category->id}}">
-                                                <td id="category-td-name-{{@$category->id}}">{{ ucwords(@$category->name) }}</td>
+                                                <td id="category-td-name-{{@$category->id}}">{{ (@$category->parent_category !== null) ? "—":"" }}{{ ucwords(@$category->name) }}</td>
                                                 <td id="category-td-descp-{{@$category->id}}">
                                                     <span class="cat-descp"> {{ (@$category->description !== null) ? @$category->description:"—" }}</span></td>
                                                 <td id="category-td-slug-{{@$category->id}}">{{ @$category->slug }}</td>

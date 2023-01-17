@@ -723,7 +723,7 @@
 
                 <div class="col-12">
 
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/banner/post-middle-1.jpg')}}" alt="Banner"></a>
+                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
 
                 </div>
 

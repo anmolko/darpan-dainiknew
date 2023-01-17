@@ -27,6 +27,7 @@ $('#blog-category-add-button').on('click', function(e) {
             var category_count  = '/auth/category/'+response.category.id+'/blog';
             var descp           = (response.category.description ? response.category.description : "—");
             var catcount        = (response.category.count ? response.category.count : "0");
+            var parent          = (response.category.parent_category ? "—" : "");
 
             if(response.status=='success') {
                 Swal.fire({
@@ -50,7 +51,7 @@ $('#blog-category-add-button').on('click', function(e) {
 
 
                 var block = '<tr id="category-block-num-'+response.category.id+'">'+
-                   '<td id="category-td-name-'+response.category.id+'">'+response.category.name+'<span class="badge bg-success ms-1">New</span></td>'+
+                   '<td id="category-td-name-'+response.category.id+'">'+parent+response.category.name+'<span class="badge bg-success ms-1">New</span></td>'+
                    '<td id="category-td-descp-'+response.category.id+'">'+
                     descp+'</td>'+
                    '<td id="category-td-slug-'+response.category.id+'">'
@@ -133,11 +134,19 @@ $(document).on('click','.cs-category-edit', function (e) {
         cache: false,
         dataType: 'json',
         success: function(dataResult){
-            // $('#id').val(data.id);
+            $("#parent_category option").each(function() {
+                var $thisOption = $(this);
+                if($thisOption.val() == dataResult.id) {
+                    $thisOption.attr("disabled", "disabled");
+                }else{
+                    $thisOption.removeAttr("disabled", "disabled");
+                }
+            });
             $("#edit_blog_category").modal("toggle");
             $('#update-name').attr('value',dataResult.name);
             $('#update-slug').attr('value',dataResult.slug);
             $('#update-description').text(dataResult.description);
+            $('#parent_category option[value="'+dataResult.parent_category+'"]').prop('selected', true);
             $('#category_id').attr('value',dataResult.id);
             $('.updateblogcategory').attr('action',action);
         },
