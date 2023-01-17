@@ -236,15 +236,30 @@
                             </div>
                             <div class="card-body">
                                 <div class="mx-n3">
-                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 300px; padding: 0px 16px;" >
+                                    <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="secondary" style="max-height: 600px; padding: 0px 16px;" >
                                         <div class="list-group list-group-flush" id="category-list">
                                             @if(!empty(@$categories))
                                                 @foreach(@$categories as $categoryList)
                                                     <div class="form-check form-check-info">
-                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}"                                                                        id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>
+                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{$categoryList->id}}"
+                                                               id="formCheck{{$categoryList->id}}" {{ ($categoryList->id == 1) ?"checked":"" }}>
                                                         <label class="mukta form-check-label check-label" for="formCheck{{$categoryList->id}}">
                                                             {{ ucwords(@$categoryList->name) }}
                                                         </label>
+
+                                                         @if($categoryList->hasChildren())
+                                                            <div id="subcategory-list-{{$categoryList->id}}">
+                                                                @foreach($categoryList->children() as $subcategory)
+                                                                    <div class="form-check form-check-info">
+                                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{ $subcategory->id }}">
+                                                                        <label class="mukta form-check-label check-label" for="formCheck{{$subcategory->id}}">
+                                                                            {{ ucwords(@$subcategory->name) }}
+                                                                        </label>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                         @endif
+
                                                     </div>
                                                 @endforeach
                                             @endif

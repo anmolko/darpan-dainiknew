@@ -20,4 +20,12 @@ class Category extends Model
         return $this->belongsToMany('App\Models\Blog')->count();
     }
 
+    public function hasChildren(){
+        return Category::where('parent_category',$this->id)->count()>0;
+    }
+
+    public function children(){
+        $children = Category::where('parent_category',$this->id)->get();
+        return $children;
+    }
 }
