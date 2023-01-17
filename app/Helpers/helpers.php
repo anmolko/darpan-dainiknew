@@ -2,6 +2,7 @@
 
 use App\Models\Ads;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 use App\Models\Menu;
 use App\Models\MenuItem;
@@ -209,5 +210,32 @@ if (! function_exists('getTagsRelatedPost')) {
             ->whereHas('tags',function ($query) use ($tagid){
                  $query->where('tag_id', $tagid);
             })->skip($skip)->limit($take)->get();
+    }
+}
+
+if (! function_exists('categoryChildren')) {
+    /**
+     * Get child category list based on parent category ID.
+     *
+     * @param  integer  $categoryID
+     * @return array
+     */
+    function categoryChildren($categoryID)
+    {
+        return Category::with('blogs')->where('parent_category',$categoryID)->take(8)->get();
+
+    }
+}
+if (! function_exists('countCategoryChildren')) {
+    /**
+     * Get child category count based on parent category ID.
+     *
+     * @param  integer  $categoryID
+     * @return boolean
+     */
+    function countCategoryChildren($categoryID)
+    {
+        return Category::where('parent_category',$categoryID)->count()>0;
+
     }
 }

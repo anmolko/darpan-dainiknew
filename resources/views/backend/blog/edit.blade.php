@@ -256,9 +256,9 @@
                                                             @if($categoryList->hasChildren())
                                                                 @foreach($categoryList->children() as $subcategory)
                                                                     <div class="form-check form-check-info">
-                                                                        <input class="form-check-input large" name="category_id[]" type="checkbox"
+                                                                        <input class="form-check-input large" name="category_id[]" id="formsubCheck{{$subcategory->id}}" type="checkbox"
                                                                                value="{{ $subcategory->id }}" {{ ($edit->hasCategory($subcategory->id)) ? "checked":"" }}>
-                                                                        <label class="mukta form-check-label check-label" for="formCheck{{$subcategory->id}}">
+                                                                        <label class="mukta form-check-label check-label" for="formsubCheck{{$subcategory->id}}">
                                                                             {{ ucwords(@$subcategory->name) }}
                                                                         </label>
                                                                     </div>

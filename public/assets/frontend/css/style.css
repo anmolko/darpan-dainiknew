@@ -164,7 +164,11 @@ ul {
   padding-left: 15px;
   padding-right: 15px;
 }
-
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10vh;
+}
 /*--
     Background color
 -----------------------------------------*/
@@ -1003,7 +1007,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 #scrollUp {
   width: 40px;
   height: 40px;
-  background-color: #00c8fa;
+  background-color: #0d47a2;
   color: #ffffff;
   right: 40px;
   bottom: 40px;
@@ -1045,7 +1049,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 #scrollUp i {
   display: block;
   line-height: 40px;
-  font-size: 24px;
+  font-size: 25px;
 }
 #scrollUp:hover i {
   -webkit-animation-name: fadeInUp;
@@ -2236,6 +2240,11 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Post Block Head --*/
   /*-- Post Block Body --*/
 }
+.background .post-block-wrapper {
+  border: none!important;
+  /*-- Post Block Head --*/
+  /*-- Post Block Body --*/
+}
 .post-block-wrapper.dark {
   border-color: #343434;
 }
@@ -2289,7 +2298,7 @@ blockquote.blockquote.blockquote-bg p {
   font-weight: 600;
   text-transform: capitalize;
   color: #0d47a2;
-  font-size: 22px;
+  font-size: 24px;
 }
 @media only screen and (max-width: 767px) {
   .post-block-wrapper .head .title {
@@ -2428,8 +2437,7 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 0;
 }
 .post-block-wrapper .head .post-block-tab-list > li > a {
-  font-size: 13px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
   line-height: 24px;
   text-transform: capitalize;
   color: #444444;
@@ -2466,34 +2474,34 @@ blockquote.blockquote.blockquote-bg p {
   color: #00c8fa;
 }
 .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li > a.active {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li .dropdown-menu li a.active {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.travel-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.travel-post-tab-list > li > a.active {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.travel-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.travel-post-tab-list > li .dropdown-menu li a.active {
-  color: #ffc61c;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.fashion-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.fashion-post-tab-list > li > a.active {
-  color: #ff58c8;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.fashion-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.fashion-post-tab-list > li .dropdown-menu li a.active {
-  color: #ff58c8;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.sports-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.sports-post-tab-list > li > a.active {
-  color: #67bf35;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.sports-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.sports-post-tab-list > li .dropdown-menu li a.active {
   color: #67bf35;
 }
 .post-block-wrapper .head .post-block-tab-list.gadgets-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.gadgets-post-tab-list > li > a.active {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.gadgets-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.gadgets-post-tab-list > li .dropdown-menu li a.active {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.politic-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.politic-post-tab-list > li > a.active {
   color: #f05555;
@@ -2577,28 +2585,28 @@ blockquote.blockquote.blockquote-bg p {
   margin-top: -1px;
 }
 .post-block-carousel .slick-arrow:hover {
-  color: #00c8fa;
-  border-color: #00c8fa;
+  color: #0d47a2;
+  border-color: #0d47a2;
 }
 .post-block-carousel.dark .slick-arrow {
-  border-color: #343434;
-  color: #ffffff;
+  border-color: #0d47a2;
+  color: #0d47a2;
 }
 .post-block-carousel.life-style-post-carousel .slick-arrow:hover {
-  color: #ffc61c;
-  border-color: #ffc61c;
+  color: #0d47a2;
+  border-color: #0d47a2;
 }
 .post-block-carousel.travel-post-carousel .slick-arrow:hover {
-  color: #ffc61c;
-  border-color: #ffc61c;
+  color: #0d47a2;
+  border-color: #0d47a2;
 }
 .post-block-carousel.fashion-post-carousel .slick-arrow:hover {
-  color: #ff58c8;
-  border-color: #ff58c8;
+  color: #0d47a2;
+  border-color: #0d47a2;
 }
 .post-block-carousel.sports-post-carousel .slick-arrow:hover {
-  color: #67bf35;
-  border-color: #67bf35;
+  color: #0d47a2;
+  border-color: #0d47a2;
 }
 .post-block-carousel.gadgets-post-carousel .slick-arrow:hover {
   color: #1f2024;
@@ -2916,8 +2924,9 @@ blockquote.blockquote.blockquote-bg p {
 .post .post-wrap .content .meta .meta-item:last-child {
   margin-right: 0;
     line-height: 20px;
-    font-size: 13px;
+    font-size: 15px;
 }
+
 .post .post-wrap .content .meta .meta-item i {
   display: block;
   float: left;
@@ -2952,9 +2961,13 @@ blockquote.blockquote.blockquote-bg p {
   margin-top: 16px;
   text-transform: capitalize;
   font-weight: 600;
-  color: #666666;
-  text-decoration: underline;
-  font-size: 13px;
+  color: #4c4f5d;
+  text-decoration: none;
+  font-size: 14px;
+    margin-right: 8px;
+}
+.post .post-wrap .content .read-more:hover {
+  color:#0d47a2;
 }
 .post.post-default-list .post-wrap {
   -webkit-box-orient: horizontal;
@@ -3097,8 +3110,20 @@ blockquote.blockquote.blockquote-bg p {
   font-size: 20px;
   line-height: 24px;
 }
+.title2 > a:hover{
+    text-decoration: none;
+    color: #0a58ca;
+}
+.post.post-small .post-wrap .content .title2 {
+  font-size: 22px;
+  line-height: 28px;
+}
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .post.post-small .post-wrap .content .title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+    .post.post-small .post-wrap .content .title2 {
     font-size: 12px;
     line-height: 18px;
   }
@@ -3342,40 +3367,40 @@ blockquote.blockquote.blockquote-bg p {
   color: #ffc61c;
 }
 .post.life-style-post .image .video-popup {
-  color: #ffc61c;
+  color: #0a58ca;
 }
 .post.life-style-post .content .title a:hover {
   color: #0d47a2;
 }
 .post.life-style-post .content .meta a:hover {
-  color: #ffc61c;
+  color: #0a58ca;
 }
 .post.life-style-post .content .read-more:hover {
-  color: #ffc61c;
+  color: #0a58ca;
 }
 .post.fashion-post .image .video-popup {
-  color: #ff58c8;
+  color: #0a58ca;
 }
 .post.fashion-post .content .title a:hover {
-  color: #ff58c8;
+  color: #0a58ca;
 }
 .post.fashion-post .content .meta a:hover {
-  color: #ff58c8;
+  color: #0a58ca;
 }
 .post.fashion-post .content .read-more:hover {
-  color: #ff58c8;
+  color: #0a58ca;
 }
 .post.sports-post .image .video-popup {
   color: #67bf35;
 }
 .post.sports-post .content .title a:hover {
-  color: #67bf35;
+  color: #0a58ca;
 }
 .post.sports-post .content .meta a:hover {
-  color: #67bf35;
+  color: #0a58ca;
 }
 .post.sports-post .content .read-more:hover {
-  color: #67bf35;
+  color: #0a58ca;
 }
 .post.gadgets-post .image .video-popup {
   color: #1f2024;
@@ -5507,12 +5532,20 @@ blockquote.blockquote.blockquote-bg p {
     cursor: pointer;
     float: right;
 }
+.all-news:hover{
+    border: 1px solid #0d47a2;
+    background-color: #0d47a2;
+}
+.all-news:hover i{
+    color:#fff;
+
+}
 .all-news i{
      font-size: 20px;
      display: block;
      line-height: 26px;
      margin-top: -1px;
-    color:#0d47a2;
+     color:#0d47a2;
 }
 
 .banner-below-post{
@@ -5530,4 +5563,8 @@ blockquote.blockquote.blockquote-bg p {
 }
 .sidebar-tab-list > a.full-width{
     width: 100%;
+}
+
+.ml-15{
+    margin-left: 15px;
 }

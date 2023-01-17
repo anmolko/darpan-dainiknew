@@ -55,8 +55,8 @@ $('#blog-category-add-button').on('click', function(e) {
                 console.log(response);
                 if(response.category.parent_category !== null){
                     var block = ' <div class="form-check form-check-info"> ' +
-                        '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formCheck'+response.category.id+'" checked>' +
-                        '<label class="form-check-label check-label" for="formCheck'+response.category.id+'">' + response.category.name +
+                        '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formsubCheck'+response.category.id+'" checked>' +
+                        '<label class="form-check-label check-label" for="formsubCheck'+response.category.id+'">' + response.category.name +
                         '</label>'+
                         '</div>';
                     $(response.sub).prepend(block);

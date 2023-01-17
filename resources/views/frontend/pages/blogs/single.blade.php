@@ -556,10 +556,11 @@
 
 
             var check = $("#main-content").height() + 250;
-            if ($(window).scrollTop() > check)
+            if ($(window).scrollTop() > check) {
                 $('#sticky-me').addClass('bottom');
-            else
+            }else {
                 $('#sticky-me').removeClass('bottom');
+            }
         });
 
         $(document).ready(function () {
@@ -586,7 +587,7 @@
                 }
             });
 
-            var number = $('.editor-content'). find('p').size();
+            var number = $('.editor-content').find('p').size();
             if(number => 2){
                 var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
                     '<a href="{{(@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
