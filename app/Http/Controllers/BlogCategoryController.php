@@ -63,8 +63,10 @@ class BlogCategoryController extends Controller
             if($category){
                 $category = Category::latest()->first();
                 $count    = $category->BlogsCount();
-                $status ='success';
-                return response()->json(['status'=>$status,'message'=>'New blog category added to list.','category'=>$category,'count'=>$count]);
+                $parent   = ($category->parent_category !== null) ? $category->parent_category:"0";
+                $sub      = '#subcategory-list-'.$parent;
+                $status   ='success';
+                return response()->json(['status'=>$status,'message'=>'New blog category added to list.','category'=>$category,'count'=>$count,'sub'=>$sub]);
             }
             else{
                 $status ='error';

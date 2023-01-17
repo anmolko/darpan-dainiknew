@@ -4,7 +4,6 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
     <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
@@ -253,8 +252,8 @@
                                                         <label class="mukta form-check-label check-label" for="formCheck{{$categoryList->id}}">
                                                             {{ ucwords(@$categoryList->name) }}
                                                         </label>
-                                                        @if($categoryList->hasChildren())
-                                                            <div id="subcategory-list-{{$categoryList->id}}">
+                                                        <div id="subcategory-list-{{$categoryList->id}}">
+                                                            @if($categoryList->hasChildren())
                                                                 @foreach($categoryList->children() as $subcategory)
                                                                     <div class="form-check form-check-info">
                                                                         <input class="form-check-input large" name="category_id[]" type="checkbox"
@@ -264,8 +263,8 @@
                                                                         </label>
                                                                     </div>
                                                                 @endforeach
-                                                            </div>
-                                                        @endif
+                                                            @endif
+                                                        </div>
 
                                                     </div>
                                                 @endforeach
@@ -335,17 +334,8 @@
         </div>
     </div>
 
-{{--    @if(count($tagcount)>0)--}}
-{{--        <div class="most-used-list">--}}
-{{--            <h3 class="card-title">Most Used</h3>--}}
-{{--            <ul role="list" class="suggestions">--}}
-{{--                @foreach(@$tagcount as $tc)--}}
-{{--                    <li><button type="button" class="most-used-val" value="{{@$tc->name}}">{{@$tc->name}}</button></li>--}}
-{{--                @endforeach--}}
+    @include('backend.blog.category_modal')
 
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
 @endsection
 
 @section('js')
@@ -357,7 +347,7 @@
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
 <script type="text/javascript">
     $(function() {

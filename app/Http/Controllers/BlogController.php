@@ -133,7 +133,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $edit       = Blog::find($id);
-        $categories = Category::orderBy('name', 'asc')->get();
+        $categories = Category::whereNull('parent_category')->orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
         $start      = ($edit->featured_to !== null) ? Carbon::createFromFormat('Y-m-d', $edit->featured_from)->format('d/m/Y'):null;
         $end        = ($edit->featured_to !== null) ? Carbon::createFromFormat('Y-m-d', $edit->featured_to)->format('d/m/Y'): null;

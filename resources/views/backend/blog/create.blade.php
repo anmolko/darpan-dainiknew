@@ -247,18 +247,18 @@
                                                             {{ ucwords(@$categoryList->name) }}
                                                         </label>
 
+                                                        <div id="subcategory-list-{{$categoryList->id}}">
                                                          @if($categoryList->hasChildren())
-                                                            <div id="subcategory-list-{{$categoryList->id}}">
-                                                                @foreach($categoryList->children() as $subcategory)
-                                                                    <div class="form-check form-check-info">
-                                                                        <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{ $subcategory->id }}">
-                                                                        <label class="mukta form-check-label check-label" for="formCheck{{$subcategory->id}}">
-                                                                            {{ ucwords(@$subcategory->name) }}
-                                                                        </label>
-                                                                    </div>
-                                                                @endforeach
-                                                            </div>
+                                                            @foreach($categoryList->children() as $subcategory)
+                                                                <div class="form-check form-check-info">
+                                                                    <input class="form-check-input large" name="category_id[]" type="checkbox" value="{{ $subcategory->id }}">
+                                                                    <label class="mukta form-check-label check-label" for="formCheck{{$subcategory->id}}">
+                                                                        {{ ucwords(@$subcategory->name) }}
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
                                                          @endif
+                                                        </div>
 
                                                     </div>
                                                 @endforeach
@@ -342,6 +342,7 @@
 
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 <script src="{{asset('assets/backend/custom_js/blog_credit.js')}}"></script>
 
 <script type="text/javascript">

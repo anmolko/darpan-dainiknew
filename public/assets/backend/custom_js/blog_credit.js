@@ -4,15 +4,15 @@ var loadFile = function(event) {
     replacement.src = URL.createObjectURL(event.target.files[0]);
 };
 
-// function slugMaker(title, slug){
-//     $("#"+ title).keyup(function(){
-//         var Text = $(this).val();
-//         Text = Text.toLowerCase();
-//         var regExp = /\s+/g;
-//         Text = Text.replace(regExp,'-');
-//         $("#"+slug).val(Text);
-//     });
-// }
+function slugMaker(title, slug){
+    $("#"+ title).keyup(function(){
+        var Text = $(this).val();
+        Text = Text.toLowerCase();
+        var regExp = /\s+/g;
+        Text = Text.replace(regExp,'-');
+        $("#"+slug).val(Text);
+    });
+}
 $(document).on('click','.cs-category-add', function (e) {
     e.preventDefault();
     $("#add_blog_category").modal("toggle");
@@ -52,13 +52,23 @@ $('#blog-category-add-button').on('click', function(e) {
                 return;
             }
             if(response.status=='success') {
-                var block = ' <div class="form-check form-check-info"> ' +
-                    '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formCheck'+response.category.id+'" checked>' +
-                    '<label class="form-check-label check-label" for="formCheck'+response.category.id+'">' + response.category.name +
-                    '</label>'+
-                    '</div>';
-                // $("").remove();
-                $("#category-list").prepend(block);
+                console.log(response);
+                if(response.category.parent_category !== null){
+                    var block = ' <div class="form-check form-check-info"> ' +
+                        '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formCheck'+response.category.id+'" checked>' +
+                        '<label class="form-check-label check-label" for="formCheck'+response.category.id+'">' + response.category.name +
+                        '</label>'+
+                        '</div>';
+                    $(response.sub).prepend(block);
+                }else{
+                    var block = ' <div class="form-check form-check-info"> ' +
+                        '<input class="form-check-input large" type="checkbox" value="'+response.category.id+'" id="formCheck'+response.category.id+'" checked>' +
+                        '<label class="form-check-label check-label" for="formCheck'+response.category.id+'">' + response.category.name +
+                        '</label>'+
+                        '</div>';
+                    $("#category-list").prepend(block);
+                }
+
                 Toastify({ newWindow: !0, text: response.message, gravity: 'top', position: 'center', stopOnFocus: !0, duration: 3000, close: "close",className: "bg-success",style: "style" == e.style ? { background: "linear-gradient(to right, #0AB39C, #405189)" } : "" }).showToast();
                 return;
             }

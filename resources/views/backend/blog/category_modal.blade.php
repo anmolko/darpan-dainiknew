@@ -30,6 +30,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group mb-3">
+                        <label>Parent Category</label>
+                        <select class="mukta form-control" name="parent_category">
+                            <option value="" selected>None</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="col-lg-12">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
