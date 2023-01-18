@@ -34,12 +34,6 @@ class CreateSettingsTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_tags')->nullable();
             $table->text('meta_description')->nullable();
-            $table->string('intro_heading')->nullable();
-            $table->string('intro_subheading')->nullable();
-            $table->text('intro_description')->nullable();
-            $table->string('intro_image')->nullable();
-            $table->string('intro_button')->nullable();
-            $table->string('intro_button_link')->nullable();
             $table->text('google_analytics')->nullable();
             $table->text('google_map')->nullable();
             $table->text('meta_pixel')->nullable();

@@ -22,7 +22,8 @@
                     <div class="darpan-author-wrap">
                         <div class="darpan-author">
                             <span class="author-img">
-                                <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
+
+                                <img src="{{ ($news->author->image !== null) ? asset('images/user/'.@$news->author->image) :  asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
                             </span>
                             <span class="author-name"> {{ ucfirst(@$news->author->name)}}  </span>
                         </div>

@@ -352,8 +352,8 @@
                                                     </div>
                                                     <div class="d-flex">
                                                         <div class="avatar-xs d-block flex-shrink-0 me-3">
-                                                    <span class="avatar-title rounded-circle fs-16 bg-linkedin">
-                                                        <i class="ri-linkedin-fill"></i>
+                                                    <span class="avatar-title rounded-circle fs-16 bg-twitter">
+                                                        <i class="ri-twitter-fill"></i>
                                                     </span>
                                                         </div>
                                                         <input type="url" class="form-control" id="linkedinUsername" name="linkedin" value="{{@$settings->linkedin}}"  placeholder="Enter linkedin profile link">

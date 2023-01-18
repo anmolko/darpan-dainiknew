@@ -216,59 +216,7 @@ class SettingController extends Controller
     }
 
 
-    public function statusupdate(Request $request, $id)
-    {
-        $update_theme                           =  Setting::find($id);
-        $update_theme->customer_served          =  $request->input('customer_served');
-        $update_theme->visa_approved            =  $request->input('visa_approved');
-        $update_theme->success_stories          =  $request->input('success_stories');
-        $update_theme->happy_customers          =  $request->input('happy_customers');
-        $update_theme->updated_by               =  Auth::user()->id;
 
-        $status=$update_theme->update();
-
-        if($status){
-            Session::flash('success','Status Updated Successfully');
-        }
-        else{
-            Session::flash('error','Something Went Wrong. Status could not be Updated');
-        }
-        return redirect()->back();
-    }
-
-    public function welcomeupdate(Request $request, $id){
-        $actiontype                             = $request->input('action_type');
-        $update_intro                           =  Setting::find($id);
-        $update_intro->intro_heading            =  $request->input('intro_heading');
-        $update_intro->intro_subheading         =  $request->input('intro_subheading');
-        $update_intro->intro_description        =  $request->input('intro_description');
-        $update_intro->intro_button             =  $request->input('intro_button');
-        $update_intro->intro_button_link        =  $request->input('intro_button_link');
-        $oldimage                               = $update_intro->intro_image;
-        if (!empty($request->file('intro_image'))){
-            $image     = $request->file('intro_image');
-            $name1     = uniqid().'_'.$image->getClientOriginalName();
-            $path      = base_path().'/public/images/uploads/settings/';
-            $moved     = Image::make($image->getRealPath())->resize(710, 695)->orientate()->save($path.$name1);
-
-            if ($moved){
-                $update_intro->intro_image= $name1;
-                if (!empty($oldimage) && file_exists(public_path().'/images/uploads/settings/'.$oldimage)){
-                    @unlink(public_path().'/images/uploads/settings/'.$oldimage);
-                }
-            }
-        }
-
-        $status=$update_intro->update();
-
-        if($status){
-            Session::flash('success','Welcome Section Details '.$actiontype.' Successfully');
-        }
-        else{
-            Session::flash('error','Something Went Wrong. Welcome Section Details could not be '.$actiontype);
-        }
-        return redirect()->back();
-    }
 
     public function imageupdate(Request $request, $id)
     {
@@ -326,48 +274,6 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-    public function callactionupdate(Request $request, $id){
-
-        $calltype   = $request->input('call_type');
-        $actiontype = $request->input('action_type');
-
-        if($calltype == 'call_to_action_1'){
-            $callaction                             =  Setting::find($id);
-            $callaction->callaction1_heading        =  $request->input('callaction1_heading');
-            $callaction->callaction1_button         =  $request->input('callaction1_button');
-            $callaction->callaction1_button_link    =  $request->input('callaction1_button_link');
-            $oldimage                               = $callaction->callaction1_image;
-            if (!empty($request->file('callaction1_image'))){
-                $image     = $request->file('callaction1_image');
-                $name1     = uniqid().'_callaction1_'.$image->getClientOriginalName();
-                $path      = base_path().'/public/images/uploads/settings/';
-                $moved     = Image::make($image->getRealPath())->resize(1920, 950)->orientate()->save($path.$name1);
-
-                if ($moved){
-                    $callaction->callaction1_image = $name1;
-                    if (!empty($oldimage) && file_exists(public_path().'/images/uploads/settings/'.$oldimage)){
-                        @unlink(public_path().'/images/uploads/settings/'.$oldimage);
-                    }
-                }
-            }
-            $status= $callaction->update();
-        }else{
-            $callaction                             =  Setting::find($id);
-            $callaction->callaction2_heading        =  $request->input('callaction2_heading');
-            $callaction->callaction2_subheading     =  $request->input('callaction2_subheading');
-            $callaction->callaction2_button         =  $request->input('callaction2_button');
-            $callaction->callaction2_button_link    =  $request->input('callaction2_button_link');
-            $status= $callaction->update();
-        }
-
-        if($status){
-            Session::flash('success',str_replace('_',' ',ucfirst($calltype)).' has been '. $actiontype.' Successfully');
-        }
-        else{
-            Session::flash('error','Something Went Wrong. '.str_replace('_',' ',ucfirst($calltype)).' Details could not be '.$actiontype);
-        }
-        return redirect()->back();
-    }
 
     public function themeMode(Request $request)
     {
@@ -403,23 +309,6 @@ class SettingController extends Controller
         }
         else{
             Session::flash('error','Something Went Wrong. Terms and Conditions could not be updated');
-        }
-        return redirect()->back();
-    }
-
-    public function siteStatus(Request $request, $id)
-    {
-        $setting                    = Setting::find($id);
-        $setting->online            = $request->input('online');
-        $setting->clients           = $request->input('clients');
-        $setting->projects          = $request->input('projects');
-        $setting->professionals     = $request->input('professionals');
-        $status                     = $setting->update();
-        if($status){
-            Session::flash('success','Status has been updated successfully');
-        }
-        else{
-            Session::flash('error','Something Went Wrong. Status could not be updated');
         }
         return redirect()->back();
     }
