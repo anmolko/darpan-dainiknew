@@ -26,12 +26,7 @@ class FrontController extends Controller
     protected $bcategory = null;
     protected $faq = null;
     protected $service = null;
-    protected $pojectPlan = null;
-    protected $customer_package = null;
     protected $career = null;
-    protected $apply_job = null;
-    protected $our_work = null;
-    protected $request_quote = null;
     protected $home_page = null;
     protected $page = null;
     protected $pagesection = null;
@@ -245,12 +240,8 @@ class FrontController extends Controller
     }
 
     public function blogs(){
-        $bcategories    = $this->bcategory->get();
-
-        $allPosts       = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->paginate(9);
-
-        $latestPosts    = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
-        return view('frontend.pages.blogs.index',compact('allPosts','latestPosts','bcategories'));
+        $allPosts       = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->paginate(30);
+        return view('frontend.pages.blogs.index',compact('allPosts'));
     }
 
     public function blogSingle($year,$month,$slug){
@@ -305,13 +296,13 @@ class FrontController extends Controller
     }
 
     public function blogCategories($slug){
-        $bcategory      = $this->bcategory->where('slug', $slug)->first();
-        $catid          = $bcategory->id;
-        $cat_name       = $bcategory->name;
-        $allPosts       = $this->blog->where('blog_category_id', $catid)->where('status','publish')->orderBy('created_at', 'DESC')->paginate(6);
-        $bcategories    = $this->bcategory->get();
-        $latestPosts    = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
-        return view('frontend.pages.blogs.category',compact('allPosts','cat_name','latestPosts','bcategories'));
+
+        $allPosts  = Blog::with('categories')->where('status','publish')
+            ->whereHas('categories',function ($query) use ($slug){
+                $query->where('slug', $slug);
+            })->paginate(6);
+        $category = Category::where('slug', $slug)->first();
+        return view('frontend.pages.blogs.category',compact('allPosts','category'));
     }
 
     public function searchBlog(Request $request)

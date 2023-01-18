@@ -5656,3 +5656,13 @@ blockquote.blockquote.blockquote-bg p {
     font-size: 18px;
     transition: all .3s ease-in-out;
 }
+
+.all-news-block{
+   border: none!important;
+}
+.all-news-block .head::after{
+    background-color: transparent!important;
+}
+.all-news-block  .head .title{
+    font-size: 30px;
+}
