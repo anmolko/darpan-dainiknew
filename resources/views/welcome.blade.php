@@ -1334,6 +1334,8 @@
 
                             <!-- Title -->
                             <h4 class="title">खेल</h4>
+                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+
 
                         </div><!-- Post Block Head End -->
 
@@ -1466,6 +1468,8 @@
 
                             <!-- Title -->
                             <h4 class="title">अन्तर्वार्ता</h4>
+                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+
 
                         </div><!-- Post Block Head End -->
 
@@ -1605,79 +1609,112 @@
 
             </div>
 
-            <!-- Youtube Video Row Start -->
-            <div class="row">
+            <!-- World Post Row Start -->
+            <div class="row ">
 
-                <!-- Video Play List Start-->
                 <div class="col-lg-8 col-12 mb-50">
-                    <!-- Overlay Post Start -->
-                    <div class="post post-overlay hero-post mb-30">
-                        <div class="post-wrap">
 
-                            <!-- Image -->
-                            <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                <img src="{{asset('assets/frontend/img/post/post-46.jpg')}}" alt="post">
-                                <span class="video-btn"><i class="fa fa-play"></i></span>
-                            </a>
+                    <!-- Post Block Wrapper Start -->
+                    <div class="post-block-wrapper">
 
-                            <!-- Category -->
-                            <a href="#" class="category sports">Health</a>
+                        <!-- Post Block Head Start -->
+                        <div class="head education-head">
 
-                        </div>
-                    </div><!-- Overlay Post End -->
+                            <!-- Title -->
+                            <h4 class="title">विश्व</h4>
+                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
-                    <!-- Overlay Post Start -->
-                    <div class="post post-overlay hero-post">
-                        <div class="post-wrap">
+                        </div><!-- Post Block Head End -->
 
-                            <!-- Image -->
-                            <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                <img src="{{asset('assets/frontend/img/post/post-47.jpg')}}" alt="post">
-                                <span class="video-btn"><i class="fa fa-play"></i></span>
-                            </a>
+                        <!-- Post Block Body Start -->
+                        <div class="body pb-0">
 
-                            <!-- Category -->
-                            <a href="#" class="category sports">sports</a>
+                            <div class="row">
+                                @darpanloop(getCategoryRelatedPost(34,0,6) as $news)
+                                    <div class="post education-post col-md-6 col-12 mb-20">
+                                        <div class="post-wrap">
 
-                        </div>
-                    </div><!-- Overlay Post End -->
+                                            <!-- Image -->
+                                            <a href="{{ url(@$news->url()) }}" class="image">
+                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                            </a>
+
+                                            <!-- Content -->
+                                            <div class="content">
+
+                                                <!-- Title -->
+                                                <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
+
+                                                <!-- Read More -->
+                                                <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @enddarpanloop
+
+
+                            </div>
+
+                        </div><!-- Post Block Body End -->
+
+                    </div><!-- Post Block Wrapper End -->
 
                 </div>
-                <!-- Video Play List End-->
 
-                <!-- Sidebar Start -->
+                <!-- Other News Start -->
                 <div class="col-lg-4 col-12 mb-50">
                     <div class="row">
 
                         <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                        <div class="single-sidebar col-12">
 
                             <!-- Sidebar Block Wrapper -->
                             <div class="sidebar-block-wrapper">
 
                                 <!-- Sidebar Block Head Start -->
-                                <div class="head video-head">
+                                <div class="head education-head">
 
                                     <!-- Title -->
-                                    <h4 class="title">Hot Categories</h4>
+                                    <h4 class="title">अन्य</h4>
+                                    <a href="#" class="all-news"><i class="fa fa-angle-right"></i></a>
 
                                 </div><!-- Sidebar Block Head End -->
 
                                 <!-- Sidebar Block Body Start -->
                                 <div class="body">
 
-                                    <ul class="sidebar-category video-category">
-                                        <li><a href="#">Business (20)</a></li>
-                                        <li><a href="#">Photography (05)</a></li>
-                                        <li><a href="#">Lifestyle (8)</a></li>
-                                        <li><a href="#">Fashion (6)</a></li>
-                                        <li><a href="#">Travel (20)</a></li>
-                                        <li><a href="#">Foods (30)</a></li>
-                                        <li><a href="#">Technology (26)</a></li>
-                                        <li><a href="#">Education (04)</a></li>
-                                        <li><a href="#">Video (40)</a></li>
-                                        <li><a href="#">Health (3)</a></li>
-                                    </ul>
+                                    <!-- Sidebar Post Start -->
+                                    <div class="row">
+
+                                        @darpanloop(getCategoryRelatedPost(38,0,8) as $news)
+                                            <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                <div class="post-wrap">
+
+                                                    <!-- Image -->
+                                                    <a href="{{ url(@$news->url()) }}" class="image">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </a>
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- Small Post End -->
+                                        @enddarpanloop
+
+
+                                    </div><!-- Sidebar Post End -->
 
                                 </div><!-- Sidebar Block Body End -->
 
@@ -1685,250 +1722,15 @@
 
                         </div>
 
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <div class="sidebar-subscribe">
-                                <h4>Subscribe To <br>Our <span>Update</span> News</h4>
-                                <p>Adipiscing elit. Fusce sed mauris arcu. Praesent ut augue imperdiet, semper lorem id.</p>
-                                <!-- Newsletter Form -->
-                                <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form validate" target="_blank" novalidate>
-                                    <div id="mc_embed_signup_scroll">
-                                        <label for="mce-EMAIL" class="d-none">Subscribe to our mailing list</label>
-                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email address" required>
-                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">submit</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-
                     </div>
-                </div><!-- Sidebar End -->
+                </div><!-- Other News End -->
 
-            </div><!-- Youtube Video Banner Row End -->
+            </div><!-- World Post Row End -->
 
-            <!-- Technology, Fashion & Other Post Row Start -->
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6 col-12 mb-50">
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper">
-
-                        <!-- Post Block Head Start -->
-                        <div class="head gadgets-head">
-
-                            <!-- Title -->
-                            <h4 class="title">Technology</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <!-- Sidebar Post Slider Start -->
-                            <div class="sidebar-post-carousel post-block-carousel gadgets-post-carousel">
-
-                                <!-- Post Start -->
-                                <div class="post gadgets-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-43.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">Sony Reveals The Xperia Z4, Its Latest Flagship Smartphone.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                                <!-- Post Start -->
-                                <div class="post gadgets-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-43.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">Sony Reveals The Xperia Z4, Its Latest Flagship Smartphone.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                            </div><!-- Sidebar Post Slider End -->
-
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
-
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12 mb-50">
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper">
-
-                        <!-- Post Block Head Start -->
-                        <div class="head fashion-head">
-
-                            <!-- Title -->
-                            <h4 class="title">fashion</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <!-- Sidebar Post Slider Start -->
-                            <div class="sidebar-post-carousel post-block-carousel fashion-post-carousel">
-
-                                <!-- Post Start -->
-                                <div class="post fashion-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-44.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">The scientific method of finding love on the beauty.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                                <!-- Post Start -->
-                                <div class="post fashion-post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-44.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">The scientific method of finding love on the beauty.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                            </div><!-- Sidebar Post Slider End -->
-
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
-
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12 mb-50">
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper">
-
-                        <!-- Post Block Head Start -->
-                        <div class="head">
-
-                            <!-- Title -->
-                            <h4 class="title">Other News</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <!-- Sidebar Post Slider Start -->
-                            <div class="sidebar-post-carousel post-block-carousel">
-
-                                <!-- Post Start -->
-                                <div class="post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-45.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">Tell me how to Achive your goal by creating a design.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                                <!-- Post Start -->
-                                <div class="post">
-                                    <div class="post-wrap">
-
-                                        <!-- Image -->
-                                        <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-45.jpg')}}" alt="post"></a>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="#">Tell me how to Achive your goal by creating a design.</a></h4>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Post End -->
-
-                            </div><!-- Sidebar Post Slider End -->
-
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
-
-                </div>
-
-            </div><!-- Technology, Fashion & Other Post Row End -->
         </div>
     </div>
 
-    <!-- Instagram Section Start -->
-    <div class="instagram-section section">
-        <div class="container-fluid ps-0 pe-0">
-
-            <!-- Full Width Instagram Carousel Start -->
-            <div class="fullwidth-instagram-carousel instagram-carousel">
-
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/1.jpg')}}" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/2.jpg')}}" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/3.jpg')}}" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/4.jpg')}}" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/5.jpg')}}" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="{{asset('assets/frontend/img/instagram/6.jpg')}}" alt="instagram"></a>
-
-            </div><!-- Full Width Instagram Carousel End -->
-        </div>
-    </div><!-- Instagram Section End -->
-
 @endsection
 @section('js')
-    <script>
-        $(window).scroll(function () {
 
-        });
-    </script>
 @endsection

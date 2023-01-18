@@ -4486,7 +4486,8 @@ blockquote.blockquote.blockquote-bg p {
   color: #f05555;
 }
 .sidebar-block-wrapper .head.education-head {
-  /*-- Title --*/
+    display: flex;
+    justify-content: space-between;
 }
 .sidebar-block-wrapper .head.education-head::before, .sidebar-block-wrapper .head.education-head::after {
   background-color: #008bff;
