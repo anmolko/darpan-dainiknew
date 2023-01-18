@@ -51,25 +51,33 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $data=[
-            'website_name'              => $request->input('website_name'),
-            'website_description'       => $request->input('website_description'),
-            'phone'                     => $request->input('phone'),
-            'mobile'                    => $request->input('mobile'),
-            'whatsapp'                  => $request->input('whatsapp'),
-            'viber'                     => $request->input('viber'),
-            'facebook'                  => $request->input('facebook'),
-            'linkedin'                  => $request->input('linkedin'),
-            'youtube'                   => $request->input('youtube'),
-            'instagram'                 => $request->input('instagram'),
-            'address'                   => $request->input('address'),
-            'email'                     => $request->input('email'),
-            'meta_title'                => $request->input('meta_title'),
-            'meta_tags'                 => $request->input('meta_tags'),
-            'meta_description'          => $request->input('meta_description'),
-            'google_analytics'          => $request->input('google_analytics'),
-            'google_map'                => $request->input('google_map'),
-            'meta_pixel'                => $request->input('meta_pixel'),
-            'created_by'                => Auth::user()->id,
+            'website_name'                  => $request->input('website_name'),
+            'website_description'           => $request->input('website_description'),
+            'phone'                         => $request->input('phone'),
+            'mobile'                        => $request->input('mobile'),
+            'whatsapp'                      => $request->input('whatsapp'),
+            'viber'                         => $request->input('viber'),
+            'facebook'                      => $request->input('facebook'),
+            'linkedin'                      => $request->input('linkedin'),
+            'youtube'                       => $request->input('youtube'),
+            'instagram'                     => $request->input('instagram'),
+            'address'                       => $request->input('address'),
+            'broadcasting_registration'     => $request->input('broadcasting_registration'),
+            'company_registration'          => $request->input('company_registration'),
+            'chairman'                      => $request->input('chairman'),
+            'operator'                      => $request->input('operator'),
+            'editor'                        => $request->input('editor'),
+            'news_email'                    => $request->input('news_email'),
+            'ad_email'                      => $request->input('ad_email'),
+            'ad_number'                     => $request->input('ad_number'),
+            'email'                         => $request->input('email'),
+            'meta_title'                    => $request->input('meta_title'),
+            'meta_tags'                     => $request->input('meta_tags'),
+            'meta_description'              => $request->input('meta_description'),
+            'google_analytics'              => $request->input('google_analytics'),
+            'google_map'                    => $request->input('google_map'),
+            'meta_pixel'                    => $request->input('meta_pixel'),
+            'created_by'                    => Auth::user()->id,
         ];
 
         if (!empty($request->file('logo'))){
@@ -141,29 +149,37 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update_theme                           =  Setting::find($id);
-        $update_theme->website_name             =  $request->input('website_name');
-        $update_theme->website_description      =  $request->input('website_description');
-        $update_theme->phone                    =  $request->input('phone');
-        $update_theme->mobile                   =  $request->input('mobile');
-        $update_theme->whatsapp                 =  $request->input('whatsapp');
-        $update_theme->viber                    =  $request->input('viber');
-        $update_theme->facebook                 =  $request->input('facebook');
-        $update_theme->linkedin                 =  $request->input('linkedin');
-        $update_theme->youtube                  =  $request->input('youtube');
-        $update_theme->instagram                =  $request->input('instagram');
-        $update_theme->address                  =  $request->input('address');
-        $update_theme->email                    =  $request->input('email');
-        $update_theme->meta_title               =  $request->input('meta_title');
-        $update_theme->meta_tags                =  $request->input('meta_tags');
-        $update_theme->meta_description         =  $request->input('meta_description');
-        $update_theme->google_analytics         =  $request->input('google_analytics');
-        $update_theme->google_map               =  $request->input('google_map');
-        $update_theme->meta_pixel               =  $request->input('meta_pixel');
-        $update_theme->updated_by               =  Auth::user()->id;
-        $oldimage_logo                          = $update_theme->logo;
-        $oldimage_logo_white                    = $update_theme->logo_white;
-        $oldimage_favicon                       = $update_theme->favicon;
+        $update_theme                               =  Setting::find($id);
+        $update_theme->website_name                 =  $request->input('website_name');
+        $update_theme->website_description          =  $request->input('website_description');
+        $update_theme->phone                        =  $request->input('phone');
+        $update_theme->mobile                       =  $request->input('mobile');
+        $update_theme->whatsapp                     =  $request->input('whatsapp');
+        $update_theme->viber                        =  $request->input('viber');
+        $update_theme->facebook                     =  $request->input('facebook');
+        $update_theme->linkedin                     =  $request->input('linkedin');
+        $update_theme->youtube                      =  $request->input('youtube');
+        $update_theme->instagram                    =  $request->input('instagram');
+        $update_theme->address                      =  $request->input('address');
+        $update_theme->email                        =  $request->input('email');
+        $update_theme->broadcasting_registration    =  $request->input('broadcasting_registration');
+        $update_theme->company_registration         =  $request->input('company_registration');
+        $update_theme->chairman                     =  $request->input('chairman');
+        $update_theme->operator                     =  $request->input('operator');
+        $update_theme->editor                       =  $request->input('editor');
+        $update_theme->news_email                   =  $request->input('news_email');
+        $update_theme->ad_email                     =  $request->input('ad_email');
+        $update_theme->ad_number                    =  $request->input('ad_number');
+        $update_theme->meta_title                   =  $request->input('meta_title');
+        $update_theme->meta_tags                    =  $request->input('meta_tags');
+        $update_theme->meta_description             =  $request->input('meta_description');
+        $update_theme->google_analytics             =  $request->input('google_analytics');
+        $update_theme->google_map                   =  $request->input('google_map');
+        $update_theme->meta_pixel                   =  $request->input('meta_pixel');
+        $update_theme->updated_by                   =  Auth::user()->id;
+        $oldimage_logo                              = $update_theme->logo;
+        $oldimage_logo_white                        = $update_theme->logo_white;
+        $oldimage_favicon                           = $update_theme->favicon;
 
         if (!empty($request->file('logo'))){
             $path  = base_path().'/public/images/settings/';

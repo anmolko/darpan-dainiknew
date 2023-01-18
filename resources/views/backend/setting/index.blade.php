@@ -172,7 +172,13 @@
                                                 <div class="card-header">
                                                     <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" data-bs-toggle="tab" href="#google-info-tab"
+                                                            <a class="nav-link active" data-bs-toggle="tab" href="#additional-info-tab"
+                                                               role="tab">
+                                                                Additional Details
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#google-info-tab"
                                                                role="tab">
                                                                 Google Info
                                                             </a>
@@ -188,7 +194,75 @@
                                                 <!-- end card header -->
                                                 <div class="card-body">
                                                     <div class="tab-content">
-                                                        <div class="tab-pane active" id="google-info-tab" role="tabpanel">
+                                                        <div class="tab-pane active" id="additional-info-tab" role="tabpanel">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label" for="broadcasting_registration">Broadcasting Reg. number (सुचना बिभाग दर्ता नं)</label>
+                                                                            <input type="text" class="form-control" name="broadcasting_registration" id="broadcasting_registration"
+                                                                                   value="{{@$settings->broadcasting_registration}}">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label" for="company_registration">Company Reg. number (कम्पनी दर्ता नं)</label>
+                                                                        <input type="text" class="form-control" name="company_registration" id="company_registration"
+                                                                               value="{{@$settings->company_registration}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label" for="chairman">Chairman (अध्यक्ष)</label>
+                                                                            <input type="text" class="form-control" name="chairman" id="chairman"
+                                                                                   value="{{@$settings->chairman}}">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label" for="operator">Operator (सञ्चालक)</label>
+                                                                        <input type="text" class="form-control" name="operator" id="operator"
+                                                                               value="{{@$settings->operator}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label" for="editor">Editor (सम्पादक)</label>
+                                                                            <input type="text" class="form-control" name="editor" id="editor"
+                                                                                   value="{{@$settings->editor}}">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label" for="news_email">News email</label>
+                                                                        <input type="text" class="form-control" name="news_email" id="news_email"
+                                                                               value="{{@$settings->news_email}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label" for="ad_email">Advertisement email </label>
+                                                                            <input type="text" class="form-control" name="ad_email" id="ad_email"
+                                                                                   value="{{@$settings->ad_email}}">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label" for="ad_number">Advertisement Number</label>
+                                                                        <input type="text" class="form-control" name="ad_number" id="ad_number"
+                                                                               value="{{@$settings->ad_number}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end row -->
+                                                        </div>
+
+                                                        <div class="tab-pane" id="google-info-tab" role="tabpanel">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="analytics-code-input">Analytics Code</label>
                                                                 <input type="text" class="form-control" name="google_analytics" id="analytics-code-input"
@@ -283,14 +357,14 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3">
-                                                        <label for="phone-number-input" class="form-label">Phone number</label>
+                                                        <label for="phone-number-input" class="form-label">Office number</label>
                                                         <input type="text" class="form-control" id="phone-number-input" name="phone"
                                                                value="{{@$settings->phone}}"
                                                                placeholder="Enter phone number" />
                                                     </div>
 
                                                     <div>
-                                                        <label for="mobile-number-input" class="form-label">Mobile number</label>
+                                                        <label for="mobile-number-input" class="form-label">News number</label>
                                                         <input type="text" class="form-control" id="mobile-number-input" name="mobile"
                                                                value="{{@$settings->mobile}}"
                                                                placeholder="Enter mobile number" />
