@@ -8,11 +8,15 @@
 @section('content')
     <!-- Featured post Start -->
     <div class="hero-section section mt-5 mb-20">
-        <div class="featured-post featured-post-2">
+        @foreach($featured as $news)
+
+
+
+        <div class="featured-post featured-post-2 {{!$loop->first ? "pt-5 pb-2":""}}">
             <div class="featured post-container">
                 <h2>
-                    <a href="#">
-                        रेखालाई उपराष्ट्रपति बनाएर शंकर पोखरेललाई उपचुनाव लडाउने प्रयास असफल </a>
+                    <a href="{{ url(@$news->url()) }}">
+                        {{@$news->title}} </a>
                 </h2>
                 <div class="darpan-title">
                     <div class="darpan-author-wrap">
@@ -20,51 +24,31 @@
                             <span class="author-img">
                                 <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
                             </span>
-                            <span class="author-name"> दर्पण दैनिक </span>
+                            <span class="author-name"> {{ ucfirst(@$news->author->name)}}  </span>
                         </div>
                     </div>
                     <div class="darpan-post-time">
                         <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
-                        <span>१ घन्टा अगाडि</span>
+                        <span>{{  @$news->getMinsAgoinNepali() }}</span>
                     </div>
                     <div class="darpan-user-comment">
                         <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
-                        <span>2</span>
+                        <span>0</span>
                     </div>
                 </div>
-                <p>२१ पुस, काठमाडौं । नेकपा माओवादी केन्द्रकी सांसद रेखा शर्मालाई राजीनामा गराएर एमाले महासचिव शंकर पोखरेललाई उपचुनाव लडाउने प्रयास तत्काललाई रोकिएको छ । नेकपा एमालेको समर्थनमा माओवादी केन्द्रका अध्यक्ष पुष्पकमल दाहाल प्रचण्ड प्रधानमन्त्री...</p>
-                <div class="featured-post-feauted-img">
-                    <a href="https://www.onlinekhabar.com/2023/01/1243176">
-                        <img src="https://www.onlinekhabar.com/wp-content/uploads/2022/10/Shankar-pokharel-and-rekha-sharma.jpg" alt="रेखालाई उपराष्ट्रपति बनाएर शंकर पोखरेललाई उपचुनाव लडाउने प्रयास असफल" loading="lazy"> </a>
+                @if($loop->first)
+                <p>  {{ (@$news->excerpt !== null) ? @$news->excerpt: @$news->shortContent(60)}}</p>
+                <div class="featured-post-img">
+                    <a href="{{ url(@$news->url()) }}">
+                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="{{@$news->title}}" loading="lazy">
+                    </a>
                 </div>
+                @endif
             </div>
         </div>
-        <div class="featured-post featured-post-2 pt-5 pb-2 ">
-            <div class="featured post-container">
-                <h2>
-                    <a href="#">
-                        रेखालाई उपराष्ट्रपति बनाएर शंकर पोखरेललाई उपचुनाव लडाउने प्रयास असफल </a>
-                </h2>
-                <div class="darpan-title">
-                    <div class="darpan-author-wrap">
-                        <div class="darpan-author">
-                            <span class="author-img">
-                                <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
-                            </span>
-                            <span class="author-name"> दर्पण दैनिक </span>
-                        </div>
-                    </div>
-                    <div class="darpan-post-time">
-                        <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
-                        <span>१ घन्टा अगाडि</span>
-                    </div>
-                    <div class="darpan-user-comment">
-                        <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2021/img/comment-icon.png" alt="">
-                        <span>2</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        @endforeach
+
     </div>
 
     <!-- Featured post below adds Section Start -->

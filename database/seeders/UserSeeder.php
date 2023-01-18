@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
-            'slug' => 'admin',
+            'name' => 'दर्पण दैनिक',
+            'slug' => 'दर्पण-दैनिक',
             'email' => 'admin@gmail.com',
             'user_type' => 'admin',
             'status' => 1,

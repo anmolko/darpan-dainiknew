@@ -14,7 +14,7 @@ class Blog extends Model implements CanVisit
     use HasVisits;
 
     protected $table ='blogs';
-    protected $fillable =['id','title','slug','numeric_slug','excerpt','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];
+    protected $fillable =['id','title','slug','numeric_slug','excerpt','show_featured_image','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];
 
     private $nepaliArray = [
         '0' => '०',
@@ -33,6 +33,10 @@ class Blog extends Model implements CanVisit
         'day' => 'दिन',
         'ago' => 'अगाडि',
     ];
+
+    public function author(){
+        return $this->belongsTo('App\Models\User','created_by','id');
+    }
 
     public function categories(){
         return $this->belongsToMany('App\Models\Category');

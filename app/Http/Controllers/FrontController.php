@@ -53,9 +53,11 @@ class FrontController extends Controller
 
     public function index()
     {
-        $latestPosts        = $this->blog->inRandomOrder()->take(4)->get();
-
-        return view('welcome',compact('latestPosts'));
+        $date      =  date('Y-m-d');
+        $featured  = $this->blog::with('author')->whereDate('featured_from', '<=', $date)
+                         ->whereDate('featured_to', '>=', $date)
+                         ->get();
+        return view('welcome',compact('featured'));
     }
 
 
