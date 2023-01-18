@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
 use App\Models\Blog;
-use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -194,10 +194,10 @@ class UserController extends Controller
 
     public function profile($slug){
         $user           = User::where('slug',$slug)->first();
-        $services       = Service::all();
+        $ads            = Ads::all();
         $blogs          = Blog::all()->take(5);
         $alluser        = User::all()->take(5)->except(Auth::user()->id);
-        return view('backend.user.profile',compact('user','services','blogs','alluser'));
+        return view('backend.user.profile',compact('user','ads','blogs','alluser'));
     }
 
     public function alluser(){

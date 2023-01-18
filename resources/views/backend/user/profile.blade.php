@@ -90,6 +90,8 @@
                                             </div>
                                         </div>
 
+                                        @if(@$user->fb !== null || @$user->twitter !== null || @$user->insta !== null || @$user->linkedin !== null)
+
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title mb-4">Portfolio</h5>
@@ -135,6 +137,8 @@
                                                 </div>
                                             </div><!-- end card body -->
                                         </div>
+
+                                        @endif
 
                                         <div class="card">
                                             <div class="card-body">
@@ -198,8 +202,7 @@
                                                             </div>
                                                             <div class="flex-grow-1 overflow-hidden">
                                                                 <p class="mb-1">Designation :</p>
-                                                                <h6 class="text-truncate mb-0">Lead Designer /
-                                                                    Developer</h6>
+                                                                <h6 class="text-truncate mb-0">{{ucfirst(@$user->user_type)}}</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -215,8 +218,8 @@
                                                             </div>
                                                             <div class="flex-grow-1 overflow-hidden">
                                                                 <p class="mb-1">Website :</p>
-                                                                <a href="#"
-                                                                   class="fw-semibold">www.velzon.com</a>
+                                                                <a href="https://darpandainik.com/" target="_blank"
+                                                                   class="fw-semibold">www.darpandainik.com</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -227,10 +230,10 @@
                                             <!--end card-body-->
                                         </div><!-- end card -->
 
-                                        @if(count($services)>0)
+                                        @if(count($ads)>0)
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title">Active Services</h5>
+                                                <h5 class="card-title">Recent Advertisements</h5>
                                                 <!-- Swiper -->
                                                 <div class="swiper project-swiper mt-n4">
                                                     <div class="d-flex justify-content-end gap-2 mb-2">
@@ -246,7 +249,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="swiper-wrapper mt-4">
-                                                        @foreach($services as $service)
+                                                        @foreach($ads as $ad)
                                                         <div class="swiper-slide">
                                                             <div
                                                                 class="card profile-project-card shadow-none profile-project-success mb-0">
@@ -258,19 +261,20 @@
                                                                                 class="fs-14 text-truncate mb-1">
                                                                                 <a href="#"
                                                                                    class="text-dark">
-                                                                                    {{$service->title}}
+                                                                                    {{@$ad->name}}
                                                                                 </a>
                                                                             </h5>
                                                                             <p
                                                                                 class="text-muted text-truncate mb-0">
-                                                                                Slug : <span
-                                                                                    class="fw-semibold text-dark">  {{$service->slug}}</span></p>
+                                                                                URL : <span
+                                                                                    class="fw-semibold text-dark">  {{@$ad->url}}</span></p>
                                                                         </div>
                                                                         <div class="flex-shrink-0 ms-2">
                                                                             <div>
-                                                                                <a href="#" class="badge badge-soft-warning fs-10">view</a>
+                                                                                <a href="{{route('ads.index')}}" class="badge badge-soft-warning fs-10">view</a>
                                                                                 </div>
                                                                         </div>
+
                                                                     </div>
                                                                 </div>
                                                                 <!-- end card body -->
