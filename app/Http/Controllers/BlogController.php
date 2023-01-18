@@ -64,18 +64,19 @@ class BlogController extends Controller
         $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
         $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $data=[
-            'title'             => $request->input('title'),
-            'slug'              => str_replace(' ','-',$request->input('title')),
-            'numeric_slug'      => getNumericSlug(),
-            'description'       => $request->input('description'),
-            'excerpt'           => $request->input('excerpt'),
-            'status'            => $request->input('status'),
-            'meta_title'        => $request->input('meta_title'),
-            'meta_tags'         => $request->input('meta_tags'),
-            'meta_description'  => $request->input('meta_description'),
-            'featured_from'     => $start,
-            'featured_to'       => $end,
-            'created_by'        => Auth::user()->id,
+            'title'                 => $request->input('title'),
+            'slug'                  => str_replace(' ','-',$request->input('title')),
+            'numeric_slug'          => getNumericSlug(),
+            'description'           => $request->input('description'),
+            'excerpt'               => $request->input('excerpt'),
+            'show_featured_image'   => $request->input('show_featured_image'),
+            'status'                => $request->input('status'),
+            'meta_title'            => $request->input('meta_title'),
+            'meta_tags'             => $request->input('meta_tags'),
+            'meta_description'      => $request->input('meta_description'),
+            'featured_from'         => $start,
+            'featured_to'           => $end,
+            'created_by'            => Auth::user()->id,
         ];
 
         if(!empty($request->file('image'))){
@@ -156,6 +157,7 @@ class BlogController extends Controller
         $blog->slug                =  str_replace(' ','-',$request->input('title'));
         $blog->description         =  $request->input('description');
         $blog->excerpt             =  $request->input('excerpt');
+        $blog->show_featured_image =  $request->input('show_featured_image');
         $blog->status              =  $request->input('status');
         $blog->meta_title          =  $request->input('meta_title');
         $blog->meta_tags           =  $request->input('meta_tags');

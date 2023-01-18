@@ -206,6 +206,7 @@
 
                             </div>
                             <div class="card-body">
+
                                 <div class="form-group mb-3">
                                     <label for="start_date" class="form-label">Start Date </label>
                                     <input type="text" class="mukta form-control" name="featured_from" id="featured_from">
@@ -219,6 +220,13 @@
                                     <div class="invalid-feedback">
                                         Please Select the end date.
                                     </div>
+                                </div>
+                                <div class="form-check form-check-info">
+                                    <input class="form-check-input large" name="show_featured_image" type="checkbox" value="yes"
+                                           id="show_featured_image">
+                                    <label class="mukta form-check-label check-label" for="show_featured_image">
+                                        Show Featured Image
+                                    </label>
                                 </div>
                             </div>
                             <!-- end card body -->

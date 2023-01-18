@@ -54,9 +54,9 @@ class FrontController extends Controller
     public function index()
     {
         $date      =  date('Y-m-d');
-        $featured  = $this->blog::with('author')->whereDate('featured_from', '<=', $date)
-                         ->whereDate('featured_to', '>=', $date)
-                         ->get();
+        $featured  = $this->blog::with('author')->where('status','publish')
+                    ->whereDate('featured_from', '<=', $date)
+                    ->whereDate('featured_to', '>=', $date)->orderBy('created_at','desc')->get();
         return view('welcome',compact('featured'));
     }
 

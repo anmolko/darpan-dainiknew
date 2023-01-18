@@ -228,6 +228,13 @@
                                         Please Select the end date.
                                     </div>
                                 </div>
+                                <div class="form-check form-check-info">
+                                    <input class="form-check-input large" name="show_featured_image" type="checkbox" value="yes"
+                                           id="show_featured_image" {{ (@$edit->show_featured_image !== null) ? "checked":"" }}>
+                                    <label class="mukta form-check-label check-label" for="show_featured_image">
+                                        Show Featured Image
+                                    </label>
+                                </div>
                             </div>
                             <!-- end card body -->
                         </div>
