@@ -257,7 +257,15 @@
 
             <!-- Copyright Start -->
             <div class="copyright text-center col">
-                <p>© 2022 Khobor. Made with <i class="fa fa-heart heart-icon"></i> By <a target="_blank" href="https://hasthemes.com/">HasThemes</a></p>
+                <p>© Copyright {{date("Y")}} 	<a
+                        href="/"
+                        class="theme-color"
+                    >@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @endif</a>.
+
+                    Developed by
+                    <a href="https://www.canosoft.com.np/" class="theme-color"
+                    >Canosoft Techonology </a
+                    >. All right reserved</p>
             </div><!-- Copyright End -->
 
         </div>

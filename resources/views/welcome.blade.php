@@ -37,7 +37,7 @@
                         <span>0</span>
                     </div>
                 </div>
-                @if($loop->first)
+                @if($loop->first || $news->show_featured_image !== null )
                 <p>  {{ (@$news->excerpt !== null) ? @$news->excerpt: @$news->shortContent(60)}}</p>
                 <div class="featured-post-img">
                     <a href="{{ url(@$news->url()) }}">

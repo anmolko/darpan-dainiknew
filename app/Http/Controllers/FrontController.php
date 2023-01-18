@@ -56,7 +56,10 @@ class FrontController extends Controller
         $date      =  date('Y-m-d');
         $featured  = $this->blog::with('author')->where('status','publish')
                     ->whereDate('featured_from', '<=', $date)
-                    ->whereDate('featured_to', '>=', $date)->orderBy('created_at','desc')->get();
+                    ->whereDate('featured_to', '>=', $date)
+                    ->orderBy('created_at','desc')
+                    ->limit(6)
+                    ->get();
         return view('welcome',compact('featured'));
     }
 

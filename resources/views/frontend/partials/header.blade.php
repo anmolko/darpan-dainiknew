@@ -84,6 +84,7 @@
 
                     <!-- Header Social -->
                     <div class="header-social">
+
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -450,14 +451,19 @@
                     <div class="breaking-news-wrapper">
 
                         <!-- Breaking News Title -->
-                        <h5 class="breaking-news-title float-start">Breaking News</h5>
+                        <h5 class="breaking-news-title float-start">नवीनतम खबर</h5>
 
                         <!-- Breaking Newsticker Start -->
                         <ul class="breaking-news-ticker float-start">
-                            <li><a href="#">Tell me what you today, And i ‘ll tell you who you are!!!</a></li>
-                            <li><a href="#">Fashion is about some thing that comes from with in you.</a></li>
-                            <li><a href="#">Australia announced squad for Bangladesh tour.</a></li>
-                            <li><a href="#">How group of rebel are talking on Banasree epidemic.</a></li>
+
+                            @darpanloop(getLatestPosts(0,8) as $latest_news_feature)
+                                <li>
+                                    <a href="{{ url(@$latest_news_feature->url()) }}">
+                                        {{@$latest_news_feature->title}}
+                                    </a>
+                                </li>
+                            @enddarpanloop
+
                         </ul><!-- Breaking Newsticker Start -->
 
                         <!-- Breaking News Nav -->
