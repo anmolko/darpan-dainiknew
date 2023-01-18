@@ -1,56 +1,216 @@
 @extends('frontend.layouts.master')
 @section('title')  Page Not Found @endsection
+@section('css')
+<style>
+
+    .center {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .error {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .number {
+        font-weight: 900;
+        font-size: 15rem;
+        line-height: 1;
+        color :#0d47a2;
+    }
+
+    .illustration {
+        position: relative;
+        width: 12.2rem;
+        margin: 0 2.1rem;
+    }
+
+    .circle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 12.2rem;
+        height: 11.4rem;
+        border-radius: 50%;
+        background-color: #ec6335;
+    }
+
+    .clip {
+        position: absolute;
+        bottom: 0.3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        width: 12.5rem;
+        height: 13rem;
+        border-radius: 0 0 50% 50%;
+    }
+
+    .paper {
+        position: absolute;
+        bottom: -0.3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 9.2rem;
+        height: 12.4rem;
+        border: 0.3rem solid #ec6335;
+        background-color: white;
+        border-radius: 0.8rem;
+    }
+
+    .paper::before {
+        content: "";
+        position: absolute;
+        top: -0.7rem;
+        right: -0.7rem;
+        width: 1.4rem;
+        height: 1rem;
+        background-color: white;
+        border-bottom: 0.3rem solid #0c47a3;
+        transform: rotate(45deg);
+    }
+
+    .face {
+        position: relative;
+        margin-top: 2.3rem;
+    }
+
+    .eyes {
+        position: absolute;
+        top: 0;
+        left: 2.4rem;
+        width: 4.6rem;
+        height: 0.8rem;
+    }
+
+    .eye {
+        position: absolute;
+        bottom: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background-color: #293b49;
+        animation-name: eye;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+
+    .eye-left {
+        left: 0;
+    }
+
+    .eye-right {
+        right: 0;
+    }
+
+    @keyframes eye {
+        0% {
+            height: 0.8rem;
+        }
+        50% {
+            height: 0.8rem;
+        }
+        52% {
+            height: 0.1rem;
+        }
+        54% {
+            height: 0.8rem;
+        }
+        100% {
+            height: 0.8rem;
+        }
+    }
+
+    .rosyCheeks {
+        position: absolute;
+        top: 1.6rem;
+        width: 1rem;
+        height: 0.2rem;
+        border-radius: 50%;
+        background-color: #fdabaf;
+    }
+
+    .rosyCheeks-left {
+        left: 1.4rem;
+    }
+
+    .rosyCheeks-right {
+        right: 1.4rem;
+    }
+
+    .mouth {
+        position: absolute;
+        top: 3.1rem;
+        left: 50%;
+        width: 1.6rem;
+        height: 0.2rem;
+        border-radius: 0.1rem;
+        transform: translateX(-50%);
+        background-color: #293b49;
+    }
+
+    .message {
+        margin-top: 1em;
+        font-weight: 600;
+        font-size: 60px;
+        font-family: "Khand", sans-serif;
+        color: #0d47a2;
+
+    }
+    .button {
+        margin-top: 2em;
+        background-color: #ec6335;
+        padding: 0.5em 3em;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    .button:hover {
+        background-color: #0d47a2;
+        color: #fff;
+
+
+    }
+
+</style>
+@endsection
 @section('content')
-  
-    <!-- Error Page Area start -->
-    <section class="error-page-area py-130 rel z-1">
+    <div class="post-section section mt-50 mb-80">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="error-content rmb-75 wow fadeInLeft delay-0-2s">
-                        
-                        <h1>OPPS!</h1>
-                        <h3>This Page Can’t be Found</h3>
-                        <p>Start building your first prototype in no time. Ogency intuitive drag & drop interface gives you all the building blocks</p>
-                        <a href="/" class="theme-btn style-two mt-15 mb-50">Go to Home <i class="fas fa-angle-double-right"></i></a>
-                        <div class="follow-us">
-                            <h4>Follow Us</h4>
-                            <div class="social-style-two">
-                                @if(!empty(@$setting_data->facebook))
-                                  <a href="@if(!empty(@$setting_data->facebook)) {{@$setting_data->facebook}} @endif" target="_blank" class="social-fb"
-                                  ><i class="fab fa-facebook-f"></i
-                                  ></a>
-                                @endif
-                                @if(!empty(@$setting_data->youtube))
-
-                                  <a href="@if(!empty(@$setting_data->youtube)) {{@$setting_data->youtube}} @endif" target="_blank" class="social-youtube"
-                                  ><i class="fab fa-youtube"></i
-                                  ></a>
-                                @endif
-                                @if(!empty(@$setting_data->instagram))
-
-                                  <a href="@if(!empty(@$setting_data->instagram)) {{@$setting_data->instagram}} @endif" target="_blank" class="social-instagram"
-                                  ><i class="fab fa-instagram"></i
-                                  ></a>
-                                @endif
-                                @if(!empty(@$setting_data->linkedin))
-
-                                  <a href="@if(!empty(@$setting_data->linkedin)) {{@$setting_data->linkedin}} @endif" target="_blank" class="social-linkedin"
-                                  ><i class="fab fa-linkedin-in"></i
-                                  ></a>
-                                @endif
+            <div class="center">
+                <div class="error">
+                    <div class="number">4</div>
+                    <div class="illustration">
+                        <div class="circle"></div>
+                        <div class="clip">
+                            <div class="paper">
+                                <div class="face">
+                                    <div class="eyes">
+                                        <div class="eye eye-left"></div>
+                                        <div class="eye eye-right"></div>
+                                    </div>
+                                    <div class="rosyCheeks rosyCheeks-left"></div>
+                                    <div class="rosyCheeks rosyCheeks-right"></div>
+                                    <div class="mouth"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="number">4</div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="error-image wow fadeInRight delay-0-2s">
-                        <img src="{{asset('assets/frontend/images/background/404.png')}}" alt="404 Error">
-                    </div>
-                </div>
+                <p class="message">खोज सफल भएन । फिर्ता जुम ?</p>
+                <a class="button" href="/">होम पेज</a>
             </div>
+
         </div>
-    </section>
-    <!-- Error Page Area end -->
+    </div>
+
 
 @endsection

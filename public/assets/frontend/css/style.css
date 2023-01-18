@@ -5625,3 +5625,34 @@ blockquote.blockquote.blockquote-bg p {
 .single-padding-2{
     padding: 0 80px 0 80px;
 }
+
+.pagination .disabled{
+    display: none;
+}
+.page-item.active .page-link{
+    background-color: #0d47a2;
+    border-color: #0d47a2;
+    color:#fff;
+}
+.page-item .page-link{
+    color: #0d47a2;
+
+}
+.page-item .page-link .fa-angle-right:before{
+    content: ">";
+    font-style: initial;
+
+}
+.page-item .page-link .fa-angle-left:before{
+    content: "<";
+    font-style: initial;
+
+}
+
+.pagination .page-item{
+    padding: 0 2px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 18px;
+    transition: all .3s ease-in-out;
+}

@@ -45,7 +45,7 @@ Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 Route::get('post/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');
 Route::get('post/{year}/{month}/{slug}','App\Http\Controllers\FrontController@blogSingle')->name('blog.single');
 Route::get('/post/categories/{slug}', 'App\Http\Controllers\FrontController@blogCategories')->name('blog.category');
-Route::get('/post', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
+Route::get('/news', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
 
 
