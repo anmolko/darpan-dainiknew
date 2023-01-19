@@ -246,3 +246,21 @@ if (! function_exists('countCategoryChildren')) {
 
     }
 }
+
+if (! function_exists('checkEven')) {
+    /**
+     * check if given number/id is even or odd.
+     *
+     * @param  integer  $number
+     * @return boolean
+     */
+    function checkEven($number)
+    {
+        if($number % 2 == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

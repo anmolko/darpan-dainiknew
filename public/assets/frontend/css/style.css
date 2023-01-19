@@ -3114,6 +3114,11 @@ blockquote.blockquote.blockquote-bg p {
   padding-bottom: 18px;
   border-bottom: 1px solid #f1f1f1;
 }
+
+.post.post-separator-border .category-wrap{
+  margin-bottom: 23px;
+  padding-bottom: 23px;
+}
 .post.post-separator-border:last-child .post-wrap {
   margin-bottom: 0;
   padding-bottom: 0;
