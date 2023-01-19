@@ -296,26 +296,24 @@ class FrontController extends Controller
     }
 
     public function blogCategories($slug){
-        $id = Blog::with('categories')->where('status','publish')
+        $category       = Category::where('slug', $slug)->first();
+        $id             = Blog::with('categories')->where('status','publish')
             ->whereHas('categories',function ($query) use ($slug){
                 $query->where('slug', $slug);
             })->take(3)->pluck('id');
-        $allPosts = Blog::with('categories')->where('status','publish')
+
+        $allPosts       = Blog::with('categories')->where('status','publish')
             ->whereHas('categories',function ($query) use ($slug){
                 $query->where('slug', $slug);
             })->whereNotIn('id', $id)->paginate(6);
-        $category = Category::where('slug', $slug)->first();
         return view('frontend.pages.blogs.category',compact('allPosts','category'));
     }
 
     public function searchBlog(Request $request)
     {
-        $query = $request->s;
-        $allPosts = $this->blog->where('title', 'LIKE', '%' . $query . '%')->where('status','publish')->orderBy('title', 'asc')->paginate(6);
-        $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
-
-        return view('frontend.pages.blogs.search',compact('allPosts','query','latestPosts','bcategories'));
+        $query          = $request->s;
+        $searchPosts       = $this->blog->where('title', 'LIKE', '%' . $query . '%')->where('status','publish')->orderBy('title', 'asc')->paginate(5);
+        return view('frontend.pages.blogs.search',compact('searchPosts','query'));
     }
 
     public function testimonial(){

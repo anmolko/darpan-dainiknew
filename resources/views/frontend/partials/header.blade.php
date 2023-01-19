@@ -376,8 +376,8 @@
 
                             <!-- Header Search Form -->
                             <div class="header-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search Here">
+                                <form  method="get" id="searchform" action="{{route('searchBlog')}}" class="default-search-form">
+                                    <input  id="s" name="s" type="text"  placeholder="Search keywords" oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
                                 </form>
                             </div>
 

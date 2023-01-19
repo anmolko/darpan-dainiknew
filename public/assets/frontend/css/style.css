@@ -2083,14 +2083,14 @@ blockquote.blockquote.blockquote-bg p {
 }
 .header-search .header-search-form form input[type=text] {
   line-height: 30px;
-    padding: 15px 15px;
-    width: 200px;
+  padding: 15px 15px;
+  width: 230px;
   border: none;
   background-color: transparent;
   color: #0d47a2;
   letter-spacing: 0.5px;
-  font-size: 13px;
-  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-family: "khand", sans-serif;
   font-weight: 500;
   min-height: 50px;
 }
@@ -3039,6 +3039,22 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 20px;
   margin-bottom: 0;
 }
+.post.post-search .post-wrap .image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 600px;
+          flex: 0 0 600px;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+.post.post-search .post-wrap .content .title {
+    font-size: 32px;
+}
+.post.post-search .post-wrap .content p {
+    font-size: 20px;
+    line-height: 1.6em;
+}
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .post.post-default-list .post-wrap .image {
     width: 225px;
@@ -5487,7 +5503,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 
 .navigation-stick .header-search .header-search-form form input[type=text]{
-    width: 125px;
+    width: 170px;
 }
 
 .big-header{
