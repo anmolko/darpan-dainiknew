@@ -296,11 +296,14 @@ class FrontController extends Controller
     }
 
     public function blogCategories($slug){
-
-        $allPosts  = Blog::with('categories')->where('status','publish')
+        $id = Blog::with('categories')->where('status','publish')
             ->whereHas('categories',function ($query) use ($slug){
                 $query->where('slug', $slug);
-            })->paginate(6);
+            })->take(3)->pluck('id');
+        $allPosts = Blog::with('categories')->where('status','publish')
+            ->whereHas('categories',function ($query) use ($slug){
+                $query->where('slug', $slug);
+            })->whereNotIn('id', $id)->paginate(6);
         $category = Category::where('slug', $slug)->first();
         return view('frontend.pages.blogs.category',compact('allPosts','category'));
     }

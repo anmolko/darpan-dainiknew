@@ -554,7 +554,7 @@ ul {
 
 /*-- Padding Top --*/
 .pt-5 {
-  padding-top: 5px;
+  padding-top: 5px!important;
 }
 
 .pt-10 {
@@ -1272,31 +1272,34 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .page-banner h2 span.category-businsee {
   color: #26d572;
 }
-.page-banner .page-breadcrumb {
+.page-breadcrumb {
   margin: 0;
   padding: 0;
   width: 100%;
   float: left;
   margin-bottom: 11px;
 }
-.page-banner .page-breadcrumb li {
-  color: #cccccc;
+.page-breadcrumb li {
+  color: #0c47a3;
   display: block;
   float: left;
+  font-size: 18px;
   text-transform: capitalize;
 }
-.page-banner .page-breadcrumb li::after {
-  content: "/";
-  margin: 0 5px;
+.page-breadcrumb li::after {
+    content: "/";
+    color: #2f3240;
+    margin: 0 5px;
 }
-.page-banner .page-breadcrumb li:last-child::after {
+.page-breadcrumb li:last-child::after {
   display: none;
 }
-.page-banner .page-breadcrumb li a {
-  color: #cccccc;
+.page-breadcrumb li a {
+  color: #2f3240;
+
 }
-.page-banner .page-breadcrumb li a:hover {
-  color: #00c8fa;
+.page-breadcrumb li a:hover {
+  color: #0c47a3;
 }
 .page-banner p {
   color: #cccccc;
@@ -1823,6 +1826,7 @@ blockquote.blockquote.blockquote-bg p {
   .mobile-menu {
     display: block;
   }
+
 }
 
 
@@ -1831,6 +1835,9 @@ blockquote.blockquote.blockquote-bg p {
     display: block;
   }
     .navigation-stick { position: fixed; }
+    .mb-remove{
+        padding: 0!important;
+    }
 
 }
 
@@ -1838,10 +1845,14 @@ blockquote.blockquote.blockquote-bg p {
     .main-menu nav > ul > li:nth-last-child(2), .main-menu nav > ul > .home-nav {
        display: none;
     }
+
 }
 @media only screen and (max-width: 768px) {
     .main-menu nav > ul > li:nth-last-child(3), .main-menu nav > ul > .home-nav {
        display: none;
+    }
+    .mb-hide{
+        display: none;
     }
     .sticky-logo-nav{
         width: 100%;
@@ -2477,7 +2488,7 @@ blockquote.blockquote.blockquote-bg p {
   font-size: 20px;
   line-height: 24px;
   text-transform: capitalize;
-  color: #444444;
+  color: #2f3240;
 }
 .post-block-wrapper .head .post-block-tab-list > li > a:hover {
   color: #00c8fa;
@@ -3594,18 +3605,37 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 10px;
 }
 .post-header .meta .meta-item.category {
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 1px;
-  background-color: #00c8fa;
+  background-color: #ea5454;
   border-radius: 5px;
-  padding: 0 13px;
+  padding: 0 14px;
   height: 30px;
   line-height: 31px;
   margin-left: 0;
+  margin-right: 5px;
   /*-- Category Color --*/
+}
+.post-header .meta .meta-item.category:hover{
+    background-color: #0a53be;
+}
+.category-single{
+    display: flex!important;
+    justify-content: space-between;
+}
+
+.category-single .comments{
+    color: #0a53be!important;
+
+}
+.category-single .view{
+    color: #0a53be!important;
+}
+.category-single span.view:after{
+    content:"\";
 }
 .post-header .meta .meta-item.category.travel {
   background-color: #ffc61c;
@@ -3660,7 +3690,12 @@ blockquote.blockquote.blockquote-bg p {
   }
 }
 .post-header .meta a:hover {
-  color: #00c8fa;
+  color: #ea5454;
+}
+
+.flex-1{
+    display: flex;
+    justify-content: space-between;
 }
 .post-header .title {
   color: #ffffff;
@@ -3668,6 +3703,13 @@ blockquote.blockquote.blockquote-bg p {
   font-weight: 600;
   line-height: 40px;
   margin-bottom: 16px;
+}
+.category-header{
+    padding: 0px;
+}
+.category-header .title {
+  color: #0d47a2;
+  font-size: 32px;
 }
 @media only screen and (max-width: 767px) {
   .post-header .title {
@@ -5281,10 +5323,10 @@ blockquote.blockquote.blockquote-bg p {
     border-top: none!important;
 }
 .post-container{
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
     text-align: center;
-    padding: 0px 0 25px 0;
-    border-top: solid 1px rgba(0,0,0,.08);
-    border-bottom: solid 1px rgba(0,0,0,.08);
+    padding: 0 0 25px 0;
 }
 
 .post-container-2{
@@ -5308,7 +5350,10 @@ blockquote.blockquote.blockquote-bg p {
     max-width: 1300px;
     margin: 0 auto;
 }
-
+.border-bottom-1{
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 14px;
+}
 .featured-post-2 h2, .featured-post-2 p {
     max-width: 90%;
     margin-left: auto;

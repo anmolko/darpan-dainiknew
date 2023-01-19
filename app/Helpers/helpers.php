@@ -188,10 +188,17 @@ if (! function_exists('getCategoryRelatedPost')) {
      */
     function getCategoryRelatedPost($catid,$skip,$take)
     {
-       return Blog::with('categories')->where('status','publish')
-            ->whereHas('categories',function ($query) use ($catid){
-                 $query->where('category_id', $catid);
-            })->skip($skip)->take($take)->get();
+        if(is_numeric($catid)){
+            return Blog::with('categories')->where('status','publish')
+                ->whereHas('categories',function ($query) use ($catid){
+                    $query->where('category_id', $catid);
+                })->skip($skip)->take($take)->get();
+        }else{
+            return Blog::with('categories')->where('status','publish')
+                ->whereHas('categories',function ($query) use ($catid){
+                    $query->where('slug', $catid);
+                })->skip($skip)->take($take)->get();
+        }
     }
 }
 

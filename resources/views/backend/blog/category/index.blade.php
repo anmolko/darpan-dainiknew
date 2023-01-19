@@ -126,6 +126,8 @@
                                                                 <i class="ri-more-fill fs-17"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
+                                                                <li><a class="dropdown-item" href="{{ route('blog.category',$category->slug) }}" target="_blank"><i class=" ri-eye-line align-middle"></i> Frontend View </a></li>
+
                                                                 <li><a class="dropdown-item cs-category-edit" id="cs-role-category-edit-{{$category->id}}" cs-update-route="{{route('blogcategory.update',$category->id)}}" cs-edit-route="{{route('blogcategory.edit',$category->id)}}"><i class="ri-pencil-fill me-2 align-middle"></i>Edit</a></li>
                                                                 @if(@$category->id !== 1)
                                                                     <li><a class="dropdown-item cs-category-remove" cs-delete-route="{{route('blogcategory.destroy',$category->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>

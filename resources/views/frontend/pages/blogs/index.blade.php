@@ -16,33 +16,33 @@
                             <h4 class="title">समाचार</h4>
                         </div>
                         <div class="body">
-                        <div class="row">
-                            @darpanloop(@$allPosts as $news)
-                                <!-- Post Start -->
-                                <div class="post sports-post post-separator-border col-md-4 col-12">
-                                <div class="post-wrap">
+                            <div class="row">
+                                @darpanloop(@$allPosts as $news)
+                                    <!-- Post Start -->
+                                    <div class="post sports-post post-separator-border col-md-4 col-12">
+                                    <div class="post-wrap">
 
-                                    <!-- Image -->
-                                    <a class="image" href="{{ url(@$news->url()) }}"><img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post"></a>
+                                        <!-- Image -->
+                                        <a class="image" href="{{ url(@$news->url()) }}"><img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post"></a>
 
-                                    <!-- Content -->
-                                    <div class="content">
+                                        <!-- Content -->
+                                        <div class="content">
 
-                                        <!-- Title -->
-                                        <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+                                            <!-- Title -->
+                                            <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                            </div><!-- Post End -->
-                            @enddarpanloop
+                                </div><!-- Post End -->
+                                @enddarpanloop
 
 
-                            {{ $allPosts->links('vendor.pagination.default') }}
+                                {{ $allPosts->links('vendor.pagination.default') }}
 
 
+                            </div>
                         </div>
-                    </div>
 
                     </div>
                 </div>
