@@ -143,11 +143,8 @@ if (! function_exists('getNumericSlug')) {
 
 if (! function_exists('getMiddleBanner')) {
     /**
-     * Generate a Numeric URL friendly "slug" from blogs.
+     * Get a middle advertisement banner in the pair of three to display between posts.
      *
-     * @param  string  $title
-     * @param  string  $separator
-     * @param  string  $language
      * @return string
      */
     function getMiddleBanner()
@@ -160,6 +157,23 @@ if (! function_exists('getMiddleBanner')) {
         }
         $block  .= '</div>';
         return $block;
+    }
+}
+
+if (! function_exists('getHomepageBanner')) {
+    /**
+     * Get advertisement banner in based on its placement.
+     * @param  integer  $placement
+     * @param  integer  $skip
+     * @param  integer  $take
+     * @return array
+     *
+     */
+    function getHomepageBanner($placement,$skip,$take)
+    {
+        return  Ads::where('placement',$placement)
+            ->where('status','active')
+            ->skip($skip)->take($take)->get();
     }
 }
 

@@ -53,7 +53,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="choices-publish-placement-input">Placement</label>
-                                <select class="form-select" id="choices-publish-placement-input" name="placement" data-choices data-choices-search-true>
+                                <select class="form-select" id="choices-publish-placement-input" name="placement" >
                                     <optgroup label="Post Single Page">
                                         <option value="above-post-featured"> Above Post Featured</option>
                                         <option value="below-post-featured">Below Post Featured</option>
@@ -81,7 +81,7 @@
                                     Please select a image.
                                 </div>
                                 <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light feature-image-button">
-                                    <i class="ri-image-edit-line align-bottom me-1"></i> Add Feature Image
+                                    <i class="ri-image-edit-line align-bottom me-1"></i> Add Image/Gif
                                 </label>
                             </div>
 

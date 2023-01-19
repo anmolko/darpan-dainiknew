@@ -9,61 +9,61 @@
     <!-- Featured post Start -->
     <div class="hero-section section mt-5 mb-20">
         @foreach($featured as $news)
+            <div class="featured-post featured-post-2 {{!$loop->first ? "pt-5 pb-2":""}}">
+                <div class="featured post-container">
+                    <h2>
+                        <a href="{{ url(@$news->url()) }}">
+                            {{@$news->title}} </a>
+                    </h2>
+                    <div class="darpan-title">
+                        <div class="darpan-author-wrap">
+                            <div class="darpan-author">
+                                <span class="author-img">
 
-
-
-        <div class="featured-post featured-post-2 {{!$loop->first ? "pt-5 pb-2":""}}">
-            <div class="featured post-container">
-                <h2>
-                    <a href="{{ url(@$news->url()) }}">
-                        {{@$news->title}} </a>
-                </h2>
-                <div class="darpan-title">
-                    <div class="darpan-author-wrap">
-                        <div class="darpan-author">
-                            <span class="author-img">
-
-                                <img src="{{ ($news->author->image !== null) ? asset('images/user/'.@$news->author->image) :  asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
-                            </span>
-                            <span class="author-name"> {{ ucfirst(@$news->author->name)}}  </span>
+                                    <img src="{{ ($news->author->image !== null) ? asset('images/user/'.@$news->author->image) :  asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
+                                </span>
+                                <span class="author-name"> {{ ucfirst(@$news->author->name)}}  </span>
+                            </div>
+                        </div>
+                        <div class="darpan-post-time">
+                            <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
+                            <span>{{  @$news->getMinsAgoinNepali() }}</span>
+                        </div>
+                        <div class="darpan-user-comment">
+                            <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
+                            <span>0</span>
                         </div>
                     </div>
-                    <div class="darpan-post-time">
-                        <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
-                        <span>{{  @$news->getMinsAgoinNepali() }}</span>
+                    @if($loop->first || $news->show_featured_image !== null )
+                    <p>  {{ (@$news->excerpt !== null) ? @$news->excerpt: @$news->shortContent(60)}}</p>
+                    <div class="featured-post-img">
+                        <a href="{{ url(@$news->url()) }}">
+                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="{{@$news->title}}" loading="lazy">
+                        </a>
                     </div>
-                    <div class="darpan-user-comment">
-                        <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
-                        <span>0</span>
-                    </div>
+                    @endif
                 </div>
-                @if($loop->first || $news->show_featured_image !== null )
-                <p>  {{ (@$news->excerpt !== null) ? @$news->excerpt: @$news->shortContent(60)}}</p>
-                <div class="featured-post-img">
-                    <a href="{{ url(@$news->url()) }}">
-                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="{{@$news->title}}" loading="lazy">
-                    </a>
-                </div>
-                @endif
             </div>
-        </div>
-
         @endforeach
-
     </div>
 
-    <!-- Featured post below adds Section Start -->
-    <div class="section">
-        <div class="container">
-            <div class="header-banner">
-                <div class="col-12 post-container featured">
-                    <a href="#" class="post-middle-banner">
-                        <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
-                    </a>
-                </div>
+    @if(count(getHomepageBanner('home-below-featured-post',0,1))> 0 )
+        <!-- Featured post below adds Section Start -->
+        <div class="section">
+            <div class="container">
+                @darpanloop(getHomepageBanner('home-below-featured-post',0,1) as $banner)
+                    <div class="header-banner">
+                        <div class="col-12 post-container featured">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
+                    </div>
+                @enddarpanloop
+
             </div>
         </div>
-    </div>
+    @endif
 
 
     <!-- First Post section start -->
@@ -96,9 +96,24 @@
                                 <div class="col-md-7 col-12 mb-20">
 
 
-                                    @darpanloop(getLatestPosts(0,1) as $latest_news_feature)
+                                    @foreach(getLatestPosts(0,3) as $latest_news_feature)
                                         <!-- Post Start -->
-                                        <div class="post feature-post post-separator-border">
+                                        @if($loop->first)
+                                            <div class="post feature-post post-separator-border">
+                                                <div class="post-wrap">
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$latest_news_feature->url()) }}"><img src="{{ asset('/images/blog/'.@$latest_news_feature->image) }}" alt="post"></a>
+                                                    <!-- Content -->
+                                                    <div class="content">
+                                                        <!-- Title -->
+                                                        <h4 class="title"><a href="{{ url(@$latest_news_feature->url()) }}">{{@$latest_news_feature->title}}</a></h4>
+                                                        <!-- Description -->
+                                                        <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+                                                    </div>
+                                                </div>
+                                            </div><!-- Post End -->
+                                        @else
+                                            <div class="post post-small post-list feature-post post-separator-border">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
@@ -108,17 +123,19 @@
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h4 class="title"><a href="{{ url(@$latest_news_feature->url()) }}">{{@$latest_news_feature->title}}</a></h4>
-                                                    <!-- Description -->
-                                                    <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+                                                    <h5 class="title"><a href="{{ url(@$latest_news_feature->url()) }}">{{@$latest_news_feature->title}}</a></h5>
 
-
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i> {{  @$latest_news_feature->getMinsAgoinNepali() }} </span>
+                                                    </div>
 
                                                 </div>
 
                                             </div>
-                                        @enddarpanloop
-                                    </div><!-- Post End -->
+                                        </div><!-- Post Small End -->
+                                         @endif
+                                    @endforeach
 
 
                                 </div><!-- Post Wrapper End -->
@@ -126,7 +143,7 @@
                                 <!-- Small Post Wrapper Start -->
                                 <div class="col-md-5 col-12 mb-20">
 
-                                    @darpanloop(getLatestPosts(1,4) as $latest_news_feature)
+                                    @darpanloop(getLatestPosts(3,6) as $latest_news_feature)
 
                                     <!-- Post Small Start -->
                                     <div class="post post-small post-list feature-post post-separator-border">
@@ -161,11 +178,8 @@
 
 
                     </div><!-- Post Block Wrapper End -->
-                    <div class="post-block-wrapper banner-below-post">
-                        <div class="post-middle-banner">
-                            <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/banner/post-middle-1.jpg')}}" alt="Banner"></a>
-                        </div>
-                    </div>
+
+
 
                 </div>
 
@@ -173,36 +187,30 @@
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',0,4) as $banner)
+                            <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                                <a href="{{@$banner->url}}" class="sidebar-banner">
+                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                </a>
+                                <!-- Sidebar Banner -->
+                            </div>
+                        @enddarpanloop
 
                     </div>
                 </div><!-- Sidebar End -->
 
             </div><!-- Feature Post Row End -->
+            <div class="post-block-wrapper banner-below-post pt-0 pb-5">
+                @darpanloop(getHomepageBanner('home-banner',0,1) as $banner)
+
+                <div class="post-middle-banner">
+                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                    </a>
+                </div>
+                @enddarpanloop
+
+            </div>
 
             <!-- Main News Post Row Start -->
             <div class="row ">

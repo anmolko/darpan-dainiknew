@@ -57,7 +57,7 @@
                             Please select a image.
                         </div>
                         <label for="ads-foreground-img-file-input" class="profile-photo-edit btn btn-light feature-image-button">
-                            <i class="ri-image-edit-line align-bottom me-1"></i> Add Feature Image
+                            <i class="ri-image-edit-line align-bottom me-1"></i>  Add Image/Gif
                         </label>
                     </div>
 

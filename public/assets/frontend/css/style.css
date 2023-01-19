@@ -137,6 +137,11 @@ ul {
 .clear {
   clear: both;
 }
+
+.pt-0 {
+  padding-top: 0!important;
+}
+
 .menu-section{
     position: sticky;
     top: 0;

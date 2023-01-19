@@ -479,15 +479,18 @@
         </div>
     </div><!-- Breaking News Section End -->
 
-    <!-- Featured Above adds Start -->
-    <div class="section">
-        <div class="container">
-            <div class="header-banner">
-                <div class="col-12 post-container featured">
-                    <a href="#" class="post-middle-banner">
-                        <img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt=""  />
-                    </a>
-                </div>
+    @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
+        <div class="section">
+            <div class="container">
+                @darpanloop(getHomepageBanner('home-above-featured-post',0,1) as $banner)
+                    <div class="header-banner">
+                        <div class="col-12 post-container featured">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
+                    </div>
+                @enddarpanloop
             </div>
         </div>
-    </div>
+    @endif
