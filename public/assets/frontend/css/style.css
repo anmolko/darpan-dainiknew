@@ -3051,6 +3051,13 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 20px;
   margin-bottom: 0;
 }
+.post.post-search .post-wrap .search-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 300px;
+          flex: 0 0 300px;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
 .post.post-search .post-wrap .content .title {
     font-size: 32px;
 }
