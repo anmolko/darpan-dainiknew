@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\Category;
-use App\Models\Client;
 use App\Models\Menu;
 use App\Models\Page;
-use App\Models\Service;
-use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 

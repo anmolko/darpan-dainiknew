@@ -139,223 +139,101 @@
 
                             <nav>
                                 <ul>
-
-                                    <li class="home-nav active"><a href="/">गृह पृष्ठ</a>
-
+                                    <li class="home-nav {{request()->is('/') ? 'active' : ''}}">
+                                        <a href="/">गृह पृष्ठ</a>
                                     </li>
-                                    <li><a href="/">समाचार</a></li>
-                                    <li><a href="/">प्रवाश</a></li>
-                                    <li><a href="/">अथ॔</a></li>
-                                    <li><a href="/">रोचक</a></li>
-                                    <li class="has-dropdown"><a href="/">प्रदेश</a>
+                                    @if(!empty($top_nav_data))
+                                        @foreach($top_nav_data as $nav)
+                                            @if(!empty($nav->children[0]))
+                                                <li class="{{request()->is(@$nav->slug)  ? 'active' : ''}} has-dropdown">
+                                                    <a href="/">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
+                                                    <!-- Mega Menu Start -->
+                                                    <div class="mega-menu">
 
-                                        <!-- Mega Menu Start -->
-                                        <div class="mega-menu">
+                                                        <!-- Menu Tab List Start -->
+                                                        <ul class="menu-tab-list nav">
+                                                            @foreach($nav->children[0] as $childNav)
+                                                                @if($childNav->type == 'custom')
+                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >
+                                                                        <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >
+                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @elseif($childNav->type == 'category')
+                                                                    <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">
+                                                                        <a class="{{ ($loop->first) ? 'active' : ''}}"
+                                                                             data-bs-toggle="tab" href="#menu-tab-{{@$childNav->id}}"
+                                                                        > — @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
+                                                                    </li>
+                                                                @else
+                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">
+                                                                        <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)
+                                                                        target="_blank" @endif>
+                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @endif
+                                                            @endforeach
+                                                        </ul><!-- Menu Tab List End -->
 
-                                            <!-- Menu Tab List Start -->
-                                            <ul class="menu-tab-list nav">
-                                                <li><a class="active" data-bs-toggle="tab" href="#menu-tab-one">all</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">प्रदेश १</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">मधेस प्रदेश</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">बाग्मती</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">गण्डकी</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-two">लुम्बिनी</a></li>
-                                                <li><a data-bs-toggle="tab" href="#menu-tab-one">कर्णाली</a></li>
-                                            </ul><!-- Menu Tab List End -->
+                                                        <!-- Menu Tab Content Start -->
+                                                        <div class="tab-content menu-tab-content fix">
+                                                            @foreach($nav->children[0] as $childNav)
+                                                                @if($childNav->type == 'category')
+                                                                    <div class="tab-pane fade {{ ($loop->first) ? 'show active' : ''}}" id="menu-tab-{{@$childNav->id}}">
+                                                                        <div class="row">
 
-                                            <!-- Menu Tab Content Start -->
-                                            <div class="tab-content menu-tab-content fix">
+                                                                            @darpanloop(getCategoryRelatedPost($childNav->slug,0,4) as $news)
+                                                                                <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                                                    <div class="post-wrap">
 
-                                                <!-- Menu Tab Pane Start -->
-                                                <div class="tab-pane fade show active" id="menu-tab-one">
-                                                    <div class="row">
+                                                                                        <a href="{{ url(@$news->url()) }}" class="image">
+                                                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-136.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="/">Marilyn Monroe’s beauty secrets the most</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+                                                                                        </a>
+                                                                                        <div class="content">
+                                                                                            <h5 class="title">
+                                                                                                <a href="{{ url(@$news->url()) }}">{{@$news->title}}</a>                                                                                            </h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @enddarpanloop
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-137.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="/">Hynpodia helps fmaletravelers find health.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="/" class="image"><img src="{{asset('assets/frontend/img/post/post-138.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+                                                        </div><!-- Menu Tab Content End -->
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-139.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+                                                    </div><!-- Mega Menu End -->
+                                                </li>
+                                            @else
+                                                @if($nav->type == 'custom')
+                                                    <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="/{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @elseif($nav->type == 'category')
+                                                    <li   class="{{request()->is('category/'.@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="{{url('category')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @else
+                                                    <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="{{url('/')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @endif
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-140.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">How do you solve the long tiredness.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-141.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+{{--
+{{--                                    <li class="has-dropdown"><a href="#">शिक्षा-स्वास्थ्य</a>--}}
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-142.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Fance fry with chicken burger.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
+{{--                                        <!-- Submenu Start -->--}}
+{{--                                        <ul class="sub-menu">--}}
+{{--                                            <li><a href="#">शिक्षा</a></li>--}}
+{{--                                            <li><a href="#">स्वास्थ्य</a></li>--}}
+{{--                                        </ul><!-- Submenu End -->--}}
 
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-143.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Fashion is about some thing that comes . . . . </a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                    </div>
-                                                </div><!-- Menu Tab Pane End -->
-
-                                                <!-- Menu Tab Pane Start -->
-                                                <div class="tab-pane fade" id="menu-tab-two">
-                                                    <div class="row">
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-140.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">How do you solve the long tiredness.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-141.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-142.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="#">Fance fry with chicken burger.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-143.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="post-details.html">Fashion is about some thing that comes . . . . </a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-136.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="post-details.html">Marilyn Monroe’s beauty secrets the most</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-137.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="post-details.html">Hynpodia helps fmaletravelers find health.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-138.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                        <!-- Post Start -->
-                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                            <div class="post-wrap">
-                                                                <a href="post-details.html" class="image"><img src="{{asset('assets/frontend/img/post/post-139.jpg')}}" alt="Post"></a>
-                                                                <div class="content">
-                                                                    <h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- Post End -->
-
-                                                    </div>
-                                                </div><!-- Menu Tab Pane End -->
-
-                                            </div><!-- Menu Tab Content End -->
-
-                                        </div><!-- Mega Menu End -->
-
-                                    </li>
-                                    <li><a href="/">मनोरञ्जन</a></li>
-                                    <li><a href="/">समाज</a></li>
-                                    <li class="has-dropdown"><a href="#">शिक्षा-स्वास्थ्य</a>
-
-                                        <!-- Submenu Start -->
-                                        <ul class="sub-menu">
-                                            <li><a href="#">शिक्षा</a></li>
-                                            <li><a href="#">स्वास्थ्य</a></li>
-                                        </ul><!-- Submenu End -->
-
-                                    </li>
+{{--                                    </li>--}}
 
                                 </ul>
                             </nav>

@@ -249,8 +249,8 @@
                 </div>
                 <!-- end col -->
 
-                <div class="col-xl-8 col-lg-8">
-                    <div>
+                <div class="col-xl-8 col-lg-8 ">
+                    <div class="sticky-side-div" style="top: calc(70px + 3.5rem);">
                         <div class="card">
                             <div class="card-header border-bottom-dashed">
                                 <div class="d-flex">
@@ -551,7 +551,7 @@
             isValidTarget: function ($item, container) {
                 //for limiting the depth of the UL child
                 var depth = 1, // Start with a depth of one (the element itself)
-                    maxDepth = 3,
+                    maxDepth = 2,
                     children = $item.find('ul').first().find('li');
 
 

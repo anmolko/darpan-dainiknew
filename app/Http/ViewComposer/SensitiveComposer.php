@@ -44,10 +44,10 @@ class SensitiveComposer
                $menu->type = MenuItem::where('id',$menu->id)->value('type');
                if(!empty($menu->children[0])){
                    foreach ($menu->children[0] as $child) {
-                       $child->title = MenuItem::where('id',$child->id)->value('title');
-                       $child->name = MenuItem::where('id',$child->id)->value('name');
-                       $child->slug = MenuItem::where('id',$child->id)->value('slug');
-                       $child->target = MenuItem::where('id',$child->id)->value('target');
+                       $child->title        = MenuItem::where('id',$child->id)->value('title');
+                       $child->name         = MenuItem::where('id',$child->id)->value('name');
+                       $child->slug         = MenuItem::where('id',$child->id)->value('slug');
+                       $child->target       = MenuItem::where('id',$child->id)->value('target');
                        $child->type = MenuItem::where('id',$child->id)->value('type');
                        if(!empty($child->children[0])){
                            foreach ($child->children[0] as $lastchild) {
@@ -63,6 +63,7 @@ class SensitiveComposer
            }
 
        }
+
 
        if(!empty(@$footerItem1)){
            foreach($footerItem1 as $menu1){
