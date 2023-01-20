@@ -4863,7 +4863,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .sidebar-category li a {
   display: block;
-  color: #666666;
+  color: #f6f1f1;
   line-height: 24px;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
@@ -5113,7 +5113,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .footer-widget {
-    padding-left: 15px;
+    padding-left: 30px;
     padding-right: 15px;
   }
 }
@@ -5138,8 +5138,9 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Footer Social --*/
 }
 .footer-widget .content p {
-  font-size: 13px;
-  color: #cccccc;
+    font-size: 16px;
+    text-align: justify;
+    color: #f6f6f6;
 }
 .footer-widget .content .footer-contact {
   padding-left: 0;
@@ -5147,10 +5148,18 @@ blockquote.blockquote.blockquote-bg p {
   margin-top: 8px;
   width: 100%;
   margin-bottom: 25px;
+  list-style-type: none;
+}
+.footer-logo{
+    height: 15%;
+}
+.footer-logo img{
+    height: 15%;
 }
 .footer-widget .content .footer-contact li {
   margin-bottom: 10px;
-  color: #cccccc;
+  color: #f6f6f6;
+    font-size: 18px;
 }
 .footer-widget .content .footer-contact li:last-child {
   margin-bottom: 0;

@@ -1,250 +1,101 @@
 <!-- Footer Top Section Start -->
 <div class="footer-top-section section bg-footer">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="    padding: 0 30px;">
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-5 col-md-6 col-12 mb-60">
 
                 <!-- Title -->
-                <h4 class="widget-title">About Us</h4>
+                <h4 class="widget-title">हाम्रो बारे</h4>
 
                 <div class="content fix">
-                    <p>Lorem ipsum dolor sit amet, consectet adipiscing Se velit ex, dictum at nunc  placerat consequatS quam. ornaremi condiment PhasellusI  cursii placerat quam et, mattis nibh Suspendislacinias.</p>
+                    @if(!empty(@$setting_data->website_description)) {!! ucfirst(@$setting_data->website_description) !!} @else <p> Darpan dainik is an online news portal for all type of Nepali national, International, photography, business, sports, culture,politic etc. With the mission of being the paradigm in Nepal’s media fraternity "Darpan Dainik Pvt. Ltd.” a prominent media representative in the country. With people’s right to information as the primary objective, <a href="/">"www.darpandainik.com"</a> and Darpan TV (Online TV) Under of Darpan Dainik Pvt. Ltd. was registered according to the law suit Government of Nepal. We will raise our continuous media role dedication towards socity and people.</p> @endif
+                        <ol class="footer-contact">
+                            <li><i class="fa fa fa-phone"></i>Office: <b>{{ @$setting_data->phone }} </b></li>
+                            <li><i class="fa fa fa-newspaper-o"></i>News: <b>{{ @$setting_data->mobile }} </b></li>
 
-                    <!-- Footer Contact -->
-                    <ol class="footer-contact">
-                        <li><i class="fa fa-home"></i>House No 08, Din Bari, Dhaka, Bangladesh</li>
-                        <li><i class="fa fa-envelope-open"></i>Username@gmail.com</li>
-                        <li><i class="fa fa-headphones"></i>(+660 256 24857) , (+660 256 24857)</li>
-                    </ol>
-
-                    <!-- Footer Social -->
-                    <div class="footer-social">
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                    </div>
-
+                        </ol>
                 </div>
 
             </div><!-- Footer Widget End -->
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
 
                 <!-- Title -->
-                <h4 class="widget-title">popular News</h4>
+                <h4 class="widget-title">समाचार</h4>
 
                 <!-- Footer Widget Post Start -->
                 <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-33.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">Hynpodia helps male travelers find healths.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <ul class="sidebar-category video-category">
+                        <li><a href="#">Business (20)</a></li>
+                        <li><a href="#">Photography (05)</a></li>
+                        <li><a href="#">Lifestyle (8)</a></li>
+                        <li><a href="#">Fashion (6)</a></li>
+                        <li><a href="#">Travel (20)</a></li>
+                        <li><a href="#">Foods (30)</a></li>
+                        <li><a href="#">Technology (26)</a></li>
+                        <li><a href="#">Education (04)</a></li>
+                        <li><a href="#">Video (40)</a></li>
+                        <li><a href="#">Health (3)</a></li>
+                    </ul>
                 </div><!-- Footer Widget Post ENd -->
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-34.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">How do you solve the IOS page problem.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-35.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">Home is not a place . . . . . .  . it’s a feeling.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
             </div><!-- Footer Widget End -->
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
-
-                <h4 class="widget-title">Twitter Feed</h4>
-
-                <!-- Single Tweet Start -->
-                <div class="single-tweet">
-
-                    <!-- Image -->
-                    <a href="#" class="image"><img src="{{asset('assets/frontend/img/tweets/1.png')}}" alt="Author Image"></a>
-                    <!-- Content -->
-                    <div class="content fix">
-                        <!-- Head -->
-                        <div class="head"><h5><a href="#">Hashtech</a></h5><span>5 Minute Ago</span></div>
-                        <!-- Tags -->
-                        <div class="tags">
-                            <a href="#">#UI</a>
-                            <a href="#">#UX</a>
-                            <a href="#">#Lorem</a>
-                        </div>
-                        <!-- Links -->
-                        <div class="links"><a href="#">@https://themeforest.net/item/moto-multipurpose-landing-page-template/20342375?s_rank=1</a></div>
-                        <!-- Meta -->
-                        <ul class="meta">
-                            <li><a href="#"><i class="fa fa-heart"></i> 865</a></li>
-                            <li><a href="#"><i class="fa fa-comments"></i> 653</a></li>
-                            <li><a href="#"><i class="fa fa-reply"></i></a></li>
-                        </ul>
-                    </div>
-
-                </div><!-- Single Tweet End -->
-
-                <!-- Single Tweet Start -->
-                <div class="single-tweet">
-
-                    <!-- Image -->
-                    <a href="#" class="image"><img src="{{asset('assets/frontend/img/tweets/1.png')}}" alt="Author Image"></a>
-                    <!-- Content -->
-                    <div class="content fix">
-                        <!-- Head -->
-                        <div class="head"><h5><a href="#">Hashtech</a></h5><span>5 Minute Ago</span></div>
-                        <!-- Tags -->
-                        <div class="tags">
-                            <a href="#">#UI</a>
-                            <a href="#">#UX</a>
-                            <a href="#">#Lorem</a>
-                        </div>
-                        <!-- Links -->
-                        <div class="links"><a href="#">@https://themeforest.net/item/moto-multipurpose-landing-page-template/20342375?s_rank=1</a></div>
-                        <!-- Meta -->
-                        <ul class="meta">
-                            <li><a href="#"><i class="fa fa-heart"></i> 865</a></li>
-                            <li><a href="#"><i class="fa fa-comments"></i> 653</a></li>
-                            <li><a href="#"><i class="fa fa-reply"></i></a></li>
-                        </ul>
-                    </div>
-
-                </div><!-- Single Tweet End -->
-
-            </div><!-- Footer Widget End -->
-
-            <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
 
                 <!-- Title -->
                 <h4 class="widget-title">Top News</h4>
 
                 <!-- Footer Widget Post Start -->
                 <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-14.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">Australia announced squad for Bangladesh tour.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <ul class="sidebar-category video-category">
+                        <li><a href="#">Business (20)</a></li>
+                        <li><a href="#">Photography (05)</a></li>
+                        <li><a href="#">Lifestyle (8)</a></li>
+                        <li><a href="#">Fashion (6)</a></li>
+                        <li><a href="#">Travel (20)</a></li>
+                        <li><a href="#">Foods (30)</a></li>
+                        <li><a href="#">Technology (26)</a></li>
+                        <li><a href="#">Education (04)</a></li>
+                        <li><a href="#">Video (40)</a></li>
+                        <li><a href="#">Health (3)</a></li>
+                    </ul>
                 </div><!-- Footer Widget Post ENd -->
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-23.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">Fish Fry With green vegetables.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-40.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="#">Hynpodia helps male travelers find healths.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
 
             </div><!-- Footer Widget End -->
+
+            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
+
+                <h4 class="widget-title">Twitter Feed</h4>
+                <div class="footer-logo mb-25">
+                    <a href="/"><img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php } ?>" alt="Logo"></a>
+                </div>
+                <div class="content">
+                    <ol class="footer-contact">
+                        <li><i class="fa fa-tty"></i>सुचना बिभाग दर्ता नं: <b>{{ @$setting_data->broadcasting_registration }} </b></li>
+                        <li><i class="fa fa-building-o"></i>कम्पनी दर्ता नं: <b>{{ @$setting_data->company_registration }} </b></li>
+
+                        <li><i class="fa fa-hand-o-right"></i>अध्यक्ष: <b>{{ @$setting_data->chairman }} </b></li>
+                        <li><i class="fa fa-hand-o-right"></i>सञ्चालक: <b>{{ @$setting_data->operator }} </b></li>
+                        <li><i class="fa fa-hand-o-right"></i>सम्पादक: <b>{{ @$setting_data->editor }} </b></li>
+                        <li><i class="fa fa fa-send-o"></i><b>{{ @$setting_data->news_email }} </b></li>
+                        <li><i class="fa fa fa-bullhorn"></i>Ad: <b>{{ @$setting_data->ad_number }} </b></li>
+                        <li><i class="fa fa fa-keyboard-o"></i> <b>{{ @$setting_data->ad_email }} </b></li>
+                    </ol>
+
+                </div>
+
+
+            </div><!-- Footer Widget End -->
+
+
+            <!-- Footer Widget Start -->
+
 
         </div>
     </div>
