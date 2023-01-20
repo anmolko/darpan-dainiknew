@@ -182,7 +182,7 @@ ul {
 }
 
 .bg-footer{
-    background-color: #041b3f;
+    background-color: #09316f;
 }
 .bg-red{
     background-color: #d34a40;
@@ -4865,8 +4865,7 @@ blockquote.blockquote.blockquote-bg p {
   display: block;
   color: #f6f1f1;
   line-height: 24px;
-  font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
 }
 .sidebar-category li a:before {
   content: "";
@@ -5077,7 +5076,7 @@ blockquote.blockquote.blockquote-bg p {
     Footer Top
 ----------------------------------------*/
 .footer-top-section {
-  padding: 100px 105px 40px;
+  padding: 80px 105px 40px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .footer-top-section {
@@ -5124,9 +5123,9 @@ blockquote.blockquote.blockquote-bg p {
   }
 }
 .footer-widget .widget-title {
-  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   color: #ffffff;
+    font-size: 26px;
   line-height: 14px;
   text-transform: capitalize;
   padding-left: 15px;
@@ -5138,9 +5137,10 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Footer Social --*/
 }
 .footer-widget .content p {
-    font-size: 16px;
+    font-size: 17px;
     text-align: justify;
     color: #f6f6f6;
+    line-height: 24px;
 }
 .footer-widget .content .footer-contact {
   padding-left: 0;
@@ -5159,7 +5159,7 @@ blockquote.blockquote.blockquote-bg p {
 .footer-widget .content .footer-contact li {
   margin-bottom: 10px;
   color: #f6f6f6;
-    font-size: 18px;
+    font-size: 17px;
 }
 .footer-widget .content .footer-contact li:last-child {
   margin-bottom: 0;
@@ -5713,6 +5713,10 @@ blockquote.blockquote.blockquote-bg p {
 
 .ml-15{
     margin-left: 15px;
+}
+
+.ml-10{
+    margin-left: 10px;
 }
 
 .post-block-single .feature-head{

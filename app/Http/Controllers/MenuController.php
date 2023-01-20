@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Page;
-use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -25,9 +24,10 @@ class MenuController extends Controller
         $desiredMenu        = '';
         $menuTitle          = '';
         $pages              = Page::all();
-        $category           = Category::all();
+        $category           = Category::whereNull('parent_category')->get();
+        $cat_count          = Category::count();
         $menus              = Menu::all();
-        $blogs              = Blog::all();
+//        $blogs              = Blog::all();
         if(isset($_GET['slug']) && $_GET['slug'] != 'new'){
             $id = $_GET['slug'];
             $desiredMenu = Menu::where('slug',$id)->first();
@@ -116,7 +116,7 @@ class MenuController extends Controller
             }
         }
 
-        return view('backend.menu.index',compact('pages','category','menuTitle','blogs','menus','desiredMenu','menuitems'));
+        return view('backend.menu.index',compact('pages','category','cat_count','menuTitle','menus','desiredMenu','menuitems'));
 
     }
 
@@ -329,7 +329,7 @@ class MenuController extends Controller
                 $post = Blog::find($id);
                 $data =[
                     'title'         => $post->title,
-                    'slug'          => $post->slug,
+                    'slug'          => $post->numeric_slug,
                     'blog_id'       => $id,
                     'type'          => 'post',
                     'menu_id'       => $menuid,
@@ -343,7 +343,7 @@ class MenuController extends Controller
                 $post = Blog::find($id);
                 $data =[
                     'title'         => $post->title,
-                    'slug'          => $post->slug,
+                    'slug'          => $post->numeric_slug,
                     'blog_id'       => $id,
                     'type'          => 'post',
                     'menu_id'       => $menuid,
@@ -354,7 +354,7 @@ class MenuController extends Controller
             foreach($ids as $id){
                 $post               = Blog::find($id);
                 $array['title']     = $post->title;
-                $array['slug']      = $post->slug;
+                $array['slug']      = $post->numeric_slug;
                 $array['blog_id']   = $post->id;
                 $array['type']      = 'post';
                 $array['id']        = MenuItem::where('slug',$array['slug'])->where('type',$array['type'])->orderby('id','DESC')->value('id');

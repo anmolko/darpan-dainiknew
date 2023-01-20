@@ -20,52 +20,82 @@
 
             </div><!-- Footer Widget End -->
 
+
             <!-- Footer Widget Start -->
             <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
+                @if(@$footer_nav_data1 !== null)
+                    <!-- Title -->
+                    <h4 class="widget-title"> @if(@$footer_nav_title1 !== null) {{@$footer_nav_title1}} @else समाचार @endif </h4>
 
-                <!-- Title -->
-                <h4 class="widget-title">समाचार</h4>
+                    <!-- Footer Widget Post Start -->
+                    <div class="footer-widget-post">
+                        <ul class="sidebar-category video-category">
+                            @if(!empty($footer_nav_data1))
+                                @foreach($footer_nav_data1 as $nav)
+                                    @if(!empty($nav->children[0]))
+                                    @else
+                                        @if($nav->type == 'custom')
+                                            <li>
+                                                @if(str_contains(@$nav->slug,'http'))
+                                                    <a href="{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>  @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                        @else
+                                            <a href="/{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>  @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                        @endif
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <ul class="sidebar-category video-category">
-                        <li><a href="#">Business (20)</a></li>
-                        <li><a href="#">Photography (05)</a></li>
-                        <li><a href="#">Lifestyle (8)</a></li>
-                        <li><a href="#">Fashion (6)</a></li>
-                        <li><a href="#">Travel (20)</a></li>
-                        <li><a href="#">Foods (30)</a></li>
-                        <li><a href="#">Technology (26)</a></li>
-                        <li><a href="#">Education (04)</a></li>
-                        <li><a href="#">Video (40)</a></li>
-                        <li><a href="#">Health (3)</a></li>
-                    </ul>
-                </div><!-- Footer Widget Post ENd -->
+                                        @elseif($nav->type == 'category')
+                                            <li >
+                                                <a href="{{url('category')}}/{{$nav->slug}}" @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                        @elseif($nav->type == 'post')
+                                            <li >
+                                                <a href="{{url('blog')}}/{{$nav->slug}}" @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                        @else
+                                            <li >
+                                                <a href="{{url('/')}}/{{$nav->slug}}" @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif> @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            @endif
 
+                        </ul>
+                    </div><!-- Footer Widget Post ENd -->
+                @endif
             </div><!-- Footer Widget End -->
 
             <!-- Footer Widget Start -->
             <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
+                @if(@$footer_nav_data2 !== null)
 
-                <!-- Title -->
-                <h4 class="widget-title">Top News</h4>
+                    <!-- Title -->
+                    <h4 class="widget-title">@if(@$footer_nav_title2 !== null) {{@$footer_nav_title2}} @else अन्य @endif</h4>
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
+                    <!-- Footer Widget Post Start -->
+                    <div class="footer-widget-post">
                     <ul class="sidebar-category video-category">
-                        <li><a href="#">Business (20)</a></li>
-                        <li><a href="#">Photography (05)</a></li>
-                        <li><a href="#">Lifestyle (8)</a></li>
-                        <li><a href="#">Fashion (6)</a></li>
-                        <li><a href="#">Travel (20)</a></li>
-                        <li><a href="#">Foods (30)</a></li>
-                        <li><a href="#">Technology (26)</a></li>
-                        <li><a href="#">Education (04)</a></li>
-                        <li><a href="#">Video (40)</a></li>
-                        <li><a href="#">Health (3)</a></li>
+                        @if(!empty($footer_nav_data2))
+                            @foreach($footer_nav_data2 as $nav)
+                                @if(!empty($nav->children[0]))
+                                @else
+                                    @if($nav->type == 'custom')
+                                        <li >
+                                            @if(str_contains(@$nav->slug,'http'))
+                                                <a href="{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>  @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                    @else
+                                        <a href="/{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>  @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                    @endif
+
+                                    @elseif($nav->type == 'category')
+                                        <li >
+                                            <a href="{{url('category')}}/{{$nav->slug}}" @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                    @else
+                                        <li >
+                                            <a href="{{url('/')}}/{{$nav->slug}}" @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif> @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endif
                     </ul>
                 </div><!-- Footer Widget Post ENd -->
-
+                @endif
 
             </div><!-- Footer Widget End -->
 
