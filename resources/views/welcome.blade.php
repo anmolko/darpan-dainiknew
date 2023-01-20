@@ -305,7 +305,7 @@
 
                 <!-- Sidebar Start -->
                 <div class="col-lg-3 col-12 mb-50">
-                    <div class="row">
+                    <div class="row mb-5">
 
                         <!-- Single Sidebar -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
@@ -379,18 +379,34 @@
 
 
                     </div>
-                </div><!-- Sidebar End -->
+                    <!-- sidebar banner -->
 
-            </div><!-- Main News Post Row End -->
-
-            <div class="section">
-                <div class="header-banner">
-                    <div class="col-12 post-container home-post-between">
-                        <a href="#" class="post-middle-banner">
-                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
-                        </a>
+                    <div class="row">
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                            @darpanloop(getHomepageBanner('home-sidebar-banner',4,1) as $banner)
+                                <div class="sidebar-block-wrapper ">
+                                    <a href="{{@$banner->url}}" class="sidebar-banner">
+                                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}" />
+                                    </a>
+                                </div>
+                            @enddarpanloop
+                        </div>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="section">
+                @darpanloop(getHomepageBanner('home-banner',1,1) as $banner)
+                    <div class="header-banner">
+                        <div class="col-12 post-container home-post-between">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
+                    </div>
+                @enddarpanloop
+
             </div>
 
             <!-- Politics Post Row Start -->
@@ -511,34 +527,30 @@
             </div><!-- Politics Post Row End -->
 
             <div class="section">
-                <div class="header-banner">
-                    <div class="col-12 post-container home-post-between">
-                        <a href="#" class="post-middle-banner">
-                            <img src="{{asset('assets/frontend/img/gifs/test2.gif')}}" alt=""  />
-                        </a>
+                @darpanloop(getHomepageBanner('home-banner',2,1) as $banner)
+                    <div class="header-banner">
+                        <div class="col-12 post-container home-post-between">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @enddarpanloop
             </div>
-
             <!-- World Post Row Start -->
             <div class="row ">
 
                 <!-- Sidebar Start -->
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row sidebar-sticky">
-
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/side2.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',5,2) as $banner)
+                            <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                                <a href="{{@$banner->url}}" class="sidebar-banner">
+                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                </a>
+                                <!-- Sidebar Banner -->
+                            </div>
+                        @enddarpanloop
                     </div>
                 </div><!-- Sidebar End -->
 
@@ -729,13 +741,13 @@
 
             <!-- Banner Row Start -->
             <div class="row mb-50">
-
-                <div class="col-12">
-
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
-
-                </div>
-
+                @darpanloop(getHomepageBanner('home-banner',3,1) as $banner)
+                    <div class="col-12">
+                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        </a>
+                    </div>
+                @enddarpanloop
             </div><!-- Banner Row End -->
 
 
@@ -852,13 +864,13 @@
                 </div>
             </div>
             <div class="row">
-
-                <div class="col-12">
-
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
-
-                </div>
-
+                @darpanloop(getHomepageBanner('home-banner',4,1) as $banner)
+                    <div class="col-12">
+                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        </a>
+                    </div>
+                @enddarpanloop
             </div>
         </div>
     </div><!-- Second Post Section End -->
@@ -952,13 +964,13 @@
             </div>
 
             <div class="row">
-
-                <div class="col-12">
-
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
-
-                </div>
-
+                @darpanloop(getHomepageBanner('home-banner',5,1) as $banner)
+                    <div class="col-12">
+                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        </a>
+                    </div>
+                @enddarpanloop
             </div>
             <!-- Entertainment Section Start -->
             <div class="hero-section background section mt-30 mb-60">
@@ -1223,44 +1235,26 @@
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',7,4) as $banner)
+                            <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                                <a href="{{@$banner->url}}" class="sidebar-banner">
+                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                </a>
+                                <!-- Sidebar Banner -->
+                            </div>
+                        @enddarpanloop
                     </div>
                 </div><!-- Sidebar End -->
             </div><!-- Farms Row End -->
 
             <div class="row">
-
+                @darpanloop(getHomepageBanner('home-banner',6,1) as $banner)
                 <div class="col-12 mb-5">
-
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
-
+                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                    </a>
                 </div>
-
+                @enddarpanloop
             </div>
 
         </div>
@@ -1416,37 +1410,27 @@
                 </div>
 
             </div>
+            <div class="row">
+                @darpanloop(getHomepageBanner('home-banner',7,1) as $banner)
+                <div class="col-12 mb-5">
+                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                    </a>
+                </div>
+                @enddarpanloop
 
+            </div>
             <!-- amtarvarta Row -->
             <div class="row">
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
-
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',11,4) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
+                            <a href="{{@$banner->url}}" class="sidebar-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
                         </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{asset('assets/frontend/img/gifs/homepageadds.gif')}}" alt="Sidebar Banner"></a>
-
-                        </div>
+                        @enddarpanloop
 
                     </div>
                 </div><!-- Sidebar End -->
@@ -1593,12 +1577,13 @@
 
 
             <div class="row">
-
+                @darpanloop(getHomepageBanner('home-banner',8,1) as $banner)
                 <div class="col-12 mb-5">
-
-                    <a href="#" class="post-middle-banner"><img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="Banner"></a>
-
+                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                    </a>
                 </div>
+                @enddarpanloop
 
             </div>
 

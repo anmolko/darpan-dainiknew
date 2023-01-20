@@ -4481,6 +4481,7 @@ blockquote.blockquote.blockquote-bg p {
   margin: 0;
   line-height: 24px;
   font-weight: 600;
+    font-size: 24px;
   text-transform: capitalize;
   color: #00c8fa;
 }
@@ -4557,10 +4558,10 @@ blockquote.blockquote.blockquote-bg p {
     justify-content: space-between;
 }
 .sidebar-block-wrapper .head.education-head::before, .sidebar-block-wrapper .head.education-head::after {
-  background-color: #008bff;
+  background-color: #0c47a3;
 }
 .sidebar-block-wrapper .head.education-head .title {
-  color: #008bff;
+  color: #0c47a3;
 }
 .sidebar-block-wrapper .head.health-head {
   /*-- Title --*/
@@ -5687,7 +5688,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .post-block-single a{
     margin-top: 10px;
-    border: 1px solid #041b3f;
+    border: 1px solid #0d47a2;
 }
 
 .single-padding{
