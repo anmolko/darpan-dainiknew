@@ -4469,6 +4469,27 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Video --*/
   /*-- Businsee --*/
 }
+
+.sidebar-block-wrapper .side-head {
+  float: left;
+  width: 100%;
+  padding: 15px 20px;
+  position: relative;
+  border-bottom: 1px solid #f1f1f1;
+  /*-- Title --*/
+  /*-- Feature --*/
+  /*-- Gadgets --*/
+  /*-- Life Style --*/
+  /*-- Travel --*/
+  /*-- Fashion --*/
+  /*-- Sports --*/
+  /*-- Politic --*/
+  /*-- Education --*/
+  /*-- Health --*/
+  /*-- Madical --*/
+  /*-- Video --*/
+  /*-- Businsee --*/
+}
 .sidebar-block-wrapper .head::before, .sidebar-block-wrapper .head::after {
   position: absolute;
   width: 4px;

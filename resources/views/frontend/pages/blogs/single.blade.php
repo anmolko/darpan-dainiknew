@@ -309,96 +309,37 @@
                                 <div class="head education-head">
 
                                     <!-- Title -->
-                                    <h4 class="title">World News</h4>
+                                    <h4 class="title">प्रमुख समाचार</h4>
                                 </div><!-- Post Block Head End -->
 
                                 <!-- Post bottom -->
                                 <div class="body pb-0">
 
                                     <div class="row">
+                                        @darpanloop(getCategoryRelatedPost(35,0,6) as $news)
+                                            <!-- Post Start -->
+                                            <div class="post education-post col-md-6 col-12 mb-20">
+                                                <div class="post-wrap">
 
-                                        <!-- Post Start -->
-                                        <div class="post education-post col-md-6 col-12 mb-20">
-                                            <div class="post-wrap">
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$news->url()) }}">
+                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    </a>
 
-                                                <!-- Image -->
-                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-61.jpg')}}" alt="post"></a>
+                                                    <!-- Content -->
+                                                    <div class="content">
 
-                                                <!-- Content -->
-                                                <div class="content">
+                                                        <!-- Title -->
+                                                        <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
 
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="#">The week when president Safari Resigned.</a></h4>
+                                                        <!-- Read More -->
+                                                        <a href="#" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
 
-                                                    <!-- Read More -->
-                                                    <a href="#" class="read-more">continue reading</a>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
-
-                                        <!-- Post Start -->
-                                        <div class="post education-post col-md-6 col-12 mb-20">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-62.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="#">Political Allies Are Not Friend.</a></h4>
-
-                                                    <!-- Read More -->
-                                                    <a href="#" class="read-more">continue reading</a>
+                                                    </div>
 
                                                 </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
-
-                                        <!-- Post Start -->
-                                        <div class="post education-post col-md-6 col-12 mb-20">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-63.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="3">With every sneer, Just make safari be stronge.</a></h4>
-
-                                                    <!-- Read More -->
-                                                    <a href="#" class="read-more">continue reading</a>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
-
-                                        <!-- Post Start -->
-                                        <div class="post education-post col-md-6 col-12 mb-20">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a href="#" class="image"><img src="{{asset('assets/frontend/img/post/post-64.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
-
-                                                    <!-- Read More -->
-                                                    <a href="#" class="read-more">continue reading</a>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
+                                            </div><!-- Post End -->
+                                        @enddarpanloop
 
                                     </div>
                                 </div><!-- Post Block Body End -->
@@ -438,7 +379,7 @@
                             <div class="sidebar-block-wrapper">
 
                                 <!-- Sidebar Block Head Start -->
-                                <div class="head education-head">
+                                <div class="side-head education-head">
 
                                     <!-- Tab List -->
                                     <div class="sidebar-tab-list education-sidebar-tab-list nav">

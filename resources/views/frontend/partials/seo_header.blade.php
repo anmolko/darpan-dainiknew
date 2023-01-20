@@ -352,19 +352,20 @@
                         <div class="mobile-logo d-md-none"><a href="/"><img src="{{asset('assets/frontend/img/logo-white.png')}}" alt="Logo"></a></div>
 
                         <!-- Header Search -->
-                        <div class="col header-search float-end">
+                        <div class="col header-search mobile-search float-end">
 
                             <!-- Search Toggle -->
                             <button class="header-search-toggle"><i class="fa fa-search"></i></button>
 
                             <!-- Header Search Form -->
                             <div class="header-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search Here">
+                                <form  method="get" id="searchform" action="{{route('searchBlog')}}" class="default-search-form">
+                                    <input  id="s" name="s" type="text"  placeholder="Search keywords" oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
                                 </form>
                             </div>
 
                         </div>
+
 
                         <!-- Mobile Menu Wrap -->
                         <div class="mobile-menu-wrap d-none">
@@ -434,14 +435,19 @@
                     <div class="breaking-news-wrapper">
 
                         <!-- Breaking News Title -->
-                        <h5 class="breaking-news-title float-start">Breaking News</h5>
+                        <h5 class="breaking-news-title float-start">नवीनतम खबर</h5>
 
                         <!-- Breaking Newsticker Start -->
                         <ul class="breaking-news-ticker float-start">
-                            <li><a href="#">Tell me what you today, And i ‘ll tell you who you are!!!</a></li>
-                            <li><a href="#">Fashion is about some thing that comes from with in you.</a></li>
-                            <li><a href="#">Australia announced squad for Bangladesh tour.</a></li>
-                            <li><a href="#">How group of rebel are talking on Banasree epidemic.</a></li>
+
+                            @darpanloop(getLatestPosts(0,8) as $latest_news_feature)
+                            <li>
+                                <a href="{{ url(@$latest_news_feature->url()) }}">
+                                    {{@$latest_news_feature->title}}
+                                </a>
+                            </li>
+                            @enddarpanloop
+
                         </ul><!-- Breaking Newsticker Start -->
 
                         <!-- Breaking News Nav -->
@@ -458,14 +464,18 @@
     </div><!-- Breaking News Section End -->
 
     <!-- Featured Above adds Start -->
-    <div class="section">
-        <div class="container">
-            <div class="header-banner">
-                <div class="col-12 post-container featured">
-                    <a href="#" class="post-middle-banner">
-                        <img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt=""  />
-                    </a>
+    @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
+        <div class="section">
+            <div class="container">
+                @darpanloop(getHomepageBanner('home-above-featured-post',0,1) as $banner)
+                <div class="header-banner">
+                    <div class="col-12 post-container featured">
+                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        </a>
+                    </div>
                 </div>
+                @enddarpanloop
             </div>
         </div>
-    </div>
+@endif
