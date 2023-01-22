@@ -146,9 +146,9 @@
                                         @foreach($top_nav_data as $nav)
                                             @if(!empty($nav->children[0]))
                                                 <li class="{{request()->is(@$nav->slug)  ? 'active' : ''}} has-dropdown">
-                                                    <a href="/">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
+                                                    <a href="{{url('category')}}/{{$nav->slug}}">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
                                                     <!-- Mega Menu Start -->
-                                                    <div class="mega-menu">
+                                                    @if(@$nav->slug !== 'अन्य')<div class="mega-menu">
 
                                                         <!-- Menu Tab List Start -->
                                                         <ul class="menu-tab-list nav">
@@ -207,6 +207,32 @@
                                                         </div><!-- Menu Tab Content End -->
 
                                                     </div><!-- Mega Menu End -->
+                                                    @else
+                                                        <ul class="sub-menu">
+                                                            @foreach($nav->children[0] as $childNav)
+                                                                @if($childNav->type == 'custom')
+                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >
+                                                                        <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >
+                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @elseif($childNav->type == 'category')
+                                                                    <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">
+                                                                        <a class="{{ ($loop->first) ? 'active' : ''}}"
+                                                                          href="{{url('category')}}/{{$childNav->slug}}"
+                                                                        >  @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
+                                                                    </li>
+                                                                @else
+                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">
+                                                                        <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)
+                                                                        target="_blank" @endif>
+                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
                                                 </li>
                                             @else
                                                 @if($nav->type == 'custom')
@@ -222,18 +248,6 @@
                                             @endif
                                         @endforeach
                                     @endif
-
-
-{{--
-{{--                                    <li class="has-dropdown"><a href="#">शिक्षा-स्वास्थ्य</a>--}}
-
-{{--                                        <!-- Submenu Start -->--}}
-{{--                                        <ul class="sub-menu">--}}
-{{--                                            <li><a href="#">शिक्षा</a></li>--}}
-{{--                                            <li><a href="#">स्वास्थ्य</a></li>--}}
-{{--                                        </ul><!-- Submenu End -->--}}
-
-{{--                                    </li>--}}
 
                                 </ul>
                             </nav>
@@ -264,45 +278,55 @@
                             <nav>
                                 <ul>
 
-                                    <li class="active has-dropdown"><a href="index.html">Home</a>
-
-                                        <!-- Submenu Start -->
-                                        <ul class="sub-menu">
-                                            <li class="active"><a href="index.html">Home One</a></li>
-                                            <li><a href="index-2.html">Home Two</a></li>
-                                            <li><a href="index-3.html">Home Three</a></li>
-                                            <li><a href="index-4.html">Home Four</a></li>
-                                        </ul><!-- Submenu End -->
-
+                                    <li class="{{request()->is('/') ? 'active' : ''}}">
+                                        <a href="/">गृह पृष्ठ</a>
                                     </li>
-                                    <li><a href="category-lifestyle.html">News</a></li>
-                                    <li><a href="category-sports.html">Sports</a></li>
-                                    <li><a href="category-lifestyle.html">Lifestyle</a>
+                                    @if(!empty($top_nav_data))
+                                        @foreach($top_nav_data as $nav)
+                                            @if(!empty($nav->children[0]))
+                                                <li class="{{request()->is(@$nav->slug)  ? 'active' : ''}}">
+                                                    <a href="{{url('category')}}/{{$nav->slug}}">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
+                                                    <!-- Submenu Start -->
+                                                    <ul class="sub-menu">
+                                                        @foreach($nav->children[0] as $childNav)
+                                                            @if($childNav->type == 'custom')
+                                                                <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >
+                                                                    <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >
+                                                                        @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                    </a>
+                                                                </li>
+                                                            @elseif($childNav->type == 'category')
+                                                                <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">
+                                                                    <a class="{{ ($loop->first) ? 'active' : ''}}"
+                                                                       href="{{url('category')}}/{{$childNav->slug}}"
+                                                                    >  @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
+                                                                </li>
+                                                            @else
+                                                                <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">
+                                                                    <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)
+                                                                    target="_blank" @endif>
+                                                                        @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
 
-                                        <!-- Submenu Start -->
-                                        <ul class="sub-menu">
-                                            <li><a href="category-fashion.html">Beauty</a></li>
-                                            <li><a href="category-lifestyle.html">travel</a></li>
-                                            <li><a href="category-sports.html">Interior Design</a></li>
-                                            <li><a href="category-lifestyle.html">Photography</a></li>
-                                            <li><a href="category-fashion.html">fashion</a></li>
-                                            <li><a href="category-sports.html">music</a></li>
-                                        </ul><!-- Submenu End -->
-
-                                    </li>
-                                    <li><a href="category-fashion.html">Fashion</a></li>
-                                    <li><a href="category-politic.html">politic</a></li>
-                                    <li><a href="#">pages</a>
-
-                                        <!-- Submenu Start -->
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                            <li><a href="contact-us.html">contact</a></li>
-                                            <li><a href="post-details.html">post details</a></li>
-                                        </ul><!-- Submenu End -->
-
-                                    </li>
+                                                </li>
+                                            @else
+                                                @if($nav->type == 'custom')
+                                                    <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="/{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @elseif($nav->type == 'category')
+                                                    <li   class="{{request()->is('category/'.@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="{{url('category')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @else
+                                                    <li   class="{{request()->is(@$nav->slug.'*') ? 'active' : ''}} ">
+                                                        <a href="{{url('/')}}/{{$nav->slug}}" >@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @endif
 
                                 </ul>
                             </nav>

@@ -1431,6 +1431,18 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Header Links --*/
 }
 @media only screen and (max-width: 479px) {
+    .sticky-header {
+        top: 54px!important;
+    }
+    .sticky-header .header h1{
+        top: 54px!important;
+        font-size: 24px!important;
+    }
+
+    .sharethis-inline-share-buttons {
+    clear: both;
+        float: left;
+    }
   .header-top-links {
     min-width: 100%;
     text-align: center;
@@ -1850,11 +1862,17 @@ blockquote.blockquote.blockquote-bg p {
     .main-menu nav > ul > li:nth-last-child(2), .main-menu nav > ul > .home-nav {
        display: none;
     }
+    .main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {
+       display: none;
+    }
 
 }
 @media only screen and (max-width: 768px) {
     .main-menu nav > ul > li:nth-last-child(3), .main-menu nav > ul > .home-nav {
        display: none;
+    }
+    .main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {
+        display: none;
     }
     .mb-hide{
         display: none;
@@ -2951,7 +2969,7 @@ blockquote.blockquote.blockquote-bg p {
   }
 }
 .post .post-wrap .content .title a:hover {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post .post-wrap .content .meta {
   margin-top: 10px;
@@ -4141,7 +4159,7 @@ blockquote.blockquote.blockquote-bg p {
 .single-blog .blog-wrap .title {
     margin: 0 0 5px;
     font-family: mukta,sans-serif;
-    font-size: 60px;
+    font-size: 51px;
     line-height: 1.3;
     font-weight: 600;
     letter-spacing: 1px;
@@ -5094,6 +5112,11 @@ blockquote.blockquote.blockquote-bg p {
     padding-left: 0;
     padding-right: 0;
   }
+    .sticky-header{
+        top: 115px!important;
+
+
+    }
 }
 @media only screen and (max-width: 767px) {
   .footer-top-section {
@@ -5542,7 +5565,13 @@ blockquote.blockquote.blockquote-bg p {
 .navigation-stick .main-menu nav > ul > li{
     margin-right: 20px;
     transition: margin-right 0.6s ease-in-out;
+    font-size: 18px;
 
+}
+
+.mega-menu li a:hover, .sub-menu li a:hover{
+    text-decoration: none;
+    color: #0d47a2;
 }
 
 .navigation-stick .header-search .header-search-form form input[type=text]{
@@ -5556,16 +5585,16 @@ blockquote.blockquote.blockquote-bg p {
 .sticky-header
 {
     position: fixed;
-    width: 1270px;
+    width: auto;
     top: 60px;
     background-color: #fff;
-    z-index: 99;
-    padding: 12px 20px 18px 20px;
+    z-index: 98;
+    padding: 12px 26px 18px 20px;
 }
 
 
 .sticky-header .header h1{
-    font-size: 36px!important;
+    font-size: 36px;
 }
 .sticky-header .meta{
     margin-bottom: -10px !important;
