@@ -71,10 +71,10 @@
                     <!-- Header Links -->
                     <ul class="header-links">
                         <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a></li>
-                        <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>
+{{--                        <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>--}}
 {{--                        <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>--}}
-                        <li><a href="#">Unicode to preeti</a></li>
-                        <li><a href="#">Preeti to unicode</a></li>
+                        <li><a href="http://unicode.darpandainik.com/" target="_blank">Unicode to preeti</a></li>
+                        <li><a href="https://preeti.darpandainik.com/" target="_blank">Preeti to unicode</a></li>
                     </ul>
 
                 </div><!-- Header Top Links End -->
@@ -84,13 +84,18 @@
 
                     <!-- Header Social -->
                     <div class="header-social">
-
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        <a href="#"><i class="fa fa-vimeo"></i></a>
+                        @if(!empty(@$setting_data->facebook))
+                            <a href="{{ (!empty(@$setting_data->facebook)) ? @$setting_data->facebook : "#"  }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                        @endif
+                        @if(!empty(@$setting_data->linkedin))
+                            <a href="{{ (!empty(@$setting_data->linkedin)) ? @$setting_data->linkedin : "#"  }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                        @endif
+                        @if(!empty(@$setting_data->youtube))
+                            <a href="{{ (!empty(@$setting_data->youtube)) ? @$setting_data->youtube : "#"  }}"><i class="fa fa-youtube-play"></i></a>
+                        @endif
+                        @if(!empty(@$setting_data->instagram))
+                            <a href="{{ (!empty(@$setting_data->instagram)) ? @$setting_data->instagram : "#"  }}"><i class="fa fa-instagram"></i></a>
+                        @endif
                     </div>
 
                 </div><!-- Header Top Social End -->
