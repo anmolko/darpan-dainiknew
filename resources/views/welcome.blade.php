@@ -305,86 +305,12 @@
 
                 <!-- Sidebar Start -->
                 <div class="col-lg-3 col-12 mb-50">
-                    <div class="row mb-5">
-
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
-
-                            <!-- Sidebar Block Wrapper -->
-                            <div class="sidebar-block-wrapper">
-
-                                <!-- Sidebar Block Head Start -->
-                                <div class="head life-style-head">
-
-                                    <!-- Title -->
-                                    <h4 class="title">Make It Mordern</h4>
-
-                                </div><!-- Sidebar Block Head End -->
-
-                                <!-- Sidebar Block Body Start -->
-                                <div class="body">
-
-                                    <!-- Sidebar Post Slider Start -->
-                                    <div class="sidebar-post-carousel post-block-carousel life-style-post-carousel">
-
-                                        <!-- Post Start -->
-                                        <div class="post life-style-post">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-25.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
-
-                                                    <!-- Read More Button -->
-                                                    <a href="#" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
-
-                                        <!-- Post Start -->
-                                        <div class="post life-style-post">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="#"><img src="{{asset('assets/frontend/img/post/post-25.jpg')}}" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="#">How group of rebel are talking on Banasree epidemic.</a></h4>
-
-                                                    <!-- Read More Button -->
-                                                    <a href="#" class="read-more">पुरा पढ्नुहोस् </a>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post End -->
-
-                                    </div><!-- Sidebar Post Slider End -->
-
-                                </div><!-- Sidebar Block Body End -->
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
                     <!-- sidebar banner -->
 
                     <div class="row">
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                            @darpanloop(getHomepageBanner('home-sidebar-banner',4,1) as $banner)
-                                <div class="sidebar-block-wrapper ">
+                            @darpanloop(getHomepageBanner('home-sidebar-banner',4,2) as $banner)
+                                <div class="sidebar-block-wrapper mb-1">
                                     <a href="{{@$banner->url}}" class="sidebar-banner">
                                         <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}" />
                                     </a>
@@ -543,7 +469,7 @@
                 <!-- Sidebar Start -->
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row sidebar-sticky">
-                        @darpanloop(getHomepageBanner('home-sidebar-banner',5,2) as $banner)
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',6,2) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
                                 <a href="{{@$banner->url}}" class="sidebar-banner">
                                     <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
@@ -1235,7 +1161,7 @@
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
 
-                        @darpanloop(getHomepageBanner('home-sidebar-banner',7,4) as $banner)
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',8,4) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
                                 <a href="{{@$banner->url}}" class="sidebar-banner">
                                     <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
@@ -1424,7 +1350,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
-                        @darpanloop(getHomepageBanner('home-sidebar-banner',11,4) as $banner)
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',12,4) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
                             <a href="{{@$banner->url}}" class="sidebar-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
