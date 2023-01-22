@@ -103,14 +103,18 @@
                     </a>
                 </div>
 
+            @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
                 <!-- Header Banner -->
-                <div class="header-banner col-md-8 col-12">
-                    <div class="banner"><a href="#">
-                            {{--                            <img src="{{asset('assets/frontend/img/gifs/test.gif')}}" alt="" />--}}
-
-                            <img src="{{asset('assets/frontend/img/banner/header-banner-1.png')}}" alt="Header Banner"></a>
+                    <div class="header-banner col-md-8 col-12">
+                        @darpanloop(getHomepageBanner('home-above-featured-post',0,1) as $banner)
+                        <div class="banner">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
+                        @enddarpanloop
                     </div>
-                </div>
+                @endif
 
             </div>
         </div>

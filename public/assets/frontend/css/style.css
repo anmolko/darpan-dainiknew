@@ -1020,6 +1020,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   overflow: hidden;
 }
 @media only screen and (max-width: 767px) {
+
   #scrollUp {
     display: none !important;
   }
@@ -1434,9 +1435,9 @@ blockquote.blockquote.blockquote-bg p {
     .sticky-header {
         top: 54px!important;
     }
-    .sticky-header .header h1{
-        top: 54px!important;
-        font-size: 24px!important;
+    .sticky-header .header .title{
+        font-size: 30px !important;
+        line-height: 32px!important;
     }
 
     .sharethis-inline-share-buttons {
@@ -1851,6 +1852,7 @@ blockquote.blockquote.blockquote-bg p {
   .mobile-menu {
     display: block;
   }
+
     .navigation-stick { position: fixed; }
     .mb-remove{
         padding: 0!important;
@@ -1858,10 +1860,23 @@ blockquote.blockquote.blockquote-bg p {
 
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .inside-editor-content{
+        display: none!important;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .main-menu nav > ul > li:nth-last-child(2), .main-menu nav > ul > .home-nav {
        display: none;
     }
+
+    .sticky-header {
+        width: 930px!important;
+    }
+
+
     .main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {
        display: none;
     }
@@ -5114,6 +5129,7 @@ blockquote.blockquote.blockquote-bg p {
   }
     .sticky-header{
         top: 115px!important;
+        width: 690px!important;
 
 
     }
@@ -5240,10 +5256,28 @@ blockquote.blockquote.blockquote-bg p {
   float: left;
 }
 @media only screen and (max-width: 479px) {
+    .sticky-header{
+        width: 395px!important;
+    }
+    .sticky-header .meta .darpan-author, .sticky-header .meta .news-hour-block{
+        display: none!important;
+    }
   .footer-widget .footer-widget-post .post-wrap .image {
     width: 90px;
     margin-right: 15px;
   }
+}
+@media only screen and (max-width: 375px) {
+    .sticky-header{
+        width: 346px!important;
+
+    }
+}
+@media only screen and (max-width: 320px) {
+    .sticky-header{
+        width: 290px!important;
+
+    }
 }
 .footer-widget .footer-widget-post .post-wrap .image img {
   width: 100%;
@@ -5585,7 +5619,7 @@ blockquote.blockquote.blockquote-bg p {
 .sticky-header
 {
     position: fixed;
-    width: auto;
+    width: 1270px;
     top: 60px;
     background-color: #fff;
     z-index: 98;
@@ -5593,7 +5627,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 
 
-.sticky-header .header h1{
+.sticky-header .header .title{
     font-size: 36px;
 }
 .sticky-header .meta{

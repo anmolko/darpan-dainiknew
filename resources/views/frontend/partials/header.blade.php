@@ -115,14 +115,18 @@
                         <img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php }?>"  alt=" दर्पण दैनिक | Darpan Dainik  " title=" दर्पण दैनिक | Darpan Dainik  ">
                     </a>
                 </div>
-
+            @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
                 <!-- Header Banner -->
                 <div class="header-banner col-md-8 col-12">
-                    <div class="banner"><a href="#">
-                            <img src="{{asset('assets/frontend/img/banner/header-banner-1.png')}}" alt="Header Banner"></a>
-                    </div>
+                    @darpanloop(getHomepageBanner('home-above-featured-post',0,1) as $banner)
+                        <div class="banner">
+                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                        </div>
+                    @enddarpanloop
                 </div>
-
+            @endif
             </div>
         </div>
     </div><!-- Header End -->
