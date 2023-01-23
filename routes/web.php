@@ -50,7 +50,7 @@ Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.fronte
 
 
 Route::get('/privacy-policy', 'App\Http\Controllers\FrontController@privacy')->name('privacy.frontend');
-Route::get('/terms-condition', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
+Route::get('/terms-of-service', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
 
 Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

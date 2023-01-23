@@ -4212,6 +4212,7 @@ blockquote.blockquote.blockquote-bg p {
 @media only screen and (max-width: 767px) {
   .single-blog .blog-wrap .content p img {
     width: 100%;
+      max-width: 100%;
     margin-bottom: 20px;
   }
 }

@@ -61,55 +61,13 @@ class FrontController extends Controller
 
     public function privacy()
     {
-        $page_detail = $this->page->with('sections')->where('slug','privacy-policy')->where('status','active')->first();
-        if (!$page_detail) {
-            return abort(404);
-        }
-        $page_section = $this->pagesection->with('page')->where('page_id', $page_detail->id)->orderBy('position', 'ASC')->get();
-        if (!$page_section) {
-            return abort(404);
-        }
-        $sorted_sections        = array();
-        $header_descp_elements = "";
-
-
-        foreach ($page_section as $section){
-            $sorted_sections[$section->id] = $section->section_slug;
-            if ($section->section_slug == 'simple_header_and_description'){
-                $header_descp_elements = SectionElement::with('section')
-                    ->where('page_section_id', $section->id)
-                    ->first();
-            }
-
-        }
-        return view('frontend.pages.privacy',compact('header_descp_elements'));
+        return view('frontend.pages.privacy');
     }
 
     public function terms()
     {
 
-        $page_detail = $this->page->with('sections')->where('slug','terms-condition')->where('status','active')->first();
-        if (!$page_detail) {
-            return abort(404);
-        }
-        $page_section = $this->pagesection->with('page')->where('page_id', $page_detail->id)->orderBy('position', 'ASC')->get();
-        if (!$page_section) {
-            return abort(404);
-        }
-        $sorted_sections        = array();
-        $header_descp_elements = "";
-
-
-        foreach ($page_section as $section){
-            $sorted_sections[$section->id] = $section->section_slug;
-            if ($section->section_slug == 'simple_header_and_description'){
-                $header_descp_elements = SectionElement::with('section')
-                    ->where('page_section_id', $section->id)
-                    ->first();
-            }
-
-        }
-        return view('frontend.pages.term',compact('header_descp_elements'));
+        return view('frontend.pages.term');
     }
 
     public function faq()
