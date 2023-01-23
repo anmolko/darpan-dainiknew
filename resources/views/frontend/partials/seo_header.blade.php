@@ -38,6 +38,7 @@
         gtag('config', '{{@$setting_data->google_analytics}}');
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @yield('css')
     @stack('styles')
@@ -72,16 +73,19 @@
                     <!-- Header Social -->
                     <div class="header-social">
                         @if(!empty(@$setting_data->facebook))
-                            <a href="{{ (!empty(@$setting_data->facebook)) ? @$setting_data->facebook : "#"  }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ (!empty(@$setting_data->facebook)) ? @$setting_data->facebook : "#"  }}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         @endif
                         @if(!empty(@$setting_data->linkedin))
-                            <a href="{{ (!empty(@$setting_data->linkedin)) ? @$setting_data->linkedin : "#"  }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ (!empty(@$setting_data->linkedin)) ? @$setting_data->linkedin : "#"  }}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
                         @endif
                         @if(!empty(@$setting_data->youtube))
-                            <a href="{{ (!empty(@$setting_data->youtube)) ? @$setting_data->youtube : "#"  }}"><i class="fa fa-youtube-play"></i></a>
+                            <a href="{{ (!empty(@$setting_data->youtube)) ? @$setting_data->youtube : "#"  }}"  target="_blank"><i class="fa-brands fa-youtube-play"></i></a>
                         @endif
                         @if(!empty(@$setting_data->instagram))
-                            <a href="{{ (!empty(@$setting_data->instagram)) ? @$setting_data->instagram : "#"  }}"><i class="fa fa-instagram"></i></a>
+                            <a href="{{ (!empty(@$setting_data->instagram)) ? @$setting_data->instagram : "#"  }}"  target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        @endif
+                        @if(!empty(@$setting_data->ticktock))
+                            <a href="{{ (!empty(@$setting_data->ticktock)) ? @$setting_data->ticktock : "#"  }}"  target="_blank"><i class="fa-brands fa-tiktok"></i></a>
                         @endif
                     </div>
 

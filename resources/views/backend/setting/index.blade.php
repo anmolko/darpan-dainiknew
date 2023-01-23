@@ -430,13 +430,21 @@
                                                         </div>
                                                         <input type="url" class="form-control" id="instaUsername" name="instagram" value="{{@$settings->instagram}}"  placeholder="Enter instagram profile link">
                                                     </div>
-                                                    <div class="d-flex">
+                                                    <div class="mb-3 d-flex">
                                                         <div class="avatar-xs d-block flex-shrink-0 me-3">
-                                                    <span class="avatar-title rounded-circle fs-16 bg-twitter">
-                                                        <i class="ri-twitter-fill"></i>
-                                                    </span>
+                                                            <span class="avatar-title rounded-circle fs-16 bg-twitter">
+                                                                <i class="ri-twitter-fill"></i>
+                                                            </span>
                                                         </div>
                                                         <input type="url" class="form-control" id="linkedinUsername" name="linkedin" value="{{@$settings->linkedin}}"  placeholder="Enter linkedin profile link">
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                                            <span class="avatar-title rounded-circle fs-16 bg-tiktok">
+                                                                <i class="bx bxl-tiktok"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="url" class="form-control" id="tiktokUsername" name="ticktock" value="{{@$settings->ticktock}}"  placeholder="Enter tiktok profile link">
                                                     </div>
                                                 </div>
                                             </div>
