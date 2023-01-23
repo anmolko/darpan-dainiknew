@@ -197,6 +197,14 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of teams
 
+    Route::get('/video-gallery', 'App\Http\Controllers\VideoGalleryController@index')->name('video.index');
+    Route::get('/video-gallery/create', 'App\Http\Controllers\VideoGalleryController@create')->name('video.create');
+    Route::post('/video-gallery', 'App\Http\Controllers\VideoGalleryController@store')->name('video.store');
+    Route::put('/video-gallery/{video}', 'App\Http\Controllers\VideoGalleryController@update')->name('video.update');
+    Route::delete('/video/{teams}', 'App\Http\Controllers\VideoGalleryController@destroy')->name('video.destroy');
+    Route::get('/video-gallery/{video}/edit', 'App\Http\Controllers\VideoGalleryController@edit')->name('video.edit');
+    Route::post('/video-gallery/update/gallery', 'App\Http\Controllers\VideoGalleryController@videoUpdate')->name('video.galleryUpdate');
+
     Route::group(['prefix' => 'darpan-filemanager', 'middleware' => ['auth']], function () {
         Lfm::routes();
     });

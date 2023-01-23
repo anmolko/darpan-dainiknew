@@ -583,6 +583,85 @@
 
             </div><!-- World Post Row End -->
 
+            <!-- Football Post Row Start -->
+            <div class="row ">
+
+                <div class="col-12 mb-50">
+
+                    <!-- Post Block Wrapper Start -->
+                    <div class="post-block-wrapper">
+
+                        <!-- Post Block Head Start -->
+                        <div class="head sports-head">
+
+                            <!-- Title -->
+                            <h4 class="title">भिडियो</h4>
+
+                        </div><!-- Post Block Head End -->
+
+                        <!-- Post Block Body Start -->
+                        <div class="body pb-0">
+                            <div class="row">
+
+                                <div class="post post-dark col-lg-9 col-12 mb-20">
+                                    <!-- Overlay Post Start -->
+                                    <div class="post post-overlay">
+                                        <div class="post-wrap">
+
+                                            @if(@$video_featured->type == 'youtube')
+                                                <!-- Image -->
+                                                <a href="{{@$video_featured->url}}" class="image video-popup">
+                                                    <img src="{{ getYoutubeThumbnail(@$video_featured->url) }}"  width="250" alt="post">
+                                                    <span class="video-btn"><i class="fa fa-play"></i></span>
+                                                </a>
+                                            @else
+                                                <!-- Image -->
+                                                    <a href="{{@$video_featured->url}}" class="image video-popup">
+                                                        <img src="{{ getVimeoThumbnail(@$video_featured->url) }}"  width="250" alt="post">
+                                                        <span class="video-btn"><i class="fa fa-play"></i></span>
+                                                    </a>
+                                            @endif
+
+                                        </div>
+                                    </div><!-- Overlay Post End -->
+                                </div>
+
+                                <div class="col-lg-3 col-12 mb-20">
+                                    <div class="row">
+
+                                        @foreach(@$video_all as $video)
+                                            <div class="post post-overlay post-separator-border col-lg-11 col-md-6 col-12">
+                                            <div class="post-wrap">
+                                                @if(@$video->type == 'youtube')
+
+                                                    <a href="{{@$video->url}}" class="image video-popup">
+                                                        <img src="{{ getYoutubeThumbnail(@$video->url) }}"  width="250" alt="post">
+                                                        <span class="video-btn"><i class="fa fa-play"></i></span>
+                                                    </a>
+                                                @else
+                                                <!-- Image -->
+                                                    <a href="{{@$video->url}}" class="image video-popup">
+                                                        <img src="{{ getVimeoThumbnail(@$video->url) }}"  width="250" alt="post">
+                                                        <span class="video-btn"><i class="fa fa-play"></i></span>
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        @endforeach
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Post Block Body End -->
+
+                    </div><!-- Post Block Wrapper End -->
+
+                </div>
+
+            </div><!-- Football Post Row End -->
+
+
             <!-- education/health Post Row Start -->
             <div class="row mb-50">
 

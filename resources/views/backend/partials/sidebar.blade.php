@@ -93,10 +93,16 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'pages.index') active @endif" href="{{route('pages.index')}}">
-                        <i class="ri-pages-line"></i> <span data-key="t-widgets">Pages</span>
+                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'video.index') active @endif" href="{{route('video.index')}}">
+                        <i class="ri-video-chat-line"></i> <span data-key="t-widgets">Video Gallery</span>
                     </a>
                 </li>
+
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'pages.index') active @endif" href="{{route('pages.index')}}">--}}
+{{--                        <i class="ri-pages-line"></i> <span data-key="t-widgets">Pages</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="nav-item">
                     <a class="nav-link menu-link @if(\Request::route()->getName() == 'alluser') active @endif" href="{{route('alluser')}}">

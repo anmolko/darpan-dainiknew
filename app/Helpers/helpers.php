@@ -278,3 +278,38 @@ if (! function_exists('checkEven')) {
         }
     }
 }
+
+if (! function_exists('getYoutubeThumbnail')) {
+    /**
+     * returns youtube thumbnail based on its link
+     *
+     * @param  string  $link
+     * @return string
+     */
+    function getYoutubeThumbnail($link)
+    {
+        $video     = explode("v=", $link);
+        $video_id  = $video[1];
+        return "https://img.youtube.com/vi/".$video_id."/hqdefault.jpg";
+    }
+}
+if (! function_exists('getVimeoThumbnail')) {
+    /**
+     * returns vimeo thumbnail based on its link
+     *
+     * @param  string  $link
+     * @return string
+     */
+    function getVimeoThumbnail($link)
+    {
+
+        $id = '';
+        if (preg_match('#(?:https?://)?(?:www.)?(?:player.)?vimeo.com/(?:[a-z]*/)*([0-9]{6,11})[?]?.*#', $link, $m)) {
+            $id = $m[1];
+        }
+        $arr_vimeo = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$id.php"));
+        //return $arr_vimeo[0]['thumbnail_small']; // returns small thumbnail
+        return $arr_vimeo[0]['thumbnail_medium']; // returns medium thumbnail
+        // return $arr_vimeo[0]['thumbnail_large']; // returns large thumbnail
+    }
+}
