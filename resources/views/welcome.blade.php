@@ -73,7 +73,7 @@
             <!-- Latest Post Row Start -->
             <div class="row">
 
-                <div class="col-lg-9 col-12 mb-50">
+                <div class="col-lg-8 col-12 mb-50">
 
                     <!-- Post Block Wrapper Start -->
                     <div class="post-block-wrapper">
@@ -143,7 +143,7 @@
                                 <!-- Small Post Wrapper Start -->
                                 <div class="col-md-5 col-12 mb-20">
 
-                                    @darpanloop(getLatestPosts(3,6) as $latest_news_feature)
+                                    @darpanloop(getLatestPosts(3,5) as $latest_news_feature)
 
                                     <!-- Post Small Start -->
                                     <div class="post post-small post-list feature-post post-separator-border">
@@ -184,12 +184,66 @@
                 </div>
 
                 <!-- Sidebar Ads Start -->
-                <div class="col-lg-3 col-12 mb-50">
+                <div class="col-lg-4 col-12 mb-50">
                     <div class="row">
 
+                        <!-- Single Sidebar -->
+                        <div class="single-sidebar col-12">
 
+                            <!-- Sidebar Block Wrapper -->
+                            <div class="sidebar-block-wrapper">
+
+                                <!-- Sidebar Block Head Start -->
+                                <div class="head education-head">
+
+                                    <!-- Title -->
+                                    <h4 class="title">लोकप्रिय</h4>
+
+                                </div><!-- Sidebar Block Head End -->
+
+                                <!-- Sidebar Block Body Start -->
+                                <div class="body">
+
+                                    <!-- Sidebar Post Start -->
+                                    <div class="row">
+                                        @darpanloop(@$topnews_week as $popular)
+                                            <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                            <div class="post-wrap">
+
+                                                <!-- Image -->
+                                                <a class="image" href="{{ url(@$popular->url()) }}">
+                                                    <img src="{{ asset('/images/blog/'.@$popular->image) }}" alt="post">
+                                                </a>
+
+                                                <!-- Content -->
+                                                <div class="content">
+
+                                                    <!-- Title -->
+                                                    <h5 class="title">
+                                                        <a href="{{ url(@$popular->url()) }}">
+                                                            {{@$popular->title}}
+                                                        </a></h5>
+
+                                                    <!-- Meta -->
+                                                    <div class="meta fix">
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div><!-- Small Post End -->
+                                        @enddarpanloop
+                                    </div><!-- Sidebar Post End -->
+
+                                </div><!-- Sidebar Block Body End -->
+
+                            </div>
+
+                        </div>
 
                     </div>
+
                 </div><!-- Sidebar End -->
 
             </div><!-- Feature Post Row End -->

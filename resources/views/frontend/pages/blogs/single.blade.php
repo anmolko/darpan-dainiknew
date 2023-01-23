@@ -438,7 +438,7 @@
                                                     <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <a class="image" href="#">
+                                                    <a class="image" href="{{ url(@$latest->url()) }}">
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali() }}</span>
                                                         </div>
@@ -450,7 +450,7 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h5 class="title"><a href="#">{{$latest->title}}</a></h5>
+                                                        <h5 class="title"><a href="{{ url(@$latest->url()) }}">{{$latest->title}}</a></h5>
 
                                                         <!-- Meta -->
 
@@ -463,12 +463,12 @@
                                         </div>
 
                                         <div class="tab-pane fade" id="popular-news">
-                                            @darpanloop(@$topnews as $popular)
+                                            @darpanloop(@$topnews_week as $popular)
                                             <div class="post post-small post-list education-post post-separator-border">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <a class="image" href="#">
+                                                    <a class="image" href="{{ url(@$popular->url()) }}">
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
                                                         </div>
@@ -480,7 +480,7 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h5 class="title"><a href="#">{{$popular->title}}</a></h5>
+                                                        <h5 class="title"><a href="{{ url(@$popular->url()) }}">{{@$popular->title}}</a></h5>
 
                                                         <!-- Meta -->
 

@@ -31,7 +31,9 @@ class SensitiveComposer
        $today                = new Carbon;
        $todayDate            = $today->toDateString().' 23:59:59';
        $threeDaysAgo         = $today->subDays(3)->toDateString().' 00:00:00';
-       $top_blog             = Blog::popularThisYear()->take(5)->get();
+       $top_blog_year        = Blog::popularThisYear()->take(5)->get();
+       $top_blog_week        = Blog::popularThisWeek()->take(6)->get();
+       $top_blog_month       = Blog::popularLastDays(30)->take(6)->get();
        $latest_news          = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
 
 
@@ -105,7 +107,9 @@ class SensitiveComposer
            ->with('footer_nav_data3', $footerItem3)
            ->with('footer_nav_title3', $footerItemTitle3)
            ->with('top_nav_data', $topNavItems)
-           ->with('topnews', $top_blog)
+           ->with('topnews_year', $top_blog_year)
+           ->with('topnews_month', $top_blog_month)
+           ->with('topnews_week', $top_blog_week)
            ->with('latestPosts', $latest_news);
     }
 }
