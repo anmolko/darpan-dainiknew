@@ -488,7 +488,7 @@
                                             </div>
 
                                             <div class="row g-3">
-                                                <label class="form-label">Select Menu Location: </label>
+                                                <label class="form-label">Select Menu Location {{$desiredMenu->id}}: </label>
 
                                                 <div class="col-lg-2">
                                                     <div class="form-check form-radio-outline form-radio-success mb-3 ">

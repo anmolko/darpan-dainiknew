@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->boolean('status')->default(0);
             $table->text('oauth_id')->nullable();
             $table->text('oauth_type')->nullable();
-            $table->enum('user_type', ['admin','general','customer'])->default('general');
+            $table->enum('user_type', ['admin','general','viewer'])->default('general');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -62,7 +62,7 @@
             </div><!-- Footer Widget End -->
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-2 col-md-6 col-12">
                 @if(@$footer_nav_data2 !== null)
 
                     <!-- Title -->
@@ -100,8 +100,6 @@
             </div><!-- Footer Widget End -->
 
             <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
-
-                <h4 class="widget-title">Twitter Feed</h4>
                 <div class="footer-logo mb-25">
                     <a href="/"><img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php } ?>" alt="Logo"></a>
                 </div>
@@ -171,8 +169,11 @@
 <script src="{{asset('assets/frontend/js/ycp.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('assets/frontend/js/main.js')}}"></script>
+<script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -190,6 +191,42 @@
                 header.classList.remove("navigation-stick");
             }
         }
+        @if(Session::has('success'))
+            Toastify({
+                text: "{{ Session::get('success')}}",
+                duration: 4000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                positionLeft: false, // `true` or `false`
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            }).showToast();
+        @endif
+        @if(Session::has('error'))
+            Toastify({
+                text: "{{ Session::get('error')}}",
+                duration: 4000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                positionLeft: false, // `true` or `false`
+                backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
+            }).showToast();
+        @endif
+        @if(Session::has('warning'))
+            Toastify({
+                text: "{{ Session::get('error')}}",
+                duration: 4000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                positionLeft: false, // `true` or `false`
+                backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
+            }).showToast();
+        @endif
     });
 
 </script>

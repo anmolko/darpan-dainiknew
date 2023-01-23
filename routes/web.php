@@ -208,6 +208,11 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 Route::get('/{page}', 'App\Http\Controllers\FrontController@page')
         ->name('page');
 
+Route::get('/google/redirect','App\Http\Controllers\SocialLoginController@handleGoogleRedirect')->name('google.redirect');
+Route::get('/google/callback', 'App\Http\Controllers\SocialLoginController@handleGoogleCallback')->name('google.callback');
+
+Route::get('facebook/redirect','App\Http\Controllers\SocialLoginController@handleFacebookRedirect')->name('facebook.redirect');
+Route::get('facebook/callback', 'App\Http\Controllers\SocialLoginController@handleFacebookCallback')->name('facebook.callback');
 
 Auth::routes();
 

@@ -53,6 +53,8 @@
 
         gtag('config', '{{@$setting_data->google_analytics}}');
     </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body>
