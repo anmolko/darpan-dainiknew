@@ -12,8 +12,8 @@
                 <div class="content fix">
                     @if(!empty(@$setting_data->website_description)) {!! ucfirst(@$setting_data->website_description) !!} @else <p> Darpan dainik is an online news portal for all type of Nepali national, International, photography, business, sports, culture,politic etc. With the mission of being the paradigm in Nepal’s media fraternity "Darpan Dainik Pvt. Ltd.” a prominent media representative in the country. With people’s right to information as the primary objective, <a href="/">"www.darpandainik.com"</a> and Darpan TV (Online TV) Under of Darpan Dainik Pvt. Ltd. was registered according to the law suit Government of Nepal. We will raise our continuous media role dedication towards socity and people.</p> @endif
                         <ol class="footer-contact">
-                            <li><i class="fa fa fa-phone"></i>Office: <b>{{ @$setting_data->phone }} </b></li>
-                            <li><i class="fa fa fa-newspaper-o"></i>News: <b>{{ @$setting_data->mobile }} </b></li>
+                            <li><a href="tel:@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} @else +9771238798 @endif"><i class="fa fa fa-phone"></i>Office: <b>{{ @$setting_data->phone }} </b></a></li>
+                            <li><a href="tel:@if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +9771238798 @endif"><i class="fa fa fa-newspaper-o"></i>News: <b>{{ @$setting_data->mobile }} </b></a></li>
 
                         </ol>
                 </div>
@@ -111,9 +111,9 @@
                         <li><i class="fa fa-hand-o-right"></i>अध्यक्ष: <b>{{ @$setting_data->chairman }} </b></li>
                         <li><i class="fa fa-hand-o-right"></i>सञ्चालक: <b>{{ @$setting_data->operator }} </b></li>
                         <li><i class="fa fa-hand-o-right"></i>सम्पादक: <b>{{ @$setting_data->editor }} </b></li>
-                        <li><i class="fa fa fa-send-o"></i><b>{{ @$setting_data->news_email }} </b></li>
-                        <li><i class="fa fa fa-bullhorn"></i>Ad: <b>{{ @$setting_data->ad_number }} </b></li>
-                        <li><i class="fa fa fa-keyboard-o"></i> <b>{{ @$setting_data->ad_email }} </b></li>
+                        <li><a href="mailto:@if(!empty(@$setting_data->news_email)) {{@$setting_data->news_email}} @else example@gmail.com @endif"><i class="fa fa fa-send-o"></i><b>{{ @$setting_data->news_email }} </b></a></li>
+                        <li><a href="tel:@if(!empty(@$setting_data->ad_number)) {{@$setting_data->ad_number}} @else +9771238798 @endif"><i class="fa fa fa-bullhorn"></i>Ad: <b>{{ @$setting_data->ad_number }} </b></a></li>
+                        <li><a href="mailto:@if(!empty(@$setting_data->ad_email)) {{@$setting_data->ad_email}} @else example@gmail.com @endif"><i class="fa fa fa-keyboard-o"></i> <b>{{ @$setting_data->ad_email }} </b></a></li>
                     </ol>
 
                 </div>
