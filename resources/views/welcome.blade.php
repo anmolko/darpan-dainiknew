@@ -84,7 +84,7 @@
                             <!-- Title -->
                             <h4 class="title">ताजा अपडेट</h4>
 
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+{{--                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>--}}
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
@@ -272,7 +272,7 @@
 
                             <!-- Title -->
                             <h4 class="title">प्रमुख समाचार</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','प्रमुख-समाचार')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
 
                         </div><!-- Post Block Head End -->
@@ -400,6 +400,7 @@
 
                             <!-- Title -->
                             <h4 class="title">राजनीति</h4>
+                            <a href="{{route('blog.category','राजनीति')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
                         </div><!-- Post Block Head End -->
 
@@ -672,7 +673,7 @@
 
                             <!-- Title -->
                             <h4 class="title">अथ॔</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','अथ॔')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
                         </div><!-- Post Block Head End -->
 
@@ -829,7 +830,7 @@
                             <!-- Title -->
                             <h4 class="title">प्रदेश</h4>
 
-                            <a href="#" class="all-news ml-15 align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','प्रदेश')}}" class="all-news ml-15 align" style=""><i class="fa fa-angle-right"></i></a>
 
                         @if(countCategoryChildren(4))
                             <!-- Tab List Start -->
@@ -958,7 +959,7 @@
                         <!-- Post Block Head Start -->
                         <div class="head feature-head">
                             <h4 class="title">समाज</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','समाज')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
@@ -1049,7 +1050,7 @@
                         <div class="col post-block-wrapper">
                             <div class="head feature-head mb-3">
                                 <h4 class="title">मनोरञ्जन</h4>
-                                <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                                <a href="{{route('blog.category','मनोरञ्जन')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
                             </div>
                             <div class="row row-1">
 
@@ -1178,7 +1179,7 @@
             <div class="post-block-single">
                 <div class="head feature-head mb-3">
                     <h2 class="title">फिचर</h2>
-                    <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                    <a href="{{route('blog.category','फिचर')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <!-- Feature Post Slider Start -->
@@ -1233,7 +1234,7 @@
 
                             <!-- Title -->
                             <h4 class="title">खेल</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','खेल')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
 
                         </div><!-- Post Block Head End -->
@@ -1357,7 +1358,7 @@
 
                             <!-- Title -->
                             <h4 class="title">अन्तर्वार्ता</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','अन्तर्वार्ता')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
 
                         </div><!-- Post Block Head End -->
@@ -1463,7 +1464,7 @@
 
                             <!-- Title -->
                             <h4 class="title">कृषि</h4>
-                            <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','कृषि')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
                         </div><!-- Post Block Head End -->
 
@@ -1519,7 +1520,7 @@
 
                                     <!-- Title -->
                                     <h4 class="title">विचार</h4>
-                                    <a href="#" class="all-news"><i class="fa fa-angle-right"></i></a>
+                                    <a href="{{route('blog.category','विचार')}}" class="all-news"><i class="fa fa-angle-right"></i></a>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -1584,7 +1585,7 @@
 
                                     <!-- Title -->
                                     <h4 class="title">शिक्षा</h4>
-                                    <a href="#" class="all-news"><i class="fa fa-angle-right"></i></a>
+                                    <a href="{{route('blog.category','शिक्षा')}}" class="all-news"><i class="fa fa-angle-right"></i></a>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -1644,7 +1645,7 @@
 
                                     <!-- Title -->
                                     <h4 class="title">स्वास्थ्य</h4>
-                                    <a href="#" class="all-news"><i class="fa fa-angle-right"></i></a>
+                                    <a href="{{route('blog.category','स्वास्थ्य')}}" class="all-news"><i class="fa fa-angle-right"></i></a>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -1704,7 +1705,7 @@
 
                                     <!-- Title -->
                                     <h4 class="title">विश्व</h4>
-                                    <a href="#" class="all-news"><i class="fa fa-angle-right"></i></a>
+                                    <a href="{{route('blog.category','विश्व')}}" class="all-news"><i class="fa fa-angle-right"></i></a>
 
                                 </div><!-- Sidebar Block Head End -->
 
