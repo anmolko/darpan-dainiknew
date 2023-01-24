@@ -818,7 +818,7 @@
     <div class="popular-section background section pt-50 pb-50">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-12 mb-50">
+                <div class="col-lg-9 col-12 mb-50">
 
                     <!-- Post Block Wrapper Start -->
                     <div class="post-block-wrapper">
@@ -919,6 +919,19 @@
                     </div><!-- Post Block Wrapper End -->
 
                 </div>
+                <div class="col-lg-3 col-12 mb-50">
+                    <div class="row">
+
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',6,5) as $banner)
+                        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+                            <a href="{{@$banner->url}}" class="sidebar-banner">
+                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            </a>
+                            <!-- Sidebar Banner -->
+                        </div>
+                        @enddarpanloop
+                    </div>
+                </div><!-- Sidebar End -->
             </div>
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',4,1) as $banner)
@@ -1030,7 +1043,7 @@
                 @enddarpanloop
             </div>
             <!-- Entertainment Section Start -->
-            <div class="hero-section background section mt-30 mb-60">
+            <div class="hero-section background-fun section mt-30 mb-60">
                 <div class="container">
                     <div class="row">
                         <div class="col post-block-wrapper">
@@ -1145,164 +1158,6 @@
                     </div>
                 </div>
             </div><!-- Entertainment Section End -->
-
-            <!-- Farms Row Start -->
-            <div class="row">
-                <div class="col-lg-9 col-md-6 col-12 mb-50">
-
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper">
-
-                        <!-- Post Block Head Start -->
-                        <div class="head sports-head">
-
-                            <!-- Title -->
-                            <h4 class="title">कृषि</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <div class="row">
-                                <div class="col-md-6 col-12 mb-20">
-                                @foreach(getCategoryRelatedPost(36,0,3) as $news)
-                                    @if($loop->first)
-                                        <div class="post sports-post post-separator-border">
-                                        <div class="post-wrap">
-
-                                            <!-- Image -->
-                                            <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-                                            </a>
-
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
-                                                </div>
-
-                                                <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
-
-                                                <!-- Read More -->
-                                                <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    @else
-                                        <div class="post post-small post-list sports-post post-separator-border">
-                                        <div class="post-wrap">
-
-                                            <!-- Image -->
-                                            <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-                                            </a>
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h5>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Small Post End -->
-                                    @endif
-                                @endforeach
-                                </div>
-                                <div class="col-md-6 col-12 mb-20">
-                                    @foreach(getCategoryRelatedPost(36,3,3) as $news)
-                                        @if($loop->first)
-                                            <div class="post sports-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-                                                    </a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
-                                                        </div>
-
-                                                        <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
-
-                                                        <!-- Read More -->
-                                                        <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="post post-small post-list sports-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-                                                    </a>
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Small Post End -->
-                                        @endif
-                                    @endforeach
-                                </div>
-
-                            </div>
-                            <!-- Small Post Start -->
-
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
-
-                </div>
-                <!-- Sidebar Start -->
-                <div class="col-lg-3 col-12 mb-50">
-                    <div class="row">
-
-                        @darpanloop(getHomepageBanner('home-sidebar-banner',6,4) as $banner)
-                            <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                                <a href="{{@$banner->url}}" class="sidebar-banner">
-                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
-                                </a>
-                                <!-- Sidebar Banner -->
-                            </div>
-                        @enddarpanloop
-                    </div>
-                </div><!-- Sidebar End -->
-            </div><!-- Farms Row End -->
 
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',6,1) as $banner)
@@ -1481,7 +1336,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12 mb-50">
                     <div class="row">
-                        @darpanloop(getHomepageBanner('home-sidebar-banner',10,3) as $banner)
+                        @darpanloop(getHomepageBanner('home-sidebar-banner',11,3) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
                             <a href="{{@$banner->url}}" class="sidebar-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
@@ -1607,7 +1462,7 @@
                         <div class="head education-head">
 
                             <!-- Title -->
-                            <h4 class="title">प्रवाश</h4>
+                            <h4 class="title">कृषि</h4>
                             <a href="#" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
 
                         </div><!-- Post Block Head End -->
@@ -1616,7 +1471,7 @@
                         <div class="body pb-0">
 
                             <div class="row">
-                                @darpanloop(getCategoryRelatedPost('प्रवाश',0,4) as $news)
+                                @darpanloop(getCategoryRelatedPost(36,0,2) as $news)
                                     <div class="post education-post col-md-6 col-12 mb-20">
                                         <div class="post-wrap">
 
@@ -1674,7 +1529,7 @@
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
 
-                                        @darpanloop(getCategoryRelatedPost('विचार',0,6) as $news)
+                                        @darpanloop(getCategoryRelatedPost('विचार',0,3) as $news)
                                             <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                                 <div class="post-wrap">
 
