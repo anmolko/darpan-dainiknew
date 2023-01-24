@@ -39,7 +39,7 @@
                                 <option value="home-besides-logo">Home Besides Logo</option>
                                 <option value="home-above-featured-post">Home Above Featured Post</option>
                                 <option value="home-below-featured-post">Home Below Featured Post</option>
-                                <option value="home-sidebar-banner">Home Sidebar Banner (use 300 x 200px size-15 total)</option>
+                                <option value="home-sidebar-banner">Home Sidebar Banner (use 300 x 200px size-13 total)</option>
                                 <option value="home-banner">Home Banner-9 total</option>
                             </optgroup>
                         </select>

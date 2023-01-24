@@ -30,7 +30,7 @@ class MenuController extends Controller
 //        $blogs              = Blog::all();
         if(isset($_GET['slug']) && $_GET['slug'] != 'new'){
             $id = $_GET['slug'];
-            $desiredMenu = Menu::where('slug',$id)->first();
+            $desiredMenu = Menu::find($id);
             $menuTitle   = $desiredMenu->title;
             if($desiredMenu->content != ''){
                 $menuitems = json_decode($desiredMenu->content);
@@ -414,8 +414,7 @@ class MenuController extends Controller
     }
 
     public function updateMenu(Request $request){
-        $newdata                = $request->all();
-        $menu                   = Menu::findOrFail($request->menuid);
+        $menu                   = Menu::find($request->menuid);
         $content                = $request->data;
         $newdata                = [];
         $newdata['location']    = $request->location;
@@ -445,10 +444,10 @@ class MenuController extends Controller
         return redirect()->back();
     }
 
-    public function deleteMenuItem($id,$key,$in='',$inside=''){
-        $menuitem       = MenuItem::findOrFail($id);
-        $menus          = Menu::where('id',$menuitem->menu_id)->first();
+    public function deleteMenuItem($menuid,$id,$key,$in='',$inside=''){
 
+        $menuitem       = MenuItem::where('menu_id',$menuid)->find($id);
+        $menus          = Menu::where('id',$menuid)->first();
 
         if($menus->content != ''){
             $data       = json_decode($menus->content,true);

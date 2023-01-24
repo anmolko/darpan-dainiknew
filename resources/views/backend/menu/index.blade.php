@@ -65,7 +65,7 @@
                             <option value disabled selected>Select Menu</option>
                             @foreach($menus as $menu)
                                 @if($desiredMenu !== '')
-                                    <option value="{{$menu->slug}}" @if($menu->id == $desiredMenu->id) selected @endif>{{ucwords(@$menu->name)}}</option>
+                                    <option value="{{$menu->id}}" @if($menu->id == $desiredMenu->id) selected @endif>{{ucwords(@$menu->name)}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -339,7 +339,7 @@
                                                                                     </label>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <a href="{{url('auth/delete-menuitem')}}/{{$item->id}}/{{$key}}" class="btn btn-danger btn-sm btn-label">
+                                                                                    <a href="{{url('auth/delete-menuitem')}}/{{$desiredMenu->id}}/{{$item->id}}/{{$key}}" class="btn btn-danger btn-sm btn-label">
                                                                                         <i class=" ri-delete-bin-6-line label-icon align-middle fs-16 me-2"></i>Remove</a>
 
                                                                                     <button type="submit" class="btn btn-success btn-sm btn-label pull-right ">
@@ -393,7 +393,7 @@
                                                                                                     </label>
                                                                                                 </div>
                                                                                                 <div>
-                                                                                                    <a href="{{url('auth/delete-menuitem')}}/{{$data->id}}/{{$key}}/{{$in}}" class="btn btn-danger btn-sm btn-label">
+                                                                                                    <a href="{{url('auth/delete-menuitem')}}/{{$desiredMenu->id}}/{{$data->id}}/{{$key}}/{{$in}}" class="btn btn-danger btn-sm btn-label">
                                                                                                         <i class=" ri-delete-bin-6-line label-icon align-middle fs-16 me-2"></i>Remove</a>
 
                                                                                                     <button type="submit" class="btn btn-success btn-sm btn-label pull-right ">
@@ -448,7 +448,7 @@
                                                                                                                         </label>
                                                                                                                     </div>
                                                                                                                     <div>
-                                                                                                                        <a href="{{url('auth/delete-menuitem')}}/{{$data1->id}}/{{$key}}/{{$in}}/{{$keys}}" class="btn btn-danger btn-sm btn-label">
+                                                                                                                        <a href="{{url('auth/delete-menuitem')}}/{{$desiredMenu->id}}/{{$data1->id}}/{{$key}}/{{$in}}/{{$keys}}" class="btn btn-danger btn-sm btn-label">
                                                                                                                             <i class=" ri-delete-bin-6-line label-icon align-middle fs-16 me-2"></i>Remove</a>
 
                                                                                                                         <button type="submit" class="btn btn-success btn-sm btn-label pull-right ">
@@ -488,7 +488,7 @@
                                             </div>
 
                                             <div class="row g-3">
-                                                <label class="form-label">Select Menu Location {{$desiredMenu->id}}: </label>
+                                                <label class="form-label">Select Menu Location : </label>
 
                                                 <div class="col-lg-2">
                                                     <div class="form-check form-radio-outline form-radio-success mb-3 ">
@@ -778,6 +778,8 @@
                     return false;
                 }
                 var data = JSON.parse($("#serialize_output").text());
+
+
                 $.ajax({
                     type:"get",
                     data: {menuid:menuid,data:data,location:location,title:title},

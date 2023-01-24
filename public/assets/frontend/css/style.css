@@ -1877,18 +1877,18 @@ blockquote.blockquote.blockquote-bg p {
     }
 
 
-    .main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {
-       display: none;
-    }
+    /*.main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {*/
+    /*   display: none;*/
+    /*}*/
 
 }
 @media only screen and (max-width: 768px) {
     .main-menu nav > ul > li:nth-last-child(3), .main-menu nav > ul > .home-nav {
        display: none;
     }
-    .main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {
-        display: none;
-    }
+    /*.main-menu nav > ul > li:nth-last-child(4), .main-menu nav > ul > .home-nav {*/
+    /*    display: none;*/
+    /*}*/
     .mb-hide{
         display: none;
     }
@@ -2388,7 +2388,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 @media only screen and (max-width: 767px) {
   .post-block-wrapper .head .title {
-    font-size: 14px;
+    font-size: 22px;
   }
 }
 .post-block-wrapper .head.feature-head {
@@ -2979,8 +2979,8 @@ blockquote.blockquote.blockquote-bg p {
 }
 @media only screen and (max-width: 479px) {
   .post .post-wrap .content .title {
-    font-size: 14px;
-    line-height: 18px;
+      font-size: 20px;
+      line-height: 28px;
   }
 }
 .post .post-wrap .content .title a:hover {
@@ -3002,6 +3002,7 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Icon --*/
 }
 @media only screen and (max-width: 479px) {
+
   .post .post-wrap .content .meta .meta-item {
     font-size: 11px;
     margin-right: 10px;
@@ -3203,8 +3204,8 @@ blockquote.blockquote.blockquote-bg p {
 }
 @media only screen and (max-width: 479px) {
   .post.post-large .post-wrap .title {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 .post.post-small {
@@ -4549,8 +4550,9 @@ blockquote.blockquote.blockquote-bg p {
 }
 @media only screen and (max-width: 767px) {
   .sidebar-block-wrapper .head .title {
-    font-size: 14px;
+    font-size: 22px;
   }
+
 }
 .sidebar-block-wrapper .head.feature-head {
   /*-- Title --*/

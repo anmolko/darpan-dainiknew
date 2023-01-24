@@ -71,10 +71,10 @@
                                     <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
                                     <span>{{$singleBlog->publishedDateNepali()}}</span>
                                 </span>
-                                <span class="meta-item news-hour-block">
-                                    <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">
-                                    <span><a href="#">0 प्रतिक्रिया</a></span>
-                                </span>
+{{--                                <span class="meta-item news-hour-block">--}}
+{{--                                    <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">--}}
+{{--                                    <span><a href="#">0 प्रतिक्रिया</a></span>--}}
+{{--                                </span>--}}
 
 
                                 <span>
@@ -251,66 +251,66 @@
 
 
                    <!-- comments -->
-                    <div class="post-block-wrapper mb-50">
+{{--                    <div class="post-block-wrapper mb-50">--}}
 
-                            <!-- Post Block Head Start -->
-                            <div class="head">
+{{--                            <!-- Post Block Head Start -->--}}
+{{--                            <div class="head">--}}
 
-                                <!-- Title -->
-                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>
+{{--                                <!-- Title -->--}}
+{{--                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>--}}
 
-                            </div><!-- Post Block Head End -->
+{{--                            </div><!-- Post Block Head End -->--}}
 
-                            <!-- Post Block Body Start -->
-                            <div class="body">
+{{--                            <!-- Post Block Body Start -->--}}
+{{--                            <div class="body">--}}
 
-                                <div class="post-comment-form">
-                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')
-                                        <form action="#" class="row">
+{{--                                <div class="post-comment-form">--}}
+{{--                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')--}}
+{{--                                        <form action="#" class="row">--}}
 
-                                            <div class="col-md-6 col-12 mb-20">
-                                                <label for="name">Name <sup>*</sup></label>
-                                                <input type="text" id="name">
-                                            </div>
+{{--                                            <div class="col-md-6 col-12 mb-20">--}}
+{{--                                                <label for="name">Name <sup>*</sup></label>--}}
+{{--                                                <input type="text" id="name">--}}
+{{--                                            </div>--}}
 
-                                            <div class="col-md-6 col-12 mb-20">
-                                                <label for="email">Email <sup>*</sup></label>
-                                                <input type="text" id="email">
-                                            </div>
+{{--                                            <div class="col-md-6 col-12 mb-20">--}}
+{{--                                                <label for="email">Email <sup>*</sup></label>--}}
+{{--                                                <input type="text" id="email">--}}
+{{--                                            </div>--}}
 
-                                            <div class="col-12 mb-20">
-                                                <label for="website">Website <sup>*</sup></label>
-                                                <input type="text" id="website">
-                                            </div>
+{{--                                            <div class="col-12 mb-20">--}}
+{{--                                                <label for="website">Website <sup>*</sup></label>--}}
+{{--                                                <input type="text" id="website">--}}
+{{--                                            </div>--}}
 
-                                            <div class="col-12 mb-20">
-                                                <label for="message">Message <sup>*</sup></label>
-                                                <textarea id="message"></textarea>
-                                            </div>
+{{--                                            <div class="col-12 mb-20">--}}
+{{--                                                <label for="message">Message <sup>*</sup></label>--}}
+{{--                                                <textarea id="message"></textarea>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col-12">
-                                                <input type="submit" value="Submit Comment">
-                                            </div>
+{{--                                            <div class="col-12">--}}
+{{--                                                <input type="submit" value="Submit Comment">--}}
+{{--                                            </div>--}}
 
-                                        </form>
-                                    @else
-                                        <div class="block-wrap">
+{{--                                        </form>--}}
+{{--                                    @else--}}
+{{--                                        <div class="block-wrap">--}}
 
-                                            <!-- google	 -->
-                                            <div>
-                                                <a class="btn-google" href="{{route('google.redirect')}}">
-                                                    <div class="google-content">
-                                                        <div class="logo">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
-                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
-                                                            </svg>
-                                                        </div>
-                                                        <p>Sign in with Google</p>
-                                                    </div>
-                                                </a>
-                                            </div>
+{{--                                            <!-- google	 -->--}}
+{{--                                            <div>--}}
+{{--                                                <a class="btn-google" href="{{route('google.redirect')}}">--}}
+{{--                                                    <div class="google-content">--}}
+{{--                                                        <div class="logo">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">--}}
+{{--                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </div>--}}
+{{--                                                        <p>Sign in with Google</p>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
 
-                                            <!-- facebook	 -->
+{{--                                            <!-- facebook	 -->--}}
 {{--                                            <div>--}}
 {{--                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">--}}
 {{--                                                    <div class="fb-content">--}}
@@ -325,16 +325,16 @@
 {{--                                                </a>--}}
 {{--                                            </div>--}}
 
-                                        </div>
+{{--                                        </div>--}}
 
 
-                                    @endif
+{{--                                    @endif--}}
 
-                                </div>
+{{--                                </div>--}}
 
-                            </div><!-- Post Block Body End -->
+{{--                            </div><!-- Post Block Body End -->--}}
 
-                        </div><!-- Post Block Wrapper End -->
+{{--                        </div><!-- Post Block Wrapper End -->--}}
 
                     <!-- End row Post Block -->
                     <div class="row ">
