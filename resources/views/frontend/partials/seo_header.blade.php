@@ -150,66 +150,66 @@
                                                 <li class="{{request()->is(@$nav->slug)  ? 'active' : ''}} has-dropdown">
                                                     <a href="{{url('category')}}/{{$nav->slug}}">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
                                                     <!-- Mega Menu Start -->
-                                                    @if(@$nav->slug !== 'अन्य')<div class="mega-menu">
+{{--                                                    @if(@$nav->slug !== 'अन्य')<div class="mega-menu">--}}
 
-                                                        <!-- Menu Tab List Start -->
-                                                        <ul class="menu-tab-list nav">
-                                                            @foreach($nav->children[0] as $childNav)
-                                                                @if($childNav->type == 'custom')
-                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >
-                                                                        <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >
-                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
-                                                                        </a>
-                                                                    </li>
-                                                                @elseif($childNav->type == 'category')
-                                                                    <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">
-                                                                        <a class="{{ ($loop->first) ? 'active' : ''}}"
-                                                                           data-bs-toggle="tab" href="#menu-tab-{{@$childNav->id}}"
-                                                                        > — @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                    </li>
-                                                                @else
-                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">
-                                                                        <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)
-                                                                        target="_blank" @endif>
-                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
-                                                                        </a>
-                                                                    </li>
-                                                                @endif
-                                                            @endforeach
-                                                        </ul><!-- Menu Tab List End -->
+{{--                                                        <!-- Menu Tab List Start -->--}}
+{{--                                                        <ul class="menu-tab-list nav">--}}
+{{--                                                            @foreach($nav->children[0] as $childNav)--}}
+{{--                                                                @if($childNav->type == 'custom')--}}
+{{--                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >--}}
+{{--                                                                        <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >--}}
+{{--                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif--}}
+{{--                                                                        </a>--}}
+{{--                                                                    </li>--}}
+{{--                                                                @elseif($childNav->type == 'category')--}}
+{{--                                                                    <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">--}}
+{{--                                                                        <a class="{{ ($loop->first) ? 'active' : ''}}"--}}
+{{--                                                                           data-bs-toggle="tab" href="#menu-tab-{{@$childNav->id}}"--}}
+{{--                                                                        > — @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>--}}
+{{--                                                                    </li>--}}
+{{--                                                                @else--}}
+{{--                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">--}}
+{{--                                                                        <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)--}}
+{{--                                                                        target="_blank" @endif>--}}
+{{--                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif--}}
+{{--                                                                        </a>--}}
+{{--                                                                    </li>--}}
+{{--                                                                @endif--}}
+{{--                                                            @endforeach--}}
+{{--                                                        </ul><!-- Menu Tab List End -->--}}
 
-                                                        <!-- Menu Tab Content Start -->
-                                                        <div class="tab-content menu-tab-content fix">
-                                                            @foreach($nav->children[0] as $childNav)
-                                                                @if($childNav->type == 'category')
-                                                                    <div class="tab-pane fade {{ ($loop->first) ? 'show active' : ''}}" id="menu-tab-{{@$childNav->id}}">
-                                                                        <div class="row">
+{{--                                                        <!-- Menu Tab Content Start -->--}}
+{{--                                                        <div class="tab-content menu-tab-content fix">--}}
+{{--                                                            @foreach($nav->children[0] as $childNav)--}}
+{{--                                                                @if($childNav->type == 'category')--}}
+{{--                                                                    <div class="tab-pane fade {{ ($loop->first) ? 'show active' : ''}}" id="menu-tab-{{@$childNav->id}}">--}}
+{{--                                                                        <div class="row">--}}
 
-                                                                            @darpanloop(getCategoryRelatedPost($childNav->slug,0,4) as $news)
-                                                                            <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                                                <div class="post-wrap">
+{{--                                                                            @darpanloop(getCategoryRelatedPost($childNav->slug,0,4) as $news)--}}
+{{--                                                                            <div class="post post-small col-lg-3 col-md-4 mb-30">--}}
+{{--                                                                                <div class="post-wrap">--}}
 
-                                                                                    <a href="{{ url(@$news->url()) }}" class="image">
-                                                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+{{--                                                                                    <a href="{{ url(@$news->url()) }}" class="image">--}}
+{{--                                                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">--}}
 
-                                                                                    </a>
-                                                                                    <div class="content">
-                                                                                        <h5 class="title">
-                                                                                            <a href="{{ url(@$news->url()) }}">{{@$news->title}}</a>                                                                                            </h5>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            @enddarpanloop
+{{--                                                                                    </a>--}}
+{{--                                                                                    <div class="content">--}}
+{{--                                                                                        <h5 class="title">--}}
+{{--                                                                                            <a href="{{ url(@$news->url()) }}">{{@$news->title}}</a>                                                                                            </h5>--}}
+{{--                                                                                    </div>--}}
+{{--                                                                                </div>--}}
+{{--                                                                            </div>--}}
+{{--                                                                            @enddarpanloop--}}
 
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
-                                                            @endforeach
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                @endif--}}
+{{--                                                            @endforeach--}}
 
-                                                        </div><!-- Menu Tab Content End -->
+{{--                                                        </div><!-- Menu Tab Content End -->--}}
 
-                                                    </div><!-- Mega Menu End -->
-                                                    @else
+{{--                                                    </div><!-- Mega Menu End -->--}}
+{{--                                                    @else--}}
                                                         <ul class="sub-menu">
                                                             @foreach($nav->children[0] as $childNav)
                                                                 @if($childNav->type == 'custom')
@@ -234,7 +234,7 @@
                                                                 @endif
                                                             @endforeach
                                                         </ul>
-                                                    @endif
+{{--                                                    @endif--}}
                                                 </li>
                                             @else
                                                 @if($nav->type == 'custom')

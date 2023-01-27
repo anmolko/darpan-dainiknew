@@ -464,9 +464,11 @@
 
                                                             <!-- Title -->
                                                             <h2 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h2>
-
+                                                            <div class="meta fix">
+                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
+                                                            </div>
                                                             <!-- Description s-->
-                                                            <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>
+{{--                                                            <p>  {{ (@$latest_news_feature->excerpt !== null) ? @$latest_news_feature->excerpt: @$latest_news_feature->shortContent(60)}}</p>--}}
 
                                                         </div>
                                                     </div>
@@ -671,37 +673,59 @@
 
                             <!-- Title -->
                             <h4 class="title">अथ॔</h4>
-                            <a href="{{route('blog.category','अथ॔')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('blog.category','अथ॔')}}" class="all-news align ml-10" style=""><i class="fa fa-angle-right"></i></a>
+                            @if(countCategoryChildren(2))
+                                <!-- Tab List Start -->
+                                    <ul class="post-block-tab-list life-style-post-tab-list nav d-none d-md-block">
+                                        @foreach(categoryChildren(2) as $child)
+                                            <li><a class="{{($loop->first) ? "active":""}}" data-bs-toggle="tab" href="#artha-cat-{{$child->id}}">{{$child->name}}</a></li>
+                                        @endforeach
 
+                                    </ul><!-- Tab List End -->
+                                @endif
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
                         <div class="body pb-0">
+                            <!-- Tab Content Start-->
+                            <div class="tab-content">
+                                @foreach(categoryChildren(2) as $child)
 
-                            <div class="row">
+                                    <div class="tab-pane fade {{ ($loop->first) ? "show active":""}}" id="artha-cat-{{$child->id}}">
 
-                                @darpanloop(getCategoryRelatedPost(2,0,6) as $news)
-                                    <div class="post education-post col-md-6 col-12 mb-20">
-                                    <div class="post-wrap">
+                                        <div class="row">
 
-                                        <!-- Image -->
-                                        <a class="image" href="{{ url(@$news->url()) }}">
-                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-                                        </a>
-                                        <!-- Content -->
-                                        <div class="content">
+                                        @foreach(getCategoryRelatedPost($child->id,0,7) as $news)
 
-                                            <!-- Title -->
-                                            <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}}</a></h4>
+                                                    <div class="post education-post col-md-6 col-12 mb-20">
+                                                        <div class="post-wrap">
 
-                                            <!-- Read More Button -->
-                                            <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
+                                                            <!-- Image -->
+                                                            <a class="image" href="{{ url(@$news->url()) }}">
+                                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                            </a>
+                                                            <!-- Content -->
+                                                            <div class="content">
+
+                                                                <!-- Title -->
+                                                                <h4 class="title"><a href="{{ url(@$news->url()) }}">{{@$news->title}} </a></h4>
+
+                                                                <!-- Read More Button -->
+                                                                <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div><!-- Post End -->
+
+                                        @endforeach
 
                                         </div>
 
                                     </div>
-                                </div><!-- Post End -->
-                                @enddarpanloop
+                                @endforeach
+
+
 
                             </div>
 
@@ -838,7 +862,7 @@
                                 @endforeach
 
                             </ul><!-- Tab List End -->
-                            @endif
+                        @endif
 
 
                         </div><!-- Post Block Head End -->

@@ -72,7 +72,13 @@
 
                     <!-- Header Links -->
                     <ul class="header-links">
-                        <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a></li>
+                        <li class="disabled block d-none d-md-block" style="padding-right: 0px;margin-right: 0px;">
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a>
+                        </li>
+                        <li class="block d-none d-md-block">
+                            <a class="old-site" href="https://sub.darpandainik.com/" target="_blank"><i class="fa fa-globe"></i> पुरानो वेबसाइट </a>
+                        </li>
 {{--                        <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>--}}
 {{--                        <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>--}}
                         <li><a href="http://unicode.darpandainik.com/" target="_blank">Unicode to preeti</a></li>
@@ -83,7 +89,6 @@
 
                 <!-- Header Top Social Start -->
                 <div class="header-top-social col-md-3 col-6">
-
                     <!-- Header Social -->
                     <div class="header-social">
                         @if(!empty(@$setting_data->facebook))
@@ -162,66 +167,6 @@
                                                 <li class="{{request()->is(@$nav->slug)  ? 'active' : ''}} has-dropdown">
                                                     <a href="{{url('category')}}/{{$nav->slug}}">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif</a>
                                                     <!-- Mega Menu Start -->
-                                                    @if(@$nav->slug !== 'अन्य')<div class="mega-menu">
-
-                                                        <!-- Menu Tab List Start -->
-                                                        <ul class="menu-tab-list nav">
-                                                            @foreach($nav->children[0] as $childNav)
-                                                                @if($childNav->type == 'custom')
-                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}" >
-                                                                        <a href="/{{@$childNav->slug}}" class="" @if(@$childNav->target !== NULL) target="_blank" @endif >
-                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
-                                                                        </a>
-                                                                    </li>
-                                                                @elseif($childNav->type == 'category')
-                                                                    <li  class="{{request()->is('category/'.@$childNav->slug) ? 'active' : ''}}">
-                                                                        <a class="{{ ($loop->first) ? 'active' : ''}}"
-                                                                             data-bs-toggle="tab" href="#menu-tab-{{@$childNav->id}}"
-                                                                        > — @if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a>
-                                                                    </li>
-                                                                @else
-                                                                    <li  class="{{request()->is(@$childNav->slug) ? 'active' : ''}}">
-                                                                        <a href="{{url('/')}}/{{@$childNav->slug}}"  @if(@$childNav->target !== NULL)
-                                                                        target="_blank" @endif>
-                                                                            @if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif
-                                                                        </a>
-                                                                    </li>
-                                                                @endif
-                                                            @endforeach
-                                                        </ul><!-- Menu Tab List End -->
-
-                                                        <!-- Menu Tab Content Start -->
-                                                        <div class="tab-content menu-tab-content fix">
-                                                            @foreach($nav->children[0] as $childNav)
-                                                                @if($childNav->type == 'category')
-                                                                    <div class="tab-pane fade {{ ($loop->first) ? 'show active' : ''}}" id="menu-tab-{{@$childNav->id}}">
-                                                                        <div class="row">
-
-                                                                            @darpanloop(getCategoryRelatedPost($childNav->slug,0,4) as $news)
-                                                                                <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                                                    <div class="post-wrap">
-
-                                                                                        <a href="{{ url(@$news->url()) }}" class="image">
-                                                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
-
-                                                                                        </a>
-                                                                                        <div class="content">
-                                                                                            <h5 class="title">
-                                                                                                <a href="{{ url(@$news->url()) }}">{{@$news->title}}</a>                                                                                            </h5>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            @enddarpanloop
-
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
-                                                            @endforeach
-
-                                                        </div><!-- Menu Tab Content End -->
-
-                                                    </div><!-- Mega Menu End -->
-                                                    @else
                                                         <ul class="sub-menu">
                                                             @foreach($nav->children[0] as $childNav)
                                                                 @if($childNav->type == 'custom')
@@ -246,7 +191,7 @@
                                                                 @endif
                                                             @endforeach
                                                         </ul>
-                                                    @endif
+
                                                 </li>
                                             @else
                                                 @if($nav->type == 'custom')
