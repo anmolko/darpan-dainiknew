@@ -166,6 +166,9 @@
                             </div>
                             <!-- end card body -->
                         </div>
+
+                        {{--meta details--}}
+
                         <!-- end card -->
                         <div class="text-end mb-3">
                             <button type="submit" class="btn btn-success w-sm">Submit</button>
@@ -228,6 +231,40 @@
                                         Show Featured Image
                                     </label>
                                 </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#author-metadata"
+                                           role="tab">
+                                            Author details
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end card header -->
+                            <div class="card-body">
+                                <div class="tab-content">
+
+                                    <div class="tab-pane active" id="author-metadata" role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="authors-keywords-input">Author name(s) <span class="text-muted fs-10">Press enter after each name.</span></label>
+                                                    <input type="text" class="mukta form-control" name="authors" id="authors-keywords-input" data-choices data-choices-text-unique-true>
+                                                </div>
+                                            </div>
+                                            <!-- end col -->
+                                        </div>
+                                        <!-- end row -->
+                                    </div>
+                                    <!-- end tab pane -->
+                                </div>
+                                <!-- end tab content -->
                             </div>
                             <!-- end card body -->
                         </div>

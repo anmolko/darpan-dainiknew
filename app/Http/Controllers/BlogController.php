@@ -71,6 +71,7 @@ class BlogController extends Controller
             'excerpt'               => $request->input('excerpt'),
             'show_featured_image'   => $request->input('show_featured_image'),
             'status'                => $request->input('status'),
+            'authors'               => $request->input('authors'),
             'meta_title'            => $request->input('meta_title'),
             'meta_tags'             => $request->input('meta_tags'),
             'meta_description'      => $request->input('meta_description'),
@@ -159,6 +160,7 @@ class BlogController extends Controller
         $blog->excerpt             =  $request->input('excerpt');
         $blog->show_featured_image =  $request->input('show_featured_image');
         $blog->status              =  $request->input('status');
+        $blog->authors             =  $request->input('authors');
         $blog->meta_title          =  $request->input('meta_title');
         $blog->meta_tags           =  $request->input('meta_tags');
         $blog->meta_description    =  $request->input('meta_description');

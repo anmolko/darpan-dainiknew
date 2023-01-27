@@ -37,13 +37,13 @@
     <meta name='keywords' content='{{ucfirst(@$singleBlog->meta_tags)}}' />
     <meta property='article:published_time' content='<?php if(@$singleBlog->updated_at !=''){?>{{@$singleBlog->updated_at}} <?php }else {?> {{@$singleBlog->created_at}} <?php }?>' />
     <meta property='article:section' content='article' />
-    <meta property="og:description" content="{{ucfirst(@$singleBlog->meta_description)}}" />
-    <meta property="og:title" content="{{ucfirst(@$singleBlog->meta_title)}}" />
+    <meta property="og:description" content="{{ (@$singleBlog->meta_description !== null) ? ucfirst(@$singleBlog->meta_description): @$singleBlog->shortContent(60) }}" />
+    <meta property="og:title" content="{{ (@$singleBlog->meta_title !== null) ?   ucfirst(@$singleBlog->meta_title) : ucfirst(@$singleBlog->title)}}" />
     <meta property="og:url" content="{{url()->current()}}" />
-    <meta property="og:type" content="Coperation" />
+    <meta property="og:type" content="News Portal" />
     <meta property="og:locale" content="en-us" />
     <meta property="og:locale:alternate"  content="en-us" />
-    <meta property="og:site_name" content="@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Win Recruit Nepal @endif" />
+    <meta property="og:site_name" content="@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else  दर्पण दैनिक @endif" />
     <meta property="og:image" content="<?php if(@$singleBlog->image){?>{{asset('/images/blog/'.@$singleBlog->image)}}<?php }?>" />
     <meta property="og:image:url" content="<?php if(@$singleBlog->image){?>{{asset('/images/blog/'.@$singleBlog->image)}}<?php }?>" />
     <meta property="og:image:size" content="300" />
@@ -110,24 +110,24 @@
                                 <div class="image"><img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="post"></div>
 
 
-                                <div class="meta fix">
-                                    <span class="font-btn">
-                                        <a id="big">अ</a>
-                                        <a id="normal">अ</a>
-                                        <a id="small">अ</a>
-                                    </span>
-                                    @if(count($singleBlog->categories)>0)
-                                        <span class="categories float-end">
-                                            <i class="fa fa-list-alt"></i>
+{{--                                <div class="meta fix">--}}
+{{--                                    <span class="font-btn">--}}
+{{--                                        <a id="big">अ</a>--}}
+{{--                                        <a id="normal">अ</a>--}}
+{{--                                        <a id="small">अ</a>--}}
+{{--                                    </span>--}}
+{{--                                    @if(count($singleBlog->categories)>0)--}}
+{{--                                        <span class="categories float-end">--}}
+{{--                                            <i class="fa fa-list-alt"></i>--}}
 
-                                            @foreach($singleBlog->categories as $cat)
-                                                <a href="#">{{$cat->name}}</a>
-                                                {{($loop->last) ?"":"," }}
-                                            @endforeach
-                                        </span>
-                                    @endif
+{{--                                            @foreach($singleBlog->categories as $cat)--}}
+{{--                                                <a href="#">{{$cat->name}}</a>--}}
+{{--                                                {{($loop->last) ?"":"," }}--}}
+{{--                                            @endforeach--}}
+{{--                                        </span>--}}
+{{--                                    @endif--}}
 {{--                                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>--}}
-                                </div>
+{{--                                </div>--}}
 
                                 @if(@$below !== null)
                                     <div class="post-middle-banner mb-4">
@@ -547,27 +547,27 @@
 
         $(document).ready(function () {
 
-            var size = '22';
-            $("#big").on("click",function(){
-                size = size + 2;
-                if(size<26 ){
-                    $(".editor-flx p").css("font-size",size + "px");
-                }else{
-                    $(".editor-flx p").css("font-size",26 + "px");
-                }
-            });
-            $("#normal").on("click",function(){
-                size = 20;
-                $(".editor-flx p").css("font-size",size + "px");
-            });
-            $("#small").on("click",function(){
-                size = size - 2;
-                if(size>14){
-                    $(".editor-flx p").css("font-size",size+ "px");
-                } else {
-                    $(".editor-flx p").css("font-size",16+ "px");
-                }
-            });
+            // var size = '22';
+            // $("#big").on("click",function(){
+            //     size = size + 2;
+            //     if(size<26 ){
+            //         $(".editor-flx p").css("font-size",size + "px");
+            //     }else{
+            //         $(".editor-flx p").css("font-size",26 + "px");
+            //     }
+            // });
+            // $("#normal").on("click",function(){
+            //     size = 20;
+            //     $(".editor-flx p").css("font-size",size + "px");
+            // });
+            // $("#small").on("click",function(){
+            //     size = size - 2;
+            //     if(size>14){
+            //         $(".editor-flx p").css("font-size",size+ "px");
+            //     } else {
+            //         $(".editor-flx p").css("font-size",16+ "px");
+            //     }
+            // });
 
             var number = $('.editor-content').find('p').size();
             if(number => 2){

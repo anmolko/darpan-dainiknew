@@ -14,7 +14,7 @@ class Blog extends Model implements CanVisit
     use HasVisits;
 
     protected $table ='blogs';
-    protected $fillable =['id','title','slug','numeric_slug','excerpt','show_featured_image','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];
+    protected $fillable =['id','title','slug','numeric_slug','excerpt','authors','show_featured_image','description','status','image','featured_from','featured_to','meta_title','meta_tags','meta_description','created_by','updated_by'];
 
     private $nepaliArray = [
         '0' => '०',
