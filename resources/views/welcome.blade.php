@@ -1,9 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title') Home @endsection
 @section('css')
-    <style>
 
-    </style>
 @endsection
 @section('content')
     <!-- Featured post Start -->
@@ -20,9 +18,9 @@
                             <div class="darpan-author">
                                 <span class="author-img">
 
-                                    <img src="{{ ($news->author->image !== null) ? asset('images/user/'.@$news->author->image) :  asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
+                                    <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
                                 </span>
-                                <span class="author-name"> {{ ucfirst(@$news->author->name)}}  </span>
+                                <span class="author-name"> {{ ($news->authors !== null ) ? ucwords(@$news->authors) : "दर्पण दैनिक"}}  </span>
                             </div>
                         </div>
                         <div class="darpan-post-time">

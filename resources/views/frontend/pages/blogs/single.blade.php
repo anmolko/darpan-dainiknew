@@ -65,7 +65,7 @@
                             <div class="meta fix">
                                  <span class="meta-item darpan-post-time darpan-author">
                                     <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
-                                    <span>दर्पण दैनिक</span>
+                                    <span> {{ ($news->authors !== null ) ? ucwords(@$news->authors) : "दर्पण दैनिक"}}  </span>
                                 </span>
                                 <span class="meta-item news-hour-block">
                                     <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
