@@ -283,6 +283,11 @@ class FrontController extends Controller
         return view('frontend.pages.testimonial',compact('testimonials'));
     }
 
-
-
+    public function redirectOld($one,$two,$three){
+        if(is_numeric($one)){
+            return redirect('https://sub.darpandainik.com/'.$one.'/'.$two.'/'.$three);
+        }else{
+            return redirect()->intended();
+        }
+    }
 }

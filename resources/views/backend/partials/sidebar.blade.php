@@ -43,11 +43,11 @@
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Components</span></li>
 
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link  @if(\Request::route()->getName() == 'homepage.index') active @endif" href="{{route('homepage.index')}}">
-                    <i class="ri-home-gear-line"></i> <span data-key="t-forms">Home</span>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link menu-link  @if(\Request::route()->getName() == 'homepage.index') active @endif" href="{{route('homepage.index')}}">--}}
+{{--                    <i class="ri-home-gear-line"></i> <span data-key="t-forms">Home</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="nav-item">
                     <a class="nav-link menu-link  @if(\Request::route()->getName() == 'menu.index') active @endif" href="{{route('menu.index')}}">

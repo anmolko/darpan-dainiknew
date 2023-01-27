@@ -443,7 +443,7 @@
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <a class="image" href="{{ url(@$latest->url()) }}">
+                                                    <a class="image" href="{{ url(@$latest->url()) }}" style="flex: 0 0 100px;">
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali() }}</span>
                                                         </div>
@@ -473,7 +473,7 @@
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <a class="image" href="{{ url(@$popular->url()) }}">
+                                                    <a class="image" href="{{ url(@$popular->url()) }}" style="flex: 0 0 100px;">
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
                                                         </div>
