@@ -50,7 +50,7 @@
                                     <div class="shadow-sm flex-fill">
                                         <div class="card-header">
                                             <p class="text-danger text-sm">*Please enter the full url as shown below: </p>
-                                            <p class="text-info text-sm"> 1. https://www.youtube.com/watch?v=ly939bnZUrE (youtube) <br/> 2. https://vimeo.com/687802653 (vimeo)</p>
+                                            <p class="text-info text-sm"> https://www.youtube.com/watch?v=ly939bnZUrE (youtube) </p>
                                         </div>
                                         <div class="card-body">
                                             <div id="multi-field-wrapper">
@@ -61,10 +61,9 @@
                                                             <div class="multi-field custom-card" style="border-bottom: 1px dotted #e3e3e3; margin-bottom: 1rem ">
                                                                 <label>Video Type </label>
                                                                 <div class="input-group mb-3">
-                                                                    <select class="form-control shadow-none" name="type[]" id="type_0" required>
+                                                                    <select class="form-control shadow-none" name="type[]" id="type_0" required readonly>
                                                                         <option value disabled readonly> Select Video Type</option>
                                                                         <option value="youtube" {{($value->type == 'youtube') ? "selected":""}}> YouTube </option>
-                                                                        <option value="vimeo"  {{($value->type == 'vimeo') ? "selected":""}}> Vimeo </option>
                                                                     </select>
                                                                     <button class="btn btn-danger remove-field"><i class="ri-delete-bin-line" aria-hidden="true"></i></button>
                                                                     <div class="invalid-feedback">
@@ -90,10 +89,9 @@
                                                         <div class="multi-field custom-card mt-2" style="border-bottom: 1px dotted #e3e3e3; ">
                                                             <label>Video Type </label>
                                                             <div class="input-group mb-3">
-                                                                <select class="form-control shadow-none" name="type[]" id="type_0" required>
-                                                                    <option value disabled readonly selected> Select Video Type</option>
-                                                                    <option value="youtube"> YouTube </option>
-                                                                    <option value="vimeo"> Vimeo </option>
+                                                                <select class="form-control shadow-none" name="type[]" id="type_0" required readonly>
+                                                                    <option value disabled readonly > Select Video Type</option>
+                                                                    <option value="youtube" selected> YouTube </option>
                                                                 </select>
                                                                 <button class="btn btn-danger remove-field"><i class="ri-delete-bin-line" aria-hidden="true"></i></button>
                                                             </div>
@@ -170,7 +168,7 @@
                 //clone the element and add the id to div to make select field unique.
                 var newElem = $('.multi-field:last-child', $wrapper).clone(true).appendTo($wrapper).attr('id', 'cloned-' + counter).find("input").val("");
                 //remove the initial id from select and add new ID
-                $('.multi-field').find('select').last().removeAttr('id').attr('id', 'type_' + counter).find('option').focus();
+                $('.multi-field').find('select').last().removeAttr('id').attr('id', 'type_' + counter).attr('readonly', 'readonly').find('option').focus();
                 $('.multi-field').find('select').last().val('');
             });
 
