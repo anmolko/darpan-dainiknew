@@ -49,12 +49,12 @@
 
     @if(count(getHomepageBanner('home-below-featured-post',0,1))> 0 )
         <!-- Featured post below adds Section Start -->
-        <div class="section">
+        <div class="section mt-20">
             <div class="container">
                 @darpanloop(getHomepageBanner('home-below-featured-post',0,1) as $banner)
                     <div class="header-banner">
                         <div class="col-12 post-container featured">
-                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
@@ -251,7 +251,7 @@
                 @darpanloop(getHomepageBanner('home-banner',0,1) as $banner)
 
                 <div class="post-middle-banner">
-                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                    <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                         <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
@@ -359,7 +359,7 @@
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
                             @darpanloop(getHomepageBanner('home-sidebar-banner',0,3) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                                <a href="{{@$banner->url}}" class="sidebar-banner">
+                                <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
                                     <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                                 </a>
                                 <!-- Sidebar Banner -->
@@ -375,7 +375,7 @@
                 @darpanloop(getHomepageBanner('home-banner',1,1) as $banner)
                     <div class="header-banner">
                         <div class="col-12 post-container home-post-between">
-                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
@@ -639,7 +639,7 @@
                 @darpanloop(getHomepageBanner('home-banner',2,1) as $banner)
                     <div class="header-banner">
                         <div class="col-12 post-container home-post-between">
-                            <a href="{{@$banner->url}}" class="post-middle-banner">
+                            <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
@@ -654,7 +654,7 @@
                     <div class="row sidebar-sticky">
                         @darpanloop(getHomepageBanner('home-sidebar-banner',3,3) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                                <a href="{{@$banner->url}}" class="sidebar-banner">
+                                <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
                                     <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                                 </a>
                                 <!-- Sidebar Banner -->
@@ -801,7 +801,7 @@
             <div class="row mb-50">
                 @darpanloop(getHomepageBanner('home-banner',3,1) as $banner)
                     <div class="col-12">
-                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                             <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
@@ -925,7 +925,7 @@
 
                         @darpanloop(getHomepageBanner('home-sidebar-banner',6,5) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                            <a href="{{@$banner->url}}" class="sidebar-banner">
+                            <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                             <!-- Sidebar Banner -->
@@ -937,7 +937,7 @@
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',4,1) as $banner)
                     <div class="col-12">
-                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                             <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
@@ -1037,7 +1037,7 @@
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',5,1) as $banner)
                     <div class="col-12">
-                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                             <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
@@ -1163,7 +1163,7 @@
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',6,1) as $banner)
                 <div class="col-12 mb-5">
-                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                    <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                         <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
@@ -1326,7 +1326,7 @@
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',7,1) as $banner)
                 <div class="col-12 mb-5">
-                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                    <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                         <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
@@ -1339,7 +1339,7 @@
                     <div class="row">
                         @darpanloop(getHomepageBanner('home-sidebar-banner',11,3) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
-                            <a href="{{@$banner->url}}" class="sidebar-banner">
+                            <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
                                 <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
@@ -1443,7 +1443,7 @@
             <div class="row">
                 @darpanloop(getHomepageBanner('home-banner',8,1) as $banner)
                 <div class="col-12 mb-5">
-                    <a href="{{@$banner->url}}" class="post-middle-banner">
+                    <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                         <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>

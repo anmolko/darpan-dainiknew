@@ -505,7 +505,9 @@
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                                 <!-- Sidebar Banner -->
-                                <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner"><img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}"></a>
+                                <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner">
+                                    <img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
+                                </a>
 
                             </div>
                             @enddarpanloop

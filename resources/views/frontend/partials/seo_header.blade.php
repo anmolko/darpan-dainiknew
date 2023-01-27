@@ -345,51 +345,51 @@
     </div><!-- Menu Section End -->
 
     <!-- Breaking News Section Start -->
-    <div class="breaking-news-section section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+{{--    <div class="breaking-news-section section">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
 
-                    <!-- Breaking News Wrapper Start -->
-                    <div class="breaking-news-wrapper">
+{{--                    <!-- Breaking News Wrapper Start -->--}}
+{{--                    <div class="breaking-news-wrapper">--}}
 
-                        <!-- Breaking News Title -->
-                        <h5 class="breaking-news-title float-start">नवीनतम खबर</h5>
+{{--                        <!-- Breaking News Title -->--}}
+{{--                        <h5 class="breaking-news-title float-start">नवीनतम खबर</h5>--}}
 
-                        <!-- Breaking Newsticker Start -->
-                        <ul class="breaking-news-ticker float-start">
+{{--                        <!-- Breaking Newsticker Start -->--}}
+{{--                        <ul class="breaking-news-ticker float-start">--}}
 
-                            @darpanloop(getLatestPosts(0,8) as $latest_news_feature)
-                            <li>
-                                <a href="{{ url(@$latest_news_feature->url()) }}">
-                                    {{@$latest_news_feature->title}}
-                                </a>
-                            </li>
-                            @enddarpanloop
+{{--                            @darpanloop(getLatestPosts(0,8) as $latest_news_feature)--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ url(@$latest_news_feature->url()) }}">--}}
+{{--                                    {{@$latest_news_feature->title}}--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            @enddarpanloop--}}
 
-                        </ul><!-- Breaking Newsticker Start -->
+{{--                        </ul><!-- Breaking Newsticker Start -->--}}
 
-                        <!-- Breaking News Nav -->
-                        <div class="breaking-news-nav">
-                            <button class="news-ticker-prev"><i class="fa fa-angle-left"></i></button>
-                            <button class="news-ticker-next"><i class="fa fa-angle-right"></i></button>
-                        </div>
+{{--                        <!-- Breaking News Nav -->--}}
+{{--                        <div class="breaking-news-nav">--}}
+{{--                            <button class="news-ticker-prev"><i class="fa fa-angle-left"></i></button>--}}
+{{--                            <button class="news-ticker-next"><i class="fa fa-angle-right"></i></button>--}}
+{{--                        </div>--}}
 
-                    </div><!-- Breaking News Wrapper End -->
+{{--                    </div><!-- Breaking News Wrapper End -->--}}
 
-                </div>
-            </div>
-        </div>
-    </div><!-- Breaking News Section End -->
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div><!-- Breaking News Section End -->--}}
 
     <!-- Featured Above adds Start -->
     @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
-        <div class="section">
+        <div class="section mt-20">
             <div class="container">
                 @darpanloop(getHomepageBanner('home-above-featured-post',0,1) as $banner)
                 <div class="header-banner">
                     <div class="col-12 post-container featured">
-                        <a href="{{@$banner->url}}" class="post-middle-banner">
+                        <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
                             <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
