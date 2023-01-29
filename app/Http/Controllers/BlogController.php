@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlogCreateRequest;
-use App\Http\Requests\BlogUpdateRequest;
-
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;

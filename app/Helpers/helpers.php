@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Menu;
 use App\Models\MenuItem;
+use Carbon\Carbon;
 
 if (!function_exists('getNepaliMonth')) {
     $selected_month;
@@ -311,5 +312,23 @@ if (! function_exists('getVimeoThumbnail')) {
         //return $arr_vimeo[0]['thumbnail_small']; // returns small thumbnail
         return $arr_vimeo[0]['thumbnail_medium']; // returns medium thumbnail
         // return $arr_vimeo[0]['thumbnail_large']; // returns large thumbnail
+    }
+}
+
+if (! function_exists('getNepaliTodayDate')) {
+    /**
+     * returns current nepali date.
+     *
+     */
+    function getNepaliTodayDate()
+    {
+
+        $year    = Carbon::now('Asia/Kathmandu')->format('Y');
+        $month   = Carbon::now('Asia/Kathmandu')->format('m');
+        $day     = Carbon::now('Asia/Kathmandu')->format('d');
+        $time    = Carbon::now('Asia/Kathmandu')->format('H:i');
+        $nepali  = Bsdate::convert_to_nepali_number($time);
+        $date    = Bsdate::eng_to_nep($year,$month,$day);
+        return $date['date'].' '.$date['nmonth'].' '.$date['year'].', '.$nepali;
     }
 }

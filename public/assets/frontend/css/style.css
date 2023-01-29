@@ -1432,6 +1432,14 @@ blockquote.blockquote.blockquote-bg p {
   /*-- Header Links --*/
 }
 @media only screen and (max-width: 479px) {
+    .header-top-links .header-links li a.old-site {
+        padding: 0px;
+        background-color: transparent;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: #444444!important;
+    }
+
     .sticky-header {
         top: 54px!important;
     }

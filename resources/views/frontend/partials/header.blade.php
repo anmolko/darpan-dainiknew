@@ -74,9 +74,9 @@
                     <ul class="header-links">
                         <li class="disabled block d-none d-md-block" style="padding-right: 0px;margin-right: 0px;">
                             <a href="#">
-                                <i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a>
+                                <i class="fa fa-clock-o"></i> {{ getNepaliTodayDate() }}</a>
                         </li>
-                        <li class="block d-none d-md-block">
+                        <li class="block d-md-block">
                             <a class="old-site" href="https://sub.darpandainik.com/" target="_blank"><i class="fa fa-globe"></i> पुरानो वेबसाइट </a>
                         </li>
 {{--                        <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>--}}
