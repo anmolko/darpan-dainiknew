@@ -59,7 +59,7 @@
                     <!-- Header Links -->
                     <ul class="header-links">
                         <li class="disabled block d-none d-md-block" style="padding-right: 0px;margin-right: 0px;">
-                            <a href="#"><i class="fa fa-clock-o"></i> २०७९ कार्तिक २४ गते ०४:३२</a></li>
+                            <a href="#"><i class="fa fa-clock-o"></i> {{ getNepaliTodayDate() }}</a></li>
                         <li class="block d-md-block">
                             <a class="old-site" href="https://sub.darpandainik.com/" target="_blank"><i class="fa fa-globe"></i> पुरानो वेबसाइट </a>
                         </li>
