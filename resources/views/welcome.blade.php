@@ -36,7 +36,7 @@
 {{--                    <p>  {{ (@$news->excerpt !== null) ? @$news->excerpt: @$news->shortContent(60)}}</p>--}}
                     <div class="featured-post-img">
                         <a href="{{ url(@$news->url()) }}">
-                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="{{@$news->title}}" loading="lazy">
+                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="{{@$news->title}}" loading="lazy">
                         </a>
                     </div>
                     @endif
@@ -100,7 +100,8 @@
                                             <div class="post feature-post post-separator-border">
                                                 <div class="post-wrap">
                                                     <!-- Image -->
-                                                    <a class="image" href="{{ url(@$latest_news_feature->url()) }}"><img src="{{ asset('/images/blog/'.@$latest_news_feature->image) }}" alt="post"></a>
+                                                    <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
+                                                        <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
                                                     <!-- Content -->
                                                     <div class="content">
                                                         <!-- Title -->
@@ -115,7 +116,8 @@
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="{{ url(@$latest_news_feature->url()) }}"><img src="{{ asset('/images/blog/'.@$latest_news_feature->image) }}" alt="post"></a>
+                                                <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
+                                                    <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
@@ -148,7 +150,8 @@
                                         <div class="post-wrap">
 
                                             <!-- Image -->
-                                            <a class="image" href="{{ url(@$latest_news_feature->url()) }}"><img src="{{ asset('/images/blog/'.@$latest_news_feature->image) }}" alt="post"></a>
+                                            <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
+                                                <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
 
                                             <!-- Content -->
                                             <div class="content">
@@ -210,7 +213,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$popular->url()) }}">
-                                                    <img src="{{ asset('/images/blog/'.@$popular->image) }}" alt="post">
+                                                    <img src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
 
                                                 <!-- Content -->
@@ -289,7 +292,7 @@
                                             <!-- Image -->
 
                                             <div class="image">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </div>
 
                                             <!-- Content -->
@@ -317,7 +320,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
 
                                             <!-- Content -->
@@ -419,7 +422,7 @@
                                                     <!-- Image -->
 
                                                     <div class="image">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
                                                     <!-- Content -->
@@ -456,7 +459,7 @@
                                                         <!-- Image -->
 
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
 
                                                         <!-- Content -->
@@ -485,7 +488,7 @@
 
                                                         <!-- Image -->
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
                                                         <!-- Content -->
                                                         <div class="content">
@@ -702,7 +705,7 @@
 
                                                             <!-- Image -->
                                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                             </a>
                                                             <!-- Content -->
                                                             <div class="content">
@@ -886,7 +889,7 @@
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <div class="image"><img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post"></div>
+                                                <div class="image"><img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
                                                 <!-- Content -->
                                                 <div class="content">
@@ -909,7 +912,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$news->url()) }}">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}"alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
 
                                                 <!-- Content -->
@@ -995,7 +998,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$news->url()) }}">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1025,7 +1028,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
                                             <!-- Content -->
                                             <div class="content">
@@ -1089,7 +1092,7 @@
 
                                                 <!-- Image -->
                                                 <div class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </div>
 
                                                 <!-- Category -->
@@ -1122,7 +1125,7 @@
 
                                                 <!-- Image -->
                                                 <div class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </div>
 
 
@@ -1154,7 +1157,7 @@
 
                                                     <!-- Image -->
                                                     <div class="image">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
 
@@ -1215,7 +1218,7 @@
                                 <!-- Image -->
 
                                 <div class="image">
-                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                 </div>
 
                                 <!-- Content -->
@@ -1276,7 +1279,7 @@
                                                     <!-- Image -->
 
                                                     <div class="image">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
                                                     <!-- Content -->
@@ -1308,7 +1311,7 @@
 
                                                         <!-- Image -->
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
                                                         <!-- Content -->
                                                         <div class="content">
@@ -1397,7 +1400,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
 
                                                     <!-- Content -->
@@ -1428,7 +1431,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
                                                     <!-- Content -->
                                                     <div class="content">
@@ -1500,7 +1503,7 @@
 
                                             <!-- Image -->
                                             <a href="{{ url(@$news->url()) }}" class="image">
-                                                <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
 
                                             <!-- Content -->
@@ -1558,7 +1561,7 @@
 
                                                     <!-- Image -->
                                                     <a href="{{ url(@$news->url()) }}" class="image">
-                                                        <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
                                                     <!-- Content -->
                                                     <div class="content">
@@ -1623,7 +1626,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1683,7 +1686,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1743,7 +1746,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">

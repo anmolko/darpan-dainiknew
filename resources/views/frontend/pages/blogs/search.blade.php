@@ -46,7 +46,9 @@
                                         <div class="post-wrap">
 
                                             <!-- Image -->
-                                            <a class="image" href="{{ url(@$news->url()) }}"><img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post"></a>
+                                            <a class="image" href="{{ url(@$news->url()) }}">
+                                                <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                            </a>
 
                                             <!-- Content -->
                                             <div class="content">

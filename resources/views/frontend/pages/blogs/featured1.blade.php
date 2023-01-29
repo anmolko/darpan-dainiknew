@@ -15,7 +15,7 @@
 
                                                 <!-- Image -->
                                                 <div class="image">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </div>
 
                                                 <!-- Content -->

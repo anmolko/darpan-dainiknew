@@ -437,7 +437,7 @@
                                     </a>
                                 </div>
                             @endif
-                            <div class="image"><img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="post"></div>
+                            <div class="image"><img src="{{($singleBlog->image !== null) ?  asset('/images/blog/'.@$singleBlog->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
 
                             {{--                                <div class="meta fix">--}}
@@ -533,7 +533,7 @@
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <div class="image"><img src="{{ asset('/images/blog/'.@$related->image) }}" alt="post"></div>
+                                                <div class="image"><img src="{{($related->image !== null) ?  asset('/images/blog/'.@$related->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
                                                 <!-- Content -->
                                                 <div class="content">
@@ -562,75 +562,75 @@
 
 
                 <!-- comments -->
-                    <div class="post-block-wrapper mb-50">
+{{--                    <div class="post-block-wrapper mb-50">--}}
 
-                            <!-- Post Block Head Start -->
-                            <div class="head">
+{{--                            <!-- Post Block Head Start -->--}}
+{{--                            <div class="head">--}}
 
-                                <!-- Title -->
-                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>
-
-
-                                <div class="meta fix float-end">
-                                    <a class="meta-item author">
-                                        <img class="avatar rounded-circle" style="height: 40px;"
-                                             src="<?php if(@Auth::user()->image && str_contains(@Auth::user()->image, 'https')){?>
-                                             {{@Auth::user()->image}}<?php }else{ if(@Auth::user()->image){?>{{asset('/images/user'.@Auth::user()->image)}}<?php }else{?>{{asset('assets/backend/images/default.png')}}<?php }}?>" alt="{{ @Auth::user()->name }}" />
-
-                                         {{ ucwords(@Auth::user()->name) }}</a>
+{{--                                <!-- Title -->--}}
+{{--                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>--}}
 
 
-                                </div>
-                            </div><!-- Post Block Head End -->
+{{--                                <div class="meta fix float-end">--}}
+{{--                                    <a class="meta-item author">--}}
+{{--                                        <img class="avatar rounded-circle" style="height: 40px;"--}}
+{{--                                             src="<?php if(@Auth::user()->image && str_contains(@Auth::user()->image, 'https')){?>--}}
+{{--                                             {{@Auth::user()->image}}<?php }else{ if(@Auth::user()->image){?>{{asset('/images/user'.@Auth::user()->image)}}<?php }else{?>{{asset('assets/backend/images/default.png')}}<?php }}?>" alt="{{ @Auth::user()->name }}" />--}}
 
-                            <!-- Post Block Body Start -->
-                            <div class="body">
-
-                                <div class="post-comment-form">
-                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')
-                                        @include('frontend.pages.blogs.comments')
-                                    @else
-                                        <div class="block-wrap">
-
-                                            <!-- google	 -->
-                                            <div>
-                                                <a class="btn-google" href="{{route('google.redirect')}}">
-                                                    <div class="google-content">
-                                                        <div class="logo">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
-                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
-                                                            </svg>
-                                                        </div>
-                                                        <p>Sign in with Google</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <!-- facebook	 -->
-                                            <div>
-                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">
-                                                    <div class="fb-content">
-                                                        <div class="logo">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1">
-                                                                <path fill="#FFFFFF" d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z"/>
-                                                                <path fill="#4267b2" d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z"/>
-                                                            </svg>
-                                                        </div>
-                                                        <p>Sign in with Facebook</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
+{{--                                         {{ ucwords(@Auth::user()->name) }}</a>--}}
 
 
-                                    @endif
+{{--                                </div>--}}
+{{--                            </div><!-- Post Block Head End -->--}}
 
-                                </div>
+{{--                            <!-- Post Block Body Start -->--}}
+{{--                            <div class="body">--}}
 
-                            </div><!-- Post Block Body End -->
+{{--                                <div class="post-comment-form">--}}
+{{--                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')--}}
+{{--                                        @include('frontend.pages.blogs.comments')--}}
+{{--                                    @else--}}
+{{--                                        <div class="block-wrap">--}}
 
-                        </div><!-- Post Block Wrapper End -->
+{{--                                            <!-- google	 -->--}}
+{{--                                            <div>--}}
+{{--                                                <a class="btn-google" href="{{route('google.redirect')}}">--}}
+{{--                                                    <div class="google-content">--}}
+{{--                                                        <div class="logo">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">--}}
+{{--                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </div>--}}
+{{--                                                        <p>Sign in with Google</p>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+
+{{--                                            <!-- facebook	 -->--}}
+{{--                                            <div>--}}
+{{--                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">--}}
+{{--                                                    <div class="fb-content">--}}
+{{--                                                        <div class="logo">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1">--}}
+{{--                                                                <path fill="#FFFFFF" d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z"/>--}}
+{{--                                                                <path fill="#4267b2" d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z"/>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </div>--}}
+{{--                                                        <p>Sign in with Facebook</p>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+
+{{--                                        </div>--}}
+
+
+{{--                                    @endif--}}
+
+{{--                                </div>--}}
+
+{{--                            </div><!-- Post Block Body End -->--}}
+
+{{--                        </div><!-- Post Block Wrapper End -->--}}
 
                     <div class="row ">
 
@@ -658,7 +658,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$news->url()) }}">
-                                                    <img src="{{ asset('/images/blog/'.@$news->image) }}" alt="post">
+                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
 
                                                 <!-- Content -->
@@ -738,7 +738,7 @@
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali() }}</span>
                                                         </div>
-                                                        <img src="{{ asset('/images/blog/'.@$latest->image) }}" alt="post">
+                                                        <img src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
 
                                                     </a>
 
@@ -768,7 +768,7 @@
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
                                                         </div>
-                                                        <img src="{{ asset('/images/blog/'.@$popular->image) }}" alt="post">
+                                                        <img src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
 
                                                     </a>
 
