@@ -33,7 +33,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->get();
+        $blogs = Blog::withTotalVisitCount()->orderBy('created_at', 'desc')->get();
         return view('backend.blog.index',compact('blogs'));
     }
 

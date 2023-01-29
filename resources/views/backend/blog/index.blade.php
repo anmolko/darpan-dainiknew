@@ -16,6 +16,14 @@
               font-family: "Mukta", "Khand", "Glegoo", sans-serif;
               font-size: 16px;
           }
+          .custom-height{
+              height: 5em;
+              width: 8em;
+          }
+          .page-views{
+              font-size: 14px;
+              text-align: center;
+          }
     </style>
 @endsection
 @section('content')
@@ -87,7 +95,8 @@
                                             @darpanloop($blogs as $blog)
                                                 <tr id="blog-individual-{{@$blog->id}}">
                                                     <td>
-                                                        <img src="{{asset('/images/blog/'.@$blog->image)}}" alt="{{@$blog->slug}}" class="figure-img rounded-circle avatar-lg">
+                                                        <img src="{{  ($blog->image !== null) ?  asset('/images/blog/'.@$blog->image) : asset('assets/backend/images/darpan_dainik.png')}}"
+                                                             alt="{{@$blog->slug}}" class="figure-img rounded-circle {{  ($blog->image !== null) ? "avatar-lg":"custom-height"}}">
                                                     </td>
                                                     <td>
                                                      <span class="title"> {{ ucwords( @$blog->title) }} </span>
@@ -112,6 +121,7 @@
                                                         @endforeach
                                                     </td>
                                                     <td>
+                                                        <p class="page-views"> Views:  {{$blog->visit_count_total}} </p>
                                                         <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">
                                                             <button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                                             {{ucwords(@$blog->status)}}
@@ -128,16 +138,11 @@
                                                     <td >
                                                         <div class="row">
 
-                                                            <div class="col text-center dropdown">
-                                                                <a href="javascript:void(0);" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                    <i class="ri-more-fill fs-17"></i>
-                                                                </a>
-                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
-                                                                    <li><a class="dropdown-item" href="{{ url($blog->url()) }}" target="_blank"><i class=" ri-eye-line align-middle"></i> Frontend View </a></li>
+                                                            <div class="btn-group-vertical gap-2 mt-4 mt-sm-0 fs-18">
+                                                                <a class="btn btn-outline-primary btn-icon waves-effect waves-light" href="{{ url($blog->url()) }}" target="_blank"><i class="ri-eye-line"></i></a>
+                                                                <a class="btn btn-outline-success btn-icon waves-effect waves-light" href="{{route('blog.edit',$blog->id)}}"><i class="ri-pencil-fill"></i></a>
+                                                                <a class="btn btn-outline-danger btn-icon waves-effect waves-light cs-blog-remove" cs-delete-route="{{route('blog.destroy',$blog->id)}}"><i class="ri-delete-bin-6-line"></i></a>
 
-                                                                    <li><a class="dropdown-item" href="{{route('blog.edit',$blog->id)}}"><i class="ri-pencil-fill me-2 align-middle"></i>Edit</a></li>
-                                                                    <li><a class="dropdown-item cs-blog-remove" cs-delete-route="{{route('blog.destroy',$blog->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>
-                                                                </ul>
                                                             </div>
                                                         </div>
 
