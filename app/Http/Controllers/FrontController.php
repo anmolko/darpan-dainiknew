@@ -207,7 +207,7 @@ class FrontController extends Controller
     }
 
     public function blogSingle($year,$month,$slug){
-        $singleBlog = $this->blog->where('numeric_slug', $slug)->first();
+        $singleBlog = $this->blog->with('')->where('numeric_slug', $slug)->first();
 
         if (!$singleBlog) {
             return abort(404);
@@ -289,5 +289,9 @@ class FrontController extends Controller
         }else{
             return redirect()->intended();
         }
+    }
+
+    public function removeFacebookUser(Request $request){
+
     }
 }

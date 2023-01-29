@@ -27,6 +27,337 @@
             top: 4px!important;
         }
 
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+        .block {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            display: block;
+        }
+        .block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .block-header .title {
+            display: flex;
+            align-items: flex-start;
+        }
+        .block-header .title .tag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+            background: #f7f7f7;
+            color: #1c1c1c;
+            text-align: center;
+            padding: 0 4px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 16px;
+            border: 1px solid #e8e8e8;
+            border-radius: 96px;
+        }
+
+        .writing {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            padding: 12px;
+        }
+        .writing .textarea {
+            width: 100%;
+            font-family: "Inter";
+            color: #585757;
+            height: 50px;
+            overflow-y: auto;
+            appearance: none;
+            border: 0;
+            outline: 0;
+            resize: none;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .writing:focus-within {
+            border: 1px solid #0085ff;
+            box-shadow: 0px 0px 2px 2px rgba(0, 133, 255, 0.15);
+        }
+        .writing .footer {
+            margin-top: 12px;
+            padding-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e8e8e8;
+        }
+        .writing .footer .text-format {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comment {
+            display: grid;
+            gap: 14px;
+        }
+        .comment .user-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment .user-banner .user {
+            gap: 8px;
+            align-items: center;
+            display: flex;
+        }
+        .comment .user-banner .user .avatar {
+            height: 45px;
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            position: relative;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+        }
+        .comment .user-banner .user .avatar img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+        .comment .user-banner .user .avatar .stat {
+            display: flex;
+            position: absolute;
+            right: -2px;
+            bottom: -2px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            z-index: 9;
+            border: 2px solid #ffffff;
+            border-radius: 100px;
+        }
+        .comment .user-banner .user .avatar .stat.green {
+            background: #00ba34;
+        }
+        .comment .user-banner .user .avatar .stat.grey {
+            background: #969696;
+        }
+        .comment .footer {
+            gap: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .comment .footer .reactions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .comment .footer .divider {
+            height: 12px;
+            width: 1px;
+            background: #e8e8e8;
+        }
+        .comment:not(.comment:first-child) {
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .comment + .comment {
+            padding-top: 12px;
+        }
+        .comment.reply .user-banner,
+        .comment.reply .content,
+        .comment.reply .footer {
+            margin-left: 32px;
+        }
+
+        .group-radio {
+            position: relative;
+            display: flex;
+            user-select: none;
+            align-items: stretch;
+        }
+        .group-radio .button-radio {
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.06);
+        }
+        .group-radio .button-radio label {
+            cursor: pointer;
+            padding: 4px 8px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            height: 28px;
+            align-items: center;
+            line-height: 28px;
+            transition: 0.2s ease;
+        }
+        .group-radio .button-radio:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-left: 1px solid #e8e8e8;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .group-radio .button-radio:last-child {
+            border-top-right-radius: 8px;
+            border-right: 1px solid #e8e8e8;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            border-bottom-right-radius: 8px;
+        }
+        .group-radio .button-radio input[type=radio] {
+            display: none;
+        }
+        .group-radio .button-radio input[type=radio]:checked + label {
+            background: #f7f7f7;
+        }
+        .group-radio .divider {
+            width: 1px;
+            background: #e8e8e8;
+        }
+
+        .btn {
+            appearance: none;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            display: flex;
+            font: inherit;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #1c1c1c;
+            transition: 0.2s ease;
+            outline: none;
+        }
+        .btn i {
+            color: #969696;
+            font-size: 18px;
+            transition: 0.15s ease-in-out;
+        }
+        .btn.primary {
+            min-width: 64px;
+            padding: 8px 12px;
+            height: 40px;
+            color: #fff;
+            display: inline-flex;
+            background: #0d47a2;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+        .btn.primary:hover {
+            background: #339dff;
+        }
+        .btn:hover i {
+            opacity: 0.7;
+        }
+        .btn img {
+            max-width: 18px;
+            height: auto;
+        }
+        .user h5{
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn.react {
+            padding: 4px 8px 4px 4px;
+            background: #f7f7f7;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            gap: 4px;
+        }
+        .btn.react:hover {
+            background-color: #eee;
+        }
+        .btn.dropdown {
+            display: flex;
+            cursor: pointer;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: 26px;
+            height: 26px;
+        }
+        .btn.dropdown:hover {
+            background-color: #eee;
+        }
+
+        p {
+            line-height: 24px;
+        }
+        p a.tagged-user {
+            display: inline-flex;
+            padding: 2px 8px;
+            background: #e5f3ff;
+            border-radius: 256px;
+            color: #0085ff;
+        }
+
+        .is-mute {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 20px;
+            color: #969696;
+        }
+
+
+        .load {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .load span {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 20px;
+            color: #969696;
+        }
+        .load span i {
+            margin-right: 6px;
+        }
+
+        .group-button {
+            display: flex;
+            gap: 16px;
+        }
+        .comment .content p {
+            font-size: 18px;
+            line-height: 28px;
+            color: #6a6a6a;
+            text-align: justify;
+        }
+
+        .replybutton{
+            font-size: 14px;
+            display: inline-block;
+            background-color: transparent;
+            line-height: 28px;
+            transition: all .3s ease;
+            border: none;
+            padding: 0px;
+        }
+        .btn.secondary{
+            min-width: 64px;
+            padding: 8px 12px;
+            height: 40px;
+            color: #fff;
+            display: inline-flex;
+            background: #f05555;
+            box-shadow: 0px 1px 3px rgb(0 0 0 / 10%), 0px 2px 1px rgb(0 0 0 / 6%), 0px 1px 1px rgb(0 0 0 / 8%);
+            border-radius: 8px;
+        }
 
     </style>
 @endsection
@@ -179,25 +510,6 @@
                     </div>
 
 
-{{--                <!--@if(@$previous !== null || @$next !== null)-->--}}
-{{--                    <!-- Previous & Next Post Start -->--}}
-{{--                    <!--<div class="post-nav mb-50">-->--}}
-{{--                <!--    @if(@$previous !== null)-->--}}
-{{--                <!--        <a href="#" class="prev-post" style="border-right: {{ (@$next !== null) ?  '1px solid #f1f1f1':"none" }}   ">-->--}}
-{{--                    <!--            <span>अघिल्लो पोस्ट</span>-->--}}
-{{--                <!--            {{@$previous->title}}</a>-->--}}
-{{--                    <!--    @endif-->--}}
-{{--                <!--    @if(@$next !== null)-->--}}
-{{--                    <!--        <a href="#" class="next-post">-->--}}
-{{--                    <!--        <span>अर्को पोस्ट</span>-->--}}
-{{--                <!--        {{@$next->title}}</a>-->--}}
-{{--                    <!--    @endif-->--}}
-{{--                    <!--</div><!-- Previous & Next Post End -->-->--}}
-{{--                    <!--@endif-->--}}
-
-
-
-
                 @if(count(@$singleBlog->relatedPostsByCategory())>0)
                     <!-- Post Block Wrapper Start -->
                         <div class="post-block-wrapper mb-50">
@@ -250,94 +562,76 @@
 
 
                 <!-- comments -->
-                {{--                    <div class="post-block-wrapper mb-50">--}}
+                    <div class="post-block-wrapper mb-50">
 
-                {{--                            <!-- Post Block Head Start -->--}}
-                {{--                            <div class="head">--}}
+                            <!-- Post Block Head Start -->
+                            <div class="head">
 
-                {{--                                <!-- Title -->--}}
-                {{--                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>--}}
-
-                {{--                            </div><!-- Post Block Head End -->--}}
-
-                {{--                            <!-- Post Block Body Start -->--}}
-                {{--                            <div class="body">--}}
-
-                {{--                                <div class="post-comment-form">--}}
-                {{--                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')--}}
-                {{--                                        <form action="#" class="row">--}}
-
-                {{--                                            <div class="col-md-6 col-12 mb-20">--}}
-                {{--                                                <label for="name">Name <sup>*</sup></label>--}}
-                {{--                                                <input type="text" id="name">--}}
-                {{--                                            </div>--}}
-
-                {{--                                            <div class="col-md-6 col-12 mb-20">--}}
-                {{--                                                <label for="email">Email <sup>*</sup></label>--}}
-                {{--                                                <input type="text" id="email">--}}
-                {{--                                            </div>--}}
-
-                {{--                                            <div class="col-12 mb-20">--}}
-                {{--                                                <label for="website">Website <sup>*</sup></label>--}}
-                {{--                                                <input type="text" id="website">--}}
-                {{--                                            </div>--}}
-
-                {{--                                            <div class="col-12 mb-20">--}}
-                {{--                                                <label for="message">Message <sup>*</sup></label>--}}
-                {{--                                                <textarea id="message"></textarea>--}}
-                {{--                                            </div>--}}
-
-                {{--                                            <div class="col-12">--}}
-                {{--                                                <input type="submit" value="Submit Comment">--}}
-                {{--                                            </div>--}}
-
-                {{--                                        </form>--}}
-                {{--                                    @else--}}
-                {{--                                        <div class="block-wrap">--}}
-
-                {{--                                            <!-- google	 -->--}}
-                {{--                                            <div>--}}
-                {{--                                                <a class="btn-google" href="{{route('google.redirect')}}">--}}
-                {{--                                                    <div class="google-content">--}}
-                {{--                                                        <div class="logo">--}}
-                {{--                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">--}}
-                {{--                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>--}}
-                {{--                                                            </svg>--}}
-                {{--                                                        </div>--}}
-                {{--                                                        <p>Sign in with Google</p>--}}
-                {{--                                                    </div>--}}
-                {{--                                                </a>--}}
-                {{--                                            </div>--}}
-
-                {{--                                            <!-- facebook	 -->--}}
-                {{--                                            <div>--}}
-                {{--                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">--}}
-                {{--                                                    <div class="fb-content">--}}
-                {{--                                                        <div class="logo">--}}
-                {{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1">--}}
-                {{--                                                                <path fill="#FFFFFF" d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z"/>--}}
-                {{--                                                                <path fill="#4267b2" d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z"/>--}}
-                {{--                                                            </svg>--}}
-                {{--                                                        </div>--}}
-                {{--                                                        <p>Sign in with Facebook</p>--}}
-                {{--                                                    </div>--}}
-                {{--                                                </a>--}}
-                {{--                                            </div>--}}
-
-                {{--                                        </div>--}}
+                                <!-- Title -->
+                                <h4 class="title">प्रतिक्रिया गर्नुहोस्</h4>
 
 
-                {{--                                    @endif--}}
+                                <div class="meta fix float-end">
+                                    <a class="meta-item author">
+                                        <img class="avatar rounded-circle" style="height: 40px;"
+                                             src="<?php if(@Auth::user()->image && str_contains(@Auth::user()->image, 'https')){?>
+                                             {{@Auth::user()->image}}<?php }else{ if(@Auth::user()->image){?>{{asset('/images/user'.@Auth::user()->image)}}<?php }else{?>{{asset('assets/backend/images/default.png')}}<?php }}?>" alt="{{ @Auth::user()->name }}" />
 
-                {{--                                </div>--}}
+                                         {{ ucwords(@Auth::user()->name) }}</a>
 
-                {{--                            </div><!-- Post Block Body End -->--}}
 
-                {{--                        </div><!-- Post Block Wrapper End -->--}}
+                                </div>
+                            </div><!-- Post Block Head End -->
 
-                <!-- End row Post Block -->
+                            <!-- Post Block Body Start -->
+                            <div class="body">
 
-                    <!-- End row Post Block -->
+                                <div class="post-comment-form">
+                                    @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')
+                                        @include('frontend.pages.blogs.comments')
+                                    @else
+                                        <div class="block-wrap">
+
+                                            <!-- google	 -->
+                                            <div>
+                                                <a class="btn-google" href="{{route('google.redirect')}}">
+                                                    <div class="google-content">
+                                                        <div class="logo">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+                                                                <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <p>Sign in with Google</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <!-- facebook	 -->
+                                            <div>
+                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">
+                                                    <div class="fb-content">
+                                                        <div class="logo">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1">
+                                                                <path fill="#FFFFFF" d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z"/>
+                                                                <path fill="#4267b2" d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <p>Sign in with Facebook</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                        </div>
+
+
+                                    @endif
+
+                                </div>
+
+                            </div><!-- Post Block Body End -->
+
+                        </div><!-- Post Block Wrapper End -->
+
                     <div class="row ">
 
                         <div class="col-lg-12 col-12 mb-50">
@@ -389,9 +683,6 @@
 
                         </div>
                     </div><!-- World Post Row End -->
-
-
-
                 </div>
 
 
@@ -588,6 +879,21 @@
                 var banner2 = '{!! getMiddleBanner() !!}';
                 $( ".editor-content p:nth-child(4)").after().append(banner2);
             }
+
+        });
+    </script>
+    <script>
+        $(function() {
+
+            $('.replybutton').on('click', function() {
+                $('.replybox').hide();
+                var commentboxId= $(this).attr('data-commentbox');
+                $('#'+commentboxId).toggle();
+            });
+
+            $('.cancelbutton').on('click', function() {
+                $('.replybox').hide();
+            });
 
         });
     </script>

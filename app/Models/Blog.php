@@ -130,4 +130,8 @@ class Blog extends Model implements CanVisit
     {
         return Ads::where('placement','post-end')->where('status','active')->first();
     }
+
+    public function comments(){
+        return $this->hasMany('App\Models\Comment')->whereNull('parent_id');
+    }
 }
