@@ -17,8 +17,8 @@
               font-size: 16px;
           }
           .custom-height{
-              height: 5em;
-              width: 8em;
+              height: 6em;
+              width: 6em;
           }
           .page-views{
               font-size: 14px;
