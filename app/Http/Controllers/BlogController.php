@@ -44,6 +44,7 @@ class BlogController extends Controller
      */
     public function create()
     {
+        Session::put('url.intended', url()->previous());
         $categories = Category::whereNull('parent_category')->orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
         return view('backend.blog.create',compact('categories','tags'));
@@ -57,7 +58,6 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-
         $end     = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_to)->format('Y-m-d'):null;
         $start   = ($request->featured_to !== null) ? Carbon::createFromFormat('d/m/Y', $request->featured_from)->format('Y-m-d'):null;
         $data=[
@@ -108,8 +108,9 @@ class BlogController extends Controller
         else{
             Session::flash('error','Your post Creation Failed');
         }
+        return redirect()->intended('blog.index');
 
-        return redirect()->route('blog.index');
+//        return redirect()->route('blog.index');
     }
 
     /**
@@ -131,6 +132,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
+        Session::put('url.intended', url()->previous());
         $edit       = Blog::find($id);
         $categories = Category::whereNull('parent_category')->orderBy('name', 'asc')->get();
         $tags       = Tag::orderBy('name', 'asc')->get();
@@ -197,7 +199,9 @@ class BlogController extends Controller
         else{
             Session::flash('error','Something Went Wrong. Your post could not be Updated');
         }
-        return redirect()->route('blog.index');
+//        return redirect()->route('blog.index');
+        return redirect()->intended('blog.index');
+
     }
 
     /**
