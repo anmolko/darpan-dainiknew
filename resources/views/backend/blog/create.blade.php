@@ -106,7 +106,7 @@
                                     <textarea class="mukta form-control" id="meta-excerpt-input" maxlength="260" name="excerpt" rows="6"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label>Blog Description</label>
+                                    <label>Post Description  <span class="text-danger">*</span></label>
 
                                     <textarea class="form-control snow-editor" id="ckeditor-classic" name="description" rows="3" required></textarea>
                                     <div class="invalid-tooltip">

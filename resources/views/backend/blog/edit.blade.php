@@ -115,7 +115,7 @@
                                     <textarea class="mukta form-control" id="meta-excerpt-input" maxlength="260" name="excerpt" rows="6">{{@$edit->excerpt}}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label>Blog Description</label>
+                                    <label>Post Description  <span class="text-danger">*</span></label>
 
                                     <textarea class="mukta form-control" id="ckeditor-classic" name="description" rows="3" required>{{@$edit->description}}</textarea>
                                     <div class="invalid-tooltip">
