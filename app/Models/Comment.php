@@ -10,17 +10,48 @@ class Comment extends Model
     use HasFactory;
     protected $table ='comments';
     protected $fillable =['id','user_id','blog_id','parent_id','comment'];
-
+    private $nepaliArray = [
+        '0' => '०',
+        '1' => '१',
+        '2' => '२',
+        '3' => '३',
+        '4' => '४',
+        '5' => '५',
+        '6' => '६',
+        '7' => '७',
+        '8' => '८',
+        '9' => '९',
+        'minutes' => 'मिनेट',
+        'minute' => 'मिनेट',
+        'week' => 'हप्ता',
+        'weeks' => 'हप्ता',
+        'year' => 'वर्ष',
+        'years' => 'वर्ष',
+        'hours' => 'घन्टा',
+        'hour' => 'घन्टा',
+        'days' => 'दिन',
+        'day' => 'दिन',
+        'ago' => 'अगाडि',
+    ];
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User','user_id','id' );
+    }
+
+    public function toNepaliStrings($string){
+        return strtr($string, $this->nepaliArray);
+    }
+
+    public function getCommentedAgoinNepali(){
+        $string = $this->created_at->diffForHumans();
+        return $this->toNepaliStrings($this->created_at->diffForHumans());
     }
 
     public function post(){
-        return $this->belongsTo('App\Models\Blog');
+        return $this->belongsTo('App\Models\Blog')->orderBy('created_at','DESC');
     }
 
     public function replies(){
-        return $this->hasMany('App\Models\Comment','parent_id');
+        return $this->hasMany('App\Models\Comment','parent_id')->orderBy('created_at','DESC');
     }
 
 }

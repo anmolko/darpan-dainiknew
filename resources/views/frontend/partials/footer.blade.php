@@ -4,7 +4,7 @@
         <div class="row" style="    padding: 0 30px;">
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-5 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-5 col-md-6 col-12">
 
                 <!-- Title -->
                 <h4 class="widget-title">हाम्रो बारे</h4>
@@ -22,7 +22,7 @@
 
 
             <!-- Footer Widget Start -->
-            <div class="footer-widget col-xl-2 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-2 col-md-6 col-12">
                 @if(@$footer_nav_data1 !== null)
                     <!-- Title -->
                     <h4 class="widget-title"> @if(@$footer_nav_title1 !== null) {{@$footer_nav_title1}} @else समाचार @endif </h4>
@@ -99,21 +99,36 @@
 
             </div><!-- Footer Widget End -->
 
-            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
+            <div class="footer-widget col-xl-3 col-md-6 col-12">
                 <div class="footer-logo mb-25">
                     <a href="/"><img src="<?php if(@$setting_data->logo){?>{{asset('/images/settings/'.@$setting_data->logo)}}<?php } ?>" alt="Logo"></a>
                 </div>
                 <div class="content">
                     <ol class="footer-contact">
-                        <li><i class="fa fa-tty"></i>सुचना बिभाग दर्ता नं: <b>{{ @$setting_data->broadcasting_registration }} </b></li>
-                        <li><i class="fa fa-building-o"></i>कम्पनी दर्ता नं: <b>{{ @$setting_data->company_registration }} </b></li>
-
-                        <li><i class="fa fa-hand-o-right"></i>अध्यक्ष: <b>{{ @$setting_data->chairman }} </b></li>
-                        <li><i class="fa fa-hand-o-right"></i>सञ्चालक: <b>{{ @$setting_data->operator }} </b></li>
-                        <li><i class="fa fa-hand-o-right"></i>सम्पादक: <b>{{ @$setting_data->editor }} </b></li>
-                        <li><a href="mailto:@if(!empty(@$setting_data->news_email)) {{@$setting_data->news_email}} @else example@gmail.com @endif"><i class="fa fa fa-send-o"></i><b>{{ @$setting_data->news_email }} </b></a></li>
-                        <li><a href="tel:@if(!empty(@$setting_data->ad_number)) {{@$setting_data->ad_number}} @else +9771238798 @endif"><i class="fa fa fa-bullhorn"></i>Ad: <b>{{ @$setting_data->ad_number }} </b></a></li>
-                        <li><a href="mailto:@if(!empty(@$setting_data->ad_email)) {{@$setting_data->ad_email}} @else example@gmail.com @endif"><i class="fa fa fa-keyboard-o"></i> <b>{{ @$setting_data->ad_email }} </b></a></li>
+                        @if(@$setting_data->broadcasting_registration !== null)
+                            <li><i class="fa fa-tty"></i>सुचना बिभाग दर्ता नं: <b>{{ @$setting_data->broadcasting_registration }} </b></li>
+                        @endif
+                        @if(@$setting_data->company_registration !== null)
+                            <li><i class="fa fa-building-o"></i>कम्पनी दर्ता नं: <b>{{ @$setting_data->company_registration }} </b></li>
+                        @endif
+                        @if(@$setting_data->chairman !== null)
+                            <li><i class="fa fa-hand-o-right"></i>अध्यक्ष: <b>{{ @$setting_data->chairman }} </b></li>
+                        @endif
+                        @if(@$setting_data->operator !== null)
+                            <li><i class="fa fa-hand-o-right"></i>सञ्चालक: <b>{{ @$setting_data->operator }} </b></li>
+                        @endif
+                        @if(@$setting_data->editor !== null)
+                            <li><i class="fa fa-hand-o-right"></i>सम्पादक: <b>{{ @$setting_data->editor }} </b></li>
+                        @endif
+                        @if(@$setting_data->news_email !== null)
+                            <li><a href="mailto:@if(!empty(@$setting_data->news_email)) {{@$setting_data->news_email}} @else example@gmail.com @endif"><i class="fa fa fa-send-o"></i><b>{{ @$setting_data->news_email }} </b></a></li>
+                        @endif
+                        @if(@$setting_data->ad_number !== null)
+                            <li><a href="tel:@if(!empty(@$setting_data->ad_number)) {{@$setting_data->ad_number}} @else +9771238798 @endif"><i class="fa fa fa-bullhorn"></i>Ad: <b>{{ @$setting_data->ad_number }} </b></a></li>
+                        @endif
+                        @if(@$setting_data->ad_email !== null)
+                            <li><a href="mailto:@if(!empty(@$setting_data->ad_email)) {{@$setting_data->ad_email}} @else example@gmail.com @endif"><i class="fa fa fa-keyboard-o"></i> <b>{{ @$setting_data->ad_email }} </b></a></li>
+                        @endif
                     </ol>
 
                 </div>

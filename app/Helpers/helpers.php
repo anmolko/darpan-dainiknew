@@ -332,3 +332,23 @@ if (! function_exists('getNepaliTodayDate')) {
         return $date['date'].' '.$date['nmonth'].' '.$date['year'].', '.$nepali;
     }
 }
+
+if (! function_exists('getFirstLetters')) {
+    /**
+     * returns acronym of a given word
+     *
+     * @param  string  $word
+     * @return string
+     */
+    function getFirstLetters($word)
+    {
+        $words = explode(" ", $word);
+        $acronym = "";
+        foreach ($words as $w) {
+            $acronym .= mb_substr($w, 0, 1);
+        }
+        return $acronym;
+    }
+}
+
+

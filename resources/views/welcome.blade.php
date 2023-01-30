@@ -1060,7 +1060,7 @@
                                     <!-- Hero Post Slider Start -->
                                     <div class="post-carousel-1">
 
-                                        @darpanloop(getCategoryRelatedPost(6,0,4) as $news)
+                                        @darpanloop(getCategoryRelatedPost(6,0,2) as $news)
 
                                         <!-- Overlay Post Start -->
                                         <div class="entertainment post post-large post-overlay hero-post">
@@ -1095,7 +1095,7 @@
 
                                 <div class="order-lg-1 col-lg-3 col-12">
                                     <div class="row row-1">
-                                        @darpanloop(getCategoryRelatedPost(6,4,2) as $news)
+                                        @darpanloop(getCategoryRelatedPost(6,2,2) as $news)
                                             <div class="entertainment post post-overlay hero-post col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 
@@ -1127,7 +1127,7 @@
                                 <div class="order-lg-3 col-lg-3 col-12">
                                     <div class="row row-1">
 
-                                        @darpanloop(getCategoryRelatedPost(6,6,2) as $news)
+                                        @darpanloop(getCategoryRelatedPost(6,4,2) as $news)
                                             <div class="entertainment post post-overlay gradient-overlay-1 hero-post col-lg-12 col-md-6 col-12">
                                                 <div class="post-wrap">
 
@@ -1596,7 +1596,7 @@
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
 
-                                        @darpanloop(getCategoryRelatedPost('शिक्षा',0,6) as $news)
+                                        @darpanloop(getCategoryRelatedPost('शिक्षा',0,4) as $news)
                                         <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 
@@ -1656,7 +1656,7 @@
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
 
-                                        @darpanloop(getCategoryRelatedPost('स्वास्थ्य',0,6) as $news)
+                                        @darpanloop(getCategoryRelatedPost('स्वास्थ्य',0,4) as $news)
                                         <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 
@@ -1716,7 +1716,7 @@
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
 
-                                        @darpanloop(getCategoryRelatedPost('विश्व',0,6) as $news)
+                                        @darpanloop(getCategoryRelatedPost('विश्व',0,4) as $news)
                                         <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 

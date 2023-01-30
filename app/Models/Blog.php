@@ -132,6 +132,6 @@ class Blog extends Model implements CanVisit
     }
 
     public function comments(){
-        return $this->hasMany('App\Models\Comment')->whereNull('parent_id');
+        return $this->hasMany('App\Models\Comment')->whereNull('parent_id')->orderBy('created_at','DESC');
     }
 }

@@ -207,8 +207,7 @@ class FrontController extends Controller
     }
 
     public function blogSingle($year,$month,$slug){
-        $singleBlog = $this->blog->with('comments')->where('numeric_slug', $slug)->first();
-
+        $singleBlog = $this->blog->with('comments.replies','comments.replies.user','comments.user:id,name')->where('numeric_slug', $slug)->first();
         if (!$singleBlog) {
             return abort(404);
         }

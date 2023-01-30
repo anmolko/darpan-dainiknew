@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+//        $this->middleware('AdminMiddleware');
     }
 
     /**
@@ -29,6 +30,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->type != 'admin' || auth()->user()->type != 'general')
+        {
+           return redirect()->back();
+        }
         $allusers  = User::take(7)->get();
         $menus     = Menu::all()->count();
         $blog_cat  = Category::all()->count();

@@ -48,11 +48,20 @@ Route::get('category/{slug}', 'App\Http\Controllers\FrontController@blogCategori
 Route::get('/news', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
 
+//Blog
+Route::get('/comments', 'App\Http\Controllers\CommentController@index')->name('comments.index');
+Route::get('/comments/create', 'App\Http\Controllers\CommentController@create')->name('comments.create');
+Route::post('/comments', 'App\Http\Controllers\CommentController@store')->name('comments.store');
+Route::put('/comments/{comment}', 'App\Http\Controllers\CommentController@update')->name('comments.update');
+Route::delete('/comments/{comment}', 'App\Http\Controllers\CommentController@destroy')->name('comments.destroy');
+Route::get('/comments/{comment}/edit', 'App\Http\Controllers\CommentController@edit')->name('comments.edit');
+
+//End Blog
 
 Route::get('/privacy-policy', 'App\Http\Controllers\FrontController@privacy')->name('privacy.frontend');
 Route::get('/terms-of-service', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
 
-Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     //signed-in user routes
