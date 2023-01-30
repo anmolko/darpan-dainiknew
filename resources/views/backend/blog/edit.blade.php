@@ -1,8 +1,6 @@
 @extends('backend.layouts.master')
 @section('title', "Edit Blog")
 @section('css')
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
@@ -383,7 +381,8 @@
 {{--@include('backend.ckeditor')--}}
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+{{--<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>--}}
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
     <!-- Sweet Alerts js -->
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
@@ -408,7 +407,9 @@
             filebrowserImageBrowseUrl: '/auth/darpan-filemanager?type=Images',
             filebrowserImageUploadUrl: '/auth/darpan-filemanager/upload?type=Images&_token={{csrf_token()}}',
             filebrowserBrowseUrl: '/auth/darpan-filemanager?type=Files',
-            filebrowserUploadUrl: '/auth/darpan-filemanager/upload?type=Files&_token={{csrf_token()}}'
+            filebrowserUploadUrl: '/auth/darpan-filemanager/upload?type=Files&_token={{csrf_token()}}',
+            filebrowserWindowWidth: '640',
+            filebrowserWindowHeight: '480'
         };
         CKEDITOR.replace( 'ckeditor-classic', options );
 

@@ -378,11 +378,11 @@
 @endsection
 
 @section('js')
-{{--@include('backend.ckeditor')--}}
 <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-{{--<script src="{{asset('assets/backend/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>--}}
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+{{--<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>--}}
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
 <!-- Sweet Alerts js -->
 
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>

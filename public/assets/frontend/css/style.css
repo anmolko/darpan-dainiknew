@@ -5212,6 +5212,15 @@ blockquote.blockquote.blockquote-bg p {
     padding-left: 10px;
     padding-right: 10px;
   }
+    .editor-content img{
+        width: 300px!important;
+    }
+}
+@media only screen and (max-width: 320px) {
+
+    .editor-content img{
+        width: 250px!important;
+    }
 }
 .footer-widget .widget-title {
   font-weight: 600;
