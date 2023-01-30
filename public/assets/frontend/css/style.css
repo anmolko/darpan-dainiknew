@@ -2394,6 +2394,7 @@ blockquote.blockquote.blockquote-bg p {
   color: #0d47a2;
   font-size: 24px;
 }
+
 @media only screen and (max-width: 767px) {
   .post-block-wrapper .head .title {
     font-size: 22px;
@@ -2531,11 +2532,19 @@ blockquote.blockquote.blockquote-bg p {
   margin-right: 0;
 }
 .post-block-wrapper .head .post-block-tab-list > li > a {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   text-transform: capitalize;
   color: #2f3240;
 }
+
+.post-block-wrapper .head .post-block-tab-list > .title >  a {
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #0c47a3;
+}
+
 .post-block-wrapper .head .post-block-tab-list > li > a:hover {
   color: #00c8fa;
 }
@@ -5150,6 +5159,38 @@ blockquote.blockquote.blockquote-bg p {
     padding-left: 5px;
     padding-right: 5px;
   }
+}
+
+@media only screen and (max-width: 1024px) {
+    .post-block-wrapper .head .post-block-tab-list > li{
+        /*display: none;*/
+        margin-right: 20px;
+    }
+
+    .post .post-wrap .content .title {
+        font-size: 20px;
+    }
+    .post.post-small .post-wrap .content .title{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .post.post-small .post-wrap .content .title2{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .post .post-wrap .content .meta .meta-item:last-child{
+        line-height: 19px;
+        font-size: 14px;
+    }
+    .post.post-overlay .post-wrap .content .meta .meta-item{
+        display: none;
+    }
+
+    .entertainment .post-wrap .content .title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
 }
 
 /*-- Footer Widget --*/
