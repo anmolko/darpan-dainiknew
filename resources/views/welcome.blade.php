@@ -1369,7 +1369,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 col-12 mb-20">
-                                    @foreach(getCategoryRelatedPost(10,0,1) as $news)
+                                    @foreach(getCategoryRelatedPost('अन्तर्वार्ता',0,1) as $news)
 
                                             <div class="post sports-post post-separator-border">
                                                 <div class="post-wrap">
@@ -1401,7 +1401,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-12 mb-20">
-                                    @foreach(getCategoryRelatedPost(36,1,4) as $news)
+                                    @foreach(getCategoryRelatedPost('अन्तर्वार्ता',1,4) as $news)
                                             <div class="post post-small post-list sports-post post-separator-border">
                                                 <div class="post-wrap" style="padding-bottom: 26px;">
 
