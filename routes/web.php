@@ -36,7 +36,7 @@ Route::get('/categories', function () {
 
 Route::get('/contact-us', 'App\Http\Controllers\FrontController@contact')->name('contact');
 Route::post('/contact-us', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
-Route::get('/testimonial', 'App\Http\Controllers\FrontController@testimonial')->name('testimonial');
+//Route::get('/testimonial', 'App\Http\Controllers\FrontController@testimonial')->name('testimonial');
 
 
 Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
@@ -61,7 +61,7 @@ Route::get('/comments/{comment}/edit', 'App\Http\Controllers\CommentController@e
 Route::get('/privacy-policy', 'App\Http\Controllers\FrontController@privacy')->name('privacy.frontend');
 Route::get('/terms-of-service', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
 
-Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], function () {
+Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     //signed-in user routes
@@ -196,13 +196,13 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], f
 
     //teams
 
-//    Route::get('/teams', 'App\Http\Controllers\TeamController@index')->name('teams.index');
-//    Route::get('/teams/create', 'App\Http\Controllers\TeamController@create')->name('teams.create');
-//    Route::post('/teams', 'App\Http\Controllers\TeamController@store')->name('teams.store');
-//    Route::put('/teams/{teams}', 'App\Http\Controllers\TeamController@update')->name('teams.update');
-//    Route::delete('/teams/{teams}', 'App\Http\Controllers\TeamController@destroy')->name('teams.destroy');
-//    Route::get('/teams/{teams}/edit', 'App\Http\Controllers\TeamController@edit')->name('teams.edit');
-//    Route::post('/teams-sortable','App\Http\Controllers\TeamController@orderUpdate')->name('teams.order');
+    Route::get('/teams', 'App\Http\Controllers\TeamController@index')->name('teams.index');
+    Route::get('/teams/create', 'App\Http\Controllers\TeamController@create')->name('teams.create');
+    Route::post('/teams', 'App\Http\Controllers\TeamController@store')->name('teams.store');
+    Route::put('/teams/{teams}', 'App\Http\Controllers\TeamController@update')->name('teams.update');
+    Route::delete('/teams/{teams}', 'App\Http\Controllers\TeamController@destroy')->name('teams.destroy');
+    Route::get('/teams/{teams}/edit', 'App\Http\Controllers\TeamController@edit')->name('teams.edit');
+    Route::post('/teams-sortable','App\Http\Controllers\TeamController@orderUpdate')->name('teams.order');
 
     //End of teams
 
