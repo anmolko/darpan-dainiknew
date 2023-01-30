@@ -896,7 +896,7 @@
 
             $('.replybutton').on('click', function() {
                 $('.replybox').hide();
-                var commentboxId= $(this).attr('data-commentbox');
+                var commentboxId = $(this).attr('data-commentbox');
                 $('#'+commentboxId).toggle();
             });
 
@@ -905,34 +905,6 @@
             });
 
         });
-
-        // $("#send-comment").click(function(event){
-        //     event.preventDefault(); //prevent default action
-        //     var post_url       = $(this).attr("button-action"); //get form action url
-        //     var id             = $(this).attr("value"); //get form action url
-        //     var form_id        = '#blog-comment-add-form-'+id;
-        //     var form           = $(form_id)[0]; //get the form using ID
-        //     var form_data      = new FormData(form); //Creates new FormData object
-        //
-        //     $.ajax({
-        //         url : post_url,
-        //         type: 'post',
-        //         data : form_data,
-        //         contentType: false,
-        //         cache: false,
-        //         processData:false
-        //     }).done(function(response){
-        //         if (response=="successfully created" || response=="successfully updated"){
-        //             refreshComments(response);
-        //         }
-        //         else{
-        //
-        //         }
-        //     });
-        // });
-        //
-
-
 
 
 

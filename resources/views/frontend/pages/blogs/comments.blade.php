@@ -39,7 +39,7 @@
                 <div class="user">
                     <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
                         {{getFirstLetters($comment->user->name)}}
-                        <span class="stat green"></span>
+{{--                        <span class="stat green"></span>--}}
                     </div>
                     <h5>{{ $comment->user->name }}</h5>
                 </div>
@@ -50,26 +50,31 @@
                     {{@$comment->comment}}
                 </p>
             </div>
+
             <div class="footer">
                 <div class="reactions">
                     <button class="btn react"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/thumbs-up_1f44d.png" alt="">4</button>
                     <button class="btn react"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/angry-face-with-horns_1f47f.png" alt="">1</button>
                 </div>                <div class="divider"></div>
-                <button type="button" class="replybutton" data-commentbox="panel-{{@$comment->id}}">Reply</button>
+                <button type="button" class="replybutton" data-commentbox="panel-{{@$comment->id}}" data-userid="{{@$comment->id}}">Reply</button>
                 <div class="divider"></div>
                 <span class="is-mute">{{@$comment->getCommentedAgoinNepali()}}</span>
             </div>
+
             <div class="replybox writing" style="display:none" id="panel-{{@$comment->id}}">
-                <textarea cols="35" class="textarea" rows="8"></textarea><br/>
-                <div class="footer">
-                    <div class="group-button">
-
-                        <button class="btn primary">प्रतिक्रिया दिनुहोस्</button>
-                        <button class="cancelbutton btn secondary">Cancel</button>
-
+                {!! Form::open(['route' => 'comments.store','method'=>'post','class'=>'needs-validation','id'=>'slider-list-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+                    <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ ( Auth::user()->user_type == 'viewer') ? Auth::user()->id :1}}" readonly required>
+                    <input type="hidden" class="form-control" name="blog_id" id="blog_id" value="{{@$singleBlog->id}}" readonly required>
+                    <input type="hidden" class="form-control" name="parent_id" id="parent_id_{{@$comment->id}}" value="{{@$comment->id}}" readonly required>
+                    <textarea cols="35" name="comment" class="textarea" rows="8"></textarea><br/>
+                    <div class="footer">
+                        <div class="group-button">
+                            <button class="btn primary">प्रतिक्रिया दिनुहोस्</button>
+                            <button class="cancelbutton btn secondary">Cancel</button>
+                        </div>
                     </div>
+                {!! Form::close() !!}
 
-                </div>
             </div>
         </div>
         @if(count($comment->replies)>0)
@@ -79,14 +84,14 @@
                         <div class="user">
                             <div class="avatar">
                                 <img src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt="">
-                                <span class="stat green"></span>
+{{--                                <span class="stat green"></span>--}}
                             </div>
-                            <h5>Bessie Cooper</h5>
+                            <h5>{{ @$reply->user->name }}</h5>
                         </div>
                         <button class="btn dropdown"><i class="ri-more-line"></i></button>
                     </div>
                     <div class="content">
-                        <p><a href="#" class="tagged-user">@ {{ $comment->user->name }}</a>
+                        <p><a class="tagged-user">@ {{ $comment->user->name }}</a>
                         {{@$reply->comment}}
                         </p>
                     </div>
