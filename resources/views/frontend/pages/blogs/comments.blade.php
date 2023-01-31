@@ -53,8 +53,11 @@
 
             <div class="footer">
                 <div class="reactions">
-                    <button class="btn react"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/thumbs-up_1f44d.png" alt="">4</button>
-                    <button class="btn react"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/angry-face-with-horns_1f47f.png" alt="">1</button>
+                    <button class="btn react">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        4</button>
+                    <button class="btn react">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>1</button>
                 </div>                <div class="divider"></div>
                 <button type="button" class="replybutton" data-commentbox="panel-{{@$comment->id}}" data-userid="{{@$comment->id}}">Reply</button>
                 <div class="divider"></div>
@@ -98,7 +101,12 @@
                     <div class="footer">
                 <button class="btn"><i class="ri-emotion-line"></i></button>
                 <div class="reactions">
-                    <button class="btn react"><img src="https://cdn-0.emojis.wiki/emoji-pics/apple/smiling-face-with-heart-eyes-apple.png" alt="">2</button>
+                    <button class="btn react">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        2</button>
+                    <button class="btn react">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        2</button>
                 </div>
                 <div class="divider"></div>
                 <span class="is-mute">{{@$reply->getCommentedAgoinNepali()}}</span>

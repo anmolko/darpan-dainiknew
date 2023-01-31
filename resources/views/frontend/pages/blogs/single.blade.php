@@ -3,6 +3,7 @@
 @section('css')
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63d38be7e591ca001a314048&product=inline-share-buttons&source=platform" async="async"></script>
  <style>
+     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
         .custom-editor .media{
             display: block;
@@ -29,7 +30,6 @@
             top: 4px!important;
         }
 
-        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
         .comment-block {
             background: #fff;
