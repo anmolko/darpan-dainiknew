@@ -34,6 +34,13 @@ Route::get('/categories', function () {
     return redirect('/blog');
 });
 
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'App\Http\Controllers\SocialLoginController@dashboard')->name('front-user.dashboard');
+    Route::patch('user-edit/{id}', 'App\Http\Controllers\UserController@frontProfileUser')->name('update_user');
+    Route::get('/delete-account', 'App\Http\Controllers\UserController@customerDestroy')->name('customer.destroy');
+
+});
+
 Route::get('/contact-us', 'App\Http\Controllers\FrontController@contact')->name('contact');
 Route::post('/contact-us', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
 //Route::get('/testimonial', 'App\Http\Controllers\FrontController@testimonial')->name('testimonial');
@@ -61,7 +68,7 @@ Route::get('/comments/{comment}/edit', 'App\Http\Controllers\CommentController@e
 Route::get('/privacy-policy', 'App\Http\Controllers\FrontController@privacy')->name('privacy.frontend');
 Route::get('/terms-of-service', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
 
-Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     //signed-in user routes

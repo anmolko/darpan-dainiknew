@@ -23,6 +23,10 @@ class SocialLoginController extends Controller
         //
     }
 
+    public function dashboard()
+    {
+        return view('frontend.pages.user.dashboard',);
+    }
     /**
      * Show the form for creating a new resource.
      *

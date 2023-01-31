@@ -367,6 +367,74 @@ class UserController extends Controller
     }
 
 
+    public function customerDestroy()
+    {
+        // Get the user
+        $deleteuser   = Auth::user();
+        $commentcount = count($deleteuser->comments);
+
+        if($commentcount>0){
+            $deleteuser->comments()->delete();
+        }
+        // Delete the user
+        Auth::logout();
+        $deleted = $deleteuser->delete();
+        if ($deleted) {
+            // User was deleted successfully, redirect to login
+            return redirect('/');
+        } else {
+            // User was NOT deleted successfully, so log them back into your application! Could also use: Auth::loginUsingId($user->id);
+            Auth::login($deleteuser);
+            // Redirect them back with some data letting them know it failed (or handle however you need depending on your setup)
+            return back()->with('error', 'Unable to remove your profile at the moment. please try again later.');
+        }
+
+    }
+
+
+
+    public function frontProfileUser(Request $request, $id){
+        $user_data = User::find($id);
+        $user_data->name=$request->input('name');
+        $user_data->contact=$request->input('contact');
+        $user_data->gender=$request->input('gender');
+        $user_data->address=$request->input('address');
+
+        if(!$user_data) {
+            request()->session()->flash('error','User not found');
+            return redirect()->back();
+        }
+
+        $oldimage             =  $user_data->image;
+        if (!empty($request->file('image'))){
+            $image =$request->file('image');
+            $name1 = uniqid().'_'.$image->getClientOriginalName();
+            $path = base_path().'/public/images/uploads/profiles/'.$name1;
+            $image_resize = \Intervention\Image\ImageManagerStatic::make($image->getRealPath())->orientate();
+            $image_resize->resize(300, 300);
+            if ($image_resize->save($path,80)){
+                $user_data->image= $name1;
+                if (!empty($oldimage) && file_exists(public_path().'/images/uploads/profiles/'.$oldimage)){
+                    @unlink(public_path().'/images/uploads/profiles/'.$oldimage);
+                }
+            }
+        }
+
+        $status=$user_data->update();
+
+        if($status){
+
+            Session::flash('success','Profile updated successfully');
+        }
+        else{
+
+            Session::flash('error','Failed to update details');
+        }
+
+        return redirect()->intended('front-user.dashboard');
+    }
+
+
 
 
 }
