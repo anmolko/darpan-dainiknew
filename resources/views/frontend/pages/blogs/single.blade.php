@@ -243,7 +243,7 @@
         }
         .comment-block .btn i {
             color: #969696;
-            font-size: 18px;
+            font-size: 16px;
             transition: 0.15s ease-in-out;
         }
         .comment-block .btn.primary {
@@ -277,6 +277,12 @@
             border-radius: 8px;
             gap: 4px;
         }
+         .comment-block .btn-like.active i {
+             color:#0d47a2;
+         }
+     .comment-block .btn-dislike.active i {
+             color:#dd6666;
+         }
        .comment-block .btn.react:hover {
             background-color: #eee;
         }
@@ -359,6 +365,13 @@
             background: #f05555;
             box-shadow: 0px 1px 3px rgb(0 0 0 / 10%), 0px 2px 1px rgb(0 0 0 / 6%), 0px 1px 1px rgb(0 0 0 / 8%);
             border-radius: 8px;
+        }
+
+        .disabled-reaction{
+            cursor: none;
+            pointer-events: none;
+
+
         }
 
     </style>
@@ -851,7 +864,6 @@
                 $('#sticky-me').removeClass('bottom');
             }
         });
-
         $(document).ready(function () {
 
             // var size = '22';
@@ -906,6 +918,36 @@
 
         });
 
+        $(document).on('click','#saveLikeDislike',function(){
+            var _comment = $(this).data('comment');
+            var _type    = $(this).data('type');
+            var _user    = $(this).data('user');
+            var vm       = $(this);
+            // Run Ajax
+            $.ajax({
+                url:"{{ url('comment-like-dislike') }}",
+                type:"post",
+                dataType:'json',
+                data:{
+                    comment:_comment,
+                    user:_user,
+                    type:_type,
+                    _token:"{{ csrf_token() }}"
+                },
+                beforeSend:function(){
+                    vm.closest(".reactions ").addClass("disabled-reaction");
+                },
+                success:function(res){
+                    if(res.bool == true){
+                        vm.removeClass('disabled').addClass('active');
+                        vm.removeAttr('id');
+                        var _prevCount=$("."+_type+"-count-"+_comment).text();
+                        _prevCount++;
+                        $("."+_type+"-count-"+_comment).text(_prevCount);
+                    }
+                }
+            });
+        });
 
 
 

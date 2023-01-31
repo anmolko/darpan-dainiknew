@@ -54,4 +54,23 @@ class Comment extends Model
         return $this->hasMany('App\Models\Comment','parent_id')->orderBy('created_at','DESC');
     }
 
+    public function haslikedordisliked($user_id){
+        return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->count()>0;
+    }
+
+    public function hasliked($user_id){
+        return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->where('like',1)->count()>0;
+    }
+    public function hasdisliked($user_id){
+        return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->where('dislike',1)->count()>0;
+    }
+
+    public function likes(){
+        return $this->hasMany('App\Models\LikeComment','comment_id')->sum('like');
+    }
+
+    public function dislikes(){
+        return $this->hasMany('App\Models\LikeComment','comment_id')->sum('dislike');
+    }
+
 }

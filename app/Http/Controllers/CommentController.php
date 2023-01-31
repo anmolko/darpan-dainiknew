@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\LikeComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -95,5 +96,20 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function commentLikes(Request $request){
+        $data             = new LikeComment();
+        $data->comment_id = $request->comment;
+        $data->user_id    = $request->user;
+        if($request->type == 'like'){
+            $data->like = 1;
+        }else{
+            $data-> dislike =1;
+        }
+        $data->save();
+        return response()->json([
+            'bool'=>true
+        ]);
     }
 }

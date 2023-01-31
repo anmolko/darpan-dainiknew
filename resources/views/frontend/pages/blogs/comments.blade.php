@@ -23,7 +23,7 @@
 
             <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ ( Auth::user()->user_type == 'viewer') ? Auth::user()->id :1}}" readonly required>
             <input type="hidden" class="form-control" name="blog_id" id="blog_id" value="{{@$singleBlog->id}}" readonly required>
-            <textarea name="comment" class="textarea" rows="8" autofocus></textarea><br/>
+            <textarea name="comment" class="textarea" rows="8" required autofocus></textarea><br/>
             <div class="footer">
                 <div class="group-button">
                     <button type="submit" class="btn primary" id="send-comment">प्रतिक्रिया दिनुहोस्</button>
@@ -37,10 +37,19 @@
         <div class="comment">
             <div class="user-banner">
                 <div class="user">
-                    <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
-                        {{getFirstLetters($comment->user->name)}}
-{{--                        <span class="stat green"></span>--}}
-                    </div>
+                    @if(@$comment->user->image && str_contains(@$comment->user->image, 'https'))
+                        <img class="avatar rounded-circle"
+                             src="{{@$comment->user()->image}}"/>
+                    @elseif(@$comment->user->image)
+                        <img class="avatar rounded-circle"
+                             src="{{asset('/images/user/'.@$comment->user->image)}}"/>
+                    @else
+                        <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
+                            {{getFirstLetters($comment->user->name)}}
+                            {{--                        <span class="stat green"></span>--}}
+                        </div>
+                    @endif
+
                     <h5>{{ $comment->user->name }}</h5>
                 </div>
                 <button class="btn dropdown"><i class="ri-more-line"></i></button>
@@ -52,13 +61,17 @@
             </div>
 
             <div class="footer">
-                <div class="reactions">
-                    <button class="btn react">
+                <div class="reactions {{ ($comment->haslikedordisliked(Auth::user()->id)) ? "disabled-reaction":""}}">
+                    <button class="btn btn-like react {{ ($comment->hasliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="like" data-user="{{Auth::user()->id}}"  data-comment="{{ $comment->id}}">
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                        4</button>
-                    <button class="btn react">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>1</button>
-                </div>                <div class="divider"></div>
+                        <span class="like-count-{{ $comment->id}}">{{ ($comment->likes()>0) ? $comment->likes():""}}</span>
+                    </button>
+                    <button class="btn btn-dislike react {{ ($comment->hasdisliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="dislike" data-user="{{Auth::user()->id}}"  data-comment="{{ $comment->id}}">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        <span class="dislike-count-{{ $comment->id}}">{{  ($comment->dislikes()>0) ? $comment->dislikes():"" }}</span>
+                    </button>
+                </div>
+                <div class="divider"></div>
                 <button type="button" class="replybutton" data-commentbox="panel-{{@$comment->id}}" data-userid="{{@$comment->id}}">Reply</button>
                 <div class="divider"></div>
                 <span class="is-mute">{{@$comment->getCommentedAgoinNepali()}}</span>
@@ -69,7 +82,7 @@
                     <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ ( Auth::user()->user_type == 'viewer') ? Auth::user()->id :1}}" readonly required>
                     <input type="hidden" class="form-control" name="blog_id" id="blog_id" value="{{@$singleBlog->id}}" readonly required>
                     <input type="hidden" class="form-control" name="parent_id" id="parent_id_{{@$comment->id}}" value="{{@$comment->id}}" readonly required>
-                    <textarea cols="35" name="comment" class="textarea" rows="8"></textarea><br/>
+                    <textarea cols="35" name="comment" class="textarea" rows="8" required></textarea><br/>
                     <div class="footer">
                         <div class="group-button">
                             <button class="btn primary">प्रतिक्रिया दिनुहोस्</button>
@@ -86,8 +99,19 @@
                     <div class="user-banner">
                         <div class="user">
                             <div class="avatar">
-                                <img src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt="">
-{{--                                <span class="stat green"></span>--}}
+                                @if(@$reply->user->image && str_contains(@$reply->user->image, 'https'))
+                                    <img class="avatar rounded-circle"
+                                         src="{{@$reply->user->image}}"/>
+                                @elseif(@$reply->user->image)
+                                    <img class="avatar rounded-circle"
+                                         src="{{asset('/images/user/'.@$reply->user->image)}}"/>
+                                @else
+                                    <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
+                                        {{getFirstLetters($reply->user->name)}}
+                                        {{--                        <span class="stat green"></span>--}}
+                                    </div>
+                                @endif
+                                {{--                                <span class="stat green"></span>--}}
                             </div>
                             <h5>{{ @$reply->user->name }}</h5>
                         </div>
@@ -100,13 +124,15 @@
                     </div>
                     <div class="footer">
                 <button class="btn"><i class="ri-emotion-line"></i></button>
-                <div class="reactions">
-                    <button class="btn react">
+                <div class="reactions {{ ($reply->haslikedordisliked(Auth::user()->id)) ? "disabled-reaction":""}}">
+                    <button class="btn btn-like react {{ ($reply->hasliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="like" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                        2</button>
-                    <button class="btn react">
+                        <span class="like-count-{{ $reply->id}}">{{  ($reply->likes()>0) ? $reply->likes():"" }}</span>
+                    </button>
+                    <button class="btn btn-dislike react {{ ($reply->hasdisliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="dislike" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
                         <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                        2</button>
+                        <span class="dislike-count-{{$reply->id}}">{{  ($reply->dislikes()>0) ? $reply->dislikes():"" }}</span>
+                    </button>
                 </div>
                 <div class="divider"></div>
                 <span class="is-mute">{{@$reply->getCommentedAgoinNepali()}}</span>

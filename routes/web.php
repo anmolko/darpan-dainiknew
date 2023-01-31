@@ -62,6 +62,7 @@ Route::post('/comments', 'App\Http\Controllers\CommentController@store')->name('
 Route::put('/comments/{comment}', 'App\Http\Controllers\CommentController@update')->name('comments.update');
 Route::delete('/comments/{comment}', 'App\Http\Controllers\CommentController@destroy')->name('comments.destroy');
 Route::get('/comments/{comment}/edit', 'App\Http\Controllers\CommentController@edit')->name('comments.edit');
+Route::post('comment-like-dislike','App\Http\Controllers\CommentController@commentLikes')->name('comments.like');
 
 //End Blog
 
