@@ -115,7 +115,7 @@
                                 <div class="mb-3">
                                     <label>Post Description  <span class="text-danger">*</span></label>
 
-                                    <textarea class="mukta form-control" id="ckeditor-classic" name="description" rows="3" required>{{@$edit->description}}</textarea>
+                                    <textarea class="mukta form-control" id="ckeditor-classic" name="description" rows="3" required>{!! @$edit->description !!}</textarea>
                                     <div class="invalid-tooltip">
                                         Please enter the post description.
                                     </div>
