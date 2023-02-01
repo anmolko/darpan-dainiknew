@@ -66,5 +66,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment')->orderBy('created_at','DESC');
     }
 
-
+    public function likes(){
+        return $this->hasMany('App\Models\LikeComment')->orderBy('created_at','DESC');
+    }
 }
