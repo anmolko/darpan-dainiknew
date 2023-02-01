@@ -419,7 +419,7 @@
 
                                     <div class="row">
 
-                                        @foreach(getCategoryRelatedPost(33,0,2) as $news)
+                                        @foreach(getCategoryRelatedPost('राजनीति',0,2) as $news)
                                             <div class="post post-overlay post-large sports-post  col-12 mb-20">
                                                 <div class="post-wrap">
 
@@ -454,7 +454,7 @@
 
                                         <div class="col-lg-12 col-md-6 col-12 mb-20">
 
-                                        @foreach(getCategoryRelatedPost(33,2,1) as $news)
+                                        @foreach(getCategoryRelatedPost('राजनीति',2,1) as $news)
 
                                             <!-- Post Start -->
                                                 <div class="post sports-post">
@@ -486,7 +486,7 @@
 
                                         <div class="col-lg-12 col-md-6 col-12 mb-20">
 
-                                            @foreach(getCategoryRelatedPost(8,4,5) as $news)
+                                            @foreach(getCategoryRelatedPost('राजनीति',4,5) as $news)
                                                 <div class="post post-small post-list sports-post post-separator-border">
                                                     <div class="post-wrap">
 
@@ -963,7 +963,7 @@
 
                         <!-- Post Block Head Start -->
                         <div class="head feature-head">
-                            <h4 class="title"><a href="{{route('blog.category','समाज')}}">पसमाज</a></h4>
+                            <h4 class="title"><a href="{{route('blog.category','समाज')}}">समाज</a></h4>
                             <a href="{{route('blog.category','समाज')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
                         </div><!-- Post Block Head End -->
 
@@ -1394,7 +1394,7 @@
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{@$news->publishedDateNepali()}}</span>
                                                         </div>
                                                         <!-- Read More -->
-                                                        <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>
+{{--                                                        <a href="{{ url(@$news->url()) }}" class="read-more">पुरा पढ्नुहोस् <i class="fa fa-angle-right"></i></a>--}}
 
                                                     </div>
 
