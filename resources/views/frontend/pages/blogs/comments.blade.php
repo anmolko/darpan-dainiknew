@@ -141,7 +141,7 @@
             @endforeach
         @endif
     @endforeach
-    <div class="load">
-        <span><i class="ri-refresh-line"></i>Loading</span>
-    </div>
+{{--    <div class="load">--}}
+{{--        <span><i class="ri-refresh-line"></i>Loading</span>--}}
+{{--    </div>--}}
 </div>

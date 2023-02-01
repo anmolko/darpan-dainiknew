@@ -588,17 +588,17 @@
                                 @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')
 
                                 <div class="meta fix float-end">
-                                    <a class="meta-item author">
+                                    <a href="{{route('front-user.dashboard')}}" class="meta-item author">
                                         @if(@Auth::user()->image && str_contains(@Auth::user()->image, 'https'))
-                                            <img class="avatar rounded-circle" style="height: 40px;"
+                                            <img class="avatar rounded-circle" style="height: 35px;"
                                                  src="{{@Auth::user()->image}}"/>
                                         @elseif(@Auth::user()->image)
-                                         <img class="avatar rounded-circle" style="height: 40px;"
+                                         <img class="avatar rounded-circle" style="height: 35px;"
                                                  src="{{asset('/images/user'.@Auth::user()->image)}}"/>
 
                                         @else
 
-                                            <img class="avatar rounded-circle" style="height: 40px;"
+                                            <img class="avatar rounded-circle" style="height: 35px;"
                                                  src="{{asset('assets/backend/images/default.png')}}"/>
                                         @endif
 
