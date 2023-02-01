@@ -21,8 +21,6 @@ class AdminMiddleware
         if ($request->user()->user_type === 'viewer' ){
             return redirect()->intended('/user/dashboard');
         }
-        else{
-            return redirect('dashboard');
-        }
+        return $next($request);
     }
 }
