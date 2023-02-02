@@ -95,7 +95,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete          = Comment::with('replies')->find($id);
+        dd($delete);
+        $rid             = $delete->id;
     }
 
     public function commentLikes(Request $request){

@@ -7,7 +7,6 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\HomePage;
-use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\SectionElement;
 use App\Models\Page;
@@ -276,11 +275,6 @@ class FrontController extends Controller
         $query          = $request->s;
         $searchPosts       = $this->blog->where('title', 'LIKE', '%' . $query . '%')->where('status','publish')->orderBy('title', 'asc')->paginate(5);
         return view('frontend.pages.blogs.search',compact('searchPosts','query'));
-    }
-
-    public function testimonial(){
-        $testimonials = Testimonial::orderBy('created_at', 'DESC')->paginate(6);
-        return view('frontend.pages.testimonial',compact('testimonials'));
     }
 
     public function redirectOld($one,$two,$three){

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Bsdate;
 
 class Comment extends Model
 {
@@ -37,6 +38,19 @@ class Comment extends Model
         return $this->belongsTo('App\Models\User','user_id','id' );
     }
 
+    public function blog(){
+        return $this->belongsTo('App\Models\Blog','blog_id','id')->orderBy('created_at','DESC');
+    }
+
+    public function publishedDateNepali(){
+        $year    = $this->created_at->format('Y');
+        $month   = $this->created_at->format('m');
+        $day     = $this->created_at->format('d');
+        $date    = Bsdate::eng_to_nep($year,$month,$day);
+        $time    = $this->toNepaliStrings($this->created_at->format('H:i'));
+        echo $date['date'].' '.$date['nmonth'].' '.$date['year'].','.$time;
+    }
+
     public function toNepaliStrings($string){
         return strtr($string, $this->nepaliArray);
     }
@@ -44,10 +58,6 @@ class Comment extends Model
     public function getCommentedAgoinNepali(){
         $string = $this->created_at->diffForHumans();
         return $this->toNepaliStrings($this->created_at->diffForHumans());
-    }
-
-    public function post(){
-        return $this->belongsTo('App\Models\Blog')->orderBy('created_at','DESC');
     }
 
     public function replies(){
@@ -61,6 +71,7 @@ class Comment extends Model
     public function hasliked($user_id){
         return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->where('like',1)->count()>0;
     }
+
     public function hasdisliked($user_id){
         return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->where('dislike',1)->count()>0;
     }

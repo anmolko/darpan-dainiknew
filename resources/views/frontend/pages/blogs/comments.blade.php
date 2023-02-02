@@ -23,7 +23,7 @@
 
             <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ ( Auth::user()->user_type == 'viewer') ? Auth::user()->id :1}}" readonly required>
             <input type="hidden" class="form-control" name="blog_id" id="blog_id" value="{{@$singleBlog->id}}" readonly required>
-            <textarea name="comment" class="textarea" rows="8" required autofocus></textarea><br/>
+            <textarea name="comment" class="textarea" rows="8" required></textarea><br/>
             <div class="footer">
                 <div class="group-button">
                     <button type="submit" class="btn primary" id="send-comment">प्रतिक्रिया दिनुहोस्</button>
@@ -38,10 +38,10 @@
             <div class="user-banner">
                 <div class="user">
                     @if(@$comment->user->image && str_contains(@$comment->user->image, 'https'))
-                        <img class="avatar rounded-circle"
-                             src="{{@$comment->user()->image}}"/>
+                        <img class="avatar rounded-circle default"
+                             src="{{@$comment->user->image}}"/>
                     @elseif(@$comment->user->image)
-                        <img class="avatar rounded-circle"
+                        <img class="avatar rounded-circle social"
                              src="{{asset('/images/user/'.@$comment->user->image)}}"/>
                     @else
                         <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">

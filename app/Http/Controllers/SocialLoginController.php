@@ -25,9 +25,10 @@ class SocialLoginController extends Controller
 
     public function dashboard()
     {
-//        $user_id = Auth::user()->id;
-//        $user    = User::find($user_id);
-        return view('frontend.pages.user.dashboard',);
+        $user_id = Auth::user()->id;
+        $user    = User::with('comments.replies','likes')->find($user_id);
+//        dd($user->toArray());
+        return view('frontend.pages.user.dashboard',compact('user'));
     }
     /**
      * Show the form for creating a new resource.
