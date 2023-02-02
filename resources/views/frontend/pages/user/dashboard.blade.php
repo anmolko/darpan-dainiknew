@@ -8,21 +8,23 @@
         .title{
             display: block;
             white-space: break-spaces;
-            width: 650px;
+            max-width: 650px;
             font-size: 20px;
             line-height: 1.6;
         }
 
-        #all-comments{
+        .comment-table{
             font-family: "Mukta", "Khand", sans-serif;
         }
-        #all-comments tbody td{
+        .comment-table tbody td{
             font-size: 16px;
             line-height: 1.6;
         }
         .btn-color-white{
             color: white;
         }
+
+
     </style>
 @endsection
 @section('content')
@@ -48,7 +50,6 @@
                             <!-- Tab List Start -->
                             <ul class="post-block-tab-list feature-post-tab-list nav d-none d-md-block">
                                 <li class="nav-item"><a class="active" data-bs-toggle="tab" href="#feature-comments">Comments</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" href="#feature-likes">Likes</a></li>
                                 <li class="nav-item"><a data-bs-toggle="tab" href="#feature-profile">Profile</a></li>
                                 <li class="nav-item"> <a  href="#"   onclick="event.preventDefault();
                                                      document.getElementById('customer-logout-form').submit();" id="v-pills-settings-tab" aria-selected="false">
@@ -70,7 +71,7 @@
                                     <div class="row">
 
                                         <div class="table-responsive">
-                                            <table id="all-comments" class="table table-striped table-bordered  responsive" role="grid" aria-describedby="basic-col-reorder_info">
+                                            <table id="all-comments" class="table table-striped table-bordered  responsive comment-table" role="grid" aria-describedby="basic-col-reorder_info">
                                                 <thead>
                                                 <tr>
                                                     <th>Comment</th>
@@ -114,426 +115,27 @@
 
                                 </div>
 
-                                <div class="tab-pane fade" id="feature-likes">
-
-                                    <div class="row">
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Post Start -->
-                                            <div class="post feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-12.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html">How group of rebel are talking on Banasree epidemic.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i>Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            <a href="#" class="meta-item comment"><i class="fa fa-comments"></i>(34)</a>
-                                                        </div>
-
-                                                        <!-- Description -->
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. Vestibulum condimentum.</p>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post End -->
-
-                                            <!-- Post Start -->
-                                            <div class="post feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-11.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html">Fashion is about some thing that comes from with in you.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i>Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            <a href="#" class="meta-item comment"><i class="fa fa-comments"></i>(34)</a>
-                                                        </div>
-
-                                                        <!-- Description -->
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. Vestibulum condimentum.</p>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post End -->
-
-                                        </div><!-- Post Wrapper End -->
-
-                                        <!-- Small Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-16.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-17.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-18.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Most beautiful lens for an amaing photo.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-13.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-14.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-15.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                        </div><!-- Small Post Wrapper End -->
-
-                                    </div>
-
-                                </div>
 
                                 <div class="tab-pane fade" id="feature-profile">
 
                                     <div class="row">
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Post Start -->
-                                            <div class="post feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-12.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html">How group of rebel are talking on Banasree epidemic.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i>Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            <a href="#" class="meta-item comment"><i class="fa fa-comments"></i>(34)</a>
+                                        {!! Form::open(['url'=>route('front-user.update', @$user->id),'class'=>'needs-validation','method'=>'PUT','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+                                             <div class="contact-form row">
+                                                        <div class="col-md-6 col-12 mb-20">
+                                                            <label for="name">Name <sup>*</sup></label>
+                                                            <input type="text" id="name" name="name" value="{{@$user->name}}" required />
                                                         </div>
 
-                                                        <!-- Description -->
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. Vestibulum condimentum.</p>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post End -->
-
-                                            <!-- Post Start -->
-                                            <div class="post feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-11.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html">Fashion is about some thing that comes from with in you.</a></h4>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <a href="#" class="meta-item author"><i class="fa fa-user"></i>Sathi Bhuiyan</a>
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                            <a href="#" class="meta-item comment"><i class="fa fa-comments"></i>(34)</a>
+                                                        <div class="col-md-6 col-12 mb-20">
+                                                            <label for="email">User name </label>
+                                                            <input type="text" id="email" name="address" value="{{@$user->address}}" />
                                                         </div>
 
-                                                        <!-- Description -->
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. Vestibulum condimentum.</p>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post End -->
-
-                                        </div><!-- Post Wrapper End -->
-
-                                        <!-- Small Post Wrapper Start -->
-                                        <div class="col-md-6 col-12 mb-20">
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-16.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
+                                                        <div class="col-12">
+                                                            <input type="submit" value="Update Profile">
                                                         </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-17.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-18.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Most beautiful lens for an amaing photo.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-13.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-14.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                            <!-- Post Small Start -->
-                                            <div class="post post-small post-list feature-post post-separator-border">
-                                                <div class="post-wrap">
-
-                                                    <!-- Image -->
-                                                    <a class="image" href="post-details.html"><img src="img/post/post-15.jpg" alt="post"></a>
-
-                                                    <!-- Content -->
-                                                    <div class="content">
-
-                                                        <!-- Title -->
-                                                        <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
-
-                                                        <!-- Meta -->
-                                                        <div class="meta fix">
-                                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2022</span>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- Post Small End -->
-
-                                        </div><!-- Small Post Wrapper End -->
-
+                                             </div>
+                                        {!! Form::close() !!}
                                     </div>
 
                                 </div>
@@ -571,12 +173,16 @@
         }, function(){
             $.get( action )
                 .done(function(response) {
-                    swal("Deleted!", "Your credential was removed successfully", "success");
-                    $(response).remove();
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2500);
-
+                    if(response.status == 'success'){
+                        swal("Deleted!", "Your credential was removed successfully", "success");
+                        $(response).remove();
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2500);
+                    }else{
+                        swal("Error!", "Something went wrong. Please try again later", "error");
+                        $(response).remove();
+                    }
 
                 })
                 .fail(function(response){
@@ -617,6 +223,24 @@
                     console.log(response)
 
                 });
+        });
+    });
+    const panels = document.querySelectorAll(".panel");
+
+    function removeActiveClasses() {
+        panels.forEach((panel) => {
+            panel.classList.remove("active");
+        });
+    }
+
+    panels.forEach((panel) => {
+        panel.addEventListener("click", () => {
+            if (panel.classList.contains("active")) {
+                removeActiveClasses();
+            } else {
+                removeActiveClasses();
+                panel.classList.add("active");
+            }
         });
     });
 

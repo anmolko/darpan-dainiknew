@@ -394,44 +394,23 @@ class UserController extends Controller
 
 
     public function frontProfileUser(Request $request, $id){
-        $user_data = User::find($id);
-        $user_data->name=$request->input('name');
-        $user_data->contact=$request->input('contact');
-        $user_data->gender=$request->input('gender');
-        $user_data->address=$request->input('address');
-
+        $user_data           = User::find($id);
+        $user_data->name     = ($request->input('name')!==null) ? $request->input('name') : $user_data->name;
+        $user_data->address  = ($request->input('address')!==null) ? $request->input('address') : $user_data->address;
         if(!$user_data) {
             request()->session()->flash('error','User not found');
             return redirect()->back();
         }
 
-        $oldimage             =  $user_data->image;
-        if (!empty($request->file('image'))){
-            $image =$request->file('image');
-            $name1 = uniqid().'_'.$image->getClientOriginalName();
-            $path = base_path().'/public/images/uploads/profiles/'.$name1;
-            $image_resize = \Intervention\Image\ImageManagerStatic::make($image->getRealPath())->orientate();
-            $image_resize->resize(300, 300);
-            if ($image_resize->save($path,80)){
-                $user_data->image= $name1;
-                if (!empty($oldimage) && file_exists(public_path().'/images/uploads/profiles/'.$oldimage)){
-                    @unlink(public_path().'/images/uploads/profiles/'.$oldimage);
-                }
-            }
-        }
-
-        $status=$user_data->update();
+        $status = $user_data->update();
 
         if($status){
-
             Session::flash('success','Profile updated successfully');
         }
         else{
-
             Session::flash('error','Failed to update details');
         }
-
-        return redirect()->intended('front-user.dashboard');
+        return redirect()->intended('user/dashboard');
     }
 
 

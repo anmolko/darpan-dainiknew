@@ -36,7 +36,7 @@ Route::get('/categories', function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', 'App\Http\Controllers\SocialLoginController@dashboard')->name('front-user.dashboard');
-    Route::patch('user-edit/{id}', 'App\Http\Controllers\UserController@frontProfileUser')->name('update_user');
+    Route::put('user-edit/{id}', 'App\Http\Controllers\UserController@frontProfileUser')->name('front-user.update');
     Route::get('/delete-account', 'App\Http\Controllers\UserController@customerDestroy')->name('customer.destroy');
 
 });

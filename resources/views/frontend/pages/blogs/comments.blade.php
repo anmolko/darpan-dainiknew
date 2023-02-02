@@ -86,7 +86,7 @@
                     <div class="footer">
                         <div class="group-button">
                             <button class="btn primary">प्रतिक्रिया दिनुहोस्</button>
-                            <button class="cancelbutton btn secondary">Cancel</button>
+                            <button type="button" class="cancelbutton btn secondary">Cancel</button>
                         </div>
                     </div>
                 {!! Form::close() !!}

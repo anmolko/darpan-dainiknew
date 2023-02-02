@@ -95,9 +95,23 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $delete          = Comment::with('replies')->find($id);
-        dd($delete);
+        $delete          = Comment::with('replies','user')->find($id);
         $rid             = $delete->id;
+        if(count($delete->replies)>0){
+            foreach ($delete->replies as $reply){
+                $repled = Comment::where('parent_id',$id)->first();
+                $repled->parent_id = null;
+                $repled->save();
+            }
+        }
+
+        if( $delete->likes()>0 || $delete->likes()>0){
+            $interaction = LikeComment::where('comment_id',$id)->where('user_id',$delete->user_id)->first();
+            $interaction->delete();
+        }
+        $status = $delete->delete();
+        return response()->json(['status'=>'success','id'=>$rid,'message'=>'Comment was removed!']);
+
     }
 
     public function commentLikes(Request $request){

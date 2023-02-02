@@ -124,14 +124,15 @@ class SocialLoginController extends Controller
             }else{
                 $password = $user->getId().$user->getEmail();
                 $newuser = User::create([
-                    'name'=> $user->getName(),
-                    'slug'=> str_replace(' ','-',$user->getName()),
-                    'email'=>$user->getEmail(),
-                    'image'=>$user->getAvatar(),
-                    'oauth_id'=>$user->getId(),
-                    'oauth_type'=>'google',
-                    'user_type'=>'viewer',
-                    'status'=>1,
+                    'name'          => $user->getName(),
+                    'slug'          => str_replace(' ','-',$user->getName()),
+                    'address'       => str_replace(' ','-',$user->getName()),
+                    'email'         => $user->getEmail(),
+                    'image'         => $user->getAvatar(),
+                    'oauth_id'      => $user->getId(),
+                    'oauth_type'    => 'google',
+                    'user_type'     => 'viewer',
+                    'status'        =>1,
                     'password'=>Hash::make($password),
                 ]);
                 Auth::login($newuser);
@@ -177,12 +178,14 @@ class SocialLoginController extends Controller
                 $password = $user->getId().$user->getEmail();
 
                 $newuser = User::create([
-                    'name'=> $user->getName(),
-                    'email'=>$user->getEmail(),
-                    'image'=>$user->getAvatar(),
-                    'oauth_id'=>$user->getId(),
-                    'oauth_type'=>'facebook',
-                    'user_type'=>'viewer',
+                    'name'          => $user->getName(),
+                    'slug'          => str_replace(' ','-',$user->getName()),
+                    'address'       => str_replace(' ','-',$user->getName()),
+                    'email'         => $user->getEmail(),
+                    'image'         => $user->getAvatar(),
+                    'oauth_id'      => $user->getId(),
+                    'oauth_type'    => 'facebook',
+                    'user_type'     => 'viewer',
                     'status'=>1,
                     'password'=>Hash::make($password),
                 ]);
@@ -195,4 +198,5 @@ class SocialLoginController extends Controller
             dd($exc);
         }
     }
+
 }

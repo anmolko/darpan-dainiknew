@@ -31,7 +31,6 @@
         }
 
 
-
     </style>
 @endsection
 @section('seo')

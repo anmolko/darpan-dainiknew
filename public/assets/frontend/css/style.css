@@ -5063,7 +5063,7 @@ blockquote.blockquote.blockquote-bg p {
   line-height: 18px;
 }
 .contact-form label sup {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .contact-form input {
   width: 100%;
@@ -5075,7 +5075,7 @@ blockquote.blockquote.blockquote-bg p {
 .contact-form input[type=submit] {
   width: auto;
   border-radius: 5px;
-  background-color: #00c8fa;
+  background-color: #0d47a2;
   color: #ffffff;
   text-transform: capitalize;
   border: none;
@@ -5085,7 +5085,7 @@ blockquote.blockquote.blockquote-bg p {
   border: none;
 }
 .contact-form input:focus {
-  border-color: #00c8fa;
+  border-color: #0d47a2;
 }
 .contact-form textarea {
   width: 100%;
@@ -5096,7 +5096,7 @@ blockquote.blockquote.blockquote-bg p {
   padding: 7px 15px;
 }
 .contact-form textarea:focus {
-  border-color: #00c8fa;
+  border-color: #0d47a2;
 }
 
 /*-- Contact Map Wrap --*/
