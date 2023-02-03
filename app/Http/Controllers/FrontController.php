@@ -211,7 +211,7 @@ class FrontController extends Controller
         if (!$singleBlog) {
             return abort(404);
         }
-        $singleBlog->visit()->withIp();//log the user visit
+        $singleBlog->visit()->dailyIntervals()->withIp();//log the user visit
         $bcategories = $this->bcategory->get();
         $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
         $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();

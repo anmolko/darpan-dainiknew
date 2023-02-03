@@ -121,7 +121,7 @@
                                                         @endforeach
                                                     </td>
                                                     <td>
-                                                        <p class="page-views"> Views:  {{$blog->visit_count_total}} </p>
+                                                        <p class="page-views"> Views:  {{$blog->totalCount()}} </p>
                                                         <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">
                                                             <button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                                             {{ucwords(@$blog->status)}}

@@ -134,4 +134,8 @@ class Blog extends Model implements CanVisit
     public function comments(){
         return $this->hasMany('App\Models\Comment')->whereNull('parent_id')->orderBy('created_at','DESC');
     }
+
+    public function totalCount(){
+        return Blog::withTotalVisitCount()->where('id', $this->id)->first()->visit_count_total;
+    }
 }

@@ -30,17 +30,18 @@ class SensitiveComposer
        $footerItemTitle3     = @$footerMenu[2]->title;
        $today                = new Carbon;
        $todayDate            = $today->toDateString().' 23:59:59';
-       $threeDaysAgo         = $today->subDays(3)->toDateString().' 00:00:00';
-       $top_blog_year        = Blog::popularThisYear()->take(5)->get();
-       $top_blog_week        = Blog::popularThisWeek()->take(6)->get();
-       $top_blog_month       = Blog::popularLastDays(30)->take(6)->get();
+       $sevenDaysAgo         = $today->subDays(7)->toDateString().' 00:00:00';
+       $top_blog_year        = Blog::popularThisYear()->get();
+       $top_blog_week        = Blog::popularThisWeek()->get();
+       $top_blog_month       = Blog::popularLastDays(30)->get();
        $latest_news          = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
        $unsortedyear         = collect($top_blog_year);
        $unsortedmonth        = collect($top_blog_month);
        $unsortedWeek         = collect($top_blog_week);
-       $sortedWeek           = $unsortedWeek->sortByDesc('visit_count_total');
-       $sortedYear           = $unsortedmonth->sortByDesc('visit_count_total');
-       $sortedMonth          = $unsortedyear->sortByDesc('visit_count_total');
+       $sortedWeek           = $unsortedWeek->sortByDesc('visit_count_total')->slice(0, 6);
+       $sortedYear           = $unsortedmonth->sortByDesc('visit_count_total')->slice(0, 6);
+       $sortedMonth          = $unsortedyear->sortByDesc('visit_count_total')->slice(0, 6);
+
 
        if(!empty(@$topNavItems)){
            foreach($topNavItems as $menu){
