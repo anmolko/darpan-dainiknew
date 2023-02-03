@@ -115,14 +115,14 @@
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p
                                                         class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Total Pages</p>
+                                                        Total Posts</p>
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-end justify-content-between mt-4">
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
                                                             class="counter-value" data-target="{{$pages}}">{{$pages}}</span></h4>
-                                                    <a href="{{route('pages.index')}}" class="text-decoration-underline">Manage Pages</a>
+                                                    <a href="{{route('blog.index')}}" class="text-decoration-underline">Manage Posts</a>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-soft-info rounded fs-3">
@@ -176,7 +176,7 @@
                                             <div class="d-flex align-items-end justify-content-between mt-4">
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
-                                                            class="counter-value" data-target="{{ $ads}}">{{ $ads }}</span>
+                                                            class="counter-value" data-target="{{ count($ads) }}">{{ count($ads) }}</span>
                                                     </h4>
                                                     <a href="{{route('ads.index')}}" class="text-decoration-underline">View all Ads</a>
                                                 </div>
@@ -219,8 +219,14 @@
                                                     @foreach($allusers as $user)
                                                         <tr>
                                                         <td class="d-flex">
-                                                            <img src="{{ ($user->image !== null) ? asset('images/user/'.$user->image) :  asset('assets/backend/images/default.png')}}" alt=""
-                                                                 class="avatar-xs rounded-3 me-2">
+                                                            @if(@$user->user_type === 'viewer')
+                                                                <img src="{{ ($user->image !== null) ? $user->image:  asset('assets/backend/images/default.png')}}" alt=""
+                                                                     class="avatar-xs rounded-3 me-2">
+                                                            @else
+                                                                <img src="{{ ($user->image !== null) ? asset('images/user/'.$user->image) :  asset('assets/backend/images/default.png')}}" alt=""
+                                                                     class="avatar-xs rounded-3 me-2">
+                                                            @endif
+
                                                             <div>
                                                                 <h5 class="fs-13 mb-0">{{ucwords(@$user->name)}}</h5>
                                                                 <p class="fs-12 mb-0 text-muted">{{ucwords(@$user->user_type)}}</p>
@@ -248,38 +254,38 @@
                                 <div class="col-xxl-4 col-lg-6">
                                     <div class="card card-height-100">
                                         <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Latest Services</h4>
-                                            <a href="#" type="button" class="btn btn-soft-primary btn-sm">
+                                            <h4 class="card-title mb-0 flex-grow-1">Latest Advertisements</h4>
+                                            <a href="{{route('ads.index')}}" type="button" class="btn btn-soft-primary btn-sm">
                                                 View all
                                             </a>
                                         </div><!-- end card-header -->
                                         <div class="card-body p-0">
                                             <ul class="list-group list-group-flush border-dashed mb-0">
-{{--                                                @if(count($services)>0)--}}
-{{--                                                    @foreach($services as $service)--}}
-{{--                                                    <li class="list-group-item d-flex align-items-center">--}}
-{{--                                                        <div class="flex-shrink-0">--}}
-{{--                                                            <img src="{{asset('images/service/'.$service->banner_image)}}" class="avatar-xs"--}}
-{{--                                                                 alt="">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="flex-grow-1 ms-3">--}}
-{{--                                                            <h6 class="fs-14 mb-1">{{$service->title}}</h6>--}}
-{{--                                                            <p class="text-muted mb-0">{{$service->slug}}</p>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="flex-shrink-0 text-end">--}}
-{{--                                                            <h6 class="fs-14 mb-1">{{\App\Models\User::find($service->created_by)->name}}</h6>--}}
-{{--                                                            <p class="text-success fs-12 mb-0">{{\Carbon\Carbon::parse(@$service->created_at)->isoFormat('MMMM Do, YYYY')}}</p>--}}
-{{--                                                        </div>--}}
-{{--                                                    </li>--}}
-{{--                                                    @endforeach--}}
-{{--                                                @else--}}
-{{--                                                    <li class="list-group-item align-items-center">--}}
-{{--                                                        <div class="ms-3">--}}
-{{--                                                            <h6 class="fs-14 mb-1">There are no new services created yet !</h6>--}}
-{{--                                                            <p class="text-muted mb-0"> <a href="{{route('services.index')}}"> click here </a> to create one.</p>--}}
-{{--                                                        </div>--}}
-{{--                                                    </li>--}}
-{{--                                                @endif--}}
+                                                @if(count($ads)>0)
+                                                    @foreach($ads as $ad)
+                                                    <li class="list-group-item d-flex align-items-center">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="{{asset('images/banners/'.$ad->image)}}" class="avatar-xs"
+                                                                 alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="fs-14 mb-1">{{$ad->name}}</h6>
+{{--                                                            <p class="text-muted mb-0">{{$ad->url}}</p>--}}
+                                                        </div>
+                                                        <div class="flex-shrink-0 text-end">
+                                                            <h6 class="fs-14 mb-1">{{\App\Models\User::find($ad->created_by)->name}}</h6>
+                                                            <p class="text-success fs-12 mb-0">{{\Carbon\Carbon::parse(@$ad->created_at)->isoFormat('MMMM Do, YYYY')}}</p>
+                                                        </div>
+                                                    </li>
+                                                    @endforeach
+                                                @else
+                                                    <li class="list-group-item align-items-center">
+                                                        <div class="ms-3">
+                                                            <h6 class="fs-14 mb-1">There are no new services created yet !</h6>
+                                                            <p class="text-muted mb-0"> <a href="{{route('ads.index')}}"> click here </a> to create one.</p>
+                                                        </div>
+                                                    </li>
+                                                @endif
                                             </ul><!-- end ul -->
                                         </div><!-- end card body -->
                                     </div><!-- end card -->
@@ -288,7 +294,7 @@
                                 <div class="col-xxl-4">
                                     <div class="card">
                                         <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">News Feed</h4>
+                                            <h4 class="card-title mb-0 flex-grow-1">Latest Posts</h4>
                                             <div>
                                                 <a href="{{route('blog.index')}}" type="button" class="btn btn-soft-primary btn-sm">
                                                     View all

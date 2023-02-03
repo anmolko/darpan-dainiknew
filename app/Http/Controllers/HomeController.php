@@ -33,9 +33,9 @@ class HomeController extends Controller
         $allusers  = User::take(7)->get();
         $menus     = Menu::all()->count();
         $blog_cat  = Category::all()->count();
-        $pages     = Page::all()->count();
-        $feeds     = Blog::take(5)->latest()->get();
-        $ads       = Ads::all()->count();
+        $pages     = Blog::all()->count();
+        $feeds     = Blog::take(3)->latest()->get();
+        $ads       = Ads::take(5)->latest()->get();
         return view('backend.dashboard', compact('allusers','ads','feeds','menus','blog_cat','pages'));
     }
 
