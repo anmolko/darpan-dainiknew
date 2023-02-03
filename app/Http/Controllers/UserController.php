@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ads;
 use App\Models\Blog;
+use App\Models\LikeComment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -181,6 +182,17 @@ class UserController extends Controller
         if (!empty($delete->cover) && file_exists(public_path().'/images/user/cover/'.$delete->cover)){
             @unlink(public_path().'/images/user/cover/'.$delete->cover);
         }
+        $commentcount = count($delete->comments);
+        $likescount = count($delete->likes);
+
+        if($commentcount>0){
+            $delete->comments()->delete();
+        }
+        $interaction = LikeComment::where('user_id',$delete->user_id)->get();
+
+        if( count($interaction)>0){
+            $interaction->delete();
+        }
         $status = $delete->delete();
         if($status){
             $status ='success';
@@ -202,7 +214,10 @@ class UserController extends Controller
 
     public function alluser(){
         $users          = User::orderBy('id','desc')->get();
-        return view('backend.user.alluser',compact('users'));
+        $admin          = User::where('user_type','admin')->orderBy('id','desc')->get();
+        $general        = User::where('user_type','general')->orderBy('id','desc')->get();
+        $viewers        = User::where('user_type','viewer')->orderBy('id','desc')->get();
+        return view('backend.user.alluser',compact('users','admin','general','viewers'));
     }
 
     public function profileEdit($slug){

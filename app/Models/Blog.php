@@ -34,6 +34,7 @@ class Blog extends Model implements CanVisit
         'year' => 'वर्ष',
         'years' => 'वर्ष',
         'hours' => 'घन्टा',
+        'second' => 'सेकन्ड',
         'hour' => 'घन्टा',
         'days' => 'दिन',
         'day' => 'दिन',

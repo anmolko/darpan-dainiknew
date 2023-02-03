@@ -34,7 +34,7 @@ Route::get('/categories', function () {
     return redirect('/blog');
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth','CustomerMiddleware']], function () {
     Route::get('/dashboard', 'App\Http\Controllers\SocialLoginController@dashboard')->name('front-user.dashboard');
     Route::put('user-edit/{id}', 'App\Http\Controllers\UserController@frontProfileUser')->name('front-user.update');
     Route::get('/delete-account', 'App\Http\Controllers\UserController@customerDestroy')->name('customer.destroy');

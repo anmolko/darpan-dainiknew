@@ -1,3 +1,4 @@
+
 $('#user-add-button').on('click', function(e) {
     var form            = $('#user-add-form')[0]; //get the form using ID
     if (!form.reportValidity()) { return false;}
@@ -213,6 +214,7 @@ function statusupdate(url,status){
                 var oldstatus         = (status == 0) ? "Active" :  "Inactive";
                 var status_url        = "/auth/status/update/"+response.id;
                 var replacementblock  = '#user-status-button-'+response.id;
+                var replacementblock2  = '#user-status-2-button-'+response.id;
                 var replacement = '<button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"> '
                     +
                     response.new_status
@@ -240,6 +242,8 @@ function statusupdate(url,status){
                     showConfirmButton: !1
                 });
                 $(replacementblock).html('');
+                $(replacementblock2).html('');
+                $(replacementblock2).html(replacement);
                 $(replacementblock).html(replacement);
             }else{
 
@@ -420,9 +424,12 @@ $(document).on('click','.cs-user-remove', function (e) {
                         });
                         var user_block = '#user-block-num-'+response.id;
                         var user_cover = '#user-block-cover-'+response.id;
+                        var user_cover2 = '#user-block-cover2-'+response.id;
                         $(user_block).css('background','#ffa5a5');
+                        $(user_cover2).css('background','#ffa5a5');
                         setTimeout(function() {
                             $(user_cover).remove();
+                            $(user_cover2).remove();
                         }, 3800);
                     }else{
                         Swal.fire({
@@ -465,3 +472,13 @@ $(document).on('click','.cs-user-remove', function (e) {
 
 
 })
+
+$(document).ready(function () {
+    var dataTable = $('.user-index').DataTable({
+        paging: true,
+        searching: true,
+        ordering:  false,
+        lengthMenu: [[ 10, 25, 50, 100, -1], [ 10, 25, 50, 100, "All"]],
+    });
+
+});

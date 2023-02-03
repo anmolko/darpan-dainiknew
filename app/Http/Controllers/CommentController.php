@@ -105,7 +105,7 @@ class CommentController extends Controller
             }
         }
 
-        if( $delete->likes()>0 || $delete->likes()>0){
+        if( $delete->likes()>0 || $delete->dislikes()>0){
             $interaction = LikeComment::where('comment_id',$id)->where('user_id',$delete->user_id)->first();
             $interaction->delete();
         }
