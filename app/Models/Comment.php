@@ -26,6 +26,7 @@ class Comment extends Model
         'minute' => 'मिनेट',
         'week' => 'हप्ता',
         'weeks' => 'हप्ता',
+        'second' => 'सेकन्ड',
         'year' => 'वर्ष',
         'years' => 'वर्ष',
         'hours' => 'घन्टा',
