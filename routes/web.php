@@ -54,6 +54,7 @@ Route::get('post/{year}/{month}/{slug}','App\Http\Controllers\FrontController@bl
 Route::get('category/{slug}', 'App\Http\Controllers\FrontController@blogCategories')->name('blog.category');
 Route::get('/news', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
+Route::get('/team', 'App\Http\Controllers\FrontController@team')->name('team');
 
 //Blog
 Route::get('/comments', 'App\Http\Controllers\CommentController@index')->name('comments.index');

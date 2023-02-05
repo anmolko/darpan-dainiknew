@@ -92,7 +92,7 @@
                                 <div class="invalid-feedback" >
                                     Please select a image.
                                 </div>
-                                <span class="ctm-text-sm">*use image minimum of  370 x 420px for team</span>
+                                <span class="ctm-text-sm">*use image minimum of  400 x 420px for team</span>
 
                                 <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light feature-image-button">
                                     <i class="ri-image-edit-line align-bottom me-1"></i> Add Image
@@ -261,7 +261,7 @@
                                             <div class="invalid-feedback" >
                                                 Please select a image.
                                             </div>
-                                            <span class="ctm-text-sm">*use image minimum of  370 x 420px for team</span>
+                                            <span class="ctm-text-sm">*use image minimum of  400 x 420px for team</span>
 
                                             <label for="image-edit" class="profile-photo-edit btn btn-light feature-image-button">
                                                 <i class="ri-image-edit-line align-bottom me-1"></i> Update Image

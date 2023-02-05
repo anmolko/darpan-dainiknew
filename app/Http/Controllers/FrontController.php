@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\HomePage;
+use App\Models\Team;
 use App\Models\User;
 use App\Models\SectionElement;
 use App\Models\Page;
@@ -288,4 +289,10 @@ class FrontController extends Controller
     public function removeFacebookUser(Request $request){
 
     }
+
+    public function team(){
+        $teams = Team::orderBy('order', 'asc')->get();
+        return view('frontend.pages.team',compact('teams'));
+    }
+
 }
