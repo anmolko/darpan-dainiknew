@@ -2568,13 +2568,13 @@ blockquote.blockquote.blockquote-bg p {
   color: #444444;
 }
 .post-block-wrapper .head .post-block-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list > li .dropdown-menu li a.active {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.feature-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.feature-post-tab-list > li > a.active {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.feature-post-tab-list > li .dropdown-menu li a:hover, .post-block-wrapper .head .post-block-tab-list.feature-post-tab-list > li .dropdown-menu li a.active {
-  color: #00c8fa;
+  color: #0d47a2;
 }
 .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li > a:hover, .post-block-wrapper .head .post-block-tab-list.life-style-post-tab-list > li > a.active {
   color: #0d47a2;
@@ -6114,10 +6114,13 @@ blockquote.blockquote.blockquote-bg p {
     width: 1px;
     background: #e8e8e8;
 }
-.comment-block  .comment:not(.comment:first-child) {
+.comment-block  .comment {
     padding-bottom: 12px;
     margin-bottom: 12px;
     border-bottom: 1px solid #e8e8e8;
+}
+.comment-block  .comment:last-child {
+    border-bottom: none;
 }
 .comment-block  .comment + .comment {
     padding-top: 12px;
@@ -6146,6 +6149,7 @@ blockquote.blockquote.blockquote-bg p {
     height: 28px;
     align-items: center;
     line-height: 28px;
+    margin-bottom: 0px;
     transition: 0.2s ease;
 }
 .comment-block  .group-radio .button-radio:first-child {

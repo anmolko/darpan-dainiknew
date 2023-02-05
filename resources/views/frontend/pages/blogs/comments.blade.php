@@ -1,21 +1,28 @@
 <div class="comment-block">
-    {{--                                                            <div class="block-header">--}}
-    {{--                                                                <div class="title">--}}
-    {{--                                                                    <h2>Comments</h2>--}}
-    {{--                                                                    <div class="tag">12</div>--}}
-    {{--                                                                </div>--}}
-    {{--                                                                <div class="group-radio">--}}
-    {{--                                                                    <span class="button-radio">--}}
-    {{--                                                                        <input id="latest" name="latest" type="radio" checked>--}}
-    {{--                                                                        <label for="latest">Latest</label>--}}
-    {{--                                                                    </span>--}}
-    {{--                                                                                                                            <div class="divider"></div>--}}
-    {{--                                                                                                                            <span class="button-radio">--}}
-    {{--                                                                        <input id="popular" name="latest" type="radio">--}}
-    {{--                                                                        <label for="popular">Popular</label>--}}
-    {{--                                                                    </span>--}}
-    {{--                                                                </div>--}}
-    {{--                                                            </div>--}}
+    <div class="block-header">
+        <div class="title">
+{{--            <h2>Comments</h2>--}}
+{{--            <div class="tag">12</div>--}}
+        </div>
+        <div class="group-radio">
+
+{{--            <div class="head comment-head">--}}
+{{--                <ul class="post-block-tab-list feature-post-tab-list nav d-none d-md-block">--}}
+{{--                    <li class="nav-item"><a class="active" data-bs-toggle="tab" href="#feature-cat-1">Fashion</a></li>--}}
+{{--                    <li class="nav-item"><a data-bs-toggle="tab" href="#feature-cat-2" class="">Health</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+
+{{--            <span class="button-radio">--}}
+{{--                <input id="latest" name="latest" type="radio" checked>--}}
+{{--                <label for="latest">Latest</label>--}}
+{{--            </span>--}}
+{{--            <span class="button-radio">--}}
+{{--                <input id="popular" name="latest" type="radio">--}}
+{{--                <label for="popular">Popular</label>--}}
+{{--            </span>--}}
+        </div>
+    </div>
 
 
     <div class="writing">
@@ -123,25 +130,43 @@
                         </p>
                     </div>
                     <div class="footer">
-                <button class="btn"><i class="ri-emotion-line"></i></button>
-                <div class="reactions {{ ($reply->haslikedordisliked(Auth::user()->id)) ? "disabled-reaction":""}}">
-                    <button class="btn btn-like react {{ ($reply->hasliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="like" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                        <span class="like-count-{{ $reply->id}}">{{  ($reply->likes()>0) ? $reply->likes():"" }}</span>
-                    </button>
-                    <button class="btn btn-dislike react {{ ($reply->hasdisliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="dislike" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                        <span class="dislike-count-{{$reply->id}}">{{  ($reply->dislikes()>0) ? $reply->dislikes():"" }}</span>
-                    </button>
-                </div>
-                <div class="divider"></div>
-                <span class="is-mute">{{@$reply->getCommentedAgoinNepali()}}</span>
-            </div>
+                        <button class="btn"><i class="ri-emotion-line"></i></button>
+                        <div class="reactions {{ ($reply->haslikedordisliked(Auth::user()->id)) ? "disabled-reaction":""}}">
+                            <button class="btn btn-like react {{ ($reply->hasliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="like" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                <span class="like-count-{{ $reply->id}}">{{  ($reply->likes()>0) ? $reply->likes():"" }}</span>
+                            </button>
+                            <button class="btn btn-dislike react {{ ($reply->hasdisliked(Auth::user()->id)) ? "active":""}}" id="saveLikeDislike" data-type="dislike" data-user="{{Auth::user()->id}}" data-comment="{{ $reply->id}}">
+                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                <span class="dislike-count-{{$reply->id}}">{{  ($reply->dislikes()>0) ? $reply->dislikes():"" }}</span>
+                            </button>
+                        </div>
+                        <div class="divider"></div>
+                        <span class="is-mute">{{@$reply->getCommentedAgoinNepali()}}</span>
+                    </div>
                 </div>
             @endforeach
         @endif
     @endforeach
-{{--    <div class="load">--}}
-{{--        <span><i class="ri-refresh-line"></i>Loading</span>--}}
+
+{{--    <div class="tab-content">--}}
+
+{{--        <!-- Tab Pane Start-->--}}
+{{--        <div class="tab-pane fade active show" id="feature-cat-1">--}}
+
+{{--            <div class="row">--}}
+
+{{--              --}}
+{{--            </div>--}}
+
+{{--        </div><!-- Tab Pane End-->--}}
+
+{{--        <!-- Tab Pane Start-->--}}
+{{--        <div class="tab-pane fade" id="feature-cat-2">--}}
+
+
+
+{{--        </div><!-- Tab Pane End-->--}}
+
 {{--    </div>--}}
 </div>

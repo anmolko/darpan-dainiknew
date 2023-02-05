@@ -30,8 +30,45 @@
             top: 4px!important;
         }
 
+        .post-block-wrapper .comment-head{
+            border-bottom: none;
+        }
 
-    </style>
+     .post-block-wrapper .comment-head::before, .post-block-wrapper .comment-head::after{
+         background-color: transparent;
+     }
+
+     .post-block-wrapper .comment-head .post-block-tab-list > li{
+         margin-right: 0px;
+         box-shadow: 0px 1px 1px rgb(0 0 0 / 6%);
+     }
+     .comment-head .post-block-tab-list.feature-post-tab-list > li > a.active{
+         background: #f7f7f7;
+     }
+     .post-block-wrapper .comment-head .post-block-tab-list > li a{
+         width: 100%;
+         height: 35px;
+         border: 1px solid #f1f1f1;
+         line-height: 24px;
+         font-size: 16px;
+         padding: 5px 8px;
+     }
+
+     .comment-block .group-radio .post-block-tab-list li:last-child{
+         border-top-right-radius: 8px;
+         border-right: 1px solid #e8e8e8;
+         border-top: 1px solid #e8e8e8;
+         border-bottom: 1px solid #e8e8e8;
+         border-bottom-right-radius: 8px;
+     }
+     .comment-block .group-radio .post-block-tab-list li:first-child{
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-left: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+     }
+</style>
 @endsection
 @section('seo')
     <title>{{ucfirst(@$singleBlog->title)}} | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else दर्पण दैनिक @endif</title>
@@ -271,6 +308,11 @@
                                     @if(!empty(Auth::user()) && Auth::user()->user_type == 'viewer')
                                         @include('frontend.pages.blogs.comments')
                                     @else
+                                        <div style="text-align: center; margin-bottom: 10px">
+                                            <p style="font-size: 18px;">प्रतिक्रिया गर्न लग इन गर्नु होस्:</p>
+
+                                        </div>
+
                                         <div class="block-wrap">
 
                                             <!-- google	 -->
@@ -282,12 +324,14 @@
                                                                 <defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
                                                             </svg>
                                                         </div>
-                                                        <p>Sign in with Google</p>
+                                                        <p>Log in with Google</p>
                                                     </div>
                                                 </a>
                                             </div>
 
-                                            <!-- facebook	 -->
+
+
+                                        <!-- facebook	 -->
 {{--                                            <div>--}}
 {{--                                                <a class="btn-fb" href="{{route('facebook.redirect')}}">--}}
 {{--                                                    <div class="fb-content">--}}
@@ -297,13 +341,104 @@
 {{--                                                                <path fill="#4267b2" d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z"/>--}}
 {{--                                                            </svg>--}}
 {{--                                                        </div>--}}
-{{--                                                        <p>Sign in with Facebook</p>--}}
+{{--                                                        <p>Log in with Facebook</p>--}}
 {{--                                                    </div>--}}
 {{--                                                </a>--}}
 {{--                                            </div>--}}
 
                                         </div>
+                                        <div class="comment-block">
+                                            @foreach($singleBlog->comments as $comment)
+                                                <div class="comment">
+                                                    <div class="user-banner">
+                                                        <div class="user">
+                                                            @if(@$comment->user->image && str_contains(@$comment->user->image, 'https'))
+                                                                <img class="avatar rounded-circle default"
+                                                                     src="{{@$comment->user->image}}"/>
+                                                            @elseif(@$comment->user->image)
+                                                                <img class="avatar rounded-circle social"
+                                                                     src="{{asset('/images/user/'.@$comment->user->image)}}"/>
+                                                            @else
+                                                                <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
+                                                                    {{getFirstLetters($comment->user->name)}}
+                                                                    {{--                        <span class="stat green"></span>--}}
+                                                                </div>
+                                                            @endif
 
+                                                            <h5>{{ $comment->user->name }}</h5>
+                                                        </div>
+                                                        <button class="btn dropdown"><i class="ri-more-line"></i></button>
+                                                    </div>
+                                                    <div class="content">
+                                                        <p>
+                                                            {{@$comment->comment}}
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="footer">
+                                                        <div class="reactions">
+                                                            <button class="btn btn-like react " data-comment="{{ $comment->id}}">
+                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <span class="like-count-{{ $comment->id}}">{{ ($comment->likes()>0) ? $comment->likes():""}}</span>
+                                                            </button>
+                                                            <button class="btn btn-dislike react" data-comment="{{ $comment->id}}">
+                                                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                                                <span class="dislike-count-{{ $comment->id}}">{{  ($comment->dislikes()>0) ? $comment->dislikes():"" }}</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="divider"></div>
+                                                        <span class="is-mute">{{@$comment->getCommentedAgoinNepali()}}</span>
+                                                    </div>
+                                                </div>
+                                                @if(count($comment->replies)>0)
+                                                    @foreach($comment->replies as $reply)
+                                                        <div class="reply comment">
+                                                            <div class="user-banner">
+                                                                <div class="user">
+                                                                    <div class="avatar">
+                                                                        @if(@$reply->user->image && str_contains(@$reply->user->image, 'https'))
+                                                                            <img class="avatar rounded-circle"
+                                                                                 src="{{@$reply->user->image}}"/>
+                                                                        @elseif(@$reply->user->image)
+                                                                            <img class="avatar rounded-circle"
+                                                                                 src="{{asset('/images/user/'.@$reply->user->image)}}"/>
+                                                                        @else
+                                                                            <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
+                                                                                {{getFirstLetters($reply->user->name)}}
+                                                                                {{--                        <span class="stat green"></span>--}}
+                                                                            </div>
+                                                                        @endif
+                                                                        {{--                                <span class="stat green"></span>--}}
+                                                                    </div>
+                                                                    <h5>{{ @$reply->user->name }}</h5>
+                                                                </div>
+                                                                <button class="btn dropdown"><i class="ri-more-line"></i></button>
+                                                            </div>
+                                                            <div class="content">
+                                                                <p><a class="tagged-user">@ {{ $comment->user->name }}</a>
+                                                                    {{@$reply->comment}}
+                                                                </p>
+                                                            </div>
+                                                            <div class="footer">
+                                                                <button class="btn"><i class="ri-emotion-line"></i></button>
+                                                                <div class="reactions">
+                                                                    <button class="btn btn-like react" data-comment="{{ $reply->id}}">
+                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                        <span class="like-count-{{ $reply->id}}">{{  ($reply->likes()>0) ? $reply->likes():"" }}</span>
+                                                                    </button>
+                                                                    <button class="btn btn-dislike react" data-comment="{{ $reply->id}}">
+                                                                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                                                        <span class="dislike-count-{{$reply->id}}">{{  ($reply->dislikes()>0) ? $reply->dislikes():"" }}</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="divider"></div>
+                                                                <span class="is-mute">{{@$reply->getCommentedAgoinNepali()}}</span>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        </div>
 
                                     @endif
 
