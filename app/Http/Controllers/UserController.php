@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\LikeComment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -428,6 +429,14 @@ class UserController extends Controller
         return redirect()->intended('user/dashboard');
     }
 
+
+    public function frontendUserComments()
+    {
+        $users    = User::with('comments.replies','likes','comments.likeComment')->where('user_type','viewer')->get();
+//        dd($users);
+
+        return view('backend.user.comments',compact('users'));
+    }
 
 
 

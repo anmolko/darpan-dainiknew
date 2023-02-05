@@ -2,6 +2,7 @@
 @section('title', "User Management Index")
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
+
 <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/backend/custom_css/datatable_style.css')}}">
 
@@ -350,7 +351,7 @@
                                                 <th>Image</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Contact</th>
+                                                <th>Login Method</th>
                                                 <th>Status</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
@@ -372,7 +373,7 @@
                                                     <td>
                                                         {{@$user->email}}
                                                     </td> <td>
-                                                        {{($user->contact == null) ? 'Not Added':@$user->contact}}
+                                                        {{( @$user->oauth_type == null) ? 'Not Added': ucfirst(@$user->oauth_type)}}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group view-btn" id="user-status-2-button-{{$user->id}}">

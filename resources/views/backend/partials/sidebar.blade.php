@@ -104,6 +104,11 @@
                         <i class="ri-team-line"></i> <span data-key="t-widgets">Teams</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'front-user.comments') active @endif" href="{{route('front-user.comments')}}">
+                        <i class=" ri-chat-smile-3-line"></i> <span data-key="t-widgets">User Comments</span>
+                    </a>
+                </li>
 
 {{--                <li class="nav-item">--}}
 {{--                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'pages.index') active @endif" href="{{route('pages.index')}}">--}}

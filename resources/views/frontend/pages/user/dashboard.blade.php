@@ -160,6 +160,7 @@
         "bSort" : false,
         "lengthMenu": [[5, 10, 50, 100, -1], [5, 10, 50, 100, "All"]],
     });
+
     $(document).on('click','.customer-remove', function (e) {
         e.preventDefault();
         var action = $(this).attr('hrm-delete-per-action');
@@ -225,24 +226,7 @@
                 });
         });
     });
-    const panels = document.querySelectorAll(".panel");
 
-    function removeActiveClasses() {
-        panels.forEach((panel) => {
-            panel.classList.remove("active");
-        });
-    }
-
-    panels.forEach((panel) => {
-        panel.addEventListener("click", () => {
-            if (panel.classList.contains("active")) {
-                removeActiveClasses();
-            } else {
-                removeActiveClasses();
-                panel.classList.add("active");
-            }
-        });
-    });
 
 </script>
 @endsection

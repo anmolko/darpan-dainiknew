@@ -110,7 +110,7 @@ class CommentController extends Controller
             $interaction->delete();
         }
         $status = $delete->delete();
-        return response()->json(['status'=>'success','id'=>$rid,'message'=>'Comment was removed!']);
+        return response()->json(['status'=>'success','id'=>$rid,'message'=>'Comment and its interaction was removed!']);
 
     }
 

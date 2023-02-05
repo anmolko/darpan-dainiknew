@@ -56,7 +56,7 @@ Route::get('/news', 'App\Http\Controllers\FrontController@blogs')->name('blog.fr
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
 Route::get('/team', 'App\Http\Controllers\FrontController@team')->name('team');
 
-//Blog
+//comment
 Route::get('/comments', 'App\Http\Controllers\CommentController@index')->name('comments.index');
 Route::get('/comments/create', 'App\Http\Controllers\CommentController@create')->name('comments.create');
 Route::post('/comments', 'App\Http\Controllers\CommentController@store')->name('comments.store');
@@ -65,7 +65,7 @@ Route::delete('/comments/{comment}', 'App\Http\Controllers\CommentController@des
 Route::get('/comments/{comment}/edit', 'App\Http\Controllers\CommentController@edit')->name('comments.edit');
 Route::post('comment-like-dislike','App\Http\Controllers\CommentController@commentLikes')->name('comments.like');
 
-//End Blog
+//End comment
 
 Route::get('/privacy-policy', 'App\Http\Controllers\FrontController@privacy')->name('privacy.frontend');
 Route::get('/terms-of-service', 'App\Http\Controllers\FrontController@terms')->name('term.frontend');
@@ -91,6 +91,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], f
     Route::delete('/user-management/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
     Route::patch('/status/update/{id}', 'App\Http\Controllers\UserController@statusupdate')->name('user-status.update');
     Route::patch('/role/update/{id}', 'App\Http\Controllers\UserController@roleupdate')->name('user-type.update');
+    Route::get('/user-comments', 'App\Http\Controllers\UserController@frontendUserComments')->name('front-user.comments');
+    Route::get('/user-comments/remove', 'App\Http\Controllers\UserController@frontendUserCommentsRemove')->name('front-user.commentsremove');
 
     //homepage
     Route::get('/homepage-setting', 'App\Http\Controllers\HomePageController@index')->name('homepage.index');

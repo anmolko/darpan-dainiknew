@@ -69,6 +69,10 @@ class Comment extends Model
         return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->count()>0;
     }
 
+    public function likeComment(){
+        return $this->hasMany('App\Models\LikeComment','comment_id','id' );
+    }
+
     public function hasliked($user_id){
         return LikeComment::where('comment_id',$this->id)->where('user_id',$user_id)->where('like',1)->count()>0;
     }
