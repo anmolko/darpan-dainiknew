@@ -110,6 +110,16 @@
                                     <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
                                     <span>{{$singleBlog->publishedDateNepali()}}</span>
                                 </span>
+                                @if(!empty(Auth::user()) && Auth::user()->user_type !== 'viewer')
+                                    <span class="meta-item news-hour-block">
+                                        <img src="{{asset('assets/frontend/img/view.png')}}" alt="">
+                                        <span>Views: {{@$singleBlog->totalCount()}}</span>
+                                    </span>
+                                    <span class="meta-item news-hour-block">
+                                        <img src="{{asset('assets/frontend/img/edit.png')}}" alt="">
+                                        <span><a href="{{route('blog.edit',$singleBlog->id)}}">Edit Post</a> </span>
+                                    </span>
+                                @endif
                                 {{--                                <span class="meta-item news-hour-block">--}}
                                 {{--                                    <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">--}}
                                 {{--                                    <span><a href="#">0 प्रतिक्रिया</a></span>--}}

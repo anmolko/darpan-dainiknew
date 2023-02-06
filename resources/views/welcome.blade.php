@@ -5,6 +5,7 @@
 @endsection
 @section('content')
     <!-- Featured post Start -->
+    @if(count($featured)>0)
     <div class="hero-section section mt-5 mb-20">
         @foreach($featured as $news)
             <div class="featured-post featured-post-2 {{!$loop->first ? "pt-5 pb-2":""}}">
@@ -44,8 +45,7 @@
             </div>
         @endforeach
     </div>
-
-    @if(count(getHomepageBanner('home-below-featured-post',0,1))> 0 )
+        @if(count(getHomepageBanner('home-below-featured-post',0,1))> 0 )
         <!-- Featured post below adds Section Start -->
         <div class="section mt-20">
             <div class="container">
@@ -62,8 +62,7 @@
             </div>
         </div>
     @endif
-
-
+    @endif
     <!-- First Post section start -->
     <div class="post-section section mt-50">
         <div class="container">
