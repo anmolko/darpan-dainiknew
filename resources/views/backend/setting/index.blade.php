@@ -550,7 +550,7 @@
 
                                         <!-- end card -->
                                         <div class="text-end mb-3">
-                                            <button type="submit" class="btn btn-success w-sm">{{($homesettings !== null) ? "Update Home Settings":"Save Home Settings"}}</button>
+                                            <button type="submit" class="btn btn-success w-sm">{{($homesettings !== null) ? "Update About us":"Save About us"}}</button>
                                         </div>
 
 
