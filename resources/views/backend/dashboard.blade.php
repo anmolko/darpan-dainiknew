@@ -81,40 +81,6 @@
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p
                                                         class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Total Menu</p>
-                                                </div>
-{{--                                                <div class="flex-shrink-0">--}}
-{{--                                                    <h5 class="text-success fs-14 mb-0">--}}
-{{--                                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>--}}
-{{--                                                        +16.24 %--}}
-{{--                                                    </h5>--}}
-{{--                                                </div>--}}
-                                            </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                                <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
-                                                            class="counter-value" data-target="{{$menus}}">{{$menus}}</span>
-                                                    </h4>
-                                                    <a href="{{route('menu.index')}}" class="text-decoration-underline">Manage menus</a>
-                                                </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-success rounded fs-3">
-                                                            <i class="bx bx-spreadsheet text-success"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div><!-- end card -->
-                                </div><!-- end col -->
-
-                                <div class="col-xl-3 col-md-6">
-                                    <!-- card -->
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p
-                                                        class="text-uppercase fw-medium text-muted text-truncate mb-0">
                                                         Total Posts</p>
                                                 </div>
                                             </div>
@@ -161,8 +127,43 @@
                                         </div><!-- end card body -->
                                     </div><!-- end card -->
                                 </div><!-- end col -->
+                                @if(auth()->user()->user_type !== 'general')
 
-                                <div class="col-xl-3 col-md-6">
+                                    <div class="col-xl-3 col-md-6">
+                                        <!-- card -->
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Total Menu</p>
+                                                    </div>
+    {{--                                                <div class="flex-shrink-0">--}}
+    {{--                                                    <h5 class="text-success fs-14 mb-0">--}}
+    {{--                                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>--}}
+    {{--                                                        +16.24 %--}}
+    {{--                                                    </h5>--}}
+    {{--                                                </div>--}}
+                                                </div>
+                                                <div class="d-flex align-items-end justify-content-between mt-4">
+                                                    <div>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
+                                                                class="counter-value" data-target="{{$menus}}">{{$menus}}</span>
+                                                        </h4>
+                                                        <a href="{{route('menu.index')}}" class="text-decoration-underline">Manage menus</a>
+                                                    </div>
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                                <i class="bx bx-spreadsheet text-success"></i>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div><!-- end card -->
+                                    </div><!-- end col -->
+
+                                    <div class="col-xl-3 col-md-6">
                                     <!-- card -->
                                     <div class="card card-animate">
                                         <div class="card-body">
@@ -189,69 +190,130 @@
                                         </div><!-- end card body -->
                                     </div><!-- end card -->
                                 </div><!-- end col -->
+                                @else
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <!-- card -->
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Total Tags</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-end justify-content-between mt-4">
+                                                    <div>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
+                                                                class="counter-value" data-target="{{$tags}}">{{$tags}}</span>
+                                                        </h4>
+                                                        <a href="{{route('tag.index')}}" class="text-decoration-underline">Manage Tags</a>
+                                                    </div>
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                                <i class="bx bx-spreadsheet text-success"></i>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div><!-- end card -->
+                                    </div><!-- end col -->
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <!-- card -->
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Total Videos</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-end justify-content-between mt-4">
+                                                    <div>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
+                                                                class="counter-value" data-target="{{ $videos }}">{{ $videos }}</span>
+                                                        </h4>
+                                                        <a href="{{route('video.index')}}" class="text-decoration-underline">View all Videos</a>
+                                                    </div>
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-primary rounded fs-3">
+                                                            <i class="bx bx bx-slider text-primary"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div><!-- end card -->
+                                    </div><!-- end col -->
+
+                                @endif
                             </div> <!-- end row-->
 
                             <div class="row">
-                                <div class="col-xxl-4 col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">System Users</h4>
-                                            <div>
-                                                <a href="{{route('alluser')}}" type="button" class="btn btn-soft-primary btn-sm">
-                                                    All Users
-                                                </a>
-                                            </div>
-                                        </div><!-- end card header -->
+                                @if(auth()->user()->user_type !== 'general')
 
-                                        <div class="card-body">
+                                    <div class="col-xxl-4 col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">System Users</h4>
+                                                <div>
+                                                    <a href="{{route('alluser')}}" type="button" class="btn btn-soft-primary btn-sm">
+                                                        All Users
+                                                    </a>
+                                                </div>
+                                            </div><!-- end card header -->
 
-                                            <div class="table-responsive table-card">
-                                                <table class="table table-borderless table-nowrap align-middle mb-0">
-                                                    <thead class="table-light text-muted">
-                                                    <tr>
-                                                        <th scope="col">Member</th>
-                                                        <th scope="col">Contact</th>
-                                                        <th scope="col">Gender</th>
-                                                        <th scope="col">Status</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    @foreach($allusers as $user)
+                                            <div class="card-body">
+
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-nowrap align-middle mb-0">
+                                                        <thead class="table-light text-muted">
                                                         <tr>
-                                                        <td class="d-flex">
-                                                            @if(@$user->user_type === 'viewer')
-                                                                <img src="{{ ($user->image !== null) ? $user->image:  asset('assets/backend/images/default.png')}}" alt=""
-                                                                     class="avatar-xs rounded-3 me-2">
-                                                            @else
-                                                                <img src="{{ ($user->image !== null) ? asset('images/user/'.$user->image) :  asset('assets/backend/images/default.png')}}" alt=""
-                                                                     class="avatar-xs rounded-3 me-2">
-                                                            @endif
+                                                            <th scope="col">Member</th>
+                                                            <th scope="col">Contact</th>
+                                                            <th scope="col">Gender</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($allusers as $user)
+                                                            <tr>
+                                                            <td class="d-flex">
+                                                                @if(@$user->user_type === 'viewer')
+                                                                    <img src="{{ ($user->image !== null) ? $user->image:  asset('assets/backend/images/default.png')}}" alt=""
+                                                                         class="avatar-xs rounded-3 me-2">
+                                                                @else
+                                                                    <img src="{{ ($user->image !== null) ? asset('images/user/'.$user->image) :  asset('assets/backend/images/default.png')}}" alt=""
+                                                                         class="avatar-xs rounded-3 me-2">
+                                                                @endif
 
-                                                            <div>
-                                                                <h5 class="fs-13 mb-0">{{ucwords(@$user->name)}}</h5>
-                                                                <p class="fs-12 mb-0 text-muted">{{ucwords(@$user->user_type)}}</p>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="mb-0">{{($user->contact == null) ? 'Not Added':@$user->contact}}</span>
-                                                            </h6>
-                                                        </td>
-                                                        <td>
-                                                            {{ucwords($user->gender)}}
-                                                        </td>
-                                                        <td style="width:5%;">
-                                                            @if($user->status == 0) <span class="badge badge-soft-danger">Inactive</span> @else <span class="badge badge-soft-success">Active</span>   @endif
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                    </tbody><!-- end tbody -->
-                                                </table><!-- end table -->
-                                            </div>
-                                        </div><!-- end cardbody -->
-                                    </div><!-- end card -->
-                                </div><!-- end col -->
+                                                                <div>
+                                                                    <h5 class="fs-13 mb-0">{{ucwords(@$user->name)}}</h5>
+                                                                    <p class="fs-12 mb-0 text-muted">{{ucwords(@$user->user_type)}}</p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="mb-0">{{($user->contact == null) ? 'Not Added':@$user->contact}}</span>
+                                                                </h6>
+                                                            </td>
+                                                            <td>
+                                                                {{ucwords($user->gender)}}
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                @if($user->status == 0) <span class="badge badge-soft-danger">Inactive</span> @else <span class="badge badge-soft-success">Active</span>   @endif
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div><!-- end cardbody -->
+                                        </div><!-- end card -->
+                                    </div><!-- end col -->
 
-                                <div class="col-xxl-4 col-lg-6">
+                                    <div class="col-xxl-4 col-lg-6">
                                     <div class="card card-height-100">
                                         <div class="card-header align-items-center d-flex">
                                             <h4 class="card-title mb-0 flex-grow-1">Latest Advertisements</h4>
@@ -291,7 +353,55 @@
                                     </div><!-- end card -->
                                 </div><!-- end col -->
 
-                                <div class="col-xxl-4">
+                                @else
+                                    <div class="col-xxl-6 col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Latest Categories</h4>
+                                                <div>
+                                                    <a href="{{route('blogcategory.index')}}" type="button" class="btn btn-soft-primary btn-sm">
+                                                        All Categories
+                                                    </a>
+                                                </div>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-nowrap align-middle mb-0">
+                                                        <thead class="table-light text-muted">
+                                                        <tr>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Slug</th>
+                                                            <th scope="col">Parent Category</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($categories as $category)
+                                                            <tr>
+                                                                <td class="d-flex">
+                                                                    <div>
+                                                                        <h5 class="fs-13 mb-0">{{ucwords(@$category->name)}}</h5>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="mb-0">{{ @$category->slug }}
+                                                                    </h6>
+                                                                </td>
+                                                                <td>
+                                                                    {{ (@$category->parent_category !== null) ? ucfirst($category->parentCategoryName()):'Not Set' }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div><!-- end cardbody -->
+                                        </div><!-- end card -->
+                                    </div><!-- end col -->
+                                @endif
+
+                                <div class="{{ (auth()->user()->user_type !== 'general') ? "col-xxl-4":"col-xxl-6" }}">
                                     <div class="card">
                                         <div class="card-header align-items-center d-flex">
                                             <h4 class="card-title mb-0 flex-grow-1">Latest Posts</h4>

@@ -229,67 +229,131 @@
                                             </div>
                                             <!--end card-body-->
                                         </div><!-- end card -->
-
-                                        @if(count($ads)>0)
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Recent Advertisements</h5>
-                                                <!-- Swiper -->
-                                                <div class="swiper project-swiper mt-n4">
-                                                    <div class="d-flex justify-content-end gap-2 mb-2">
-                                                        <div class="slider-button-prev">
-                                                            <div class="avatar-title fs-18 rounded px-1">
-                                                                <i class="ri-arrow-left-s-line"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="slider-button-next">
-                                                            <div class="avatar-title fs-18 rounded px-1">
-                                                                <i class="ri-arrow-right-s-line"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swiper-wrapper mt-4">
-                                                        @foreach($ads as $ad)
-                                                        <div class="swiper-slide">
-                                                            <div
-                                                                class="card profile-project-card shadow-none profile-project-success mb-0">
-                                                                <div class="card-body p-4">
-                                                                    <div class="d-flex">
-                                                                        <div
-                                                                            class="flex-grow-1 text-muted overflow-hidden">
-                                                                            <h5
-                                                                                class="fs-14 text-truncate mb-1">
-                                                                                <a href="#"
-                                                                                   class="text-dark">
-                                                                                    {{@$ad->name}}
-                                                                                </a>
-                                                                            </h5>
-                                                                            <p
-                                                                                class="text-muted text-truncate mb-0">
-                                                                                URL : <span
-                                                                                    class="fw-semibold text-dark">  {{@$ad->url}}</span></p>
-                                                                        </div>
-                                                                        <div class="flex-shrink-0 ms-2">
-                                                                            <div>
-                                                                                <a href="{{route('ads.index')}}" class="badge badge-soft-warning fs-10">view</a>
-                                                                                </div>
-                                                                        </div>
-
-                                                                    </div>
+                                        @if(auth()->user()->user_type !== 'general')
+                                            @if(count($ads)>0)
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Recent Advertisements</h5>
+                                                    <!-- Swiper -->
+                                                    <div class="swiper project-swiper mt-n4">
+                                                        <div class="d-flex justify-content-end gap-2 mb-2">
+                                                            <div class="slider-button-prev">
+                                                                <div class="avatar-title fs-18 rounded px-1">
+                                                                    <i class="ri-arrow-left-s-line"></i>
                                                                 </div>
-                                                                <!-- end card body -->
                                                             </div>
-                                                            <!-- end card -->
+                                                            <div class="slider-button-next">
+                                                                <div class="avatar-title fs-18 rounded px-1">
+                                                                    <i class="ri-arrow-right-s-line"></i>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        @endforeach
+                                                        <div class="swiper-wrapper mt-4">
+                                                            @foreach($ads as $ad)
+                                                            <div class="swiper-slide">
+                                                                <div
+                                                                    class="card profile-project-card shadow-none profile-project-success mb-0">
+                                                                    <div class="card-body p-4">
+                                                                        <div class="d-flex">
+                                                                            <div
+                                                                                class="flex-grow-1 text-muted overflow-hidden">
+                                                                                <h5
+                                                                                    class="fs-14 text-truncate mb-1">
+                                                                                    <a href="#"
+                                                                                       class="text-dark">
+                                                                                        {{@$ad->name}}
+                                                                                    </a>
+                                                                                </h5>
+                                                                                <p
+                                                                                    class="text-muted text-truncate mb-0">
+                                                                                    URL : <span
+                                                                                        class="fw-semibold text-dark">  {{@$ad->url}}</span></p>
+                                                                            </div>
+                                                                            <div class="flex-shrink-0 ms-2">
+                                                                                <div>
+                                                                                    <a href="{{route('ads.index')}}" class="badge badge-soft-warning fs-10">view</a>
+                                                                                    </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- end card body -->
+                                                                </div>
+                                                                <!-- end card -->
+                                                            </div>
+                                                            @endforeach
+
+                                                        </div>
 
                                                     </div>
 
                                                 </div>
+                                                <!-- end card body -->
+                                            </div><!-- end card -->
+                                            @endif
+                                        @else
+                                            @if(count($categories)>0)
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Recent Categoreis</h5>
+                                                        <!-- Swiper -->
+                                                        <div class="swiper project-swiper mt-n4">
+                                                            <div class="d-flex justify-content-end gap-2 mb-2">
+                                                                <div class="slider-button-prev">
+                                                                    <div class="avatar-title fs-18 rounded px-1">
+                                                                        <i class="ri-arrow-left-s-line"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="slider-button-next">
+                                                                    <div class="avatar-title fs-18 rounded px-1">
+                                                                        <i class="ri-arrow-right-s-line"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="swiper-wrapper mt-4">
+                                                                @foreach($categories as $cat)
+                                                                    <div class="swiper-slide">
+                                                                        <div
+                                                                            class="card profile-project-card shadow-none profile-project-success mb-0">
+                                                                            <div class="card-body p-4">
+                                                                                <div class="d-flex">
+                                                                                    <div
+                                                                                        class="flex-grow-1 text-muted overflow-hidden">
+                                                                                        <h5
+                                                                                            class="fs-14 text-truncate mb-1">
+                                                                                            <a href="#"
+                                                                                               class="text-dark">
+                                                                                                {{@$cat->name}}
+                                                                                            </a>
+                                                                                        </h5>
+                                                                                        <p
+                                                                                            class="text-muted text-truncate mb-0">
+                                                                                            Slug : <span
+                                                                                                class="fw-semibold text-dark">  {{@$cat->slug}}</span></p>
+                                                                                    </div>
+                                                                                    <div class="flex-shrink-0 ms-2">
+                                                                                        <div>
+                                                                                            <a href="{{route('blogcategory.index')}}" class="badge badge-soft-warning fs-10">view</a>
+                                                                                        </div>
+                                                                                    </div>
 
-                                            </div>
-                                            <!-- end card body -->
-                                        </div><!-- end card -->
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end card body -->
+                                                                        </div>
+                                                                        <!-- end card -->
+                                                                    </div>
+                                                                @endforeach
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div><!-- end card -->
+                                            @endif
+
                                         @endif
                                     </div>
                                     <!--end col-->

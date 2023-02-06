@@ -57,8 +57,8 @@
                             <div class="mb-3">
                                 <label for="stats" class="form-label">Status <span class="text-danger">*</span></label>
                                 <select class="form-select mb-3" name="status" id="stats" required>
-                                    <option selected  value=""  disabled>Select Status </option>
-                                    <option value="1">Active</option>
+                                    <option value=""  disabled>Select Status </option>
+                                    <option value="1" selected>Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
                             </div>
@@ -79,7 +79,7 @@
                             <div class="mb-3">
                                 <label for="user_type" class="form-label">User Type <span class="text-danger">*</span></label>
                                 <select class="form-select mb-3" name="user_type" id="user_type" required>
-                                    <option selected value="" disabled> Select User Type </option>
+                                    <option value="" disabled> Select User Type </option>
                                     <option value="admin">Admin</option>
                                     <option value="general">General</option>
                                 </select>

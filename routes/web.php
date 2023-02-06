@@ -38,7 +38,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth','CustomerMiddleware']]
     Route::get('/dashboard', 'App\Http\Controllers\SocialLoginController@dashboard')->name('front-user.dashboard');
     Route::put('user-edit/{id}', 'App\Http\Controllers\UserController@frontProfileUser')->name('front-user.update');
     Route::get('/delete-account', 'App\Http\Controllers\UserController@customerDestroy')->name('customer.destroy');
-
 });
 
 Route::get('/contact-us', 'App\Http\Controllers\FrontController@contact')->name('contact');

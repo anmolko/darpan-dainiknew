@@ -24,6 +24,10 @@ class Category extends Model
         return Category::where('parent_category',$this->id)->count()>0;
     }
 
+    public function parentCategoryName(){
+        return Category::where('id',$this->parent_category)->first()->name;
+    }
+
     public function children(){
         $children = Category::where('parent_category',$this->id)->get();
         return $children;

@@ -108,8 +108,10 @@
                                                                             <i class="ri-more-fill fs-17"></i>
                                                                         </a>
                                                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
-                                                                            <li><a class="dropdown-item" href="{{route('profile',$user->slug)}}"><i class="ri-eye-line me-2 align-middle"></i>Profile</a></li>
-                                                                            <li><a class="dropdown-item cs-role-change" id="cs-role-change-{{$user->id}}" cs-user-role="{{@$user->user_type}}" cs-user-id="{{@$user->id}}" cs-update-route="{{route('user-type.update',$user->id)}}"><i class="ri-shield-user-line me-2 align-middle"></i>User Type</a></li>
+                                                                            @if(@$user->user_type !== 'viewer')
+                                                                                <li><a class="dropdown-item" href="{{route('profile',$user->slug)}}"><i class="ri-eye-line me-2 align-middle"></i>Profile</a></li>
+                                                                                <li><a class="dropdown-item cs-role-change" id="cs-role-change-{{$user->id}}" cs-user-role="{{@$user->user_type}}" cs-user-id="{{@$user->id}}" cs-update-route="{{route('user-type.update',$user->id)}}"><i class="ri-shield-user-line me-2 align-middle"></i>User Type</a></li>
+                                                                            @endif
                                                                             <li><a class="dropdown-item cs-user-remove" cs-delete-route="{{route('user.destroy',$user->id)}}"><i class="ri-delete-bin-6-line me-2 align-middle"></i>Delete</a></li>
                                                                         </ul>
                                                                     </div>

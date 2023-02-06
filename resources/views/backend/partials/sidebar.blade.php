@@ -66,13 +66,13 @@
 {{--                    <i class="ri-home-gear-line"></i> <span data-key="t-forms">Home</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link  @if(\Request::route()->getName() == 'menu.index') active @endif" href="{{route('menu.index')}}">
-                    <i class="ri-stack-line"></i> <span data-key="t-forms">Menu</span>
-                    </a>
-                </li>
-
+                @if(auth()->user()->user_type!== 'general')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link  @if(\Request::route()->getName() == 'menu.index') active @endif" href="{{route('menu.index')}}">
+                        <i class="ri-stack-line"></i> <span data-key="t-forms">Menu</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link menu-link  @if(\Request::route()->getName() == 'blogcategory.index') active @endif" href="{{route('blogcategory.index')}}">
                     <i class="ri-creative-commons-nd-line"></i> <span data-key="t-forms">Category</span>
@@ -85,42 +85,33 @@
                     </a>
                 </li>
 
-
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'ads.index') active @endif" href="{{route('ads.index')}}">
-                        <i class="ri-advertisement-line"></i> <span data-key="t-widgets">Advertisements</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link menu-link @if(\Request::route()->getName() == 'video.index') active @endif" href="{{route('video.index')}}">
                         <i class="ri-video-chat-line"></i> <span data-key="t-widgets">Video Gallery</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'teams.index') active @endif" href="{{route('teams.index')}}">
-                        <i class="ri-team-line"></i> <span data-key="t-widgets">Teams</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'front-user.comments') active @endif" href="{{route('front-user.comments')}}">
-                        <i class=" ri-chat-smile-3-line"></i> <span data-key="t-widgets">User Comments</span>
-                    </a>
-                </li>
-
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'pages.index') active @endif" href="{{route('pages.index')}}">--}}
-{{--                        <i class="ri-pages-line"></i> <span data-key="t-widgets">Pages</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'alluser') active @endif" href="{{route('alluser')}}">
-                        <i class="ri-account-circle-line"></i> <span data-key="t-widgets">User Mgmt.</span>
-                    </a>
-                </li>
+                @if(auth()->user()->user_type !== 'general')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link @if(\Request::route()->getName() == 'ads.index') active @endif" href="{{route('ads.index')}}">
+                            <i class="ri-advertisement-line"></i> <span data-key="t-widgets">Advertisements</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link @if(\Request::route()->getName() == 'teams.index') active @endif" href="{{route('teams.index')}}">
+                            <i class="ri-team-line"></i> <span data-key="t-widgets">Teams</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link @if(\Request::route()->getName() == 'front-user.comments') active @endif" href="{{route('front-user.comments')}}">
+                            <i class=" ri-chat-smile-3-line"></i> <span data-key="t-widgets">User Comments</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link @if(\Request::route()->getName() == 'alluser') active @endif" href="{{route('alluser')}}">
+                            <i class="ri-account-circle-line"></i> <span data-key="t-widgets">User Mgmt.</span>
+                        </a>
+                    </li>
+                @endif
 
             </ul>
         </div>

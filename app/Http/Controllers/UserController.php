@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ads;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\LikeComment;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -209,8 +210,9 @@ class UserController extends Controller
         $user           = User::where('slug',$slug)->first();
         $ads            = Ads::all();
         $blogs          = Blog::all()->take(5);
+        $categories     = Category::take(6)->latest()->get();
         $alluser        = User::all()->take(5)->except(Auth::user()->id);
-        return view('backend.user.profile',compact('user','ads','blogs','alluser'));
+        return view('backend.user.profile',compact('user','ads','categories','blogs','alluser'));
     }
 
     public function alluser(){
