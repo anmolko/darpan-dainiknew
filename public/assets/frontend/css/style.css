@@ -182,10 +182,10 @@ ul {
 }
 
 .bg-footer{
-    background-color: #09316f;
+    background-color: #f6f8fd;
 }
 .bg-red{
-    background-color: #d34a40;
+    background-color: #08439fb0;
 }
 .bg-black {
   background-color: #000000;
@@ -4916,7 +4916,7 @@ blockquote.blockquote.blockquote-bg p {
 }
 .sidebar-category li a {
   display: block;
-  color: #f6f1f1;
+  color: #76777c;
   line-height: 24px;
   font-size: 17px;
 }
@@ -5224,12 +5224,12 @@ blockquote.blockquote.blockquote-bg p {
 }
 .footer-widget .widget-title {
   font-weight: 600;
-  color: #ffffff;
+  color: #0c47a3;
     font-size: 26px;
   line-height: 14px;
   text-transform: capitalize;
   padding-left: 15px;
-  border-left: 4px solid #00c8fa;
+  border-left: 4px solid #0c47a3;
   margin-bottom: 30px;
 }
 .footer-widget .content {
@@ -5239,7 +5239,7 @@ blockquote.blockquote.blockquote-bg p {
 .footer-widget .content p {
     font-size: 17px;
     text-align: justify;
-    color: #f6f6f6;
+    color: #86878a;
     line-height: 24px;
 }
 .footer-widget .content .footer-contact {
@@ -5258,9 +5258,14 @@ blockquote.blockquote.blockquote-bg p {
 }
 .footer-widget .content .footer-contact li {
   margin-bottom: 10px;
-  color: #f6f6f6;
+  color: #76777c;
     font-size: 17px;
 }
+
+.footer-widget .content .footer-contact li a:hover{
+    color: #ec0000;
+}
+
 .footer-widget .content .footer-contact li:last-child {
   margin-bottom: 0;
 }
@@ -5491,7 +5496,7 @@ blockquote.blockquote.blockquote-bg p {
     Footer Bottom
 ----------------------------------------*/
 .footer-bottom-section {
-  border-top: 1px solid #343434;
+  /*border-top: 1px solid #08439fb0;*/
   padding: 15px 0;
   /*-- Copyright --*/
 }
@@ -5500,6 +5505,10 @@ blockquote.blockquote.blockquote-bg p {
   font-size: 14px;
   letter-spacing: 1px;
   color: #fff;
+}
+
+.footer-bottom-section .copyright a:hover{
+  color: #04327a;
 }
 .featured{
     border-top: none!important;
