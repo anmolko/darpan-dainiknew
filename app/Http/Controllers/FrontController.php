@@ -295,4 +295,9 @@ class FrontController extends Controller
         return view('frontend.pages.team',compact('teams'));
     }
 
+    public function aboutUs(){
+        $homesettings    = HomePage::first();
+        return view('frontend.pages.aboutus',compact('homesettings'));
+    }
+
 }

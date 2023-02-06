@@ -42,8 +42,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth','CustomerMiddleware']]
 });
 
 Route::get('/contact-us', 'App\Http\Controllers\FrontController@contact')->name('contact');
-Route::post('/contact-us', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
-//Route::get('/testimonial', 'App\Http\Controllers\FrontController@testimonial')->name('testimonial');
+Route::post('/contact-us/store', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
+Route::get('/about-us', 'App\Http\Controllers\FrontController@aboutUs')->name('aboutus');
 
 
 Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');

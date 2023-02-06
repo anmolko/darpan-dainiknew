@@ -85,6 +85,12 @@
                                             General
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#aboutus-overview"
+                                           role="tab">
+                                            About us
+                                        </a>
+                                    </li>
                                     @if($settings !== null)
                                         <li class="nav-item">
                                             <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#privacy-overview"
@@ -99,6 +105,7 @@
                                             </a>
                                         </li>
                                     @endif
+
                                 </ul>
                             </div>
                             <!-- end card body -->
@@ -512,6 +519,90 @@
 
                         @endif
 
+                        <div class="tab-pane fade" id="aboutus-overview" role="tabpanel">
+
+                            @if($homesettings !== null)
+                                {!! Form::open(['url'=>route('homepage.update', @$homesettings->id),'id'=>'homesettings-info-form','class'=>'needs-validation','novalidate'=>'','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                            @else
+                                {!! Form::open(['route' => 'homepage.store','method'=>'post','class'=>'needs-validation','id'=>'homesettings-info-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+                            @endif
+                            <div class="row  mb-4">
+                                    <div class="col-lg-8">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="welcome-heading-input">Heading <span class="text-muted text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="welcome-heading-input" name="welcome_heading" value="{{@$homesettings->welcome_heading}}"
+                                                           placeholder="Enter  heading" required>
+                                                </div>
+                                                <div class="position-relative mb-3">
+                                                    <label> Description <span class="text-muted text-danger">*</span></label>
+                                                    <textarea class="form-control" maxlength="1215" name="welcome_description" id="welcome_description" placeholder="Enter welcome description" rows="8" required>{{@$homesettings->welcome_description}}</textarea>
+                                                    <div class="invalid-tooltip">
+                                                        Please enter the  description.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card -->
+
+
+
+                                        <!-- end card -->
+                                        <div class="text-end mb-3">
+                                            <button type="submit" class="btn btn-success w-sm">{{($homesettings !== null) ? "Update Home Settings":"Save Home Settings"}}</button>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- end col -->
+
+                                    <div class="col-lg-4">
+                                    <div class="sticky-side-div">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Other Details</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <img  id="current-img"  src="{{ (@$homesettings->welcome_image !== null) ? asset('images/home/welcome/'.@$homesettings->welcome_image) :  asset('images/default-image.jpg') }}" class="position-relative img-fluid img-thumbnail welcome-feature-image" >
+                                                    <input  type="file" accept="image/png, image/jpeg" hidden
+                                                            id="profile-foreground-img-file-input" onchange="loadFile(event)" name="welcome_image"
+                                                            class="profile-foreground-img-file-input" >
+
+                                                    <figcaption class="figure-caption">*use image minimum of 420 x 510px </figcaption>
+                                                    <div class="invalid-feedback" >
+                                                        Please select a image.
+                                                    </div>
+                                                    <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light feature-image-button">
+                                                        <i class="ri-image-edit-line align-bottom me-1"></i> Add  Image
+                                                    </label>
+                                                </div>
+{{--                                                <div class="mb-3">--}}
+{{--                                                    <label for="choices-publish-status-input" class="form-label">Image Alignment</label>--}}
+
+{{--                                                    <select class="form-select" id="choices-publish-status-input" name="welcome_side_image" data-choices data-choices-search-false>--}}
+{{--                                                        <option value="left" @if(@$homesettings->welcome_side_image == "left") selected @endif>Left</option>--}}
+{{--                                                        <option value="right" @if(@$homesettings->welcome_side_image == "right") selected @endif>Right</option>--}}
+{{--                                                        <option value="none" @if(@$homesettings->welcome_side_image == "none") selected @endif>None</option>--}}
+
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
+                                            </div>
+                                            <!-- end card body -->
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+
+
+                        </div>
+
+
                     </div>
                 </div>
                 <!-- end col -->
@@ -541,6 +632,7 @@
         $(document).ready(function () {
             createEditor('ckeditor-classic-privacy');
             createEditor('ckeditor-classic-terms');
+            createEditor('welcome_description');
         });
         function createEditor(id){
             ClassicEditor.create(document.querySelector("#"+id))
@@ -553,6 +645,11 @@
                 } )
                 .catch(function(e){console.error(e)});
         }
+        var loadFile = function(event) {
+            var image = document.getElementById('profile-foreground-img-file-input');
+            var replacement = document.getElementById('current-img');
+            replacement.src = URL.createObjectURL(event.target.files[0]);
+        };
     </script>
 
 

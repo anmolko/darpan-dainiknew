@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomePage;
-use App\Models\RecruitmentProcess;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,10 +36,9 @@ class HomePageController extends Controller
     public function index()
     {
         $homesettings    = HomePage::first();
-        $recruitment     = RecruitmentProcess::all();
         $settings        = Setting::first();
 
-        return view('backend.home.index',compact('settings','homesettings','recruitment'));
+        return view('backend.home.index',compact('settings','homesettings'));
     }
 
     /**
@@ -83,7 +81,7 @@ class HomePageController extends Controller
             $path    = base_path().'/public/images/home/welcome/';
             $image   = $request->file('welcome_image');
             $name1   = uniqid().'_welcome_'.$image->getClientOriginalName();
-            $moved          = Image::make($image->getRealPath())->fit(450, 595)->orientate()->save($path.$name1);
+            $moved          = Image::make($image->getRealPath())->fit(420, 510)->orientate()->save($path.$name1);
             if ($moved){
                 $data['welcome_image']= $name1;
             }
@@ -92,7 +90,7 @@ class HomePageController extends Controller
 
         $theme = HomePage::create($data);
         if($theme){
-            Session::flash('success','Welcome section info saved!');
+            Session::flash('success','About us info saved!');
         }
         else{
             Session::flash('error','Could not be saved at the moment !');
@@ -147,7 +145,7 @@ class HomePageController extends Controller
             $path    = base_path().'/public/images/home/welcome/';
             $image = $request->file('welcome_image');
             $name1 = uniqid().'_welcome_'.$image->getClientOriginalName();
-            $moved          = Image::make($image->getRealPath())->fit(450, 595)->orientate()->save($path.$name1);
+            $moved          = Image::make($image->getRealPath())->fit(420, 510)->orientate()->save($path.$name1);
 
             if ($moved){
                 $update_theme->welcome_image= $name1;
@@ -161,7 +159,7 @@ class HomePageController extends Controller
         $status=$update_theme->update();
 
         if($status){
-            Session::flash('success','Welcome Section Updated Successfully');
+            Session::flash('success','About us updated successfully');
         }
         else{
             Session::flash('error','Something Went Wrong. Welcome Section could not be Updated');
