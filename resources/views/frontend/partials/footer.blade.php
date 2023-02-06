@@ -71,6 +71,8 @@
                     <!-- Footer Widget Post Start -->
                     <div class="footer-widget-post">
                     <ul class="sidebar-category video-category">
+                        <li >
+                            <a href="/"> गृह पृष्ठ </a></li>
                         @if(!empty($footer_nav_data2))
                             @foreach($footer_nav_data2 as $nav)
                                 @if(!empty($nav->children[0]))
