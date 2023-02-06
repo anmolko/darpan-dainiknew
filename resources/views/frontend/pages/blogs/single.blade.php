@@ -117,7 +117,7 @@
                                     </span>
                                     <span class="meta-item news-hour-block">
                                         <img src="{{asset('assets/frontend/img/edit.png')}}" alt="">
-                                        <span><a href="{{route('blog.edit',$singleBlog->id)}}">Edit Post</a> </span>
+                                        <span><a class="edit-post" href="{{route('blog.edit',$singleBlog->id)}}">Edit Post</a> </span>
                                     </span>
                                 @endif
                                 {{--                                <span class="meta-item news-hour-block">--}}

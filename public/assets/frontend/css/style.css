@@ -5729,6 +5729,9 @@ blockquote.blockquote.blockquote-bg p {
     margin-top: 5px;
     font-weight: 500;
 }
+.edit-post:hover{
+    color:#0d47a2!important;
+}
 
 
 #big, #normal, #small {
