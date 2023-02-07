@@ -10,13 +10,39 @@
                 <h4 class="widget-title">हाम्रो बारे</h4>
 
                 <div class="content fix">
-                    @if(!empty(@$setting_data->website_description)) {!! ucfirst(@$setting_data->website_description) !!} @else <p> Darpan dainik is an online news portal for all type of Nepali national, International, photography, business, sports, culture,politic etc. With the mission of being the paradigm in Nepal’s media fraternity "Darpan Dainik Pvt. Ltd.” a prominent media representative in the country. With people’s right to information as the primary objective, <a href="/">"www.darpandainik.com"</a> and Darpan TV (Online TV) Under of Darpan Dainik Pvt. Ltd. was registered according to the law suit Government of Nepal. We will raise our continuous media role dedication towards socity and people.</p> @endif
+                    @if(!empty(@$setting_data->website_description)) {!! ucfirst(@$setting_data->website_description) !!} @else
+                        <p> Darpan dainik is an online news portal for all type of Nepali national, International, photography, business, sports, culture,politic etc. With the mission of being the paradigm in Nepal’s media fraternity "Darpan Dainik Pvt. Ltd.” a prominent media representative in the country. With people’s right to information as the primary objective,
+                            <a href="/">"www.darpandainik.com"</a> and Darpan TV (Online TV) Under of Darpan Dainik Pvt. Ltd. was registered according to the law suit Government of Nepal. We will raise our continuous media role dedication towards socity and people.
+                        </p>
+                    @endif
                         <ol class="footer-contact">
-                            <li><a href="tel:@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} @else +9771238798 @endif"><i class="fa fa fa-phone"></i>Office: <b>{{ @$setting_data->phone }} </b></a></li>
-                            <li><a href="tel:@if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +9771238798 @endif"><i class="fa fa fa-newspaper-o"></i>News: <b>{{ @$setting_data->mobile }} </b></a></li>
+                            <li>
+                                @if(!empty(@$setting_data->facebook))
+                                    <a href="{{ (!empty(@$setting_data->facebook)) ? @$setting_data->facebook : "#"  }}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                @endif
+                                @if(!empty(@$setting_data->linkedin))
+                                    <a href="{{ (!empty(@$setting_data->linkedin)) ? @$setting_data->linkedin : "#"  }}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                @endif
+                                @if(!empty(@$setting_data->youtube))
+                                    <a href="{{ (!empty(@$setting_data->youtube)) ? @$setting_data->youtube : "#"  }}"  target="_blank"><i class="fa-brands fa-youtube-play"></i></a>
+                                @endif
+                                @if(!empty(@$setting_data->instagram))
+                                    <a href="{{ (!empty(@$setting_data->instagram)) ? @$setting_data->instagram : "#"  }}"  target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                @endif
+                                @if(!empty(@$setting_data->ticktock))
+                                    <a href="{{ (!empty(@$setting_data->ticktock)) ? @$setting_data->ticktock : "#"  }}"  target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                @endif
+                            </li>
+                            @if(@$setting_data->phone !== null)
+                                <li><a href="tel:@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} @else +9771238798 @endif"><i class="fa fa fa-phone"></i>Office: <b>{{ @$setting_data->phone }} </b></a></li>
+                            @endif
+                            @if(@$setting_data->mobile !== null)
+                                <li><a href="tel:@if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +9771238798 @endif"><i class="fa fa fa-newspaper-o"></i>News: <b>{{ @$setting_data->mobile }} </b></a></li>
+                            @endif
 
                         </ol>
                 </div>
+
 
             </div><!-- Footer Widget End -->
 
