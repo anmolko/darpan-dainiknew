@@ -56,8 +56,8 @@ class FrontController extends Controller
                     ->orderBy('created_at','desc')
                     ->limit(6)
                     ->get();
-        $video_featured = VideoGallery::first();
-        $video_all = VideoGallery::skip(1)->take(3)->get();
+        $video_featured = VideoGallery::orderBy('created_at', 'desc')->first();
+        $video_all = VideoGallery::orderBy('created_at', 'desc')->skip(1)->take(3)->get();
 
         return view('welcome',compact('featured','video_all','video_featured'));
     }

@@ -35,6 +35,28 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Enter URL as: <span class="text-danger fs-14">https://www.youtube.com/watch?v=ly939bnZUrE</span>
+                            </h4>
+
+                            <div class="flex-shrink-0">
+                                <a  href="{{ route('videonews') }}" target="_blank" class="btn btn-soft-primary btn-sm">
+                                    <i class=" ri-eye-line align-middle"></i> View in frontend
+                                </a>
+                            </div>
+                        </div>
+{{--                        <div class="card-header align-items-center d-flex">--}}
+{{--                            <div>--}}
+{{--                                <p class="text-danger text-sm">*Please enter the full url as shown below: </p>--}}
+{{--                                <p class="text-info text-sm"> https://www.youtube.com/watch?v=ly939bnZUrE (youtube) </p>--}}
+{{--                            </div>--}}
+
+{{--                            <div class="flex-shrink-0" style="">--}}
+{{--                                <a  href="{{ route('videonews') }}" target="_blank" class="btn btn-soft-primary btn-sm">--}}
+{{--                                    <i class=" ri-eye-line align-middle"></i> View in frontend--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="card-body">
 
                             @if(count($video_section_elements) > 0)
@@ -47,13 +69,7 @@
                                 <input type="hidden" class="form-control" value="{{@$video_section_elements}}" name="video_elements">
 
                                 <div class="col-md-12">
-                                    <div class="shadow-sm flex-fill">
-                                        <div class="card-header">
-                                            <p class="text-danger text-sm">*Please enter the full url as shown below: </p>
-                                            <p class="text-info text-sm"> https://www.youtube.com/watch?v=ly939bnZUrE (youtube) </p>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="multi-field-wrapper">
+                                    <div id="multi-field-wrapper">
 
                                                 @if(count($video_section_elements)>0)
                                                     <div id="multi-fields">
@@ -113,9 +129,6 @@
                                                 </div>
 
                                             </div>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="text-center mt-3" id="video-section-form-button">

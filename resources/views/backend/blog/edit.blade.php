@@ -93,7 +93,7 @@
                     <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">General</h4>
                         <div class="flex-shrink-0">
-                            <a  href="{{ url($edit->url()) }}" target="_blank" class="btn btn-soft-primary btn-sm"">
+                            <a  href="{{ url($edit->url()) }}" target="_blank" class="btn btn-soft-primary btn-sm">
                                <i class=" ri-eye-line align-middle"></i> View in frontend
                             </a>
                         </div>
