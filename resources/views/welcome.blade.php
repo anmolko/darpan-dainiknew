@@ -677,7 +677,10 @@
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">भिडियो</h4>
+                            <h4 class="title"><a href="{{route('videonews')}}">
+                                भिडियो</a></h4>
+                            <a href="{{route('videonews')}}" class="all-news align" style=""><i class="fa fa-angle-right"></i></a>
+
 
                         </div><!-- Post Block Head End -->
 

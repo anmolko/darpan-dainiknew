@@ -54,6 +54,7 @@ Route::get('category/{slug}', 'App\Http\Controllers\FrontController@blogCategori
 Route::get('/news', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
 Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
 Route::get('/team', 'App\Http\Controllers\FrontController@team')->name('team');
+Route::get('/video-news', 'App\Http\Controllers\FrontController@videoNews')->name('videonews');
 
 //comment
 Route::get('/comments', 'App\Http\Controllers\CommentController@index')->name('comments.index');

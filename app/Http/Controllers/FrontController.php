@@ -300,4 +300,9 @@ class FrontController extends Controller
         return view('frontend.pages.aboutus',compact('homesettings'));
     }
 
+    public function videoNews(){
+        $videoPost    = VideoGallery::orderBy('created_at', 'desc')->paginate(12);
+        return view('frontend.pages.video',compact('videoPost'));
+    }
+
 }
