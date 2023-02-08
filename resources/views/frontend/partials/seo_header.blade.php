@@ -113,7 +113,7 @@
                     </a>
                 </div>
 
-            @if(count(getHomepageBanner('home-above-featured-post',0,1))> 0 )
+            @if(count(getHomepageBanner('home-besides-logo',0,1))> 0 )
                 <!-- Header Banner -->
                     <div class="header-banner col-md-8 col-12">
                         @darpanloop(getHomepageBanner('home-besides-logo',0,1) as $banner)
