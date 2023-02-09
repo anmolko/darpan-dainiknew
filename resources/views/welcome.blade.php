@@ -189,29 +189,31 @@
 
                 <!-- Sidebar Ads Start -->
                 <div class="col-lg-4 col-12 mb-50">
-                    <div class="row">
+                    <div class="single-sidebar">
 
-                        <!-- Single Sidebar -->
-                        <div class="single-sidebar col-12">
+                        <!-- Sidebar Block Wrapper -->
+                        <div class="sidebar-block-wrapper">
 
-                            <!-- Sidebar Block Wrapper -->
-                            <div class="sidebar-block-wrapper">
+                            <!-- Sidebar Block Head Start -->
+                            <div class="side-head education-head">
 
-                                <!-- Sidebar Block Head Start -->
-                                <div class="head education-head">
+                                <!-- Tab List -->
+                                <div class="sidebar-tab-list education-sidebar-tab-list nav">
+                                    <a class="active" data-bs-toggle="tab" href="#popular-news">लोकप्रिय</a>
+                                    @if(count($popular_comments)>0)
+                                     <a data-bs-toggle="tab" href="#popular-comments">धेरै कमेन्ट रहेको</a>
+                                    @endif
+                                </div>
 
-                                    <!-- Title -->
-                                    <h4 class="title">लोकप्रिय</h4>
+                            </div><!-- Sidebar Block Head End -->
 
-                                </div><!-- Sidebar Block Head End -->
+                            <!-- Sidebar Block Body Start -->
+                            <div class="body">
 
-                                <!-- Sidebar Block Body Start -->
-                                <div class="body">
-
-                                    <!-- Sidebar Post Start -->
-                                    <div class="row">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="popular-news">
                                         @darpanloop(@$topnews_week as $popular)
-                                            <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                        <div class="post post-small post-list education-post post-separator-border">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
@@ -232,21 +234,51 @@
                                                     <div class="meta fix">
                                                         <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali() }}</span>
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </div><!-- Small Post End -->
                                         @enddarpanloop
-                                    </div><!-- Sidebar Post End -->
 
-                                </div><!-- Sidebar Block Body End -->
+                                    </div>
+                                    @if(count($popular_comments)>0)
+                                        <div class="tab-pane fade " id="popular-comments">
+                                            @darpanloop(@$popular_comments as $latest)
+                                            <div class="post post-small post-list education-post post-separator-border">
+                                                <div class="post-wrap">
 
-                            </div>
+                                                    <!-- Image -->
+                                                    <a class="image" href="{{ url(@$latest->url()) }}">
+                                                        <img src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    </a>
+
+                                                    <!-- Content -->
+                                                    <div class="content">
+
+                                                        <!-- Title -->
+                                                        <h5 class="title">
+                                                            <a href="{{ url(@$latest->url()) }}">
+                                                                {{@$latest->title}}
+                                                            </a></h5>
+
+                                                        <!-- Meta -->
+                                                        <div class="meta fix">
+                                                            <span class="meta-item date"><i class="fa fa-comments"></i>{{  $latest->comments_count }}</span>
+                                                        </div>
+
+                                                </div>
+                                                </div>
+                                            </div><!-- Small Post End -->
+                                            @enddarpanloop
+                                        </div>
+                                    @endif
+                                </div>
+
+                            </div><!-- Sidebar Block Body End -->
 
                         </div>
 
                     </div>
+
 
                 </div><!-- Sidebar End -->
 

@@ -41,6 +41,7 @@ class SensitiveComposer
        $sortedWeek           = $unsortedWeek->sortByDesc('visit_count_total')->slice(0, 6);
        $sortedYear           = $unsortedmonth->sortByDesc('visit_count_total')->slice(0, 6);
        $sortedMonth          = $unsortedyear->sortByDesc('visit_count_total')->slice(0, 6);
+       $most_commented       = Blog::has('comments', '>', 0)->withCount('comments')->orderBy('comments_count', 'desc')->take(6)->get();
 
 
        if(!empty(@$topNavItems)){
@@ -116,6 +117,8 @@ class SensitiveComposer
            ->with('topnews_year', $sortedYear)
            ->with('topnews_month', $sortedMonth)
            ->with('topnews_week', $sortedWeek)
+           ->with('topnews_week', $sortedWeek)
+           ->with('popular_comments', $most_commented)
            ->with('latestPosts', $latest_news);
     }
 }
