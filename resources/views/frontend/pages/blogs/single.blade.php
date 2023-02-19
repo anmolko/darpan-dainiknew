@@ -258,7 +258,7 @@
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h4 class="title"><a href="#">  {{ @$related->title }} </a></h4>
+                                                    <h4 class="title"><a href="{{ url(@$related->url()) }}">  {{ @$related->title }} </a></h4>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">

@@ -187,7 +187,7 @@
                     Developed by
                     <a href="https://www.canosoft.com.np/" class="theme-color"
                     >Canosoft Techonology </a
-                    >. All right reserved</p>
+                    >. All right reserved.</p>
             </div><!-- Copyright End -->
 
         </div>

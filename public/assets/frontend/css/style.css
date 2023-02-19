@@ -2803,8 +2803,8 @@ blockquote.blockquote.blockquote-bg p {
   transition: all 0.3s ease 0s;
 }
 .post-middle-banner:hover img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  /*-webkit-transform: scale(1.1);*/
+  /*        transform: scale(1.1);*/
 
 }
 
@@ -4764,8 +4764,8 @@ blockquote.blockquote.blockquote-bg p {
   transition: all 0.3s ease 0s;
 }
 .sidebar-banner:hover img {
-  -webkit-transform: scale(1.1) rotate(-5deg);
-          transform: scale(1.1) rotate(-5deg);
+  /*-webkit-transform: scale(1.1) rotate(-5deg);*/
+  /*        transform: scale(1.1) rotate(-5deg);*/
 }
 
 /*-- Sidebar Tab List For Latest & Popular News --*/
