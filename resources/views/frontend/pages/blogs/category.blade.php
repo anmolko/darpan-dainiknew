@@ -21,7 +21,7 @@
         @include('frontend.pages.blogs.featured2')
     @endif
 
-    @if(count($allPosts)>0)
+{{--    @if(count($allPosts)>0)--}}
         <div class="post-section section mt-50">
         <div class="container">
 
@@ -67,6 +67,6 @@
             </div>
         </div>
     </div>
-    @endif
+{{--    @endif--}}
 
 @endsection

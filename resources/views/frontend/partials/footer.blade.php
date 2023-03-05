@@ -235,40 +235,40 @@
             }
         }
         @if(Session::has('success'))
-            Toastify({
-                text: "{{ Session::get('success')}}",
-                duration: 4000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                positionLeft: false, // `true` or `false`
-                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-            }).showToast();
+        Toastify({
+            text: "{{ Session::get('success')}}",
+            duration: 4000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            positionLeft: false, // `true` or `false`
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast();
         @endif
         @if(Session::has('error'))
-            Toastify({
-                text: "{{ Session::get('error')}}",
-                duration: 4000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                positionLeft: false, // `true` or `false`
-                backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
-            }).showToast();
+        Toastify({
+            text: "{{ Session::get('error')}}",
+            duration: 4000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            positionLeft: false, // `true` or `false`
+            backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
+        }).showToast();
         @endif
         @if(Session::has('warning'))
-            Toastify({
-                text: "{{ Session::get('error')}}",
-                duration: 4000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                positionLeft: false, // `true` or `false`
-                backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
-            }).showToast();
+        Toastify({
+            text: "{{ Session::get('error')}}",
+            duration: 4000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            positionLeft: false, // `true` or `false`
+            backgroundColor: "linear-gradient(to right, #0AB39C, #405189)",
+        }).showToast();
         @endif
     });
 

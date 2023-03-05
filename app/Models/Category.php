@@ -12,7 +12,7 @@ class Category extends Model
     protected $fillable =['id','name','slug','description','parent_category','created_by','updated_by'];
 
     public function blogs(){
-        return $this->belongsToMany('App\Models\Blog');
+        return $this->belongsToMany('App\Models\Blog')->orderBy('created_at', 'desc');
     }
 
     public function BlogsCount()

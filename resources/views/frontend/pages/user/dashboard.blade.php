@@ -53,7 +53,7 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" href="#feature-profile">Profile</a></li>
                                 <li class="nav-item"> <a  href="#"   onclick="event.preventDefault();
                                                      document.getElementById('customer-logout-form').submit();" id="v-pills-settings-tab" aria-selected="false">
-                                        <i class="fas fa-sign-out-alt mr-2"></i>
+                                        <i class="fas fa-sign-out-alt mr-    margin: 50px 0 150px;2"></i>
                                         <form id="customer-logout-form" action="{{ route('logout') }}"  method="POST" class="d-none">
                                             @csrf
                                         </form>
