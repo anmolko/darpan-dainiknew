@@ -314,43 +314,49 @@
                                     </div><!-- end col -->
 
                                     <div class="col-xxl-4 col-lg-6">
-                                    <div class="card card-height-100">
-                                        <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Latest Advertisements</h4>
-                                            <a href="{{route('ads.index')}}" type="button" class="btn btn-soft-primary btn-sm">
-                                                View all
-                                            </a>
-                                        </div><!-- end card-header -->
-                                        <div class="card-body p-0">
-                                            <ul class="list-group list-group-flush border-dashed mb-0">
-                                                @if(count($ads)>0)
-                                                    @foreach($ads as $ad)
-                                                    <li class="list-group-item d-flex align-items-center">
-                                                        <div class="flex-shrink-0">
-                                                            <img src="{{asset('images/banners/'.$ad->image)}}" class="avatar-xs"
-                                                                 alt="">
-                                                        </div>
-                                                        <div class="flex-grow-1 ms-3">
-                                                            <h6 class="fs-14 mb-1">{{$ad->name}}</h6>
-{{--                                                            <p class="text-muted mb-0">{{$ad->url}}</p>--}}
-                                                        </div>
-                                                        <div class="flex-shrink-0 text-end">
-                                                            <h6 class="fs-14 mb-1">{{\App\Models\User::find($ad->created_by)->name}}</h6>
-                                                            <p class="text-success fs-12 mb-0">{{\Carbon\Carbon::parse(@$ad->created_at)->isoFormat('MMMM Do, YYYY')}}</p>
-                                                        </div>
-                                                    </li>
-                                                    @endforeach
-                                                @else
-                                                    <li class="list-group-item align-items-center">
-                                                        <div class="ms-3">
-                                                            <h6 class="fs-14 mb-1">There are no new services created yet !</h6>
-                                                            <p class="text-muted mb-0"> <a href="{{route('ads.index')}}"> click here </a> to create one.</p>
-                                                        </div>
-                                                    </li>
-                                                @endif
-                                            </ul><!-- end ul -->
-                                        </div><!-- end card body -->
-                                    </div><!-- end card -->
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Latest Categories</h4>
+                                                <div>
+                                                    <a href="{{route('blogcategory.index')}}" type="button" class="btn btn-soft-primary btn-sm">
+                                                        All Categories
+                                                    </a>
+                                                </div>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-nowrap align-middle mb-0">
+                                                        <thead class="table-light text-muted">
+                                                        <tr>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Slug</th>
+                                                            <th scope="col">Parent Category</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($categories as $category)
+                                                            <tr>
+                                                                <td class="d-flex">
+                                                                    <div>
+                                                                        <h5 class="fs-13 mb-0">{{ucwords(@$category->name)}}</h5>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="mb-0">{{ @$category->slug }}
+                                                                    </h6>
+                                                                </td>
+                                                                <td>
+                                                                    {{ (@$category->parent_category !== null) ? ucfirst($category->parentCategoryName()):'Not Set' }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div><!-- end cardbody -->
+                                        </div><!-- end card -->
                                 </div><!-- end col -->
 
                                 @else

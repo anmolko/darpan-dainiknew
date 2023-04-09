@@ -691,7 +691,10 @@
             // });
 
             var number = $('.editor-content').find('p').size();
-            if(number => 2){
+
+            let between1 = '{{$between1 ?? 'n/a'}}';
+
+            if(between1 !=='n/a' && number > 2){
                 var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
                     '<a href="{{(@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
                     '<img src="{{asset('/images/banners/'.@$between1->image)}}" alt="{{@$between1->name}}"></a>' +
