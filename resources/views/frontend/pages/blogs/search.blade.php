@@ -47,7 +47,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
 
                                             <!-- Content -->
@@ -82,7 +82,7 @@
                                                 </h2>
                                             </div>
                                             <div class="image" style="width: 50%;margin: auto;">
-                                                <img src="{{ asset('assets/frontend/img/post_not_found.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{ asset('assets/frontend/img/post_not_found.png')}}" alt="post">
                                             </div>
                                         </div>
                                     </div>

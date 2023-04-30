@@ -1,7 +1,7 @@
 @extends('frontend.layouts.seo_master')
 @section('title'){{ucfirst(@$singleBlog->title)}} @endsection
 @section('css')
-    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63d38be7e591ca001a314048&product=inline-share-buttons&source=platform" async="async"></script>
+    <script type="text/javascript" class="lazy" data-src="https://platform-api.sharethis.com/js/sharethis.js#property=63d38be7e591ca001a314048&product=inline-share-buttons&source=platform" async="async"></script>
  <style>
      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
@@ -103,25 +103,25 @@
                             <!-- Meta -->
                             <div class="meta fix">
                                  <span class="meta-item darpan-post-time darpan-author">
-                                    <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
+                                    <img class="lazy" data-src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
                                     <span> {{ ($singleBlog->authors !== null ) ? ucwords(@$singleBlog->authors) : "दर्पण दैनिक"}}  </span>
                                 </span>
                                 <span class="meta-item news-hour-block">
-                                    <img src="{{asset('assets/frontend/img/clock.png')}}" alt="">
+                                    <img class="lazy" data-src="{{asset('assets/frontend/img/clock.png')}}" alt="">
                                     <span>{{$singleBlog->publishedDateNepali()}}</span>
                                 </span>
                                 @if(!empty(Auth::user()) && Auth::user()->user_type !== 'viewer')
                                     <span class="meta-item news-hour-block">
-                                        <img src="{{asset('assets/frontend/img/view.png')}}" alt="">
+                                        <img class="lazy" data-src="{{asset('assets/frontend/img/view.png')}}" alt="">
                                         <span>Views: {{@$singleBlog->totalCount()}}</span>
                                     </span>
                                     <span class="meta-item news-hour-block">
-                                        <img src="{{asset('assets/frontend/img/edit.png')}}" alt="">
+                                        <img class="lazy" data-src="{{asset('assets/frontend/img/edit.png')}}" alt="">
                                         <span><a class="edit-post" href="{{route('blog.edit',$singleBlog->id)}}">Edit Post</a> </span>
                                     </span>
                                 @endif
                                 {{--                                <span class="meta-item news-hour-block">--}}
-                                {{--                                    <img src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">--}}
+                                {{--                                    <img class="lazy" data-src="{{asset('assets/frontend/img/comment-icon.png')}}" alt="">--}}
                                 {{--                                    <span><a href="#">0 प्रतिक्रिया</a></span>--}}
                                 {{--                                </span>--}}
 
@@ -152,11 +152,11 @@
                             @if(@$above !== null)
                                 <div class="post-middle-banner mb-4">
                                     <a href="{{ (@$above->url !== null) ? @$above->url:"#"}}" target="_blank">
-                                        <img  src="{{asset('/images/banners/'.@$above->image)}}"  alt="{{@$side->name}}"  />
+                                        <img  class="lazy" data-src="{{asset('/images/banners/'.@$above->image)}}"  alt="{{@$side->name}}"  />
                                     </a>
                                 </div>
                             @endif
-                            <div class="image"><img src="{{($singleBlog->image !== null) ?  asset('/images/blog/'.@$singleBlog->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
+                            <div class="image"><img class="lazy" data-src="{{($singleBlog->image !== null) ?  asset('/images/blog/'.@$singleBlog->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
 
                             {{--                                <div class="meta fix">--}}
@@ -181,7 +181,7 @@
                             @if(@$below !== null)
                                 <div class="post-middle-banner mb-4">
                                     <a href="{{ (@$below->url !== null) ? @$below->url:"#"}}" target="_blank">
-                                        <img  src="{{asset('/images/banners/'.@$below->image)}}"  alt="{{@$below->name}}"  />
+                                        <img  class="lazy" data-src="{{asset('/images/banners/'.@$below->image)}}"  alt="{{@$below->name}}"  />
                                     </a>
                                 </div>
                         @endif
@@ -191,9 +191,9 @@
                                 {!! $singleBlog->description !!}
 
                                 {{--                                    <div class="inside-editor-content col-lg-12 col-md-6 col-12">--}}
-                                {{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
-                                {{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
-                                {{--                                        <a href="#"><img src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+                                {{--                                        <a href="#"><img class="lazy" data-src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+                                {{--                                        <a href="#"><img class="lazy" data-src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
+                                {{--                                        <a href="#"><img class="lazy" data-src="{{asset('assets/frontend/img/gifs/side3.gif')}}" alt="Sidebar Banner"></a>--}}
                                 {{--                                    </div>--}}
 
 
@@ -205,7 +205,7 @@
                                 @if(@$belowpost !== null)
                                     <div class="post-middle-banner mb-4">
                                         <a href="{{ (@$belowpost->url !== null) ? @$belowpost->url:"#"}}" target="_blank">
-                                            <img src="{{asset('/images/banners/'.@$belowpost->image)}}" alt="{{@$belowpost->name}}" target="_blank" />
+                                            <img class="lazy" data-src="{{asset('/images/banners/'.@$belowpost->image)}}" alt="{{@$belowpost->name}}" target="_blank" />
                                         </a>
                                     </div>
                                 @endif
@@ -252,7 +252,7 @@
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <div class="image"><img src="{{($related->image !== null) ?  asset('/images/blog/'.@$related->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
+                                                <div class="image"><img class="lazy" data-src="{{($related->image !== null) ?  asset('/images/blog/'.@$related->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
                                                 <!-- Content -->
                                                 <div class="content">
@@ -294,16 +294,16 @@
                                 <div class="meta fix float-end">
                                     <a href="{{route('front-user.dashboard')}}" class="meta-item author">
                                         @if(@Auth::user()->image && str_contains(@Auth::user()->image, 'https'))
-                                            <img class="avatar rounded-circle" style="height: 35px;"
-                                                 src="{{@Auth::user()->image}}"/>
+                                            <img class="avatar rounded-circle lazy" style="height: 35px;"
+                                                data-src="{{@Auth::user()->image}}"/>
                                         @elseif(@Auth::user()->image)
                                          <img class="avatar rounded-circle" style="height: 35px;"
-                                                 src="{{asset('/images/user'.@Auth::user()->image)}}"/>
+                                                 class="lazy" data-src="{{asset('/images/user'.@Auth::user()->image)}}"/>
 
                                         @else
 
-                                            <img class="avatar rounded-circle" style="height: 35px;"
-                                                 src="{{asset('assets/backend/images/default.png')}}"/>
+                                            <img class="avatar rounded-circle lazy" style="height: 35px;"
+                                                  data-src="{{asset('assets/backend/images/default.png')}}"/>
                                         @endif
 
                                          {{ ucwords(@Auth::user()->name) }}</a>
@@ -363,11 +363,11 @@
                                                     <div class="user-banner">
                                                         <div class="user">
                                                             @if(@$comment->user->image && str_contains(@$comment->user->image, 'https'))
-                                                                <img class="avatar rounded-circle default"
-                                                                     src="{{@$comment->user->image}}"/>
+                                                                <img class="avatar rounded-circle default lazy"
+                                                                     data-src="{{@$comment->user->image}}"/>
                                                             @elseif(@$comment->user->image)
-                                                                <img class="avatar rounded-circle social"
-                                                                     src="{{asset('/images/user/'.@$comment->user->image)}}"/>
+                                                                <img class="avatar rounded-circle social lazy"
+                                                                      data-src="{{asset('/images/user/'.@$comment->user->image)}}"/>
                                                             @else
                                                                 <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
                                                                     {{getFirstLetters($comment->user->name)}}
@@ -407,11 +407,11 @@
                                                                 <div class="user">
                                                                     <div class="avatar">
                                                                         @if(@$reply->user->image && str_contains(@$reply->user->image, 'https'))
-                                                                            <img class="avatar rounded-circle"
-                                                                                 src="{{@$reply->user->image}}"/>
+                                                                            <img class="avatar rounded-circle lazy"
+                                                                                  data-src="{{@$reply->user->image}}"/>
                                                                         @elseif(@$reply->user->image)
-                                                                            <img class="avatar rounded-circle"
-                                                                                 src="{{asset('/images/user/'.@$reply->user->image)}}"/>
+                                                                            <img class="avatar rounded-circle lazy"
+                                                                                  data-src="{{asset('/images/user/'.@$reply->user->image)}}"/>
                                                                         @else
                                                                             <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
                                                                                 {{getFirstLetters($reply->user->name)}}
@@ -484,7 +484,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$news->url()) }}">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
 
                                                 <!-- Content -->
@@ -525,7 +525,7 @@
 
                                 <!-- Sidebar Banner -->
                                 <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner">
-                                    <img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
+                                    <img class="lazy" data-src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
                                 </a>
 
                             </div>
@@ -564,7 +564,7 @@
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $latest->getMinsAgoinNepali() }}</span>
                                                         </div>
-                                                        <img src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
 
                                                     </a>
 
@@ -594,7 +594,7 @@
                                                         <div class="meta fix sidebar-time">
                                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{  $popular->getMinsAgoinNepali($popular->created_at->diffForHumans()) }}</span>
                                                         </div>
-                                                        <img src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
 
                                                     </a>
 
@@ -628,7 +628,7 @@
 
                                 <!-- Sidebar Banner -->
                                 <a href="{{ (@$side->url !== null) ? @$side->url:"#"}}" target="_blank" class="sidebar-banner">
-                                    <img src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
+                                    <img class="lazy" data-src="{{asset('/images/banners/'.@$side->image)}}" alt="{{@$side->name}}">
                                 </a>
 
                             </div>
@@ -697,7 +697,7 @@
             if(between1 !=='n/a' && number > 2){
                 var banner1 = '<div class="inside-editor-content col-lg-12 col-md-6 col-12"> ' +
                     '<a href="{{(@$between1->url !== null) ? @$between1->url:"#"}}" target="_blank">' +
-                    '<img src="{{asset('/images/banners/'.@$between1->image)}}" alt="{{@$between1->name}}"></a>' +
+                    '<img class="lazy" data-src="{{asset('/images/banners/'.@$between1->image)}}" alt="{{@$between1->name}}"></a>' +
                     '</div>';
                 $( ".editor-content p:nth-child(2)" ).after().append(banner1);
             }

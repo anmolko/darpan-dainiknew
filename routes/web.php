@@ -146,6 +146,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth','AdminMiddleware']], f
 
 
     //Blog
+    Route::post('/blogs/data', 'App\Http\Controllers\BlogController@data')->name('blog.data');
     Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blog.index');
     Route::get('/blogs/create', 'App\Http\Controllers\BlogController@create')->name('blog.create');
     Route::post('/blogs', 'App\Http\Controllers\BlogController@store')->name('blog.store');

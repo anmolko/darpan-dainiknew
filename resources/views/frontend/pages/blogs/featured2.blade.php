@@ -9,7 +9,7 @@
 
                                 <!-- Image -->
                                 <div class="image">
-                                    <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                    <img class="lazy" data-src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                 </div>
 
                                 <div class="content">
@@ -34,7 +34,7 @@
                                 <div class="post-wrap category-wrap">
 
                                     <div class="image">
-                                        <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                        <img class="lazy" data-src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                     </div>
 
                                     <div class="content">
@@ -55,7 +55,7 @@
 
                                     <!-- Image -->
                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                        <img src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                        <img class="lazy" data-src="{{($news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                     </a>
 
                                     <!-- Content -->

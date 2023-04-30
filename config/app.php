@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Shankhadev\Bsdate\BsdateServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -214,6 +215,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Bsdate' => Shankhadev\Bsdate\BsdateFacade::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ])->toArray(),
 

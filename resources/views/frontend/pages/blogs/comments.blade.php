@@ -45,11 +45,11 @@
             <div class="user-banner">
                 <div class="user">
                     @if(@$comment->user->image && str_contains(@$comment->user->image, 'https'))
-                        <img class="avatar rounded-circle default"
-                             src="{{@$comment->user->image}}"/>
+                        <img class="avatar rounded-circle default lazy"
+                            data-src="{{@$comment->user->image}}"/>
                     @elseif(@$comment->user->image)
-                        <img class="avatar rounded-circle social"
-                             src="{{asset('/images/user/'.@$comment->user->image)}}"/>
+                        <img class="avatar rounded-circle social lazy"
+                            data-class="lazy" data-src="{{asset('/images/user/'.@$comment->user->image)}}"/>
                     @else
                         <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
                             {{getFirstLetters($comment->user->name)}}
@@ -107,11 +107,11 @@
                         <div class="user">
                             <div class="avatar">
                                 @if(@$reply->user->image && str_contains(@$reply->user->image, 'https'))
-                                    <img class="avatar rounded-circle"
-                                         src="{{@$reply->user->image}}"/>
+                                    <img class="avatar rounded-circle lazy"
+                                         data-src="{{@$reply->user->image}}"/>
                                 @elseif(@$reply->user->image)
-                                    <img class="avatar rounded-circle"
-                                         src="{{asset('/images/user/'.@$reply->user->image)}}"/>
+                                    <img class="avatar rounded-circle lazy"
+                                         data-src="{{asset('/images/user/'.@$reply->user->image)}}"/>
                                 @else
                                     <div class="avatar" style="background-color:#fff5e9;border-color:#ffe0bd; color:#F98600">
                                         {{getFirstLetters($reply->user->name)}}

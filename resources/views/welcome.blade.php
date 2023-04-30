@@ -1,7 +1,13 @@
 @extends('frontend.layouts.master')
 @section('title') Home @endsection
 @section('css')
-
+<style>
+    img.lazy {
+        background: #F1F1FA;
+        width: 400px;
+        height: 300px;
+    }
+</style>
 @endsection
 @section('content')
     <!-- Featured post Start -->
@@ -18,7 +24,6 @@
                         <div class="darpan-author-wrap">
                             <div class="darpan-author">
                                 <span class="author-img">
-
                                     <img src="{{asset('assets/backend/images/canosoft-favicon.png')}}" alt="">
                                 </span>
                                 <span class="author-name"> {{ ($news->authors !== null ) ? ucwords(@$news->authors) : "दर्पण दैनिक"}}  </span>
@@ -53,7 +58,7 @@
                     <div class="header-banner">
                         <div class="col-12 post-container featured">
                             <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
                     </div>
@@ -100,7 +105,7 @@
                                                 <div class="post-wrap">
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
-                                                        <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
+                                                        <img class="lazy" data-src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
                                                     <!-- Content -->
                                                     <div class="content">
                                                         <!-- Title -->
@@ -120,7 +125,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
-                                                    <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
+                                                    <img class="lazy" data-src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
@@ -154,7 +159,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$latest_news_feature->url()) }}">
-                                                <img src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
+                                                <img class="lazy" data-src="{{($latest_news_feature->image !== null) ?  asset('/images/blog/'.@$latest_news_feature->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></a>
 
                                             <!-- Content -->
                                             <div class="content">
@@ -200,7 +205,7 @@
                                 <!-- Tab List -->
                                 <div class="sidebar-tab-list education-sidebar-tab-list nav">
                                     <a class="active" data-bs-toggle="tab" href="#popular-news">लोकप्रिय</a>
-                                    @if(count($popular_comments)>0)
+                                    @if(@$popular_comments && count($popular_comments)>0)
                                      <a data-bs-toggle="tab" href="#popular-comments">धेरै कमेन्ट रहेको</a>
                                     @endif
                                 </div>
@@ -218,7 +223,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$popular->url()) }}">
-                                                    <img src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{($popular->image !== null) ?  asset('/images/blog/'.@$popular->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
 
                                                 <!-- Content -->
@@ -240,7 +245,7 @@
                                         @enddarpanloop
 
                                     </div>
-                                    @if(count($popular_comments)>0)
+                                    @if(@$popular_comments && count($popular_comments)>0)
                                         <div class="tab-pane fade " id="popular-comments">
                                             @darpanloop(@$popular_comments as $latest)
                                             <div class="post post-small post-list education-post post-separator-border">
@@ -248,7 +253,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$latest->url()) }}">
-                                                        <img src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{($latest->image !== null) ?  asset('/images/blog/'.@$latest->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
 
                                                     <!-- Content -->
@@ -288,7 +293,7 @@
 
                 <div class="post-middle-banner">
                     <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
                 @enddarpanloop
@@ -327,7 +332,7 @@
                                             <!-- Image -->
 
                                             <div class="image">
-                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </div>
 
                                             <!-- Content -->
@@ -355,7 +360,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
 
                                             <!-- Content -->
@@ -396,7 +401,7 @@
                             @darpanloop(getHomepageBanner('home-sidebar-banner',0,3) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
                                 <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
-                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                    <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                                 </a>
                                 <!-- Sidebar Banner -->
                             </div>
@@ -412,7 +417,7 @@
                     <div class="header-banner">
                         <div class="col-12 post-container home-post-between">
                             <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
                     </div>
@@ -457,7 +462,7 @@
                                                     <!-- Image -->
 
                                                     <div class="image">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
                                                     <!-- Content -->
@@ -494,7 +499,7 @@
                                                         <!-- Image -->
 
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                            <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
 
                                                         <!-- Content -->
@@ -523,7 +528,7 @@
 
                                                         <!-- Image -->
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                            <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
                                                         <!-- Content -->
                                                         <div class="content">
@@ -562,7 +567,7 @@
                     <div class="header-banner">
                         <div class="col-12 post-container home-post-between">
                             <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
                     </div>
@@ -577,7 +582,7 @@
                         @darpanloop(getHomepageBanner('home-sidebar-banner',3,3) as $banner)
                             <div class="single-sidebar col-lg-12 col-md-6 col-12">
                                 <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
-                                    <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                    <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                                 </a>
                                 <!-- Sidebar Banner -->
                             </div>
@@ -625,7 +630,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
                                                     <!-- Content -->
                                                     <div class="content">
@@ -659,7 +664,7 @@
 
                                                             <!-- Image -->
                                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                             </a>
                                                             <!-- Content -->
                                                             <div class="content">
@@ -728,13 +733,13 @@
                                             @if(@$video_featured->type == 'youtube')
                                                 <!-- Image -->
                                                 <a href="{{@$video_featured->url}}" class="image video-popup">
-                                                    <img src="{{ getYoutubeThumbnail(@$video_featured->url) }}"  width="250" alt="post">
+                                                    <img class="lazy" data-src="{{ getYoutubeThumbnail(@$video_featured->url) }}"  width="250" alt="post">
                                                     <span class="video-btn"><i class="fa fa-play"></i></span>
                                                 </a>
                                             @else
                                                 <!-- Image -->
                                                     <a href="{{@$video_featured->url}}" class="image video-popup">
-                                                        <img src="{{ getVimeoThumbnail(@$video_featured->url) }}"  width="250" alt="post">
+                                                        <img class="lazy" data-src="{{ getVimeoThumbnail(@$video_featured->url) }}"  width="250" alt="post">
                                                         <span class="video-btn"><i class="fa fa-play"></i></span>
                                                     </a>
                                             @endif
@@ -752,13 +757,13 @@
                                                 @if(@$video->type == 'youtube')
 
                                                     <a href="{{@$video->url}}" class="image video-popup">
-                                                        <img src="{{ getYoutubeThumbnail(@$video->url) }}"  width="250" alt="post">
+                                                        <img class="lazy" data-src="{{ getYoutubeThumbnail(@$video->url) }}"  width="250" alt="post">
                                                         <span class="video-btn"><i class="fa fa-play"></i></span>
                                                     </a>
                                                 @else
                                                 <!-- Image -->
                                                     <a href="{{@$video->url}}" class="image video-popup">
-                                                        <img src="{{ getVimeoThumbnail(@$video->url) }}"  width="250" alt="post">
+                                                        <img class="lazy" data-src="{{ getVimeoThumbnail(@$video->url) }}"  width="250" alt="post">
                                                         <span class="video-btn"><i class="fa fa-play"></i></span>
                                                     </a>
                                                 @endif
@@ -784,7 +789,7 @@
                 @darpanloop(getHomepageBanner('home-banner',3,1) as $banner)
                     <div class="col-12">
                         <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
                 @enddarpanloop
@@ -845,7 +850,7 @@
                                                         <div class="post-wrap">
 
                                                             <!-- Image -->
-                                                            <div class="image"><img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
+                                                            <div class="image"><img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
                                                             <!-- Content -->
                                                             <div class="content">
@@ -868,7 +873,7 @@
 
                                                             <!-- Image -->
                                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                             </a>
 
                                                             <!-- Content -->
@@ -903,7 +908,7 @@
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
+                                                    <div class="image"><img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post"></div>
 
                                                     <!-- Content -->
                                                     <div class="content">
@@ -926,7 +931,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
 
                                                     <!-- Content -->
@@ -965,7 +970,7 @@
                         @darpanloop(getHomepageBanner('home-sidebar-banner',6,5) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
                             <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
-                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                             <!-- Sidebar Banner -->
                         </div>
@@ -977,7 +982,7 @@
                 @darpanloop(getHomepageBanner('home-banner',4,1) as $banner)
                     <div class="col-12">
                         <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
                 @enddarpanloop
@@ -1012,7 +1017,7 @@
 
                                                 <!-- Image -->
                                                 <a class="image" href="{{ url(@$news->url()) }}">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1042,7 +1047,7 @@
 
                                             <!-- Image -->
                                             <a class="image" href="{{ url(@$news->url()) }}">
-                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
                                             <!-- Content -->
                                             <div class="content">
@@ -1077,7 +1082,7 @@
                 @darpanloop(getHomepageBanner('home-banner',5,1) as $banner)
                     <div class="col-12">
                         <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                            <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                            <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                         </a>
                     </div>
                 @enddarpanloop
@@ -1106,7 +1111,7 @@
 
                                                 <!-- Image -->
                                                 <div class="image">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </div>
 
                                                 <!-- Category -->
@@ -1139,7 +1144,7 @@
 
                                                 <!-- Image -->
                                                 <div class="image">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </div>
 
 
@@ -1171,7 +1176,7 @@
 
                                                     <!-- Image -->
                                                     <div class="image">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
 
@@ -1203,7 +1208,7 @@
                 @darpanloop(getHomepageBanner('home-banner',6,1) as $banner)
                 <div class="col-12 mb-5">
                     <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
                 @enddarpanloop
@@ -1232,7 +1237,7 @@
                                 <!-- Image -->
 
                                 <div class="image">
-                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                 </div>
 
                                 <!-- Content -->
@@ -1293,7 +1298,7 @@
                                                     <!-- Image -->
 
                                                     <div class="image">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </div>
 
                                                     <!-- Content -->
@@ -1325,7 +1330,7 @@
 
                                                         <!-- Image -->
                                                         <a class="image" href="{{ url(@$news->url()) }}">
-                                                            <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                            <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                         </a>
                                                         <!-- Content -->
                                                         <div class="content">
@@ -1366,7 +1371,7 @@
                 @darpanloop(getHomepageBanner('home-banner',7,1) as $banner)
                 <div class="col-12 mb-5">
                     <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
                 @enddarpanloop
@@ -1379,7 +1384,7 @@
                         @darpanloop(getHomepageBanner('home-sidebar-banner',11,3) as $banner)
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
                             <a href="{{@$banner->url}}" target="_blank" class="sidebar-banner">
-                                <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                                <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                             </a>
                         </div>
                         @enddarpanloop
@@ -1414,7 +1419,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
 
                                                     <!-- Content -->
@@ -1445,7 +1450,7 @@
 
                                                     <!-- Image -->
                                                     <a class="image" href="{{ url(@$news->url()) }}">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
                                                     <!-- Content -->
                                                     <div class="content">
@@ -1483,7 +1488,7 @@
                 @darpanloop(getHomepageBanner('home-banner',8,1) as $banner)
                 <div class="col-12 mb-5">
                     <a href="{{@$banner->url}}" target="_blank" class="post-middle-banner">
-                        <img src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
+                        <img class="lazy" data-src="{{asset('/images/banners/'.@$banner->image)}}" alt="{{$banner->name}}"  />
                     </a>
                 </div>
                 @enddarpanloop
@@ -1517,7 +1522,7 @@
 
                                             <!-- Image -->
                                             <a href="{{ url(@$news->url()) }}" class="image">
-                                                <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                             </a>
 
                                             <!-- Content -->
@@ -1575,7 +1580,7 @@
 
                                                     <!-- Image -->
                                                     <a href="{{ url(@$news->url()) }}" class="image">
-                                                        <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                        <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                     </a>
                                                     <!-- Content -->
                                                     <div class="content">
@@ -1640,7 +1645,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1700,7 +1705,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">
@@ -1760,7 +1765,7 @@
 
                                                 <!-- Image -->
                                                 <a href="{{ url(@$news->url()) }}" class="image">
-                                                    <img src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
+                                                    <img class="lazy" data-src="{{(@$news->image !== null) ?  asset('/images/blog/'.@$news->image) : asset('assets/backend/images/darpan_dainik.png')}}" alt="post">
                                                 </a>
                                                 <!-- Content -->
                                                 <div class="content">

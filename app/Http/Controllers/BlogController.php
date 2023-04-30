@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Services\BlogService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
+
 
 class BlogController extends Controller
 {
@@ -22,12 +24,14 @@ class BlogController extends Controller
     private $blog_path;
     private $blog_thumb_path;
 
-    public function __construct()
+    private BlogService $blogService;
+
+    public function __construct(BlogService $blogService)
     {
         $this->middleware('auth');
         $this->blog_path   = public_path('/images/blog');
         $this->blog_thumb_path   = public_path('/images/blog/thumb');
-
+        $this->blogService = $blogService;
     }
 
 
@@ -260,5 +264,10 @@ class BlogController extends Controller
         }
         return response()->json($confirmed);
 
+    }
+
+    public function data(Request $request)
+    {
+        return $this->blogService->getDataForDatatable($request);
     }
 }

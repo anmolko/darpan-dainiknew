@@ -79,77 +79,77 @@
                         <div class="row" >
 
                             <div class="table-responsive  mt-3 mb-1">
-                                <table id="blog-index" class="table align-middle table-nowrap table-striped">
+                                <table id="dataTable" class="table align-middle table-nowrap table-striped">
                                     <thead class="table-light">
                                     <tr>
-                                        <th>Feature Image</th>
+                                        <th>S.N</th>
                                         <th>Title</th>
                                         <th>Category</th>
-                                        <th>Tags</th>
+                                        <th>Page views</th>
                                         <th>Status</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody id="blog-list">
-                                        @if(!empty($blogs))
-                                            @darpanloop($blogs as $blog)
-                                                <tr id="blog-individual-{{@$blog->id}}">
-                                                    <td>
-                                                        <img src="{{  ($blog->image !== null) ?  asset('/images/blog/'.@$blog->image) : asset('assets/backend/images/darpan_dainik.png')}}"
-                                                             alt="{{@$blog->slug}}" class="figure-img rounded-circle {{  ($blog->image !== null) ? "avatar-lg":"custom-height"}}">
-                                                    </td>
-                                                    <td>
-                                                     <span class="title"> {{ ucwords( @$blog->title) }} </span>
-                                                    </td>
-                                                    <td>
-                                                                @foreach(@$blog->categories as $key=>$category)
-                                                                    <a  href="{{route('blogcategory.blog',@$category->id)}}">{{ ucfirst(@$category->name) }}
-                                                                   </a>{{($loop->last) ?"":"," }}
-                                                                     @if (($key+1) % 5 === 0)
-                                                                           <br>
-                                                                     @endif
-                                                                @endforeach
+{{--                                        @if(!empty($blogs))--}}
+{{--                                            @darpanloop($blogs as $blog)--}}
+{{--                                                <tr id="blog-individual-{{@$blog->id}}">--}}
+{{--                                                    <td>--}}
+{{--                                                        <img src="{{  ($blog->image !== null) ?  asset('/images/blog/'.@$blog->image) : asset('assets/backend/images/darpan_dainik.png')}}"--}}
+{{--                                                             alt="{{@$blog->slug}}" class="figure-img rounded-circle {{  ($blog->image !== null) ? "avatar-lg":"custom-height"}}">--}}
+{{--                                                    </td>--}}
+{{--                                                    <td>--}}
+{{--                                                     <span class="title"> {{ ucwords( @$blog->title) }} </span>--}}
+{{--                                                    </td>--}}
+{{--                                                    <td>--}}
+{{--                                                                @foreach(@$blog->categories as $key=>$category)--}}
+{{--                                                                    <a  href="{{route('blogcategory.blog',@$category->id)}}">{{ ucfirst(@$category->name) }}--}}
+{{--                                                                   </a>{{($loop->last) ?"":"," }}--}}
+{{--                                                                     @if (($key+1) % 5 === 0)--}}
+{{--                                                                           <br>--}}
+{{--                                                                     @endif--}}
+{{--                                                                @endforeach--}}
 
-                                                    </td>
-                                                    <td>
-                                                        @foreach(@$blog->tags as $key=>$tag)
-                                                            <a href="{{route('tag.blog',@$tag->id)}}">{{ucfirst(@$tag->name)}}
-                                                            </a>{{($loop->last) ?"":"," }}
-                                                            @if (($key+1) % 3 === 0)
-                                                                <br>
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        <p class="page-views"> Views:  {{$blog->totalCount()}} </p>
-                                                        <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">
-                                                            <button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                                            {{ucwords(@$blog->status)}}
-                                                            </button>
-                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside" style="">
-                                                                @if($blog->status == "draft")
-                                                                    <li><a class="dropdown-item change-status" cs-update-route="{{route('blog-status.update',$blog->id)}}" href="#" cs-status-value="publish">Published</a></li>
-                                                                @else
-                                                                    <li><a class="dropdown-item change-status" cs-update-route="{{route('blog-status.update',$blog->id)}}" href="#" cs-status-value="draft">Draft</a></li>
-                                                                @endif
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                    <td >
-                                                        <div class="row">
+{{--                                                    </td>--}}
+{{--                                                    <td>--}}
+{{--                                                        @foreach(@$blog->tags as $key=>$tag)--}}
+{{--                                                            <a href="{{route('tag.blog',@$tag->id)}}">{{ucfirst(@$tag->name)}}--}}
+{{--                                                            </a>{{($loop->last) ?"":"," }}--}}
+{{--                                                            @if (($key+1) % 3 === 0)--}}
+{{--                                                                <br>--}}
+{{--                                                            @endif--}}
+{{--                                                        @endforeach--}}
+{{--                                                    </td>--}}
+{{--                                                    <td>--}}
+{{--                                                        <p class="page-views"> Views:  {{$blog->totalCount()}} </p>--}}
+{{--                                                        <div class="btn-group view-btn" id="blog-status-button-{{$blog->id}}">--}}
+{{--                                                            <button class="btn btn-light dropdown-toggle" style="width: 10em;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">--}}
+{{--                                                            {{ucwords(@$blog->status)}}--}}
+{{--                                                            </button>--}}
+{{--                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside" style="">--}}
+{{--                                                                @if($blog->status == "draft")--}}
+{{--                                                                    <li><a class="dropdown-item change-status" cs-update-route="{{route('blog-status.update',$blog->id)}}" href="#" cs-status-value="publish">Published</a></li>--}}
+{{--                                                                @else--}}
+{{--                                                                    <li><a class="dropdown-item change-status" cs-update-route="{{route('blog-status.update',$blog->id)}}" href="#" cs-status-value="draft">Draft</a></li>--}}
+{{--                                                                @endif--}}
+{{--                                                            </ul>--}}
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
+{{--                                                    <td >--}}
+{{--                                                        <div class="row">--}}
 
-                                                            <div class="btn-group-vertical gap-2 mt-4 mt-sm-0 fs-18">
-                                                                <a class="btn btn-outline-primary btn-icon waves-effect waves-light" href="{{ url($blog->url()) }}" target="_blank"><i class="ri-eye-line"></i></a>
-                                                                <a class="btn btn-outline-success btn-icon waves-effect waves-light" href="{{route('blog.edit',$blog->id)}}"><i class="ri-pencil-fill"></i></a>
-                                                                <a class="btn btn-outline-danger btn-icon waves-effect waves-light cs-blog-remove" cs-delete-route="{{route('blog.destroy',$blog->id)}}"><i class="ri-delete-bin-6-line"></i></a>
+{{--                                                            <div class="btn-group-vertical gap-2 mt-4 mt-sm-0 fs-18">--}}
+{{--                                                                <a class="btn btn-outline-primary btn-icon waves-effect waves-light" href="{{ url($blog->url()) }}" target="_blank"><i class="ri-eye-line"></i></a>--}}
+{{--                                                                <a class="btn btn-outline-success btn-icon waves-effect waves-light" href="{{route('blog.edit',$blog->id)}}"><i class="ri-pencil-fill"></i></a>--}}
+{{--                                                                <a class="btn btn-outline-danger btn-icon waves-effect waves-light cs-blog-remove" cs-delete-route="{{route('blog.destroy',$blog->id)}}"><i class="ri-delete-bin-6-line"></i></a>--}}
 
-                                                            </div>
-                                                        </div>
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
 
-                                                    </td>
-                                                </tr>
-                                            @enddarpanloop
-                                        @endif
+{{--                                                    </td>--}}
+{{--                                                </tr>--}}
+{{--                                            @enddarpanloop--}}
+{{--                                        @endif--}}
                                     </tbody>
                                 </table>
                             </div>
@@ -179,5 +179,32 @@
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 
 <script src="{{asset('assets/backend/custom_js/blog.js')}}"></script>
+
+<script type="text/javascript">
+   let dataTables = $('#dataTable').DataTable({
+       processing:true,
+       serverSide: true,
+       searching: true,
+       stateSave: true,
+       order:[[1,'asc']],
+       aaSorting: [],
+       ajax: {
+           "url": '{{ route('blog.data') }}',
+           "type": 'POST',
+           'data': function (d) {
+               d._token = '{{csrf_token()}}';
+           }
+       },
+       columns :[
+           {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
+           {data:'title', name: 'title', orderable: false},
+           {data:'category', name: 'category', orderable: false},
+           {data:'page_views', name: 'page_views', orderable: false},
+           {data:'status', name: 'status', orderable: false},
+           {data:'action', name: 'action', orderable: false},
+       ]
+
+   })
+</script>
 
 @endsection

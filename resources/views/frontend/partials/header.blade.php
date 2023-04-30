@@ -42,7 +42,13 @@
     <script src="{{asset('assets/frontend/js/vendor/modernizr-3.11.2.min.js')}}"></script>
 {{--    For live site, social media sharing - uncomment only when updating header or seo-header in live site--}}
 {{--    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63d38be7e591ca001a314048&product=inline-share-buttons&source=platform" async="async"></script>--}}
-
+    <style>
+        img.lazy {
+            background: #F1F1FA;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
     @yield('css')
     @stack('styles')
 
