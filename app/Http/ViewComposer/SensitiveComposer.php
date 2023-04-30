@@ -28,19 +28,8 @@ class SensitiveComposer
        $footerItemTitle1     = @$footerMenu[0]->title;
        $footerItemTitle2     = @$footerMenu[1]->title;
        $footerItemTitle3     = @$footerMenu[2]->title;
-       $today                = new Carbon;
-       $todayDate            = $today->toDateString().' 23:59:59';
-       $sevenDaysAgo         = $today->subDays(7)->toDateString().' 00:00:00';
-       $top_blog_year        = Blog::popularThisYear()->get();
-       $top_blog_week        = Blog::popularThisWeek()->get();
-       $top_blog_month       = Blog::popularLastDays(30)->get();
+       $today                = Carbon::now();
        $latest_news          = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
-       $unsortedyear         = collect($top_blog_year);
-       $unsortedmonth        = collect($top_blog_month);
-       $unsortedWeek         = collect($top_blog_week);
-       $sortedWeek           = $unsortedWeek->sortByDesc('visit_count_total')->slice(0, 6);
-       $sortedYear           = $unsortedmonth->sortByDesc('visit_count_total')->slice(0, 6);
-       $sortedMonth          = $unsortedyear->sortByDesc('visit_count_total')->slice(0, 6);
        $most_commented       = Blog::has('comments', '>', 0)->withCount('comments')->orderBy('comments_count', 'desc')->take(6)->get();
 
 
@@ -114,10 +103,6 @@ class SensitiveComposer
            ->with('footer_nav_data3', $footerItem3)
            ->with('footer_nav_title3', $footerItemTitle3)
            ->with('top_nav_data', $topNavItems)
-           ->with('topnews_year', $sortedYear)
-           ->with('topnews_month', $sortedMonth)
-           ->with('topnews_week', $sortedWeek)
-           ->with('topnews_week', $sortedWeek)
            ->with('popular_comments', $most_commented)
            ->with('latestPosts', $latest_news);
     }

@@ -14,6 +14,7 @@ use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionGallery;
 use App\Models\VideoGallery;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use CountryState;
 use Bsdate;
@@ -58,8 +59,9 @@ class FrontController extends Controller
                     ->get();
         $video_featured = VideoGallery::orderBy('created_at', 'desc')->first();
         $video_all = VideoGallery::orderBy('created_at', 'desc')->skip(1)->take(3)->get();
+        $topnews_week  = Blog::popularBetween(Carbon::now()->subDays(7), Carbon::now())->orderBy('visit_count_total','DESC')->limit(6)->get();
 
-        return view('welcome',compact('featured','video_all','video_featured'));
+        return view('welcome',compact('featured','topnews_week','video_all','video_featured'));
     }
 
 
@@ -214,14 +216,14 @@ class FrontController extends Controller
         }
         $singleBlog->visit()->dailyIntervals()->withIp();//log the user visit
         $bcategories = $this->bcategory->get();
-        $previous    = Blog::where('id', '<', $singleBlog->id)->orderBy('id','desc')->first();
-        $next        = Blog::where('id', '>', $singleBlog->id)->orderBy('id')->first();
         $above       = Ads::where('placement','above-post-featured')->where('status','active')->first();
         $below       = Ads::where('placement','below-post-featured')->where('status','active')->first();
         $between1    = Ads::where('placement','in-between-post')->where('status','active')->first();
         $between2    = Ads::where('placement','in-between-post')->where('status','active')->skip(1)->take(3)->get();
         $belowpost   = Ads::where('placement','post-end')->where('status','active')->first();
-        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','previous','next','above','below','between2','between1','belowpost'));
+        $topnews_week  = Blog::popularBetween(Carbon::now()->subDays(7), Carbon::now())->orderBy('visit_count_total','DESC')->limit(6)->get();
+
+        return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','topnews_week','above','below','between2','between1','belowpost'));
     }
 
     public function contact()
