@@ -4231,7 +4231,8 @@ blockquote.blockquote.blockquote-bg p {
   .single-blog .blog-wrap .content p img {
     width: 100%;
       max-width: 100%;
-    margin-bottom: 20px;
+      margin-bottom: 20px;
+      height:100%!important;
   }
 }
 .single-blog .blog-wrap .content span.italic {
